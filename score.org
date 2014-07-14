@@ -1,0 +1,53 @@
+* Score :noexport:
+# #+LaTeX: \linebreak
+# #+ATTR_LaTeX: width=17cm 
+
+#+name: score_Chords
+#+header: :file score_Chords.eps
+#+begin_src lilypond
+    \new ChordNames="Chords"
+    \with {
+      \remove "Bar_engraver"
+    }
+    \Chords
+#+end_src
+
+#+name: score_Volta_engraver
+#+header: :file score_Volta_engraver.eps
+#+begin_src lilypond
+    %% optional
+    \new Staff
+    \with {
+      \consists "Volta_engraver"
+    }
+#+end_src
+
+#+name: score_Voice
+#+header: :file score_Voice.eps
+#+begin_src lilypond
+    \new Staff="Melody" {
+      \new Voice="Voice"
+      \Voice
+    }
+#+end_src
+
+#+name: score_Lyrics
+#+header: :file score_Lyrics.eps
+#+begin_src lilypond
+    \new Lyrics="Lyrics" \lyricsto "Voice"
+    \Lyrics
+#+end_src
+
+#+name: score_Lyricsmore
+#+header: :file score_Lyricsmore.eps
+#+begin_src lilypond
+    \new Lyrics="Lyrics" \lyricsto "Voice"
+    \Lyricsmore
+#+end_src
+
+#+name: score_Lyricsmoremore
+#+header: :file score_Lyricsmoremore.eps
+#+begin_src lilypond
+    \new Lyrics="Lyrics" \lyricsto "Voice"
+    \Lyricsmoremore
+#+end_src

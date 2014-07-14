@@ -1,0 +1,60 @@
+* HAVE_I_TOLD_YOU_LATELY_THAT_I_LOVE_YOU
+  :PROPERTIES:
+  :uuid:     "d86922f4-a26e-11df-b237-0019d11e5a41"
+  :completion: "0"
+  :piece:    "Med. Ballad"
+  :style:    "Pop"
+  :singer:   "Van Morrison"
+  :title:    "Have I told you lately that I love you"
+  :render:   "My"
+  :doLyrics: True
+  :doVoice:  True
+  :doChords: True
+  :END:
+
+
+#+name: LyricsMy
+#+header: :file have_i_told_you_lately_that_i_love_you_LyricsMy.eps
+#+begin_src lilypond 
+
+\lyricmode {
+	Have I told you lately that I love you.
+	Have I told you that there's no one but you.
+	You give me so much gladness.
+	Take away all the sadness.
+	Take my troubles that's what you do.
+}
+
+#+end_src
+
+#+name: VoiceMy
+#+header: :file have_i_told_you_lately_that_i_love_you_VoiceMy.eps
+#+begin_src lilypond 
+
+\relative c {
+	a b c d
+}
+
+#+end_src
+
+#+name: ChordsMy
+#+header: :file have_i_told_you_lately_that_i_love_you_ChordsMy.eps
+#+begin_src lilypond 
+
+\chordmode {
+	\startChords
+
+	\startSong
+
+	\repeat volta 2 {
+		f2:maj7 a:m7 | bes:maj7 c:7 |
+	}
+	bes1:maj7 | a:m7 | g2:m7 c:7 | f:maj7 r4 c:7 |
+
+	\endSong
+
+	\endChords
+}
+
+#+end_src
+

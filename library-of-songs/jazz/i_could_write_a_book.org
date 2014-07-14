@@ -1,0 +1,140 @@
+* I_COULD_WRITE_A_BOOK
+  :PROPERTIES:
+  :lyricsurl: "http://www.lorenzhart.org/booksng.htm"
+  :idyoutube: "UwoZNHhFgLQ"
+  :idyoutuberemark: "Frank in the classic vocal version"
+  :structureremark: "could be categorized as AB"
+  :structure: "ABAC"
+  :uuid:     "e00ddbf8-a26e-11df-92da-0019d11e5a41"
+  :completion: "5"
+  :copyright: "1940, Chappell & Co., Inc. Copyright Renewed."
+  :piece:    "Modeartely Slow"
+  :poet:     "Lorenz Hart"
+  :composer: "Richard Rodgers"
+  :subtitle: "From 'Pal Joey'"
+  :style:    "Jazz"
+  :title:    "I Could Write A Book"
+  :render:   "Real"
+  :doLyricsmore: True
+  :doLyrics: True
+  :doVoice:  True
+  :doChords: True
+  :END:
+
+
+#+name: LyricsmoreReal
+#+header: :file i_could_write_a_book_LyricsmoreReal.eps
+#+begin_src lilypond 
+
+\lyricmode {
+	%% partial
+	_ _
+
+	%% A part
+	sim -- ple se -- cret of the plot __
+	is just to tell them that I love you a -- lot, __
+	then the
+
+	%% B part
+	_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+	%% C part
+	world dis -- cov -- ers as my book ends,
+	how to make two lov -- ers of friends.
+
+	%% partial
+	If they
+}
+
+#+end_src
+
+#+name: LyricsReal
+#+header: :file i_could_write_a_book_LyricsReal.eps
+#+begin_src lilypond 
+
+%% these are lyrics from the fake book adjusted for the real book
+\lyricmode {
+	%% partial
+	If they
+
+	%% A part
+	asked me I Could Write A Book, __
+	a -- bout the way you walk and whis -- per and look, __
+	I could
+
+	%% B part
+	write a pre -- face on how we met,
+	so the world would nev -- er for -- get, __
+
+	and the
+}
+
+#+end_src
+
+#+name: VoiceReal
+#+header: :file i_could_write_a_book_VoiceReal.eps
+#+begin_src lilypond 
+
+\relative c' {
+	\time 4/4
+	\key c \major
+	%% http://veltzer.net/blog/blog/2010/08/14/musical-tempo-table/
+	\tempo "Allegro" 4 = 130
+
+	%% partial
+	\partial 2 e4 f |
+	\repeat volta 2 {
+		%% A part
+		g2 b | a4 g e d | e1~ | e4 g e d |
+		e g e d | e c'2 e,4 | g1~ | g2 a4 b |
+	}
+	\alternative {
+		{
+			%% B part
+			c2 c | c4 d2 b4 | a2 a | g e4 fis |
+			g2 g | g4 a2 fis4 | g1~ | g4 r e f |
+		}
+		{
+			%% C part
+			c'2 c | c4 d2 b4 | bes2 bes | a g4 f |
+			e2 e | d4 c'2 b4 | c1 | r2 e,4 f |
+		}
+	}
+}
+
+#+end_src
+
+#+name: ChordsReal
+#+header: :file i_could_write_a_book_ChordsReal.eps
+#+begin_src lilypond 
+
+\chordmode {
+	\startChords
+	\startSong
+
+	\partial 2 s2 |
+
+	\repeat volta 2 {
+		\mark "A"
+		c2:maj7 a:m7 | d:m7 g:7 | c1:maj7 | c2:maj7 g:7 | \myEndLine
+		c:maj7 g:7 | c:maj7 cis:dim7 | d1:m7 | g:7 | \myEndLine
+	}
+	\alternative {
+		{
+			\mark "B"
+			c2/e aes:7/ees | d:m7 g:7 | a:m7 d:7.9- | g2.:maj7 b4:7 | \myEndLine
+			e1:m | a2:m7 d:7 | d1:m7 | g:7 | \myEndLine
+		}
+		{
+			\mark "C"
+			a2:m a:m7+ | a:m7 a:m6 | g2:m7 c:7 | f:maj7 f4:m7 bes:7 | \myEndLine
+			c2:maj7 a:7 | d:m7 g:7 | c1:6 | d2:m7 g:7 | \myEndLine
+		}
+	}
+
+	\endSong
+	\endChords
+}
+
+#+end_src
+

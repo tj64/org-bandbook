@@ -1,0 +1,95 @@
+* IRIS
+  :PROPERTIES:
+  :lyricsurl: "http://tabs.ultimate-guitar.com/g/goo_goo_dolls/iris_ver5_crd.htm"
+  :idyoutube: "NdYWuo9OFAw"
+  :idyoutuberemark: "The original video clip from youtube"
+  :remark:   "This is the right scale"
+  :uuid:     "2596358c-3929-11e2-a2c3-6beac8f09e25"
+  :completion: "5"
+  :piece:    "Med. Ballad"
+  :style:    "Rock"
+  :album:    "Dizzy Up The Girls"
+  :poet:     "Goo Goo Dolls"
+  :composer: "Goo Goo Dolls"
+  :title:    "Iris"
+  :doOwn:    True
+  :doGuitar: True
+  :END:
+
+
+#+name: Own
+#+header: :file iris_Own.eps
+#+begin_src lilypond 
+
+
+\storePredefinedDiagram #default-fret-table \chordmode {b:m} #guitar-tuning #"x;2-1-(;4-3;4-4;3-2);x;"
+\storePredefinedDiagram #default-fret-table \chordmode {b:9} #guitar-tuning #"x;2-1-(;4-3;4-4;2-1-);x;"
+\storePredefinedDiagram #default-fret-table \chordmode {g:maj7} #guitar-tuning #"3-3;2-1;o;o;o;2-2;"
+\storePredefinedDiagram #default-fret-table \chordmode {g:6} #guitar-tuning #"3-3;2-1;o;o;o;o;"
+
+\score {
+	<<
+		\new FretBoards {
+			${chords()}
+		}
+		${defs.chordDefs()}
+		${chords()}
+	>>
+	\midi {}
+	\layout {}
+}
+
+%% Lyrics
+\verticalSpace
+\verticalSpace
+\markup {
+	\small { %% \teeny \tiny \small \normalsize \large \huge
+		\fill-line {
+			\column {
+				%% verse
+				"And I'd give up forever to touch you"
+				"'Cause I know that you feel me somehow"
+				"You're the closest to heaven that I'll ever be"
+				"And I don't want to go home right now"
+				\null
+				%% verse
+				"And all I can taste is this moment"
+				"And all I can breathe is your life"
+				"And sooner or later it's over"
+				"I just don't want to miss you tonight"
+				\null
+				%% chorus
+				"And I don't want the world to see me"
+				"'Cause I don't think that they'd understand"
+				"When everything's made to be broken"
+				"I just want you to know who I am"
+				\null
+				%% verse
+				"And you can't fight the tears that ain't coming"
+				"Or the moment of truth in your lies"
+				"When everything feels like the movies"
+				"Yeah, you bleed just to know you're alive"
+			} \column {
+				%% chorus
+				"And I don't want the world to see me"
+				"'Cause I don't think that they'd understand"
+				"When everything's made to be broken"
+				"I just want you to know who I am"
+				\null
+				%% chorus
+				"And I don't want the world to see me"
+				"'Cause I don't think that they'd understand"
+				"When everything's made to be broken"
+				"I just want you to know who I am"
+				\null
+				%% chorus
+				"I just want you to know who I am"
+				"I just want you to know who I am"
+				"I just want you to know who I am"
+			}
+		}
+	}
+}
+
+#+end_src
+

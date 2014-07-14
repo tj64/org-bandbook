@@ -1,0 +1,119 @@
+* GREEN_DOLPHIN_STREET
+  :PROPERTIES:
+  :lyricsurl: "http://www.lyricszoo.com/miles-davis/on-green-dolphin-street-miles-davis-washington-ned/"
+  :idyoutube: "vHp0IvAEFMQ"
+  :idyoutuberemark: "Sarah Vaughan from a radio show"
+  :structure: "ABAC"
+  :uuid:     "b93bdc7e-0207-11e1-9e68-0019d11e5a41"
+  :completion: "5"
+  :copyright: "1947 (Renewed 1975) MGM/EMI Feist Catalog, Inc."
+  :piece:    "Latin/Swing"
+  :poet:     "Ned Washington"
+  :composer: "Bronislau Kaper"
+  :style:    "Jazz"
+  :title:    "Green Dolphin Street"
+  :render:   "Real"
+  :doLyricsmore: True
+  :doLyrics: True
+  :doVoice:  True
+  :doChords: True
+  :END:
+
+
+#+name: LyricsmoreReal
+#+header: :file green_dolphin_street_LyricsmoreReal.eps
+#+begin_src lilypond 
+
+\lyricmode {
+	through these __ mo -- ments a -- part __
+	Love come __ here in my heart __
+}
+
+#+end_src
+
+#+name: LyricsReal
+#+header: :file green_dolphin_street_LyricsReal.eps
+#+begin_src lilypond 
+
+\lyricmode {
+	Lo -- ver, __ one love -- ly day __
+	A_love came __ plan -- ning to stay __
+	Green Dol -- phin Street sup -- plied the setting __
+	The_set -- ting for nights be -- yond for -- getting __ And
+
+	When I re -- call the love I found on
+	I'm_gonna kiss_the ground I found on Green Dol -- phin Street __
+}
+
+#+end_src
+
+#+name: VoiceReal
+#+header: :file green_dolphin_street_VoiceReal.eps
+#+begin_src lilypond 
+
+\relative c'' {
+	%% http://veltzer.net/blog/blog/2010/08/14/musical-tempo-table/
+	\tempo "Allegro" 4 = 160
+	\time 4/4
+	\key c \major
+
+	%% part "A"
+	\repeat volta 2 {
+		c2 c~ | c \times 2/3 { b4 g e } | bes'1~ | bes |
+		a2 a~ | a \times 2/3 { aes4 f des } | g1~ | g |
+	}
+	\alternative {
+		{
+			%% part "B"
+			r8 g4. d4 e | f g aes bes | g1~ | g |
+			r8 bes4. f4 g | aes bes ces des | bes1~ | bes2 b |
+		}
+		{
+			%% part "C"
+			r8 g4. d4 e | f g gis e' | d4. c8~ c2 | c,4 d dis b' |
+			a4. g8~ g2 | r8 g4. g4 g | g1~ | g |
+		}
+	}
+}
+
+#+end_src
+
+#+name: ChordsReal
+#+header: :file green_dolphin_street_ChordsReal.eps
+#+begin_src lilypond 
+
+\chordmode {
+	\startChords
+	\startSong
+
+	\repeat volta 2 {
+		\mark "A"
+		\startPart
+		c1*2:maj7 | c:m7 | \myEndLine
+		d1:7/c | d2:7/c des/c | c1*2:maj7 | \myEndLine
+		\endPart
+	}
+	\alternative {
+		{
+			\mark "B"
+			\startPart
+			d1:m7 | g:7 | c1*2:maj7 | \myEndLine
+			f1:m7 | bes:7 | ees1:maj7 | ees2:maj7 g:7 | \myEndLine
+			%% remarked to allow the repeat signs
+			%%\endPart
+		}
+		{
+			\mark "C"
+			\startPart
+			d2:m7 d:m/c | b:m7.5- e:7.9- | a:m7 a:m/g | fis:m7.5- b:7 | \myEndLine
+			e:m7 a:7 | d:m7 g:7 | c1:maj7 | d2:m7 g:7 | \myEndLine
+			\endPart
+		}
+	}
+
+	\endSong
+	\endChords
+}
+
+#+end_src
+

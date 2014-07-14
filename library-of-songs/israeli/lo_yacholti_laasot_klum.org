@@ -1,0 +1,120 @@
+* LO_YACHOLTI_LAASOT_KLUM
+  :PROPERTIES:
+  :remark:   "Ilan Virtsberg plays it in G in live concerts"
+  :lyricsurl: "http://www.mp3music.co.il/tabs/10728.html"
+  :idyoutube: "XJYKf0sNDoE"
+  :uuid:     "f2e3c22e-f100-11e0-9162-0019d11e5a41"
+  :completion: "5"
+  :piece:    u"בלדת רוק"
+  :singer:   u"איןך ןירצברג"
+  :poet:     u"יונה וולך"
+  :composer: u"אילן וירצברג"
+  :style:    "Israeli"
+  :title:    u"לא יכולתי לעשות כלום"
+  :heb:      True
+  :render:   "My"
+  :doExtra:  True
+  :doChordBars: True
+  :doChords: True
+  :doGuitar: True
+  :END:
+
+
+#+name: Extra
+#+header: :file lo_yacholti_laasot_klum_Extra.eps
+#+begin_src lilypond 
+
+%% Lyrics
+\verticalSpace
+\verticalSpace
+\markup {
+	\small { %% \teeny \tiny \small \normalsize \large \huge
+		\fill-line {
+			\right-column {
+				"לא יכולתי לעשות עם זה כלום, אתה שומע?"
+				"לא יכולתי לעשות עם זה כלום."
+				"זה היה אצלי בידיים..."
+				"ולא יכולתי לעשות כלום."
+				\null
+				"אנלא יכולתי עם זה משהו, אתה שומע?"
+				"יכולתי לגמגם"
+				"מה רציתי להגיד"
+				"יכולתי להרגיש הכי רע, שאפשר."
+				\null
+				"ופתאום אתה עומד כמו ילד קטן"
+				"בסינור לצוואר וחוזר על השאלה"
+				"מה עשית עם זה, שואלים לאן"
+				"בזבזת את כל זה היה לך סיכוי"
+				"ואתה תצטרך להתחיל הכל מחדש."
+				\null
+				"לא יכולתי לעשות עם זה כלום."
+			}
+			\null
+			\right-column {
+				"לא יכולתי לעשות עם זה כלום, אתה שומע?"
+				"לא יכולתי לעשות עם זה כלום."
+				"זה היה אצלי בידיים..."
+				"ולא יכולתי לעשות כלום."
+				\null
+				"לא יכולתי לעשות משהו, אתה שומע?"
+				"יכולתי לגמגם"
+				"מה רציתי להגיד "
+				"יכולתי להרגיש הכי רע, שאפשר."
+				\null
+				"לא יכולתי לעשות עם זה כלום, אתה שומע?"
+				"לא יכולתי לעשות עם זה כלום."
+				"זה היה אצלי בידיים..."
+				"ולא יכולתי לעשות כלום."
+				\null
+				"לא יכולתי לעשות משהו, אתה שומע?"
+				"יכולתי לגמגם"
+				"מה רציתי להגיד"
+				"יכולתי להרגיש הכי רע, שאפשר."
+				\null
+				"ופתאום אתה עומד כמו ילד קטן"
+				"בסינור לצוואר וחוזר על השאלה"
+				"מה עשית עם זה, שואלים לאן"
+				"בזבזת את כל זה היה לך סיכוי"
+				"ואתה תצטרך להתחיל הכל מחדש."
+			}
+		}
+	}
+}
+
+#+end_src
+
+#+name: ChordsMy
+#+header: :file lo_yacholti_laasot_klum_ChordsMy.eps
+#+begin_src lilypond 
+
+\chordmode {
+	\startChords
+	\startSong
+
+	\mark "בית"
+	\startPart
+	a1 | fis:m | d | g | a | \myEndLine
+	d | d:m | g | a | \myEndLine
+	a1 | fis:m | d | g | a | \myEndLine
+	a | cis:m | d | d:m | a | \myEndLine
+	\endPart
+
+	\mark "פזמון"
+	\startPart
+	fis1*2:m | cis:m | b:m | fis:m | \myEndLine
+	a | cis:m | b:m | fis:m | \myEndLine
+	\endPart
+
+	\mark "אינסטרומנטלי"
+	\startPart
+	\startRepeat
+	fis1*2:m | cis:m | b:m | fis:m | \myEndLine
+	\endRepeat
+	\endPart
+
+	\endSong
+	\endChords
+}
+
+#+end_src
+

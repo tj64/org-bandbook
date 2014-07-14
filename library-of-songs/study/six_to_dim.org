@@ -1,0 +1,30 @@
+* SIX_TO_DIM
+  :PROPERTIES:
+  :uuid:     "35529555-8b38-4cc0-be20-2dc5f1848d77"
+  :completion: "4"
+  :copyright: attributes['copyrightvalstudy']
+  :piece:    "Upbeat Jazz"
+  :style:    "Jazz"
+  :title:    "Six to Diminished scale exercises"
+  :render:   "My"
+  :doVoice:  True
+  :END:
+
+
+#+name: VoiceMy
+#+header: :file six_to_dim_VoiceMy.eps
+#+begin_src lilypond 
+
+\relative c' {
+	\time 4/4
+	\key bes \major
+
+	%% this is to be played over: cm6 as tonic, am7.5- as II chord, f7 as dominant, b7 as dominant
+
+	<c ees g a>1 <d f aes b> <ees g a c> <f aes b d>
+	<g a c ees> <aes b d f> <a c ees g> <b d f aes>
+	<c ees g a>
+}
+
+#+end_src
+

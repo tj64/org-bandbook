@@ -1,0 +1,63 @@
+* HE_HAZRA_BETSHUVA
+  :PROPERTIES:
+  :idyoutube: "1GI5Vst5a-o"
+  :uuid:     "24815072-2a71-11e1-a41f-0019d11e5a41"
+  :completion: "5"
+  :piece:    u"בוסה נובה"
+  :singer:   u"מתי כספי"
+  :poet:     u"יעקב רוטבליט"
+  :composer: u"מתי כספי"
+  :style:    "Israeli"
+  :title:    u"היא חזרה בתשובה"
+  :heb:      True
+  :render:   "Epdf0"
+  :doLyrics: True
+  :doVoice:  True
+  :doChords: True
+  :END:
+
+
+#+name: LyricsEpdf0
+#+header: :file he_hazra_betshuva_LyricsEpdf0.eps
+#+begin_src lilypond 
+
+\lyricmode {
+}
+
+#+end_src
+
+#+name: VoiceEpdf0
+#+header: :file he_hazra_betshuva_VoiceEpdf0.eps
+#+begin_src lilypond 
+
+\relative c'{
+	%% http://veltzer.net/blog/blog/2010/08/14/musical-tempo-table/
+	\tempo "Allegro" 4 = 130
+	\time 4/4
+	\key c \minor
+}
+
+#+end_src
+
+#+name: ChordsEpdf0
+#+header: :file he_hazra_betshuva_ChordsEpdf0.eps
+#+begin_src lilypond 
+
+\chordmode {
+	\startChords
+	\startSong
+	\partial 2. s2. |
+	\mark "A"
+	\startPart
+	c1*2:m | g:7/b | c:7/bes | f1:m9/a | f1:m | \myEndLine
+	g:m7.5- | c:7 | f1*2:m |
+	\endPart
+	\mark "B"
+	\startPart
+	\endPart
+	\endSong
+	\endChords
+}
+
+#+end_src
+

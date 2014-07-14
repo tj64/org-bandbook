@@ -1,0 +1,30 @@
+* OD_HOZER_HANIGUN
+  :PROPERTIES:
+  :uuid:     "505a0a3a-a26f-11df-bbef-0019d11e5a41"
+  :completion: "0"
+  :piece:    u"בלדה מתונה"
+  :singer:   u"ברי סחרוף"
+  :style:    "Israeli"
+  :title:    u"עוד חוזר הניגון"
+  :heb:      True
+  :render:   "My"
+  :doChords: True
+  :END:
+
+
+#+name: ChordsMy
+#+header: :file od_hozer_hanigun_ChordsMy.eps
+#+begin_src lilypond 
+
+\chordmode {
+	\mark "פתיחה"
+	\repeat volta 4 {
+		b2:m7 a2:7 |
+	}
+	\mark "בית"
+	d2 e2:m7 | g2 b2:m7 | e2:m7 fis2:7 | g2 d2 | \myEndLine
+	g2 d2 | e2:m7 b2:m7 | e2:m7 fis2:7 | g2 a2:7 | \myEndLine
+}
+
+#+end_src
+

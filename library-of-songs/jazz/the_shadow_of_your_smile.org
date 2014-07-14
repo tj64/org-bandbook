@@ -1,0 +1,114 @@
+* THE_SHADOW_OF_YOUR_SMILE
+  :PROPERTIES:
+  :lyricsurl: "http://www.absolutelyrics.com/lyrics/view/barbra_streisand/the_shadow_of_your_smile"
+  :idyoutube: "8PttNhYVY3c"
+  :idyoutuberemark: "A very sensitive rendition by Dexter Gordon"
+  :structureremark: "The structure could also be thought of as AB but it is very close to a pure ABAC"
+  :structure: "ABAC"
+  :uuid:     "dff04e04-a969-11e1-b8c5-5a1faa0d3cc5"
+  :completion: "5"
+  :copyrightextra: "Used by Permission of CPP/Belwin, Inc, Miami, FL"
+  :copyright: "1965 (Renewed 1993) MGM/EMI Miller Catalog, Inc"
+  :piece:    "Medium Bossa (or Swing)"
+  :poet:     "Paul Francis Webster"
+  :composer: "Johnny Mandel"
+  :style:    "Jazz"
+  :title:    "The Shadow of Your Smile"
+  :render:   "Real"
+  :doLyrics: True
+  :doVoice:  True
+  :doChords: True
+  :END:
+
+
+#+name: LyricsReal
+#+header: :file the_shadow_of_your_smile_LyricsReal.eps
+#+begin_src lilypond 
+
+%% this version of the lyrics is from the fake book but adjusted for the real book (the real book has no lyrics).
+\lyricmode {
+	%% A part
+	The sha -- dow of your smile, when you are gone. __
+	Will co -- lor all my dreams, and light the dawn. __
+	%% B part
+	Look in -- to my eyes, my love, and see. __
+	All the love -- ly things you are to me. __
+	%% A part
+	A wist -- ful lit -- tle star, was far too high. __
+	A tear drop kissed your lips, and so did I. __
+	%% C part
+	Now when I re -- mem -- ber spring. __
+	All the joy that love can bring. __
+	I will be re -- mem -- be -- ring __
+	The sha -- dow of your smile.
+	%% return
+	The sha -- dow of your
+}
+
+#+end_src
+
+#+name: VoiceReal
+#+header: :file the_shadow_of_your_smile_VoiceReal.eps
+#+begin_src lilypond 
+
+\relative c' {
+	%% http://veltzer.net/blog/blog/2010/08/14/musical-tempo-table/
+	\tempo "Allegro" 4 = 130
+	\time 4/4
+	\key g \major
+
+	\partial 8*5 b8 e fis g b |
+
+	%% A part
+	cis,2. fis4 | dis2. c!4 | b1~ | b4. b8 e fis g b |
+	e,2. a4 | fis2. d4 | b'1~ | b2 c8 b a g |
+	%% B part
+	a2. c,4 | b2. a'4 | g1~ | g2 b8 a g fis |
+	g2. b,4 | ais2. g'4 | fis1~ | fis4 r8 b, e fis g b |
+	%% A part
+	cis,2. fis4 | dis2. c!4 | b1~ | b4. b8 e fis g b |
+	e,2. c'4 | a2. fis4 | d'1~ | d2 e8 d c b |
+	%% C part
+	c4. e,8 c'2~ | c d8 c b a | b4. d,8 b'2~ | b c8 b a gis |
+	a4. cis,8 a'2~ | a4. c,!8 b' a g fis | g1 | r4_\markup { \italic { Fine } } r8 b, e fis g b |
+}
+
+#+end_src
+
+#+name: ChordsReal
+#+header: :file the_shadow_of_your_smile_ChordsReal.eps
+#+begin_src lilypond 
+
+\chordmode {
+	\startChords
+	\startSong
+
+	\partial 8*5 s8 s2 |
+
+	\mark "A"
+	\startPart
+	fis1:m7 | b2:7.9 b:7.9- | e1:m7 | a:7 | \myEndLine
+	a:m7 | d:7 | g:maj7| c:maj7 | \myEndLine
+	\endPart
+	\mark "B"
+	\startPart
+	fis:m7.5- | b:7 | e1.:m7 e2:m7/d | \myEndLine
+	cis1:m7.5- | fis:7 | fis:m7 | b:7 | \myEndLine
+	\endPart
+	\mark "A"
+	\startPart
+	fis1:m7 | b2:7.9 b:7.9- | e1:m7 | a:7 | \myEndLine
+	a:m7 | d:7 | b:m7.5- | e:7.3-.5-.9-.11-.13- | \myEndLine
+	\endPart
+	\mark "C"
+	\startPart
+	a:m7 | c2:m7 f:7 | b1:m7 | e:7.9- | \myEndLine
+	a2:7 ees:7 | a:m7 d:7.9- | g1.:6 b2:7 | \myEndLine
+	\endPart
+
+	\endSong
+	\endChords
+}
+
+#+end_src
+

@@ -1,0 +1,102 @@
+* I_LOVE_YOU
+  :PROPERTIES:
+  :lyricsurl: "http://www.lyricstime.com/cole-porter-i-love-you-lyrics.html"
+  :idyoutube: ""
+  :idyoutuberemark: ""
+  :structure: "AB"
+  :uuid:     "b806ce6c-b405-11e1-9daf-1fdf93f5ba36"
+  :completion: "0"
+  :piece:    "Slowly"
+  :poet:     "Cole Porter"
+  :composer: "Cole Porter"
+  :style:    "Jazz"
+  :title:    "I Love You"
+  :render:   "Real"
+  :doLyrics: True
+  :doVoice:  True
+  :doChords: True
+  :END:
+
+
+#+name: LyricsReal
+#+header: :file i_love_you_LyricsReal.eps
+#+begin_src lilypond 
+
+%% these are lyrics from the internet adjusted for the real book
+\lyricmode {
+	%% part "A"
+	I love you
+	Hums the April breeze.
+	I love you
+	Echo the hills.
+	I love you
+	The golden dawn agrees
+	As once more she sees
+	Daffodils.
+	It's spring again
+	And birds on the wing again
+	Start to sing again
+	The old melody.
+	I love you,
+	That's the song of songs
+	And it all belongs
+	To you and me.
+	%% part "B"
+	It's spring again
+	And birds on the wing again
+	Start to sing again
+	The old melody.
+	I love you,
+	That's the song of songs
+	And it all belongs
+	To you and me
+}
+
+#+end_src
+
+#+name: VoiceReal
+#+header: :file i_love_you_VoiceReal.eps
+#+begin_src lilypond 
+
+\relative c'' {
+	%% http://veltzer.net/blog/blog/2010/08/14/musical-tempo-table/
+	\tempo "Andante" 4 = 76
+	\time 4/4
+	\key f \major
+	%% partial
+	\partial 4 c4 |
+	%% A part
+	c2 des,~ | des bes'4. a8 | gis4. a8 a2~ | a r4 a |
+	a2 bes,~ | bes \times 2/3 { g'4 f e } | d1~ | d2 r4 c' |
+	c2 des,~ | des4. bes'8 bes4. a8 | gis4. a8 a2~ | a a4 a |
+	b4. cis8 cis2 | d2. e4 | e1~ | e2 r4 e |
+	%% B part
+}
+
+#+end_src
+
+#+name: ChordsReal
+#+header: :file i_love_you_ChordsReal.eps
+#+begin_src lilypond 
+
+\chordmode {
+	\startChords
+	\startSong
+	%% partial
+	\partial 4 s4 |
+	%% A part
+	g1:m7.5- | c:7.9- | f1*2:maj7 | \myEndLine
+	g1:m7 | c:7 | f1*2:maj7 | \myEndLine
+	g1:m7.5- | c:7.9- | f:maj7 | b2:m7 e:7 | \myEndLine
+	a1:maj7 | b2:m7 e:7 | a1*2:maj7 | \myEndLine
+	%% B part
+	g1:m7 | c:7 | f1*2:maj7 | \myEndLine
+	a1:m7.5- | d:7.9- | g:7 | c:7 | \myEndLine
+	g1:m7.5- | c:7.9- | f:maj7 | a2:m7.5- d:7 | \myEndLine
+	g1:7 | g2:m7 c:7 | f1*2:6 | \myEndLine
+	\endSong
+	\endChords
+}
+
+#+end_src
+

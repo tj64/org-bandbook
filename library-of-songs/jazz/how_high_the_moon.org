@@ -1,0 +1,123 @@
+* HOW_HIGH_THE_MOON
+  :PROPERTIES:
+  :lyricsurl: "http://www.lyricsfreak.com/e/ella+fitzgerald/how+high+the+moon_20045644.html"
+  :idyoutube: "2d-l7_TGnIE"
+  :idyoutuberemark: "Ella!"
+  :structure: "AB"
+  :uuid:     "7d17fd1c-15fe-11e1-b205-0019d11e5a41"
+  :completion: "5"
+  :copyright: "1940 by Chappell & Co., Inc. Copyright Renewed."
+  :piece:    "Moderately"
+  :poet:     "Nancy Hamilton"
+  :composer: "Morgan Lewis"
+  :style:    "Jazz"
+  :title:    "How High The Moon"
+  :render:   "Fake"
+  :doLyrics: True
+  :doVoice:  True
+  :doChords: True
+  :END:
+
+
+#+name: LyricsFake
+#+header: :file how_high_the_moon_LyricsFake.eps
+#+begin_src lilypond 
+
+\lyricmode {
+	%% part "A"
+	Some -- where there's mu -- sic, __
+	how faint the tune! __
+	Some -- where there's heav -- en, __
+	How High The Moon! __
+	There is no moon a -- bove when love is far __ a -- way too, __
+	'till __ it comes true __
+	that you love me as I love you.
+	%% part "B"
+	Some -- where there's mu -- sic, __
+	it's where you are. __
+	Some -- where there's heav -- en, __
+	how near, how far! __
+	The dark -- est night would shine if you would come __ to me soon. __
+	Un -- til you will, how still my heart,
+	How High The Moon!
+	%% Volta
+	Some -- where there's
+	Moon! __
+}
+
+#+end_src
+
+#+name: VoiceFake
+#+header: :file how_high_the_moon_VoiceFake.eps
+#+begin_src lilypond 
+
+\relative c' {
+	%% http://veltzer.net/blog/blog/2010/08/14/musical-tempo-table/
+	\tempo "Allegro" 4 = 130
+	\time 4/4
+	\key g \major
+	\partial 2. d4 g a |
+	\repeat volta 2 {
+		%% part "A"
+		a2 b~ | b4 d, g a | bes1~ | bes4 c, f g |
+		g2 a~ | a4 c, f g | aes1~ | aes4 d, ees f |
+		g g g g | g g8 a~ a g a4 | bes1~ | bes4. a8~ a g a4 |
+		b!1~ | b4 a b c | d d d d | d d, g a |
+		%% part "B"
+		a2 b~ | b4 d, g a | bes1~ | bes4 c, f g |
+		g2 a~ | a4 c, f g | aes1~ | aes4 d, ees f |
+		g g g g | g g8 a~ a g a4 | b1~ | b4 a b c |
+		d d d d | d d, g a |
+	} \alternative {
+		{
+			g1 | r4 d g a |
+		}
+		{
+			g1~ | g2. r4 |
+		}
+	}
+}
+
+#+end_src
+
+#+name: ChordsFake
+#+header: :file how_high_the_moon_ChordsFake.eps
+#+begin_src lilypond 
+
+\chordmode {
+	\startChords
+	\startSong
+
+	\partial 2. s2. |
+
+	\repeat volta 2 {
+		\mark "A"
+		\startPart
+		g1*2:maj7 | g1:m7 | c:7 | \myEndLine
+		f1*2:maj7 | f1:m7 | bes:7 | \myEndLine
+		ees:maj7 | a2:m7.5- d:7 | g1:m7 | a2:m7.5- d:7 | \myEndLine
+		g1:maj7.9 | a2:m d:7 | b:m7 bes:7 | a:m7 a4:m7/d d:7 | \myEndLine
+		\endPart
+
+		\mark "B"
+		\startPart
+		g1*2:maj7 | g1:m7 | c:7 | \myEndLine
+		f1*2:maj7 | f1:m7 | bes:7 | \myEndLine
+		ees:maj7 | a2:m7.5- d:7 | g1:maj7 | a2:m7 d:7.9- | \myEndLine
+		b:m7 bes:7 | a:m7 a4:m7/d d:7.9- |
+	} \alternative {
+		{
+			g1:6 | d2:7 a4:m7/d d:7 | %%\myEndLine
+		}
+		{
+			g1*2 | \myEndLine
+		}
+	}
+	\endPart
+
+	\endSong
+	\endChords
+}
+
+#+end_src
+

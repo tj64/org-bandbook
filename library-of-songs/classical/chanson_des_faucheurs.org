@@ -1,0 +1,32 @@
+* CHANSON_DES_FAUCHEURS
+  :PROPERTIES:
+  :uuid:     "9ff5c7c4-a26e-11df-aa45-0019d11e5a41"
+  :completion: "0"
+  :style:    "Classical"
+  :composer: "R. Schumann"
+  :title:    "Chanson des faucheurs"
+  :render:   "Unknown"
+  :doVoice:  True
+  :END:
+
+
+#+name: VoiceUnknown
+#+header: :file chanson_des_faucheurs_VoiceUnknown.eps
+#+begin_src lilypond 
+
+\relative g'' {
+	\key c \major
+	\time 3/4
+
+	g4 ( c ) b | a ( d ) c | b ( a ) b | c2 ( d4 ) |
+	g,4 ( c ) b | a ( d ) c | b ( a ) b | c2 r4 |
+
+	d,4 ( g ) fis | e ( a ) g | fis ( e ) fis | g2 ( b4 ) |
+	d4 ( g ) fis | e ( a ) g | fis ( e ) fis | g2 r4 |
+
+	g,4 ( c ) b | a ( d ) c | b ( a ) b | c2 ( d4 ) |
+	g,4 ( c ) b | a ( d ) c | b ( a ) b | c2 r4 |
+}
+
+#+end_src
+

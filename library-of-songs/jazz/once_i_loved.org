@@ -1,0 +1,128 @@
+* ONCE_I_LOVED
+  :PROPERTIES:
+  :lyricsurl: "http://www.sing365.com/music/lyric.nsf/Once-I-Loved-lyrics-Ella-Fitzgerald/24CD6F6E245519E348256AAB0009C557"
+  :idyoutube: "rJxHFW2S-Eo"
+  :idyoutuberemark: "Joe Henderson accompanied by guitar doing Bossa..."
+  :structure: "AAB"
+  :uuid:     "18294374-a26f-11df-a5f0-0019d11e5a41"
+  :completion: "5"
+  :copyright: "1965, Ipanema Music. Used By Permission."
+  :poet:     "Vinicius DeMoraes, Ray Gilbert"
+  :piece:    "Bossa"
+  :composer: "Antonio Carlos Jobim"
+  :style:    "Jazz"
+  :title:    "Once I Loved"
+  :render:   "Real"
+  :doLyricsmore: True
+  :doLyrics: True
+  :doVoice:  True
+  :doChords: True
+  :END:
+
+
+#+name: LyricsmoreReal
+#+header: :file once_i_loved_LyricsmoreReal.eps
+#+begin_src lilypond 
+
+\lyricmode {
+	Then __ __ one day, __ __
+	From my in -- fi -- nite sad -- ness you came
+	and brought me love a -- gain; __ __
+	Now __ __ I know __ __
+	that no mat -- ter what -- ev -- er be -- falls
+	I'll nev -- er _ _ _ let you go, __
+
+	I will hold __ you close, __
+	Make __ you stay; __ __
+	Be -- cause love is the __ sad -- dest thing __
+	when it goes a -- way, __ __
+	Be -- cause love is the __ sad -- dest thing __
+	when it goes a -- way, __
+}
+
+#+end_src
+
+#+name: LyricsReal
+#+header: :file once_i_loved_LyricsReal.eps
+#+begin_src lilypond 
+
+%% this version of the lyrics is from the fake book but adjusted for the real book (the real book has no lyrics)...
+\lyricmode {
+	Once __ __ I loved, __ __
+	And I gave so much love to this love,
+	You were the world to me; __ __
+
+	Once __ __ I cried __ __
+	at the thought I was fool -- ish and proud
+	and let you say good -- bye. __ __
+}
+
+#+end_src
+
+#+name: VoiceReal
+#+header: :file once_i_loved_VoiceReal.eps
+#+begin_src lilypond 
+
+\relative d'' {
+	%% http://veltzer.net/blog/blog/2010/08/14/musical-tempo-table/
+	\tempo "Allegro" 4 = 144
+	\time 4/4
+	\key f \major
+
+	%% part "A"
+	\repeat volta 2 {
+		d1~ | d2~ d8 c4 a8~ | a1~ | a2 \times 2/3 { r4 bes c } |
+		\times 2/3 { d d d } \times 2/3 { d d d } | d2 \times 2/3 { f4 e d } |
+		\times 2/3 { e c a~ } a2~| a2. r4 |
+		c1~ | c2~ c8 bes4 g8~ | g1~ | g2 \times 2/3 { r4 g a } |
+		\times 2/3 { bes bes a } \times 2/3 { c c bes } | a2 \times 2/3 { g4 bes a } |
+	}
+	\alternative {
+		{ g8 fis4 fis8~ fis2~ | fis r }
+		{ g8 fis4 a8~ a2 | g8 f!4 a8~ a g4 e8~ | }
+	}
+	%% part "B"
+	e1 | g2~ g8 f4 d8~ | d1~ | d2 \times 2/3 { r4 d e } |
+	\times 2/3 { f f e~ } \times 2/3 { e g ges } | f2~ f8 f4 des8 | e4 d8 d~ d2~ |
+	d2 \times 2/3 { r4 d e } | \times 2/3 { f f e~ } \times 2/3 {e g ges } |
+	f2~ f8 f4 cis8 | e4. d8 d2~ | d1 |
+
+}
+
+#+end_src
+
+#+name: ChordsReal
+#+header: :file once_i_loved_ChordsReal.eps
+#+begin_src lilypond 
+
+\chordmode {
+	\startChords
+	\startSong
+
+	\mark "A"
+	\startPart
+	\repeat volta 2 {
+		g1:m7 | c:7.5+ | f:maj7 | fis:dim7 | \myEndLine
+		g:m7 | gis:dim7 | a:m7 | a:m7/g | \myEndLine
+		f:m7 | bes:7.5+ | ees1*2:maj7 | \myEndLine
+		e1:m7.5- | a:7.9- |
+	}
+	\alternative {
+		{ d:maj7 | d:7.9- | }
+		{ d:maj7 | g:7 | \myEndLine }
+	}
+	\endPart
+
+	\mark "B"
+	\startPart
+	c1:maj7 | f:7 | bes1*2:maj7 | \myEndLine
+	b1:dim7 | bes:m6 | a:m6 | aes:7.5- | \myEndLine
+	g:7 | g2:m7 a:7.9- | d1:m6 | d2:m6 d:7 | \myEndLine
+	\endPart
+
+	\endSong
+	\endChords
+}
+
+#+end_src
+

@@ -1,0 +1,165 @@
+* THEY_ALL_LAUGHED
+  :PROPERTIES:
+  :lyricsurl: "http://www.sing365.com/music/lyric.nsf/They-All-Laughed-lyrics-Ella-Fitzgerald/2123DA2C32C02AF848256AAB000AB847"
+  :idyoutube: "ppFVmnmpGz8"
+  :idyoutuberemark: "Ella & Louis"
+  :structure: "AA'BA''"
+  :uuid:     "89e1c354-f2a2-11e0-9cf1-0019d11e5a41"
+  :completion: "5"
+  :copyrightextra: "Copyright Renewed, Assigned to Chappell & Co, Inc."
+  :copyright: "1937, Gershwin Publishing Corporation"
+  :piece:    "Medium Swing"
+  :poet:     "Ira Gershwin"
+  :composer: "George Gershwin"
+  :style:    "Jazz"
+  :title:    "They All Laughed"
+  :render:   "Fake"
+  :doLyricsmore: True
+  :doLyrics: True
+  :doVoice:  True
+  :doChords: True
+  :END:
+
+
+#+name: LyricsmoreFake
+#+header: :file they_all_laughed_LyricsmoreFake.eps
+#+begin_src lilypond 
+
+\lyricmode {
+	%% part "A"
+	They All Laughed at Rock -- e -- fel -- ler Cen -- ter,
+	now they're fight -- ing to get in. __
+	They All Laughed at Whit -- ney and his cot -- ton gin. __
+	%% part "A"
+	They All Laughed at Ful -- ton and his steam -- boat,
+	Her -- shey and his choc' -- late bar. __
+	Ford and his Liz -- zie kept the laugh -- ers bus -- y;
+	that's how peo -- ple are.
+	%% part "B"
+	They laughed at me __ want -- ing you, __
+	said it would be hel -- lo, good -- bye.
+	But oh, __ you came through __
+	now they're eat -- ing hum -- ble pie.
+	%% part "A"
+	They all said we'd nev -- er get to -- geth -- er;
+	dar -- ling, let's take a bow.
+	For ho, ho, ho!
+	Who's got the last laugh
+}
+
+#+end_src
+
+#+name: LyricsFake
+#+header: :file they_all_laughed_LyricsFake.eps
+#+begin_src lilypond 
+
+\lyricmode {
+	%% part "A"
+	They All Laughed at Chris -- to -- pher Co -- lum -- bus
+	when he said the world was round. __
+	They All Laughed when Ed -- i -- son re -- cord -- ed sound. __
+	%% part "A"
+	They All Laughed at Wil -- bur and his broth -- er,
+	when they said that man could fly. __
+	They told Mar -- co -- ni wire -- less was a pho -- ney;
+	it's the same old cry.
+	%% part "B"
+	They laughed at me __ want -- ing you, __
+	said I was reach -- ing for the moon.
+	But oh, __ you came through __
+	now they'll have to change their tune.
+	%% part "A"
+	They all said we nev -- er could be hap -- py,
+	they laughed at us and how!
+	But ho, ho, ho!
+	Who's got the last laugh now? __
+	%% Second volta
+	He, he, he!
+	Let's at the past laugh,
+	Ha, ha, ha!
+	Who's got the last laugh now? __
+}
+
+#+end_src
+
+#+name: VoiceFake
+#+header: :file they_all_laughed_VoiceFake.eps
+#+begin_src lilypond 
+
+\relative c' {
+	%% http://veltzer.net/blog/blog/2010/08/14/musical-tempo-table/
+	\tempo "Allegro" 4 = 130
+	\time 4/4
+	\key g \major
+	\repeat volta 2 {
+		%% part "A"
+		r8 d e4 g a | b8.[ b16 a8. g16] a8 b4. | b8.[ b16 a8. g16] a8 b4 d,8~ | d1 |
+		r8 d e4 g a | b8.[ b16 a8. g16] a8 b4 g8~ | g1~ | g2. r4 |
+		%% part "A"
+		r8 d e4 g a | b8.[ b16 a8. g16] a8 b4. | d8.[ d16 cis8. b16] cis8 d4 fis,8~ | fis1 |
+		b4 a8. gis16 a8 b4. | b8.[ c16 a8. gis16] a8 b4. | a4 b c b | a d d d |
+		%% part "B"
+		d2~ d8 b4 g8 | a2~ a8.[ b16 c8. cis16] | d4 e d b | c2. b4 |
+		e2~ e8 cis4 a8 | b2~ b8 a4 b8 | c4 e e, g | a1 |
+		%% part "A"
+		r8 d, e4 g a | b8.[ b16 a8. g16] a8 b4. | c8 b4 a8 b4 c | b2. a4 |
+		d4 d d2 | e8 e4 e8 b4 b |
+	} \alternative {
+		{
+			g1~ | g2 r |
+		}
+		{
+			g4 g g2 | bes8 bes4 bes8 fis4 fis | d'4 d d2 | e8 e4 e8 b4 b | g1~ | g4 r4 r2 |
+		}
+	}
+}
+
+#+end_src
+
+#+name: ChordsFake
+#+header: :file they_all_laughed_ChordsFake.eps
+#+begin_src lilypond 
+
+\chordmode {
+	\startChords
+	\startSong
+
+	\repeat volta 2 {
+
+	\mark "A"
+	\startPart
+	g2 e:m | a:m7 d:7 | a:m7 d:7.9- | g4 bes:7 a:7 d:7 | \myEndLine
+	g2 e:m | a:m7 d:7 | g:6 e:m7 | a:m7 d:7 | \myEndLine
+	\endPart
+
+	\mark "A'"
+	g2 e:m | a:m7 d:7 | cis:7.9- fis:7.9- | b:m7 e:7 | \myEndLine
+	d1:6 | a:7 | d1*2:7 | \myEndLine
+
+	\mark "B"
+	\startPart
+	g4*11:7 b4:7 | e1:7.5+ | \myEndLine
+	a1*2:7 | a1:m7 | ees2:7 d2:7 | \myEndLine
+	\endPart
+
+	\mark "A''"
+	\startPart
+	g2 e:m | a:m7 d:7 | b:7 e:7 | a1:7 | \myEndLine
+	g2 e:7 | a:m7 d:7 |
+
+	} \alternative {
+		{
+			g e:7.9+ | a:7.9- d:7.9- | \myEndLine
+		}
+		{
+			ees1 | bes2/d d:7/c | g/b e:7 | a:m7 d:7 | g1*2 | \myEndLine
+		}
+	}
+	\endPart
+
+	\endSong
+	\endChords
+}
+
+#+end_src
+

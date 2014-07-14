@@ -1,0 +1,95 @@
+* NIGHT_AND_DAY
+  :PROPERTIES:
+  :wiki:     "Night_and_Day_(song)"
+  :lyricsurl: "http://www.lyricsfreak.com/f/frank+sinatra/night+day_20055251.html"
+  :idyoutube: ""
+  :idyoutuberemark: ""
+  :remark:   ""
+  :structure: "AB"
+  :uuid:     "f3f8f010-3fda-11e2-ad72-a3725b0aaeaa"
+  :completion: "1"
+  :piece:    ""
+  :poet:     "Cole Porter"
+  :composer: "Cole Porter"
+  :style:    "Jazz"
+  :title:    "Night And Day"
+  :render:   "Real"
+  :doLyrics: True
+  :doVoice:  True
+  :doChords: True
+  :END:
+
+
+#+name: LyricsReal
+#+header: :file night_and_day_LyricsReal.eps
+#+begin_src lilypond 
+
+%% this version of the lyrics is from the fake book but adjusted for the real book (the real book has no lyrics)...
+\lyricmode {
+	%% part "A"
+	%% part "B"
+}
+
+#+end_src
+
+#+name: VoiceReal
+#+header: :file night_and_day_VoiceReal.eps
+#+begin_src lilypond 
+
+\relative c'' {
+	%% http://veltzer.net/blog/blog/2010/08/14/musical-tempo-table/
+	\tempo "Allegro" 4 = 130
+	\time 4/4
+	\key bes \major
+
+	\partial 2 g4 g8 g |
+
+	%% part "A"
+
+	%% part "B"
+
+}
+
+#+end_src
+
+#+name: ChordsReal
+#+header: :file night_and_day_ChordsReal.eps
+#+begin_src lilypond 
+
+\chordmode {
+	\startChords
+	\startSong
+
+	\partial 2 s2 |
+
+	\mark "A"
+	\startPart
+	\repeat volta 2 {
+		d1:m7.5- | g:7 | c1*2:maj7 | \myEndLine
+		d1:m7.5- | g:7 | c1*2:maj7 | \myEndLine
+		fis:m7.5- | f:m7 | e:m7 | ees:dim7 | \myEndLine
+		d:m7 | g:7 | c:maj7 |
+	} \alternative {
+		{
+			c:maj7 | %% \myEndLine remarked to prevent line break
+		}
+		{
+			bes:7 | \myEndLine
+		}
+	}
+	\endPart
+
+	\mark "B"
+	\startPart
+	ees1*2:maj7 | c:maj7 | \myEndLine
+	ees:maj7 | c:maj7 | \myEndLine
+	fis:m7.5- | f:m7 | e:m7 | ees:dim7 | \myEndLine
+	d:m7 | g2:7 d:m7 | c:6 | d2:7 g:7 | \myEndLine
+	\endPart
+
+	\endSong
+	\endChords
+}
+
+#+end_src
+

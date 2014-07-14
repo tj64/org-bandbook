@@ -1,0 +1,88 @@
+* SORRY_SEEMS_TO_BE_THE_HARDEST_WORD
+  :PROPERTIES:
+  :wiki:     "Sorry_Seems_to_Be_the_Hardest_Word"
+  :lyricsurl: "http://www.eltonography.com/songs/sorry_seems_to_be_the_hardest_word.html"
+  :idyoutuberemark: "Original Elton John Video clip"
+  :idyoutube: "c3nScN89Klo"
+  :remark:   "same scale (g:m) as the original version"
+  :uuid:     "795b5442-53f8-11e2-9a2d-871ce68b4fd7"
+  :completion: "5"
+  :piece:    "Ballad"
+  :style:    "Pop,R&B"
+  :poet:     "Bernie Taupin"
+  :composer: "Elton John"
+  :title:    "Sorry Seems to Be the Hardest Word"
+  :doOwn:    True
+  :doGuitar: True
+  :END:
+
+
+#+name: Own
+#+header: :file sorry_seems_to_be_the_hardest_word_Own.eps
+#+begin_src lilypond 
+
+\score {
+	<<
+		\new FretBoards {
+			${chords()}
+		}
+		${defs.chordDefs()}
+		${chords()}
+	>>
+	\midi {}
+	\layout {}
+}
+
+%% Lyrics
+\verticalSpace
+\verticalSpace
+\markup {
+	\small { %% \teeny \tiny \small \normalsize \large \huge
+		\fill-line {
+			\column {
+				%% verse
+				"What have I got to do to make you love me"
+				"What have I got to do to make you care"
+				"What do I do when lightning strikes me"
+				"And I wake to find that you're not there"
+				\null
+				%% verse
+				"What do I do to make you want me"
+				"What have I got to do to be heard"
+				"What do I say when it's all over"
+				"And sorry seems to be the hardest word"
+				\null
+				%% chorus
+				"It's sad, so sad"
+				"It's a sad, sad situation"
+				"And it's getting more and more absurd"
+				"It's sad, so sad"
+				"Why can't we talk it over"
+				"Oh it seems to me"
+				"That sorry seems to be the hardest word"
+			}
+			\null
+			\column {
+				%% chorus (same as before)
+				"It's sad, so sad"
+				"It's a sad, sad situation"
+				"And it's getting more and more absurd"
+				"It's sad, so sad"
+				"Why can't we talk it over"
+				"Oh it seems to me"
+				"That sorry seems to be the hardest word"
+				\null
+				%% verse
+				"What do I do to make you love me"
+				"What have I got to do to be heard"
+				"What do I do when lightning strikes me"
+				"What have I got to do"
+				"What have I got to do"
+				"When sorry seems to be the hardest word"
+			}
+		}
+	}
+}
+
+#+end_src
+

@@ -1,0 +1,50 @@
+* Tasks :taskjuggler_project:
+** Music
+   :PROPERTIES:
+   :task_id:  music
+   :END:
+*** Standards
+    :PROPERTIES:
+    :task_id:  standards
+    :END:
+**** Set1
+**** Break1
+**** Set2
+**** Encore
+*** Modern
+    :PROPERTIES:
+    :task_id:  modern
+    :END:
+**** Set1
+**** Break1
+**** Set2
+**** Encore
+
+** Logistics
+   :PROPERTIES:
+   :task_id:  logistics
+   :END:
+*** Show
+    :PROPERTIES:
+    :task_id:  show
+    :END:
+*** Tour
+    :PROPERTIES:
+    :task_id:  tour
+    :END:
+*** Rehearsal
+    :PROPERTIES:
+    :task_id:  rehearsal
+    :END:
+** Promotion
+   :PROPERTIES:
+   :task_id:  promotion
+   :END:
+*** CD
+    :PROPERTIES:
+    :task_id:  cd
+    :END:
+*** Web 
+    :PROPERTIES:
+    :task_id:  web
+    :END:

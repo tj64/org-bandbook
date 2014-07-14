@@ -1,0 +1,74 @@
+* GLORIAS_STEP
+  :PROPERTIES:
+  :idyoutube: "C84KmJwtPeI"
+  :idyoutuberemark: "Bill Evans, not the orignal Sunday at the Village version..."
+  :structure: "AABA"
+  :uuid:     "892e5552-f2ad-11e0-8c10-0019d11e5a41"
+  :completion: "5"
+  :copyright: "1962, Orpheum Music."
+  :piece:    "Swing"
+  :composer: "Scott LaFaro"
+  :style:    "Jazz"
+  :title:    "Gloria's Step"
+  :render:   "Real"
+  :doVoice:  True
+  :doChords: True
+  :END:
+
+
+#+name: VoiceReal
+#+header: :file glorias_step_VoiceReal.eps
+#+begin_src lilypond 
+
+\relative c'' {
+	%% http://veltzer.net/blog/blog/2010/08/14/musical-tempo-table/
+	\tempo "Allegro" 4 = 160
+	\time 4/4
+	\key c \major
+
+	%% part "A"
+	\repeat volta 2 {
+		r8 g4 c8 \times 2/3 { b c a } \times 2/3 { r a e } | g1 | r8 f g f~ f ees c ees~ | ees2 r8 c bes c~ | c1 |
+	}
+	%% part "B"
+	g'4 a8 b~ b2 | r8 a4. b4 c8 d~ | d2 r8 c g bes~ | bes2. a4 | c2 r8 bes f aes~ |
+	aes2. g4 | bes2 r8 aes16 bes aes8 des, | ees'2 r8 des16 ees des8 aes | ges'1~ | ges |
+	%% part "A"
+	r8 g,4 c8 \times 2/3 { b c a } \times 2/3 { r a e } | g1 | r8 f g f~ f ees c ees~ | ees2 r8 c bes c~ | c1 |
+}
+
+#+end_src
+
+#+name: ChordsReal
+#+header: :file glorias_step_ChordsReal.eps
+#+begin_src lilypond 
+
+\chordmode {
+	\startChords
+	\startSong
+
+	\mark "A"
+	\startPart
+	\repeat volta 2 {
+		f1:maj7 | ees2:maj7 d:maj | des1:maj7 | c:7.9+ | f:m7 | \myEndLine
+	}
+	%% this is remarked ON PURPOSE to keep the repetition sign in the chart...
+	%%\endPart
+
+	\mark "B"
+	\startPart
+	e1:m7 | f:maj1 | a:m7.5- | e:m7.5- | g:m7.5- |
+	d:m7.5- | g:7.9+ | c:7.9+ | ees1*2:7.9+ | \myEndLine
+	\endPart
+
+	\mark "A"
+	\startPart
+	f1:maj7 | ees2:maj7 d:maj | des1:maj7 | c:7.9+ | f:m7 | \myEndLine
+	\endPart
+
+	\endSong
+	\endChords
+}
+
+#+end_src
+

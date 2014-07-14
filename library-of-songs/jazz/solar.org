@@ -1,0 +1,63 @@
+* SOLAR
+  :PROPERTIES:
+  :idyoutube: "FAYt3a-c_k0"
+  :idyoutuberemark: "Metheny/Holland/Hancock/DeJohnette kickass performance"
+  :remark:   "The 12 bars have a kind of blue structure feel to them"
+  :structure: "A"
+  :uuid:     "841f9004-4477-11e2-acde-078065be2912"
+  :completion: "5"
+  :copyright: ""
+  :piece:    "Jazz"
+  :poet:     ""
+  :composer: "Miles Davis"
+  :style:    "Jazz"
+  :title:    "Solar"
+  :render:   "Real"
+  :doLyrics: False
+  :doVoice:  True
+  :doChords: True
+  :END:
+
+
+#+name: VoiceReal
+#+header: :file solar_VoiceReal.eps
+#+begin_src lilypond 
+
+\relative g' {
+	%% http://veltzer.net/blog/blog/2010/08/14/musical-tempo-table/
+	\tempo "Allegro" 4 = 130
+	\time 4/4
+	\key c \major
+
+	\repeat volta 2 {
+		r8 c4. b4 d8 c | r g4.~ g a8 | bes4 bes8 bes a4 c8 bes~ | bes1 |
+		r8 a4. gis4 bes8 a | r c,4.~ c4 f8 g | aes4 aes8 aes g4 bes8 aes~ | aes2. r8 g~ |
+		g4 f8 ees d c4 ges'8~ | ges4 f8 ees des c4 f8~ | f1 | r8 d! ees f g aes b!4 |
+	}
+}
+
+#+end_src
+
+#+name: ChordsReal
+#+header: :file solar_ChordsReal.eps
+#+begin_src lilypond 
+
+\chordmode {
+	\startChords
+	\startSong
+
+	\repeat volta 2 {
+		\mark "A"
+		\startPart
+		c1*2:m | g1:m7 | c:7 | \myEndLine
+		f1*2:maj7 | f1:m7 | bes:7 | \myEndLine
+		ees:maj7 | ees2:m7 aes:7 | des1:maj7 | d2:m7.5- g:7.9- | \myEndLine
+		\endPart
+	}
+
+	\endSong
+	\endChords
+}
+
+#+end_src
+

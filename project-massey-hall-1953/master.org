@@ -1,0 +1,10 @@
+* Master
+   :PROPERTIES:
+   :header: [[file:~/git/org/org-bandbook/library-of-headers/no-toc-header.org][no-toc-header]]
+   :song_order: 2 1
+   :END:
+
+| name           | ID | key | mode  | transp |
+|----------------+----+-----+-------+--------|
+| all-the-things |  2 | aes | major | b      |
+| insensitive    |  1 | d   | minor | b      |

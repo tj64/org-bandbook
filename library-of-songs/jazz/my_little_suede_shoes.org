@@ -1,0 +1,74 @@
+* MY_LITTLE_SUEDE_SHOES
+  :PROPERTIES:
+  :structure: "????"
+  :uuid:     "0db617f0-a26f-11df-92f0-0019d11e5a41"
+  :completion: "0"
+  :piece:    "Med Swing"
+  :composer: "Charlie Parker"
+  :style:    "Jazz"
+  :title:    "My Little Suede Shoes"
+  :render:   "Unknown"
+  :doVoice:  True
+  :doChords: True
+  :END:
+
+
+#+name: VoiceUnknown
+#+header: :file my_little_suede_shoes_VoiceUnknown.eps
+#+begin_src lilypond 
+
+\relative c' {
+	\key ees \major
+	\time 4/4
+	\partial 4. bes8 ees g |
+
+	\repeat volta 2 {
+		f f f f ees f r g | r2 r8 bes8 ees g | f f f f ees f r ees | r2 r8 bes8 ees g | f f f f ees f r g |
+		r bes4. a4 aes | g8 g g g f f r ees |
+	}
+	\alternative {
+		{r2 r8 bes ees g}
+		{r2 r8 bes' c d}
+	}
+	ees'8 ees ees ees c aes r d | r d4. bes8 g r4 | c8 c c c aes f r bes~ |
+	bes2 r8 bes c d | ees ees ees ees c aes r d | r d4. bes8 g r4 |
+	c8 c c c aes f g ees~ | ees2 r8 bes8 ees g | f f f f ees f r g | r2 r8 bes8 ees g | f f f f ees f r ees | r2 r8 bes8 ees g | f f f f ees f r g |
+	r bes4. a4 aes | g8 g g g f f r ees | r1 |
+}
+
+#+end_src
+
+#+name: ChordsUnknown
+#+header: :file my_little_suede_shoes_ChordsUnknown.eps
+#+begin_src lilypond 
+
+\chordmode {
+	\startChords
+	\startSong
+
+	\partial 4. r4. |
+
+	\startPart
+	\repeat volta 2 {
+		f2:m7 bes:7 | g:m7 c:7 | f:m7 bes:7 | ees:maj7 c:7 |
+		f:m7 bes:7 | g:m7 c:7.9+.5+ | f:m7 bes:7 |
+	}
+	\alternative { { ees:maj7 c:7 | } {ees:maj7 ees:7 } }
+	\endPart
+
+	\startPart
+	aes:maj7 aes:m7 | g:m7 c:7.9- | f:m7 bes:7 | ees:maj7 ees:7 |
+	aes aes:m7 | g:m7 c:7.9- | f:m7 bes:7 | g:m7 c:7 |
+	\endPart
+
+	\startPart
+	f:m7 bes:7 | ees:maj7 c:7 | f:m7 bes:7 | ees:maj7 c:7 |
+	f:m7 aes:m7 | g:m7 c:7.9+.5+ | f:m7 bes:7 | ees1:maj7 |
+	\endPart
+
+	\endSong
+	\endChords
+}
+
+#+end_src
+

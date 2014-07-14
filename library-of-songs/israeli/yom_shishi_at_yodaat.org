@@ -1,0 +1,117 @@
+* YOM_SHISHI_AT_YODAAT
+  :PROPERTIES:
+  :remark:   "The chords were taken from the original song which is in the C scale"
+  :lyricsurl: "http://shironet.mako.co.il/artist?type=lyrics&lang=1&prfid=187&wrkid=1537"
+  :idyoutube: "wD0Zlwg5VOg"
+  :idyoutuberemark: "הביצוע המקורי של בנזין"
+  :uuid:     "d4c79db6-8aec-11e1-bca8-3b15b6cb5cfe"
+  :completion: "5"
+  :piece:    u"רוקנרול"
+  :singer:   u"יהודה פוליקר"
+  :poet:     u"יעקב גלעד"
+  :composer: u"יהודה פוליקר"
+  :style:    "Israeli"
+  :title:    u"יום שישי את יודעת"
+  :heb:      True
+  :render:   "My"
+  :doGuitar: True
+  :doExtra:  True
+  :doChordBars: True
+  :doChords: True
+  :END:
+
+
+#+name: Extra
+#+header: :file yom_shishi_at_yodaat_Extra.eps
+#+begin_src lilypond 
+
+%% Lyrics
+\verticalSpace
+\verticalSpace
+\markup {
+	\small { %% \teeny \tiny \small \normalsize \large \huge
+		\fill-line {
+			\right-column {
+				"אז אני מטלפן מתכנן מתכונן"
+				"מתקלח שעה מתבונן במראה"
+				"מחטא יבלות ומרים משקולות"
+				"משחרר כיווצים ומותח קפיצים"
+				"כשהראש מסודר לא איכפת שום דבר"
+				"יום שישי כבר מגיע"
+				"השבוע נגמר"
+				\null
+				"יום שישי את יודעת..."
+				\null
+				"כשעובר יום שבת והזמן זז לאט"
+				"אני שוב מיובש, עוד שבוע חדש"
+				"בעיות, עניינים, חדשות, עיתונים"
+				"והכל שגרתי, שיעמום אמיתי"
+				"אז עכשיו אני כאן, מעביר את הזמן"
+				"אין לי דרך לברוח, לא יודע לאן"
+				\null
+				"יום שישי את יודעת..."
+			}
+			\null
+			\right-column {
+				"השבוע מתחיל מאוחר כרגיל"
+				"אין לי כח לקום אין לי חשק לכלום"
+				"יום ראשון דיכאון יום שני עצבני"
+				"יום שלישי לא ניגמר רביעי מיותר"
+				"וביום חמישי מצב רוח חופשי"
+				"זה כבר סוף השבוע"
+				"ומחר יום שישי"
+				\null
+				"יום שישי את יודעת"
+				"יש בעיר מסיבה"
+				"נשארים כל הלילה"
+				"עד הבוקר הבא"
+				"יום שישי את יודעת"
+				"והיום במיוחד"
+				"אם תירצי כל הלילה"
+				"הוא שלנו לבד"
+			}
+		}
+	}
+}
+
+#+end_src
+
+#+name: ChordsMy
+#+header: :file yom_shishi_at_yodaat_ChordsMy.eps
+#+begin_src lilypond 
+
+\chordmode {
+	\startChords
+	\startSong
+
+	\mark "פתיחה"
+	f1 | g | c | a:m | \myEndLine
+	f | g | c1*2 | \myEndLine
+
+	\mark "בית"
+	\repeat volta 2 {
+		c1*2 | g1*2 | \myEndLine
+		g1*2 | c1*2 | \myEndLine
+	}
+	bes1 | a | aes | g | \myEndLine
+	c2 c4 d | ees1 | c1*2 | \myEndLine
+
+	\mark "פזמון"
+	\repeat volta 2 {
+		f1 | g | c | a:m | \myEndLine
+		d:m7 | g | c | c:7 | \myEndLine
+	}
+	\mark "מעבר"
+	f | g | c1*2 | \myEndLine
+
+	\mark "סיום"
+	\repeat volta 2 {
+		c1 | g | g | c | \myEndLine
+	}
+
+	\endSong
+	\endChords
+}
+
+#+end_src
+

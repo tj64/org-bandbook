@@ -1,0 +1,111 @@
+* BESADE_YAROK
+  :PROPERTIES:
+  :idyoutube: "En9qtX5VnLE"
+  :uuid:     "42424480-a26f-11df-abb4-0019d11e5a41"
+  :completion: "4"
+  :piece:    u"בלדה איטית"
+  :singer:   u"דני סנדרסון"
+  :poet:     u"מאיר אריאל"
+  :composer: u"דני סנדרסון"
+  :style:    "Israeli"
+  :title:    u"בשדה ירוק"
+  :heb:      True
+  :render:   "My"
+  :doLyrics: True
+  :doVoice:  True
+  :doChords: True
+  :END:
+
+
+#+name: LyricsMy
+#+header: :file besade_yarok_LyricsMy.eps
+#+begin_src lilypond 
+
+\lyricmode {
+	ב -- ש -- דה י -- רוק, על גב -- עה תלו -- לה.
+	ב -- מ -- קום ר -- חוק, סוף ד -- רך לא סלו -- לה.
+	ב -- ש -- דה י -- רוק, על גב -- עה תלו -- לה.
+	א -- ה -- בת ח -- יי לי -- פול עוד ע -- לו -- לה.
+
+	על מר -- בד עלי עשב רו -- ח
+	שם ישבנו לר -- אות שקי -- עה
+	והייתה תחושה של תפוח
+	והיינו כל כך קרובים לנגיעה
+
+	בשדה ירוק, על גבעה תלולה
+	בושם אהבה נודפת וטלולה
+	בשדה ירוק על גבעה תלולה
+	אהבת חיי ליפול עוד עלולה
+
+	עדרים גלשו אל השוקת
+	על שפתי מפלי שיער
+	חלילים התחילו למשוך את
+	קו הרכס הרץ במעלה ההר
+
+	בשדה ירוק על גבעה תלולה
+	מגמה שקופה בהכרה צלולה
+	בשדה ירוק, על גבעה תלולה
+	כי תהום שחורה רובצת חלולה
+
+	בין הרים השמש שקעה לה
+	וירח עוד לא עלה
+	יפתי פתאום פחדה לה
+	אל תהום פעורה - כאילו צללה
+
+	היא נתנה לדעת לדעת
+	היא הפליאה להיוודע
+	ואני צמא דעת לגעת
+	עד לקצה הידיעה, אל תוך הלא נודע
+
+	בשדה ירוק על גבעה תלולה
+	במקום רחוק, סוף דרך לא סלולה
+	בשדה ירוק, על גבעה תלולה
+	אהבת חיי ליפול עוד עלולה
+}
+
+#+end_src
+
+#+name: VoiceMy
+#+header: :file besade_yarok_VoiceMy.eps
+#+begin_src lilypond 
+
+\relative f' {
+	\time 4/4
+	\key f \major
+	\partial 4 a8 c |
+
+	d d4 c8 ~ c4 a8 f | g g4 g8 ~ g4 d8 f |
+	g g4 f8 ~ f e d c | f f4 e8 ~ e4 a8 c |
+
+	d d4 c8 ~ c4 a8 f | g g4 g8 ~ g4 d8 f |
+	g g4 f8 ~ f e d c | f f4 c8 ~ c2 | r2. f8 e |
+
+	d4 a'8 g4 f8 e4 |
+}
+
+#+end_src
+
+#+name: ChordsMy
+#+header: :file besade_yarok_ChordsMy.eps
+#+begin_src lilypond 
+
+\chordmode {
+	\startChords
+
+	\startSong
+
+	\partial 4 r4
+
+	bes2 a2:m7 | g1:m7 | g2:m7 bes2 | f2 c2:7 | \myEndLine
+	bes2 a2:m7 | g1:m7 | g2:m7 bes2 | f2 c2:7 | c1:7 | \myEndLine
+
+	g1:m7 | bes1 | f2 c2:7 | f1 | \myEndLine
+	g1:m7 | bes2 c2:7 | f2 ees2 | bes2 c2:7 | \myEndLine
+
+	\endSong
+
+	\endChords
+}
+
+#+end_src
+

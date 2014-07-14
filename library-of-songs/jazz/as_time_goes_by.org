@@ -1,0 +1,142 @@
+* AS_TIME_GOES_BY
+  :PROPERTIES:
+  :lyricsurl: "http://www.lyrics007.com/Frank%20Sinatra%20Lyrics/As%20Time%20Goes%20By%20Lyrics.html"
+  :idyoutube: "vYoet7-qDHI"
+  :idyoutuberemark: "Classic Billie Holiday"
+  :structure: "AABA"
+  :uuid:     "0a7b423c-7a4e-11e1-8d67-878c1414bdce"
+  :completion: "5"
+  :copyright: ""
+  :piece:    "Ballad"
+  :poet:     "Herman Hupfeld"
+  :composer: "Herman Hupfeld"
+  :style:    "Jazz"
+  :title:    "As Time Goes By"
+  :render:   "Real"
+  :doLyricsmore: True
+  :doLyrics: True
+  :doVoice:  True
+  :doChords: True
+  :END:
+
+
+#+name: LyricsmoreReal
+#+header: :file as_time_goes_by_LyricsmoreReal.eps
+#+begin_src lilypond 
+
+\lyricmode {
+	%% A part
+	And when two lov -- ers woo
+	They still say: "\"I" love "you\""
+	On that you can re -- ly
+	No mat -- ter what the fu -- ture brings
+	As Time Goes _ _ By
+}
+
+#+end_src
+
+#+name: LyricsReal
+#+header: :file as_time_goes_by_LyricsReal.eps
+#+begin_src lilypond 
+
+%% This is taken from the inetnet and adjusted for this tune
+\lyricmode {
+	%% A part
+	You must re -- mem -- ber this
+	A kiss is still a kiss
+	A sigh is still a sigh
+	The fun -- da -- men -- tal things app -- ly
+	As Time Goes By
+	%% A part
+	And _
+	%% B part
+	Moon -- light and love songs- nev -- er out of date
+	Hearts full of pas -- sion- jea -- lou -- sy and hate
+	Wo -- men needs man- and man must have his mate
+	That no one can de -- ny
+	%% A part
+	It's still the same old sto -- ry
+	A fight for love and glo -- ry
+	A case of do or die
+	The world will al -- ways wel -- come lov -- ers
+	As Time Goes By
+}
+
+#+end_src
+
+#+name: VoiceReal
+#+header: :file as_time_goes_by_VoiceReal.eps
+#+begin_src lilypond 
+
+\relative c'' {
+	%% http://veltzer.net/blog/blog/2010/08/14/musical-tempo-table/
+	\tempo "Andante" 4 = 76
+	\time 4/4
+	\key ees \major
+
+	%% A part
+	g8 |
+	\repeat volta 2 {
+		aes g f ees f4. g8 | bes8 aes g f aes4. bes8 | ees8 d c bes c2 | r2 r4 d4 |
+		f8 ees d c d4 ees | bes bes ees, f |
+	} \alternative {
+		{
+			g1~ | g2 r4 r8 g |
+		}
+		{
+			ees1~ | ees2 r |
+		}
+	}
+	%% B part
+	ees8 f ees c'~ c4 c | c8 des c b c2 | f,8 g f c'~ c4 c | c8 des c b c2 |
+	g8 aes g ees'~ ees4 ees | ees8 d ees d f4 d | c c g g | bes2. r8 g |
+	%% A part
+	aes g f ees f f4 g8 | bes8 aes g f aes8 aes4 bes8 | ees8 d c bes c2 | r2 r4 d4 |
+	f8 ees d c d4 ees | bes bes2 g4 | bes2 bes | ees2. r8 g, |
+}
+
+#+end_src
+
+#+name: ChordsReal
+#+header: :file as_time_goes_by_ChordsReal.eps
+#+begin_src lilypond 
+
+\chordmode {
+	\startChords
+	\startSong
+
+	\partial 8 s8 |
+
+	\mark "A"
+	\startPart
+	\repeat volta 2 {
+		f2:m7 bes:7 | bes:m6 bes:7 | ees:6 f:m7 | fis:dim7 g:m7 | \myEndLine
+		f1:7 | f2:m7 bes:7 |
+	} \alternative {
+		{
+			ees1:maj7 | f2:m7 bes:7 | \myEndLineVoltaNotLast
+		}
+		{
+			ees1:6 | bes2:m7 ees:7 | \myEndLineVoltaLast
+		}
+	}
+	\endPart
+
+	\mark "B"
+	\startPart
+	aes1:maj7 | c:7 | f:m | a:dim | \myEndLine
+	c2:m aes:7 | f1:7 | bes2:7 bes:dim | bes1:7 | \myEndLine
+	\endPart
+
+	\mark "A"
+	\startPart
+	f2:m7 bes:7 | bes:m6 bes:7 | ees:6 f:m7 | fis:dim7 g:m7 | \myEndLine
+	f1:7 | g2:m7 c:7 | f:m7 bes:7 | ees4:6 des:7 ees:6 bes:7 | \myEndLine
+	\endPart
+
+	\endSong
+	\endChords
+}
+
+#+end_src
+

@@ -1,0 +1,124 @@
+* EASY_TO_LOVE
+  :PROPERTIES:
+  :lyricsurl: "http://www.sing365.com/music/lyric.nsf/Easy-To-Love-lyrics-Ella-Fitzgerald/3040B6936D6C386048256AAB00074FEE"
+  :idyoutube: "uYnqy84ZY9Q"
+  :idyoutuberemark: "Ella"
+  :structureremark: "Can also think of this tune as AB"
+  :structure: "ABAC"
+  :uuid:     "ac74c90e-0d62-11e1-816c-0019d11e5a41"
+  :completion: "5"
+  :copyrightextra: "Copyright Renewed, Assigned to John F. Wharton, Trustee of the Cole Porter Musical & Literary Property Trusts Chappell & Co., Inc., owner of publication and allied rights throughout the world"
+  :copyright: "1936 by Chappell & Co., Inc."
+  :piece:    "Moderately"
+  :poet:     "Cole Porter"
+  :composer: "Cole Porter"
+  :subtitle: "From 'Born To Dance'"
+  :style:    "Jazz"
+  :title:    "Easy To Love"
+  :render:   "Real"
+  :doLyricsmore: True
+  :doLyrics: True
+  :doVoice:  True
+  :doChords: True
+  :END:
+
+
+#+name: LyricsmoreReal
+#+header: :file easy_to_love_LyricsmoreReal.eps
+#+begin_src lilypond 
+
+\lyricmode {
+	%% A part
+	We'd be so grand at the game
+	So care -- free to -- get -- her,
+	that it does seem a
+}
+
+#+end_src
+
+#+name: LyricsReal
+#+header: :file easy_to_love_LyricsReal.eps
+#+begin_src lilypond 
+
+\lyricmode {
+	%% A part
+	You'd be so Eas -- y To Love,
+	So eas -- y to i -- dol -- ize,
+	All oth -- ers a -- bove
+	%% B part
+	So worth the yearn -- ing for, __
+	So swell to keep ev -- 'ry home -- fire burn -- ing for __
+
+	shame
+	%% C part
+	that you can't see
+	your fu -- ture with me,
+	'cause you'd be oh, so Eas -- y To Love! __
+}
+
+#+end_src
+
+#+name: VoiceReal
+#+header: :file easy_to_love_VoiceReal.eps
+#+begin_src lilypond 
+
+\relative c'' {
+	%% http://veltzer.net/blog/blog/2010/08/14/musical-tempo-table/
+	\tempo "Moderato" 4 = 108
+	\key c \major
+	\time 4/4
+
+	\repeat volta 2 {
+		a1 | d,2. e4 | f2 e4. f8 | b2. a4 |
+		g2 fis4 g | d' des c b | a2 gis4. a8 |
+	} \alternative {
+		{
+			g'!1 |
+			g | a,2. b4 | e e e2~ | e4 r r2 |
+			r4 g g,4. g8 | aes aes4 aes8 a4 a8 b~ | b4 b b2~ | b4 r r2 |
+		}
+		{
+			a'2. e4 |
+			g2. d4 | f2. c4 | e2 b4 c | d des c b |
+			a2 e' | e ees4 d | c1~ \mark \markup { \italic { Fine } } | c4 r r2 |
+		}
+	}
+}
+
+#+end_src
+
+#+name: ChordsReal
+#+header: :file easy_to_love_ChordsReal.eps
+#+begin_src lilypond 
+
+\chordmode {
+	\startChords
+	\startSong
+
+	\mark "A"
+	\repeat volta 2 {
+		d1:m7 | g:m7 | d:m7 | g:7 | \myEndLine
+		c:maj7 | f:maj7 | e:m7 |
+	} \alternative {
+		{
+			f:7 | \myEndLine
+			\mark "B"
+			d:m7 | g:7 | c:maj7 | a:m7 | \myEndLine
+			d:m7 | g:7 | e:m7 | a:7 | \myEndLine
+		}
+		{
+			%% \myEndLine after the following line was removed to reduce
+			%% number of lines in the presentation
+			a:7 |
+			\mark "C"
+			d:m7 | f:m6 | c:maj7 | e2:7 ees:dim | \myEndLine
+			d1:m7 | g:7 | c1*2:6 | \myEndLine
+		}
+	}
+
+	\endSong
+	\endChords
+}
+
+#+end_src
+

@@ -1,0 +1,78 @@
+* AINT_NO_SUNSHINE
+  :PROPERTIES:
+  :wiki:     "Ain%27t_No_Sunshine"
+  :lyricsurl: "http://tabs.ultimate-guitar.com/b/bill_withers/aint_no_sunshine_crd.htm"
+  :idyoutube: "tIdIqbv7SPo"
+  :idyoutuberemark: "The original video clip from youtube"
+  :uuid:     "669540fe-d851-11df-ae78-0019d11e5a41"
+  :completion: "5"
+  :piece:    "Med. Ballad"
+  :style:    "Pop"
+  :poet:     "Bill Withers"
+  :composer: "Bill Withers"
+  :title:    "Ain't No Sunshine"
+  :doOwn:    True
+  :doGuitar: True
+  :END:
+
+
+#+name: Own
+#+header: :file aint_no_sunshine_Own.eps
+#+begin_src lilypond 
+
+\score {
+	<<
+		\new FretBoards {
+			${chords()}
+		}
+		${defs.chordDefs()}
+		${chords()}
+	>>
+	\midi {}
+	\layout {}
+}
+
+%% Lyrics
+\verticalSpace
+\verticalSpace
+\markup {
+	\small { %% \teeny \tiny \small \normalsize \large \huge
+		\fill-line {
+			\column {
+				%% verse
+				"Ain't no sunshine when she's gone."
+				"It's not warm when she's away."
+				"Ain't no sunshine when she's gone"
+				"And she's always gone too long anytime she goes away."
+				\null
+				%% verse
+				"Wonder this time where she's gone,"
+				"Wonder if she's gone to stay"
+				"Ain't no sunshine when she's gone"
+				"And this house just ain't no home anytime she goes away."
+				\null
+				%% special
+				"And I know, I know, I know, I know, I know,"
+				"I know, I know, I know, I know, I know, I know, I know,"
+				"I know, I know, I know, I know, I know, I know,"
+				"I know, I know, I know, I know, I know, I know, I know, I know"
+				"Hey, I ought to leave the young thing alone,"
+			} \column {
+				%% verse
+				"But ain't no sunshine when she's gone,"
+				"Only darkness everyday."
+				"Ain't no sunshine when she's gone,"
+				"And this house just ain't no home anytime she goes away."
+				\null
+				%% ending
+				"Anytime she goes away."
+				"Anytime she goes away."
+				"Anytime she goes away."
+				"Anytime she goes away."
+			}
+		}
+	}
+}
+
+#+end_src
+
