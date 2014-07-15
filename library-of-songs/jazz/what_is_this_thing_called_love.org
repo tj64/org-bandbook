@@ -1,0 +1,113 @@
+* WHAT_IS_THIS_THING_CALLED_LOVE
+  :PROPERTIES:
+  :idyoutube: "RCmn61kOVoQ25"
+  :structure: "AABA"
+  :completion: "0"
+  # :copyrightextra: "?"
+  :copyright: "1929. Renewed 1983 Warner Brother Inc."
+  :poet:     "Cole Porter"
+  :piece:    "Ballad"
+  :composer: "Cole Porter"
+  :style:    "Jazz"
+  :title:    "What is this thing called love"
+  :render:   "Real"
+  :doLyrics: True
+  :doVoice:  True
+  :doChords: True
+  :uuid:     9ba557b7-8f4b-46c0-83cd-80757126d467
+  :END:
+
+#+name: LyricsReal
+#+header: :file what_is_this_thing_called_love_LyricsReal.eps
+#+begin_src lilypond 
+
+  \lyricmode {
+    
+    What is this thing called love?
+    This fun -- ny thing called love?
+
+    Just who can solve its mys -- ter -- y?
+    Why should it make a fool of me?
+
+    I saw you there one won -- der -- ful day
+    You took my heart and threw my heart away
+
+    That's why I ask the Lawd up in Heaven a -- bove
+    What is this thing called love?
+
+  }
+
+#+end_src
+
+
+#+name: VoiceReal
+#+header: :file what_is_this_thing_called_love_VoiceReal.eps
+#+begin_src lilypond 
+
+  \relative c'' {
+          \tempo "Andante" 4 = 88
+          \time 4/4
+          \key aes \major
+
+          \partial 4 bes4 |
+
+          % part "A"
+          bes4 g g2~ | g bes | aes1  | r2. aes4 |
+          aes8 g4 g8~ g2~ | g2 dis | e1  | r2. bes'4 |
+
+          % part "A"
+          bes4 g g2~ | g4 bes bes4. aes8 | aes1  | r2. aes4 |
+          aes8 g4 g8~ g2~ | g4 ees ees8 ees4. | c1  | r2. ees'4 |
+
+          %% part "B"
+          ees4 c c2~ | c4 ees  \times 2/3 { ees f ees } | d1  | r2. d4 |
+          c aes aes2~ | aes4 c  \times 2/3 { c bes aes } | g1  | r4 bes bes bes |
+
+          %% part "A"
+          bes4 g g2~ | g4 bes bes8 c4 bes8 | aes1  | r2. aes4 |
+          aes g g2~ | g ees' | c1~  | c2 r2 |
+
+  }
+
+#+end_src
+
+#+name: ChordsReal
+#+header: :file what_is_this_thing_called_love_ChordsReal.eps
+#+begin_src lilypond 
+
+  \chordmode {
+          \startChords
+
+          \startSong
+
+          \partial 4 s4
+
+          \mark "(A1)"
+          \startPart
+          g1:m7.5- | c:7 | f1*2:m | \myEndLine
+          d1:m7.5- | g:7.5+ | c1:maj7 | c2.:maj7 d4:7 | \myEndLine
+          \endPart
+
+          \mark "(A2)"
+          \startPart
+          g1:m7.5- | c:7 | f1*2:m | \myEndLine
+          d1:m7.5- | g1:7.5+ | c1*2:maj7 | \myEndLine
+          \endPart
+
+          \mark "(B)"
+          \startPart
+          c1:m7 | f:7 | bes1*2:maj7 | \myEndLine
+          aes1*2:7.5- | d1:m7 | g:7 | \myEndLine
+          \endPart
+
+          \mark "(A3)"
+          \startPart
+          g1:m7.5- | c:7 | f1*2:m | \myEndLine
+          d1:m7.5- | g:7.5+ | c1:6 | c2.:6 d4:7 |  \myEndLine
+          \endPart
+
+          \endSong
+  }
+
+#+end_src
+

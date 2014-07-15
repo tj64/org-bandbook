@@ -1,10 +1,15 @@
 * Master
-   :PROPERTIES:
-   :header: [[file:~/git/org/org-bandbook/library-of-headers/no-toc-header.org][no-toc-header]]
-   :song_order: 2 1
+  :PROPERTIES:
+  :header:   [[file:~/git/org/org-bandbook/library-of-headers/no-toc-header.org][no-toc-header]]
+  :song_order: 1 2 3 4 5 6 7
    :END:
 
-| name           | ID | key | mode  | transp |
-|----------------+----+-----+-------+--------|
-| all-the-things |  2 | aes | major | b      |
-| insensitive    |  1 | d   | minor | b      |
+| name               | ID | key | mode  | transp |
+|--------------------+----+-----+-------+--------|
+| perdido            |  1 | nil | nil   | nil    |
+| salt-peanuts       |  2 | nil | nil   | nil    |
+| all-the-things     |  3 | aes | major | f      |
+| 52street           |  4 | nil | nil   | nil    |
+| wee                |  5 | nil | nil   | nil    |
+| what-is-this-thing |  6 | aes | major | aes    |
+| night-in-tunisia   |  7 | nil | nil   | nil    |
