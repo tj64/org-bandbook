@@ -1,0 +1,148 @@
+* Instruments
+** rhythm-section
+   :PROPERTIES:
+   :resource_id: rhythm-section
+   :abbrev:   rhythm-sec
+   :END:
+
+*** harmony
+   :PROPERTIES:
+   :resource_id: harmony
+   :END:
+
+**** guitar
+   :PROPERTIES:
+   :resource_id: guitar
+   :abbrev:   g
+   :END:
+
+**** piano
+    :PROPERTIES:
+    :resource_id: piano
+    :abbrev:   p
+    :END:
+
+*** rhythm
+   :PROPERTIES:
+   :resource_id: rhythm
+   :END:
+
+**** bass
+    :PROPERTIES:
+    :resource_id: bass
+    :abbrev:   b
+    :END:
+
+**** drums
+    :PROPERTIES:
+    :resource_id: drums
+    :abbrev:   dr
+    :END:
+
+** horns
+    :PROPERTIES:
+    :resource_id: horns
+    :abbrev:   hrs
+    :END:
+
+*** brass
+   :PROPERTIES:
+   :resource_id: brass
+   :abbrev:   br
+   :END:
+
+**** trumpet
+    :PROPERTIES:
+    :resource_id: trumpet
+    :abbrev:   tr
+    :END:
+
+**** trombone
+    :PROPERTIES:
+    :resource_id: trombone
+    :abbrev:   tmb
+    :END:
+
+*** woodwinds
+   :PROPERTIES:
+   :resource_id: woodwinds
+   :abbrev:   ww
+   :END:
+
+**** sopran-sax
+    :PROPERTIES:
+    :resource_id: sopran-sax
+    :abbrev:   ss
+    :END:
+
+**** alt-sax
+    :PROPERTIES:
+    :resource_id: alt-sax
+    :abbrev:   as
+    :END:
+
+**** tenor-sax 
+    :PROPERTIES:
+    :resource_id: tenor-sax
+    :abbrev:   ts
+    :END:
+
+**** bariton-sax
+    :PROPERTIES:
+    :resource_id: bariton-sax
+    :abbrev:   bs
+    :END:
+
+**** flute
+    :PROPERTIES:
+    :resource_id: flute
+    :abbrev:   fl
+    :END:
+
+*** voices
+   :PROPERTIES:
+   :resource_id: voices
+    :abbrev:   voc
+   :END:
+
+**** sopran-voice
+    :PROPERTIES:
+    :resource_id: sopran-voice
+    :abbrev:   svoc
+    :END:
+
+**** alt-voice
+    :PROPERTIES:
+    :resource_id: alt-voice
+    :abbrev:   avoc
+    :END:
+
+**** tenor_voice
+    :PROPERTIES:
+    :resource_id: tenor-voice
+    :abbrev:   tvoc
+    :END:
+
+**** bariton-voice
+    :PROPERTIES:
+    :resource_id: bariton-voice
+    :abbrev:   bvoc
+    :END:
+
+*** strings
+   :PROPERTIES:
+   :resource_id: strings
+   :abbrev:   v
+   :END:
+
+**** violin
+    :PROPERTIES:
+    :resource_id: violin
+    :abbrev:   v
+    :END:
+
+**** Cello
+    :PROPERTIES:
+    :resource_id: cello
+    :abbrev:   c
+    :END:

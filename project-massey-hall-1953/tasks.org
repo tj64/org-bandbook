@@ -48,3 +48,44 @@
     :PROPERTIES:
     :task_id:  web
     :END:
+
+
+# ** Crew
+#    :PROPERTIES:
+#    :resource_id: crew
+#    :END:
+
+# *** Allround
+#    :PROPERTIES:
+#    :resource_id: allround
+#    :END:
+
+# **** Tom
+#    :PROPERTIES:
+#    :resource_id: tom
+#    :END:
+
+# *** Sound
+#    :PROPERTIES:
+#    :resource_id: sound
+#    :END:
+
+# **** Pete Sampler
+#    :PROPERTIES:
+#    :resource_id: Pete
+#    :END:
+
+# *** Logistics
+#    :PROPERTIES:
+#    :resource_id: logistics
+#    :END:
+
+# **** Ralph Rowdy
+#    :PROPERTIES:
+#    :resource_id: Ralph
+#    :END:
+
+# *** Promotion
+#    :PROPERTIES:
+#    :resource_id: promotion
+#    :END:

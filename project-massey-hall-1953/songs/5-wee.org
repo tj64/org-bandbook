@@ -1,0 +1,10 @@
+* song
+  :PROPERTIES:
+  :song_link: 
+  :song_key: 
+  :song_mode: 
+  # :transpose_score: aes
+  :END:
+* intro
+* outro
+* arrangement

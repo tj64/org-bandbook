@@ -6,5 +6,5 @@
   # :transpose_score: aes
   :END:
 * intro
-* coda
+* outro
 * arrangement

@@ -1,0 +1,50 @@
+* people :taskjuggler_resources:
+** musicians 
+*** Charlie Parker
+   :PROPERTIES:
+   :nick:     Bird
+   :phone:    012345677
+   :address:  52street, NYC
+   :instrument: alt-sax
+   :END:
+
+*** John Gilliespie
+   :PROPERTIES:
+   :nick:     Diz
+   :phone:    45677888
+   :address:  52street, NYC
+   :instrument: trumpet
+   :END:
+
+*** Bud Powell
+   :PROPERTIES:
+   :nick:     Bud
+   :phone:    3459944
+   :address:  52street, NYC
+   :instrument: piano
+   :END:
+
+*** Charlie Mingus
+   :PROPERTIES:
+   :nick:     Mingus
+   :phone:    7776564321
+   :address:  48avenue, LA
+   :instrument: bass
+   :END:
+
+*** Max Roach
+   :PROPERTIES:
+   :nick:     Max
+   :phone:    56773366
+   :address:  52street, NYC
+   :instrument: drums
+   :END:
+
+** management
+*** Billie Shaw
+   :PROPERTIES:
+   :nick:     Billie
+   :phone:    6774466
+   :address:  Broadway, NYC
+   :job: manager
+   :END:

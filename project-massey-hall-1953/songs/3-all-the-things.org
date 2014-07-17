@@ -4,8 +4,32 @@
   :transpose_score: f
   :song_key: aes
   :song_mode: major
+  :song_structure: "ABC"
   :END:
-* intro
-* coda
-* arrangement
 
+* arrangement
+  :PROPERTIES:
+  :sax:      as
+  :trumpet:  tr
+  :piano:    p
+  :bass:     b
+  :drums:    dr
+  :rhythm-trio: &trio  (p b dr)
+  :rhythm-trio: (&trio . (p b dr))
+  :rhythm-duo: (&duo . (b dr))
+  :horns:    (&horns . (as tr))
+  :END:
+
+ | timeline | melody | counterpt | comping | riffing |
+ |----------+--------+-----------+---------+---------|
+ | intro    | as tr  |           | &trio   |         |
+ | abc      |        |           |         |         |
+ | a        |        |           |         |         |
+ | b        |        |           |         |         |
+ | c        |        |           |         |         |
+
+
+* intro
+* outro
+* break
+* interlude
