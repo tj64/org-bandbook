@@ -6,12 +6,12 @@
   :people:   bird diz bud mingus max
   :END:
 
-| name               | ID | key | mode  | transp |
-|--------------------+----+-----+-------+--------|
-| perdido            |  1 | nil | nil   | nil    |
-| salt-peanuts       |  2 | nil | nil   | nil    |
-| all-the-things     |  3 | aes | major | f      |
-| 52street           |  4 | nil | nil   | nil    |
-| wee                |  5 | nil | nil   | nil    |
-| what-is-this-thing |  6 | aes | major | nil    |
-| night-in-tunisia   |  7 | nil | nil   | nil    |
+| name               | ID | key | mode  | transp | struct |
+|--------------------+----+-----+-------+--------+--------|
+| perdido            |  1 | nil | nil   | nil    | nil    |
+| salt-peanuts       |  2 | nil | nil   | nil    | nil    |
+| all-the-things     |  3 | aes | major | f      | ABC    |
+| 52street           |  4 | nil | nil   | nil    | nil    |
+| wee                |  5 | nil | nil   | nil    | nil    |
+| what-is-this-thing |  6 | aes | major | nil    | nil    |
+| night-in-tunisia   |  7 | nil | nil   | nil    | nil    |

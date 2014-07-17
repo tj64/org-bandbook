@@ -4,7 +4,7 @@
   :transpose_score: f
   :song_key: aes
   :song_mode: major
-  :song_structure: "ABC"
+  :song_structure: ABC
   :END:
 
 * arrangement
