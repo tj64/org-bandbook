@@ -20,13 +20,13 @@
   :horns:    (&horns . (as tr))
   :END:
 
- | timeline | melody | counterpt | comping | riffing |
- |----------+--------+-----------+---------+---------|
- | intro    | as tr  |           | &trio   |         |
- | abc      |        |           |         |         |
- | a        |        |           |         |         |
- | b        |        |           |         |         |
- | c        |        |           |         |         |
+ | timeline | melody | counterpt  | comping | riffing |
+ |----------+--------+------------+---------+---------|
+ | intro    | as tr  |            | &trio   |         |
+ | abc      |        |            |         |         |
+ | a        |        |            |         |         |
+ | b        |        |            |         |         |
+ | c        |        |            |         |         |
 
 
 * intro
