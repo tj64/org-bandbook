@@ -1,15 +1,6 @@
 * Instruments
 ** rhythm-section
-   :PROPERTIES:
-   :resource_id: rhythm-section
-   :abbrev:   rhythm-sec
-   :END:
-
 *** harmony
-   :PROPERTIES:
-   :resource_id: harmony
-   :END:
-
 **** guitar
    :PROPERTIES:
    :resource_id: guitar
@@ -23,10 +14,6 @@
     :END:
 
 *** rhythm
-   :PROPERTIES:
-   :resource_id: rhythm
-   :END:
-
 **** bass
     :PROPERTIES:
     :resource_id: bass
@@ -46,15 +33,11 @@
     :END:
 
 *** brass
-   :PROPERTIES:
-   :resource_id: brass
-   :abbrev:   br
-   :END:
-
 **** trumpet
     :PROPERTIES:
     :resource_id: trumpet
     :abbrev:   tr
+    :pitch:    +2
     :END:
 
 **** trombone
@@ -64,11 +47,6 @@
     :END:
 
 *** woodwinds
-   :PROPERTIES:
-   :resource_id: woodwinds
-   :abbrev:   ww
-   :END:
-
 **** sopran-sax
     :PROPERTIES:
     :resource_id: sopran-sax
@@ -79,12 +57,14 @@
     :PROPERTIES:
     :resource_id: alt-sax
     :abbrev:   as
+    :pitch:    -3
     :END:
 
 **** tenor-sax 
     :PROPERTIES:
     :resource_id: tenor-sax
     :abbrev:   ts
+    :pitch:    +2
     :END:
 
 **** bariton-sax
@@ -100,11 +80,6 @@
     :END:
 
 *** voices
-   :PROPERTIES:
-   :resource_id: voices
-    :abbrev:   voc
-   :END:
-
 **** sopran-voice
     :PROPERTIES:
     :resource_id: sopran-voice
@@ -130,11 +105,6 @@
     :END:
 
 *** strings
-   :PROPERTIES:
-   :resource_id: strings
-   :abbrev:   v
-   :END:
-
 **** violin
     :PROPERTIES:
     :resource_id: violin
