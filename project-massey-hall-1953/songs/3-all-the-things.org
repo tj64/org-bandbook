@@ -16,20 +16,18 @@
   :alt-sax:  as
   :END:
 
- | timeline | melody | solo | accomp  | riff  |
- |----------+--------+------+---------+-------|
- | intro    |        | as   | dr b p  |       |
- | a        | tr     | as   | dr b p  |       |
- | b        | as     |      | dr b p  |       |
- | c        | tr     | as   | dr b p  |       |
- | abc      |        | as   | dr b p  |       |
- | abc      |        | as   | dr b p  |       |
- | abc      |        | tr   | dr b p  |       |
- | abc      |        | tr   | dr b p  |       |
- | abc      |        | p    | dr b    |       |
- | abc      |        | b    | dr p    | tr as |
- | intro    | as     | tr   | dr b  p |       |
- | outro    | as tr  |      | dr b  p |       |
+ | seq   | do | melody | solo | accomp  | riff  |
+ |-------+----+--------+------+---------+-------|
+ | intro |  1 |        | as   | dr b p  |       |
+ | a     |  1 | tr     | as   | dr b p  |       |
+ | b     |  1 | as     |      | dr b p  |       |
+ | c     |  1 | tr     | as   | dr b p  |       |
+ | abc   |  2 |        | as   | dr b p  |       |
+ | abc   |  2 |        | tr   | dr b p  |       |
+ | abc   |  1 |        | p    | dr b    |       |
+ | abc   |    |        | b    | dr p    | tr as |
+ | intro |  1 | as     | tr   | dr b  p |       |
+ | outro |  1 | as tr  |      | dr b  p |       |
 
 
 * intro

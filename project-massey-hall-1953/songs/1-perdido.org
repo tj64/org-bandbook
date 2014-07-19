@@ -16,22 +16,15 @@
   :alt-sax:  as
   :END:
 
- | timeline | melody | solo  | accomp | riff |
- |----------+--------+-------+--------+------|
- | a        | as tr  |       | b dr p |      |
- | aaba     |        | as    | b dr p |      |
- | aaba     |        | as    | b dr p |      |
- | aaba     |        | as    | b dr p |      |
- | aaba     |        | tr    | b dr p |      |
- | aaba     |        | tr    | b dr p |      |
- | aaba     |        | tr    | b dr p |      |
- | aaba     |        | tr    | b dr p |      |
- | aaba     |        | p     | b dr   |      |
- | aaba     |        | p     | b dr   |      |
- | aaba     |        | p     | b dr   |      |
- | aa       |        | as tr | b dr p |      |
- | b        |        | dr    |        |      |
- | a        | as tr  |       | b dr p |      |
+ | seq  | do | melody | solo  | accomp | riff |
+ |------+----+--------+-------+--------+------|
+ | a    |  1 | as tr  |       | b dr p |      |
+ | aaba |  3 |        | as    | b dr p |      |
+ | aaba |  4 |        | tr    | b dr p |      |
+ | aaba |  3 |        | p     | b dr   |      |
+ | aa   |  1 |        | as tr | b dr p |      |
+ | b    |  1 |        | dr    |        |      |
+ | a    |  1 | as tr  |       | b dr p |      |
 
 
 * intro
