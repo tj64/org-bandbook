@@ -1,0 +1,108 @@
+* PERDIDO
+  :PROPERTIES:
+  :idyoutube: "GEAFuoKCx6o11"
+  :structure: "AABA"
+  :completion: "3"
+  # :copyrightextra: "?"
+  :copyright: "1942. Renewed 1978 Tempo Music Inc."
+  :poet:     "H.J. Lengsfelder & Ervin Drake"
+  :piece:    "Juan Tizol"
+  :composer: "Juan Tizol"
+  :style:    "Jazz"
+  :title:    "Perdido"
+  :render:   "Aebersold"
+  # :doLyrics: True
+  :doVoice:  True
+  :doChords: True
+  :uuid:     a04733da-4f8a-42d4-854e-741eb18378da
+  :END:
+
+# #+name: Lyrics?
+# #+header: :file perdido_Lyrics?.eps
+# #+begin_src lilypond 
+
+#   \lyricmode {
+#   }
+
+# #+end_src
+
+
+#+name: VoiceAebersold
+#+header: :file perdido_VoiceAebersold.eps
+#+begin_src lilypond 
+
+  \relative c'' {
+          \tempo "Andante" 4 = 88
+          \time 4/4
+          \key bes \major
+
+          \partial 4 c8 |
+
+          % part "A"
+          ees8 f~ f2 r8 c | ees f4 c8 ees f4 bes8 |
+	  d f~ f2 r8 bes  | d f4 bes8 d f4 c8 |
+	  ees f~ f2 r8 c |\times 2/3 { ees4 f d' } c4. f,8 |
+	  g bes~ bes2. | r2. r8 c, |
+
+          % part "A"
+          ees8 f~ f2 r8 c | ees f4 c8 ees f4 bes8 |
+	  d f~ f2 r8 bes  | d f4 bes8 d f4 c8 |
+	  ees f~ f2 r8 c |\times 2/3 { ees4 f d' } c4. f,8 |
+	  g bes~ bes2.~| bes2 r2 |
+
+          %% part "B"
+          d1 | \times 2/3 { a4 b c } d d8 e~ |
+	  e1  | b8 a~ a2. |
+          c1 | \times 2/3 { g4 a bes } c c8 d~ |
+	  d1  | a8 g~ g2 r8 c |
+
+          %% part "A"
+          ees8 f~ f2 r8 c | ees f4 c8 ees f4 bes8 |
+	  d f~ f2 r8 bes  | d f4 bes8 d f4 c8 |
+	  ees f~ f2 r8 c |\times 2/3 { ees4 f d' } c4. f,8 |
+	  g bes~ bes2.~| bes2 r2 |
+
+  }
+
+#+end_src
+
+#+name: ChordsAebersold
+#+header: :file perdido_ChordsAebersold.eps
+#+begin_src lilypond 
+
+  \chordmode {
+          \startChords
+
+          \startSong
+
+          \partial 4 s8
+
+          \mark "(A1)"
+          \startPart
+          c1:m7 | f:7 | bes2 ees:7 | d:m g:7.5+ | \myEndLine
+          c1:m7 | f:7 | bes2 ees:7 | d:m g:7.5+ | \myEndLine
+          \endPart
+
+          \mark "(A2)"
+          \startPart
+          c1:m7 | f:7 | bes2 ees:7 | d:m g:7.5+ | \myEndLine
+          c1:m7 | f:7 | bes1*2 | \myEndLine
+          \endPart
+
+          \mark "(B)"
+          \startPart
+          d1*2:7 | g1*2:7 | \myEndLine
+          c1*2:7 | f1*2:7 | \myEndLine
+          \endPart
+
+          \mark "(A3)"
+          \startPart
+          c1:m7 | f:7 | bes2 ees:7 | d:m g:7.5+ | \myEndLine
+          c1:m7 | f:7 | bes1 | d2:m7 g:7 |\myEndLine
+          \endPart
+
+          \endSong
+  }
+
+#+end_src
+

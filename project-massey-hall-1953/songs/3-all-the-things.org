@@ -9,20 +9,27 @@
 
 * arrangement
   :PROPERTIES:
-  :sax:      as
-  :trumpet:  tr
   :piano:    p
   :bass:     b
   :drums:    dr
+  :trumpet:  tr
+  :alt-sax:  as
   :END:
 
- | timeline | melody | counterpt | comping | riffing |
- |----------+--------+-----------+---------+---------|
- | intro    | as tr  |           |         |         |
- | abc      |        |           |         |         |
- | a        |        |           |         |         |
- | b        |        |           |         |         |
- | c        |        |           |         |         |
+ | timeline | melody | solo | accomp  | riff  |
+ |----------+--------+------+---------+-------|
+ | intro    |        | as   | dr b p  |       |
+ | a        | tr     | as   | dr b p  |       |
+ | b        | as     |      | dr b p  |       |
+ | c        | tr     | as   | dr b p  |       |
+ | abc      |        | as   | dr b p  |       |
+ | abc      |        | as   | dr b p  |       |
+ | abc      |        | tr   | dr b p  |       |
+ | abc      |        | tr   | dr b p  |       |
+ | abc      |        | p    | dr b    |       |
+ | abc      |        | b    | dr p    | tr as |
+ | intro    | as     | tr   | dr b  p |       |
+ | outro    | as tr  |      | dr b  p |       |
 
 
 * intro

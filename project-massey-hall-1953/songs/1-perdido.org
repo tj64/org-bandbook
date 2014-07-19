@@ -1,10 +1,40 @@
 * song
   :PROPERTIES:
-  :song_link: 
-  :song_key: 
-  :song_mode:
-  # :transpose_score: aes
+  :song_link: [[file:~/git/org-bandbook/library-of-songs/jazz/perdido.org][perdido]]
+  :song_key: bes
+  :song_mode: major
+  :song_structure: AABA
+  :transpose_score: g
   :END:
+
+* arrangement
+  :PROPERTIES:
+  :piano:    p
+  :bass:     b
+  :drums:    dr
+  :trumpet:  tr
+  :alt-sax:  as
+  :END:
+
+ | timeline | melody | solo  | accomp | riff |
+ |----------+--------+-------+--------+------|
+ | a        | as tr  |       | b dr p |      |
+ | aaba     |        | as    | b dr p |      |
+ | aaba     |        | as    | b dr p |      |
+ | aaba     |        | as    | b dr p |      |
+ | aaba     |        | tr    | b dr p |      |
+ | aaba     |        | tr    | b dr p |      |
+ | aaba     |        | tr    | b dr p |      |
+ | aaba     |        | tr    | b dr p |      |
+ | aaba     |        | p     | b dr   |      |
+ | aaba     |        | p     | b dr   |      |
+ | aaba     |        | p     | b dr   |      |
+ | aa       |        | as tr | b dr p |      |
+ | b        |        | dr    |        |      |
+ | a        | as tr  |       | b dr p |      |
+
+
 * intro
 * outro
-* arrangement
+* break 
+* interlude
