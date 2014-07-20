@@ -32,7 +32,7 @@
 #+begin_src lilypond 
 
   \relative c'' {
-          \tempo "Andante" 4 = 88
+          \tempo "Allegro" 4 = 130
           \time 4/4
           \key bes \major
 
@@ -77,25 +77,25 @@
 
           \partial 8 s8
 
-          \mark "(A1)"
+          \mark "A"
           \startPart
           c1:m7 | f:7 | bes2 ees:7 | d:m g:7.5+ | \myEndLine
           c1:m7 | f:7 | bes2 ees:7 | d:m g:7.5+ | \myEndLine
           \endPart
 
-          \mark "(A2)"
+          \mark "A"
           \startPart
           c1:m7 | f:7 | bes2 ees:7 | d:m g:7.5+ | \myEndLine
           c1:m7 | f:7 | bes1*2 | \myEndLine
           \endPart
 
-          \mark "(B)"
+          \mark "B"
           \startPart
           d1*2:7 | g1*2:7 | \myEndLine
           c1*2:7 | f1*2:7 | \myEndLine
           \endPart
 
-          \mark "(A3)"
+          \mark "A"
           \startPart
           c1:m7 | f:7 | bes2 ees:7 | d:m g:7.5+ | \myEndLine
           c1:m7 | f:7 | bes | d2:m7 g:7 |\myEndLine
