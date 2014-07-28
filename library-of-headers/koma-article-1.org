@@ -21,11 +21,16 @@
 #+LaTeX_CLASS_OPTIONS: [listof=flat,letterpaper,11pt,abstract=true]
 #+LaTeX_HEADER: \usepackage[utf8]{inputenc}
 #+LaTeX_HEADER: \usepackage[T1]{fontenc} 
-#+LaTeX_HEADER: \usepackage[scaled]{beraserif}
-#+LaTeX_HEADER: \usepackage[scaled]{berasans} 
-#+LaTeX_HEADER: \usepackage[scaled]{beramono}
-#+LaTeX_HEADER: \usepackage[style=authoryear-comp,natbib=true]{biblatex}
-#+LaTeX_HEADER: \bibliography{lit}
+# #+LaTeX_HEADER: \usepackage[scaled]{beraserif}
+# #+LaTeX_HEADER: \usepackage[scaled]{berasans} 
+# #+LaTeX_HEADER: \usepackage[scaled]{beramono}
+# #+LaTeX_HEADER: \usepackage[autostyle]{csquotes}                                                
+# #+LaTeX_HEADER: \usepackage[backend=biber, style=authoryear-icomp, sortlocale=de_DE, natbib=true, url=false, doi=true, eprint=false ]{biblatex}
+# #+LaTeX_HEADER: \addbibresource{../bandbook.bib}
+# #+LaTeX_HEADER: \usepackage[style=authoryear-comp,natbib=true]{biblatex}
+# #+LaTeX_HEADER: \bibliography{lit}
+#+LaTeX_HEADER: \bibliographystyle{alpha}
+#+LaTeX_HEADER: \bibliography{../bandbook.bib}
 #+LaTeX_HEADER: \usepackage{fixltx2e}
 #+LaTeX_HEADER: \usepackage{graphicx}
 #+LaTeX_HEADER: \setcounter{tocdepth}{1}
@@ -53,15 +58,37 @@
 #+LaTeX_HEADER: \usepackage{tabularx}
 #+LaTeX_HEADER: \usepackage[x11names]{xcolor}
 #+LaTeX_HEADER: \usepackage[colorlinks=true,urlcolor=SteelBlue4,linkcolor=Firebrick4,citecolor=Green4]{hyperref}
-    
+
+#+name: get-abstract
+#+header: :exports results
+#+header: :wrap abstract
+#+begin_src emacs-lisp
+  (when org-bandbook-with-abstract-p
+    (with-current-buffer
+        (find-file-noselect
+         (expand-file-name
+          "abstract.org"
+          "/home/tj/git/org-bandbook/project-massey-hall-1953/"))
+      ;; (org-bandbook-current-project))
+      (save-restriction
+        (widen)
+        (let ((buf-cont
+               (org-element-map (org-element-parse-buffer) 'headline
+                 (lambda (--hl)
+                   (and )) ; headline = Abstract, get content            
+                 nil 'FIRST-MATCH 'NO-RECURSION)))
+          (kill-buffer)
+          buf-cont))))
+#+end_src
+
+#+results: get-abstract
 #+BEGIN_abstract
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
-hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam
-nisl, tincidunt et, mattis eget, convallis nec, purus. Cum sociis
-natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-mus. Nulla posuere. Donec vitae dolor. Nullam tristique diam non
-turpis. Cras placerat accumsan nulla. Nullam rutrum. Nam vestibulum
-accumsan nisl.
+,* Abstract
+
+Bandbook for the famous Massey Hall Concert from 1953. There is a lot
+of information in the world wide web about this concert. For some of
+the songs, there are solo-transcriptions available too, e.g. in
+\cite{baker78:_charl_parker}. 
 #+END_abstract
 
 #+LATEX: \tableofcontents

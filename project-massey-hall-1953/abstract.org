@@ -1,0 +1,6 @@
+* Abstract
+
+Bandbook for the famous Massey Hall Concert from 1953. There is a lot
+of information in the world wide web about this concert. For some of
+the songs, there are solo-transcriptions available too, e.g. in
+\cite{baker78:_charl_parker}. 
