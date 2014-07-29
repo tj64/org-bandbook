@@ -3,7 +3,7 @@
 #+DESCRIPTION: Org-Bandbook for Project call_project-name() 
 #+KEYWORDS: 
 #+LANGUAGE:  en
-#+OPTIONS:  H:3 num:t toc:t \n:nil @:t ::t email:t author:t
+#+OPTIONS:  H:3 num:t toc:nil \n:nil @:t ::t email:t author:t
 #+OPTIONS:  |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:  TeX:t LaTeX:t skip:nil d:nil todo:t 
 #+OPTIONS: pri:nil tags:not-in-toc
@@ -63,33 +63,8 @@
 #+header: :exports results
 #+header: :wrap abstract
 #+begin_src emacs-lisp
-  (when org-bandbook-with-abstract-p
-    (with-current-buffer
-        (find-file-noselect
-         (expand-file-name
-          "abstract.org"
-          "/home/tj/git/org-bandbook/project-massey-hall-1953/"))
-      ;; (org-bandbook-current-project))
-      (save-restriction
-        (widen)
-        (let ((buf-cont
-               (org-element-map (org-element-parse-buffer) 'headline
-                 (lambda (--hl)
-                   (and )) ; headline = Abstract, get content            
-                 nil 'FIRST-MATCH 'NO-RECURSION)))
-          (kill-buffer)
-          buf-cont))))
+  (org-bandbook-get-abstract)
 #+end_src
-
-#+results: get-abstract
-#+BEGIN_abstract
-,* Abstract
-
-Bandbook for the famous Massey Hall Concert from 1953. There is a lot
-of information in the world wide web about this concert. For some of
-the songs, there are solo-transcriptions available too, e.g. in
-\cite{baker78:_charl_parker}. 
-#+END_abstract
 
 #+LATEX: \tableofcontents
 #+LATEX: \listoffigures
