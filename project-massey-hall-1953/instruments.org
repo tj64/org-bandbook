@@ -3,116 +3,116 @@
 *** harmony
 **** guitar
    :PROPERTIES:
-   :resource_id: guitar
+   :name: guitar
    :abbrev:   g
    :END:
 
 **** piano
     :PROPERTIES:
-    :resource_id: piano
+    :name: piano
     :abbrev:   p
     :END:
 
 *** rhythm
 **** bass
     :PROPERTIES:
-    :resource_id: bass
+    :name: bass
     :abbrev:   b
     :END:
 
 **** drums
     :PROPERTIES:
-    :resource_id: drums
+    :name: drums
     :abbrev:   dr
     :END:
 
 ** horns
     :PROPERTIES:
-    :resource_id: horns
+    :name: horns
     :abbrev:   hrs
     :END:
 
 *** brass
 **** trumpet
     :PROPERTIES:
-    :resource_id: trumpet
+    :name: trumpet
     :abbrev:   tr
     :pitch:    +2
     :END:
 
 **** trombone
     :PROPERTIES:
-    :resource_id: trombone
+    :name: trombone
     :abbrev:   tmb
     :END:
 
 *** woodwinds
 **** sopran-sax
     :PROPERTIES:
-    :resource_id: sopran-sax
+    :name: sopran-sax
     :abbrev:   ss
     :END:
 
 **** alt-sax
     :PROPERTIES:
-    :resource_id: alt-sax
+    :name: alto-sax
     :abbrev:   as
     :pitch:    -3
     :END:
 
 **** tenor-sax 
     :PROPERTIES:
-    :resource_id: tenor-sax
+    :name: tenor-sax
     :abbrev:   ts
     :pitch:    +2
     :END:
 
 **** bariton-sax
     :PROPERTIES:
-    :resource_id: bariton-sax
+    :name: bariton-sax
     :abbrev:   bs
     :END:
 
 **** flute
     :PROPERTIES:
-    :resource_id: flute
+    :name: flute
     :abbrev:   fl
     :END:
 
 *** voices
 **** sopran-voice
     :PROPERTIES:
-    :resource_id: sopran-voice
+    :name: sopran-voice
     :abbrev:   svoc
     :END:
 
 **** alt-voice
     :PROPERTIES:
-    :resource_id: alt-voice
+    :name: alt-voice
     :abbrev:   avoc
     :END:
 
 **** tenor_voice
     :PROPERTIES:
-    :resource_id: tenor-voice
+    :name: tenor-voice
     :abbrev:   tvoc
     :END:
 
 **** bariton-voice
     :PROPERTIES:
-    :resource_id: bariton-voice
+    :name: bariton-voice
     :abbrev:   bvoc
     :END:
 
 *** strings
 **** violin
     :PROPERTIES:
-    :resource_id: violin
+    :name: violin
     :abbrev:   v
     :END:
 
 **** Cello
     :PROPERTIES:
-    :resource_id: cello
+    :name: cello
     :abbrev:   c
     :END:

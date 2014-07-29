@@ -1,6 +1,10 @@
 * Abstract
 
-Bandbook for the famous Massey Hall Concert from 1953. There is a lot
-of information in the world wide web about this concert. For some of
-the songs, there are solo-transcriptions available too, e.g. in
-\cite{baker78:_charl_parker}. 
+"Jazz at Massey Hall is a live jazz album featuring a performance by
+\"The Quintet\" given on 15 May 1953 at Massey Hall in Toronto. The
+quintet was composed of several leading 'modern' players of the day:
+Dizzy Gillespie, Charlie Parker, Bud Powell, Charles Mingus, and Max
+Roach. It was the only time that the five men recorded together as a
+unit, and it was the last recorded meeting of Parker and Gillespie.
+\cite{baker78:_charl_parker}." (from [[http://en.wikipedia.org/wiki/Jazz_at_Massey_Hall][Jazz at Massey Hall - Wikipedia, the free encyclopedia]]
+)
