@@ -5,8 +5,8 @@ account Assets:Checking
 
 account Assets:Bandfund
     note The band's cash reserve
-    alias Piggybank
-    alias Bandskitty
+    alias piggybank
+    alias bandskitty
     assert commodity == "$"
     default
 
@@ -23,169 +23,167 @@ account Expenses:Equipment:Instruments
     assert commodity == "$"
 
 account Expenses:Equipment:PA
-    note 
-    alias 
+    note Band-owned PA
+    alias PA
     assert commodity == "$"
 
 account Expenses:Equipment:Technical Accessories
-    note 
-    alias 
+    note Band-owned technical accessories
+    alias tech-accessories
     assert commodity == "$"
 
 account Expenses:Equipment:Software
-    note 
-    alias 
+    note Band-owned software
+    alias software
     assert commodity == "$"
 
 account Expenses:Equipment:Scores
-    note 
-    alias 
+    note Band-owned scores
+    alias scores
     assert commodity == "$"
 
 account Expenses:Equipment:Clothes
-    note 
-    alias 
+    note Band-owned clothes
+    alias clothes
     assert commodity == "$"
 
 account Expenses:Rehearsal Room:Rent
-    note 
-    alias 
+    note Rehearsal room rent
+    alias rent
     assert commodity == "$"
 
 account Expenses:Rehearsal Room:Renovation
-    note 
-    alias 
+    note Rehearsal room renovation
+    alias renovation
     assert commodity == "$"
 
 account Expenses:Tour:Travelling
-    note 
-    alias 
+    note On-tour travelling
+    alias tour-travelling
     assert commodity == "$"
 
 account Expenses:Tour:Lodging
-    note 
-    alias 
+    note On-tour lodging
+    alias tour-lodging
     assert commodity == "$"
 
 account Expenses:Tour:Food
-    note 
-    alias 
+    note On-tour food
+    alias tour-food
     assert commodity == "$"
 
-account Expenses:Tour:Other
-    note 
+account Expenses:Tour:Misc
+    note Miscancellous tour expenses
     alias 
     assert commodity == "$"
 
 account Expenses:Web:Server
-    note 
-    alias 
+    note Webserver rent
+    alias webserver
     assert commodity == "$"
 
 account Expenses:Web:Site
-    note 
-    alias 
+    note Website creation
+    alias website
     assert commodity == "$"
 
 account Expenses:Promotion:Ads
-    note 
-    alias 
+    note Advertising
+    alias ads
     assert commodity == "$"
 
 account Expenses:Promotion:Flyer
-    note 
-    alias 
+    note Flyer production
+    alias flyer
     assert commodity == "$"
 
 account Expenses:Promotion:CDs
-    note 
-    alias 
+    note Promotion CD production
+    alias promo-cds
     assert commodity == "$"
 
-account Expenses:Music:Recording
-    note 
-    alias 
+account Expenses:Music:Studio
+    note Recording studio rent
+    alias studio
     assert commodity == "$"
 
 account Expenses:Music:Publishing
-    note 
-    alias 
+    note Publishing recorded music
+    alias publishing
     assert commodity == "$"
 
 account Expenses:Services:Management
-    note 
-    alias 
+    note External band management
+    alias management
     assert commodity == "$"
 
 account Expenses:Services:Crew
-    note 
-    alias 
+    note Crew wages
+    alias crew
     assert commodity == "$"
 
 account Expenses:Services:Admin
-    note 
-    alias 
+    note Webadmin wages
+    alias admin
     assert commodity == "$"
 
 account Expenses:Services:Webdesigner
-    note 
-    alias 
+    note Webdesigner wages
+    alias webdesigner
     assert commodity == "$"
 
-account Expenses:Services:Sound
-    note 
-    alias 
+account Expenses:Services:Sound Engineer
+    note Sound Engineer wages
+    alias soundengineer
     assert commodity == "$"
 
-account Expenses:Services:Light
-    note 
-    alias 
+account Expenses:Services:Light Engineer
+    note Light Engineer wages
+    alias lightengineer
     assert commodity == "$"
-
-
 
 account Income:Gigs:Local
-    note 
-    alias 
+    note Fees from local gigs
+    alias local-gigs
     assert commodity == "$"
 
 account Income:Gigs:Remote
-    note 
-    alias 
+    note Fees from remote gigs
+    alias remote-gigs
     assert commodity == "$"
 
 account Income:Gigs:Tour
-    note 
-    alias 
+    note Fees from tour gigs 
+    alias tour-gigs
     assert commodity == "$"
 
 account Income:Sales:Music
-    note 
-    alias 
+    note Revenues from music sales
+    alias music-sales
     assert commodity == "$"
 
 account Income:Sales:Accessories
-    note 
-    alias 
+    note Revenues from accessories sales
+    alias accessories-sales
     assert commodity == "$"
 
-account Liabilities:MasterCard
-    note 
-    alias 
+account Liabilities:CreditCard
+    note CreditCard liabilities
+    alias creditcard
     assert commodity == "$"
 
 account Liabilities:Bandbus:Principal
-    note 
-    alias 
+    note Principal of loan/investment for bandbus
+    alias bandbus-principal
     assert commodity == "$"
 
 account Liabilities:PA:Principal
-    note 
-    alias 
+    note Principal of loan/investment for PA
+    alias PA-principal
     assert commodity == "$"
 
 account Equity:Opening Balances
-    note 
-    alias 
+    note Bands net worth when starting ledger
+    alias Opening Balances
     assert commodity == "$"
 

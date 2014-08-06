@@ -1,0 +1,189 @@
+account Assets:Checking
+    note The bandleaders private checking account
+    alias checking
+    assert commodity == "€"
+
+account Assets:Bandfund
+    note The band's cash reserve
+    alias piggybank
+    alias bandskitty
+    assert commodity == "€"
+    default
+
+account Expenses:Food
+    note Food and Drinks while not on tour
+    alias food
+    payee ^(Shop|Gasstation|Supermarket|Restaurant|Bar|Takeaway)€
+    assert commodity == "€"
+    default
+
+account Expenses:Equipment:Instruments
+    note Band-owned instruments
+    alias instruments
+    assert commodity == "€"
+
+account Expenses:Equipment:PA
+    note Band-owned PA
+    alias PA
+    assert commodity == "€"
+
+account Expenses:Equipment:Technical Accessories
+    note Band-owned technical accessories
+    alias tech-accessories
+    assert commodity == "€"
+
+account Expenses:Equipment:Software
+    note Band-owned software
+    alias software
+    assert commodity == "€"
+
+account Expenses:Equipment:Scores
+    note Band-owned scores
+    alias scores
+    assert commodity == "€"
+
+account Expenses:Equipment:Clothes
+    note Band-owned clothes
+    alias clothes
+    assert commodity == "€"
+
+account Expenses:Rehearsal Room:Rent
+    note Rehearsal room rent
+    alias rent
+    assert commodity == "€"
+
+account Expenses:Rehearsal Room:Renovation
+    note Rehearsal room renovation
+    alias renovation
+    assert commodity == "€"
+
+account Expenses:Tour:Travelling
+    note On-tour travelling
+    alias tour-travelling
+    assert commodity == "€"
+
+account Expenses:Tour:Lodging
+    note On-tour lodging
+    alias tour-lodging
+    assert commodity == "€"
+
+account Expenses:Tour:Food
+    note On-tour food
+    alias tour-food
+    assert commodity == "€"
+
+account Expenses:Tour:Misc
+    note Miscancellous tour expenses
+    alias 
+    assert commodity == "€"
+
+account Expenses:Web:Server
+    note Webserver rent
+    alias webserver
+    assert commodity == "€"
+
+account Expenses:Web:Site
+    note Website creation
+    alias website
+    assert commodity == "€"
+
+account Expenses:Promotion:Ads
+    note Advertising
+    alias ads
+    assert commodity == "€"
+
+account Expenses:Promotion:Flyer
+    note Flyer production
+    alias flyer
+    assert commodity == "€"
+
+account Expenses:Promotion:CDs
+    note Promotion CD production
+    alias promo-cds
+    assert commodity == "€"
+
+account Expenses:Music:Studio
+    note Recording studio rent
+    alias studio
+    assert commodity == "€"
+
+account Expenses:Music:Publishing
+    note Publishing recorded music
+    alias publishing
+    assert commodity == "€"
+
+account Expenses:Services:Management
+    note External band management
+    alias management
+    assert commodity == "€"
+
+account Expenses:Services:Crew
+    note Crew wages
+    alias crew
+    assert commodity == "€"
+
+account Expenses:Services:Admin
+    note Webadmin wages
+    alias admin
+    assert commodity == "€"
+
+account Expenses:Services:Webdesigner
+    note Webdesigner wages
+    alias webdesigner
+    assert commodity == "€"
+
+account Expenses:Services:Sound Engineer
+    note Sound Engineer wages
+    alias soundengineer
+    assert commodity == "€"
+
+account Expenses:Services:Light Engineer
+    note Light Engineer wages
+    alias lightengineer
+    assert commodity == "€"
+
+account Income:Gigs:Local
+    note Fees from local gigs
+    alias local-gigs
+    assert commodity == "€"
+
+account Income:Gigs:Remote
+    note Fees from remote gigs
+    alias remote-gigs
+    assert commodity == "€"
+
+account Income:Gigs:Tour
+    note Fees from tour gigs 
+    alias tour-gigs
+    assert commodity == "€"
+
+account Income:Sales:Music
+    note Revenues from music sales
+    alias music-sales
+    assert commodity == "€"
+
+account Income:Sales:Accessories
+    note Revenues from accessories sales
+    alias accessories-sales
+    assert commodity == "€"
+
+account Liabilities:CreditCard
+    note CreditCard liabilities
+    alias creditcard
+    assert commodity == "€"
+
+account Liabilities:Bandbus:Principal
+    note Principal of loan/investment for bandbus
+    alias bandbus-principal
+    assert commodity == "€"
+
+account Liabilities:PA:Principal
+    note Principal of loan/investment for PA
+    alias PA-principal
+    assert commodity == "€"
+
+account Equity:Opening Balances
+    note Bands net worth when starting ledger
+    alias Opening Balances
+    assert commodity == "€"
+
