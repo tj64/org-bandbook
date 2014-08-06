@@ -1,5 +1,10 @@
+account Equity:Opening Balances
+    note Bands net worth when starting ledger
+    alias Opening Balances
+    assert commodity == "$"
+
 account Assets:Checking
-    note The bandleaders private checking account
+    note The bands or bandleaders checking account
     alias checking
     assert commodity == "$"
 
@@ -9,6 +14,72 @@ account Assets:Bandfund
     alias bandskitty
     assert commodity == "$"
     default
+
+account Liabilities:CreditCard
+    note CreditCard liabilities
+    alias creditcard
+    assert commodity == "$"
+
+account Liabilities:Bandbus:Principal
+    note Principal of loan/investment for bandbus
+    alias bandbus-principal
+    assert commodity == "$"
+
+account Liabilities:PA:Principal
+    note Principal of loan/investment for PA
+    alias PA-principal
+    assert commodity == "$"
+
+;; FIXME: adapt to actual band members 
+account Income:Private Deposits:Bird
+    note Private deposits from Bird
+    alias deposits-bird
+    assert commodity == "$"
+
+account Income:Private Deposits:Diz
+    note Private deposits from Diz
+    alias deposits-diz
+    assert commodity == "$"
+
+account Income:Private Deposits:Bud
+    note Private deposits from Bud
+    alias deposits-bud
+    assert commodity == "$"
+
+account Income:Private Deposits:Mingus
+    note Private deposits from Mingus
+    alias deposits-mingus
+    assert commodity == "$"
+
+account Income:Private Deposits:Max
+    note Private deposits from Max
+    alias deposits-max
+    assert commodity == "$"
+
+account Income:Gigs:Local
+    note Fees from local gigs
+    alias local-gigs
+    assert commodity == "$"
+
+account Income:Gigs:Remote
+    note Fees from remote gigs
+    alias remote-gigs
+    assert commodity == "$"
+
+account Income:Gigs:Tour
+    note Fees from tour gigs 
+    alias tour-gigs
+    assert commodity == "$"
+
+account Income:Sales:Music
+    note Revenues from music sales
+    alias music-sales
+    assert commodity == "$"
+
+account Income:Sales:Accessories
+    note Revenues from accessories sales
+    alias accessories-sales
+    assert commodity == "$"
 
 account Expenses:Food
     note Food and Drinks while not on tour
@@ -57,6 +128,46 @@ account Expenses:Rehearsal Room:Renovation
     alias renovation
     assert commodity == "$"
 
+account Expenses:Gig:Local:Travelling
+    note Local gig travelling
+    alias local-gig-travelling
+    assert commodity == "$"
+
+account Expenses:Gig:Local:Lodging
+    note Local gig lodging
+    alias local-gig-lodging
+    assert commodity == "$"
+
+account Expenses:Gig:Local:Food
+    note Local gig food
+    alias local-gig-food
+    assert commodity == "$"
+
+account Expenses:Gig:Local:Misc
+    note Miscancellous local gig expenses
+    alias local-gig-misc
+    assert commodity == "$"
+
+account Expenses:Gig:Remote:Travelling
+    note Remote gig travelling
+    alias remote-gig-travelling
+    assert commodity == "$"
+
+account Expenses:Gig:Remote:Lodging
+    note Remote gig lodging
+    alias remote-gig-lodging
+    assert commodity == "$"
+
+account Expenses:Gig:Remote:Food
+    note Remote gig food
+    alias remote-gig-food
+    assert commodity == "$"
+
+account Expenses:Gig:Remote:Misc
+    note Miscancellous remote gig expenses
+    alias remote-gig-misc
+    assert commodity == "$"
+
 account Expenses:Tour:Travelling
     note On-tour travelling
     alias tour-travelling
@@ -74,7 +185,7 @@ account Expenses:Tour:Food
 
 account Expenses:Tour:Misc
     note Miscancellous tour expenses
-    alias 
+    alias tour-misc
     assert commodity == "$"
 
 account Expenses:Web:Server
@@ -141,49 +252,3 @@ account Expenses:Services:Light Engineer
     note Light Engineer wages
     alias lightengineer
     assert commodity == "$"
-
-account Income:Gigs:Local
-    note Fees from local gigs
-    alias local-gigs
-    assert commodity == "$"
-
-account Income:Gigs:Remote
-    note Fees from remote gigs
-    alias remote-gigs
-    assert commodity == "$"
-
-account Income:Gigs:Tour
-    note Fees from tour gigs 
-    alias tour-gigs
-    assert commodity == "$"
-
-account Income:Sales:Music
-    note Revenues from music sales
-    alias music-sales
-    assert commodity == "$"
-
-account Income:Sales:Accessories
-    note Revenues from accessories sales
-    alias accessories-sales
-    assert commodity == "$"
-
-account Liabilities:CreditCard
-    note CreditCard liabilities
-    alias creditcard
-    assert commodity == "$"
-
-account Liabilities:Bandbus:Principal
-    note Principal of loan/investment for bandbus
-    alias bandbus-principal
-    assert commodity == "$"
-
-account Liabilities:PA:Principal
-    note Principal of loan/investment for PA
-    alias PA-principal
-    assert commodity == "$"
-
-account Equity:Opening Balances
-    note Bands net worth when starting ledger
-    alias Opening Balances
-    assert commodity == "$"
-
