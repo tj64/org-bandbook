@@ -1,7 +1,13 @@
+; * Accounts
+
+; ** Opening Balances
+
 account Equity:Opening Balances
     note Bands net worth when starting ledger
     alias Opening Balances
     assert commodity == "$"
+
+; ** Assets
 
 account Assets:Checking
     note The bands or bandleaders checking account
@@ -14,6 +20,8 @@ account Assets:Bandfund
     alias bandskitty
     assert commodity == "$"
     default
+
+; ** Liabilities
 
 account Liabilities:CreditCard
     note CreditCard liabilities
@@ -30,7 +38,10 @@ account Liabilities:PA:Principal
     alias PA-principal
     assert commodity == "$"
 
-;; FIXME: adapt to actual band members 
+; ** Income
+
+;; TODO (user): adapt to actual band members 
+;; FIXME (developer): create dynamically at runtime
 account Income:Private Deposits:Bird
     note Private deposits from Bird
     alias deposits-bird
@@ -80,6 +91,8 @@ account Income:Sales:Accessories
     note Revenues from accessories sales
     alias accessories-sales
     assert commodity == "$"
+
+; ** Expenses
 
 account Expenses:Food
     note Food and Drinks while not on tour
@@ -252,3 +265,21 @@ account Expenses:Services:Light Engineer
     note Light Engineer wages
     alias lightengineer
     assert commodity == "$"
+
+; * Transactions
+; ** Opening Balances
+
+; 10/2  Opening Balance
+;     Assets:Checking                         $100.00
+;     Equity:Opening Balances
+
+2014/08/6 Opening Balance
+    Assets:Checking                         $100.00
+    Equity:Opening Balances
+
+
+; ** Income
+; ** Expenses
+
+
+

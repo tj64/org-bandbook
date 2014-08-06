@@ -2126,6 +2126,15 @@ Late deadlines first, then scheduled, then non-late deadlines"
 (when (try-require 'lilypond-mode)
 (add-to-list 'auto-mode-alist '("\\.ly\\'" . LilyPond-mode)))
 
+;; ** Ledger
+
+(message "\n------ entering ledger ------")
+
+(when (try-require 'ledger-mode)
+  (add-to-list 'auto-mode-alist '("\\.ledger\\'" . ledger-mode))
+  (add-hook 'ledger-mode-hook 'outline-minor-mode))
+
+
 ;; * Minor Modes
 
 (message "\n------ entering MINOR MODES ------")
