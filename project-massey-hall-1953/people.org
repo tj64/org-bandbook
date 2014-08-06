@@ -32,15 +32,6 @@
    :instrument: bass
    :END:
 
-*** Horst Schlämmer
-   :PROPERTIES:
-   :resource_id: horst
-   :phone:    7776564341
-   :address:  Asostr. 13, Bochum
-   :instrument: grunzen
-   :END:
-
-
 *** Max Roach
    :PROPERTIES:
    :resource_id: max
@@ -57,3 +48,16 @@
    :address:  South Bronx, NYC
    :job: manager
    :END:
+
+** crew 
+
+*** Horst Schlämmer
+   :PROPERTIES:
+   :resource_id: horst
+   :phone:    7776564341
+   :address:  Asogasse. 13, Bochum
+   :job: factotum
+   :END:
+
+
+
