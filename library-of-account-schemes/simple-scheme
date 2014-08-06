@@ -1,0 +1,191 @@
+account Assets:Checking
+    note The bandleaders private checking account
+    alias checking
+    assert commodity == "$"
+
+account Assets:Bandfund
+    note The band's cash reserve
+    alias Piggybank
+    alias Bandskitty
+    assert commodity == "$"
+    default
+
+account Expenses:Food
+    note Food and Drinks while not on tour
+    alias food
+    payee ^(Shop|Gasstation|Supermarket|Restaurant|Bar|Takeaway)$
+    assert commodity == "$"
+    default
+
+account Expenses:Equipment:Instruments
+    note Band-owned instruments
+    alias instruments
+    assert commodity == "$"
+
+account Expenses:Equipment:PA
+    note 
+    alias 
+    assert commodity == "$"
+
+account Expenses:Equipment:Technical Accessories
+    note 
+    alias 
+    assert commodity == "$"
+
+account Expenses:Equipment:Software
+    note 
+    alias 
+    assert commodity == "$"
+
+account Expenses:Equipment:Scores
+    note 
+    alias 
+    assert commodity == "$"
+
+account Expenses:Equipment:Clothes
+    note 
+    alias 
+    assert commodity == "$"
+
+account Expenses:Rehearsal Room:Rent
+    note 
+    alias 
+    assert commodity == "$"
+
+account Expenses:Rehearsal Room:Renovation
+    note 
+    alias 
+    assert commodity == "$"
+
+account Expenses:Tour:Travelling
+    note 
+    alias 
+    assert commodity == "$"
+
+account Expenses:Tour:Lodging
+    note 
+    alias 
+    assert commodity == "$"
+
+account Expenses:Tour:Food
+    note 
+    alias 
+    assert commodity == "$"
+
+account Expenses:Tour:Other
+    note 
+    alias 
+    assert commodity == "$"
+
+account Expenses:Web:Server
+    note 
+    alias 
+    assert commodity == "$"
+
+account Expenses:Web:Site
+    note 
+    alias 
+    assert commodity == "$"
+
+account Expenses:Promotion:Ads
+    note 
+    alias 
+    assert commodity == "$"
+
+account Expenses:Promotion:Flyer
+    note 
+    alias 
+    assert commodity == "$"
+
+account Expenses:Promotion:CDs
+    note 
+    alias 
+    assert commodity == "$"
+
+account Expenses:Music:Recording
+    note 
+    alias 
+    assert commodity == "$"
+
+account Expenses:Music:Publishing
+    note 
+    alias 
+    assert commodity == "$"
+
+account Expenses:Services:Management
+    note 
+    alias 
+    assert commodity == "$"
+
+account Expenses:Services:Crew
+    note 
+    alias 
+    assert commodity == "$"
+
+account Expenses:Services:Admin
+    note 
+    alias 
+    assert commodity == "$"
+
+account Expenses:Services:Webdesigner
+    note 
+    alias 
+    assert commodity == "$"
+
+account Expenses:Services:Sound
+    note 
+    alias 
+    assert commodity == "$"
+
+account Expenses:Services:Light
+    note 
+    alias 
+    assert commodity == "$"
+
+
+
+account Income:Gigs:Local
+    note 
+    alias 
+    assert commodity == "$"
+
+account Income:Gigs:Remote
+    note 
+    alias 
+    assert commodity == "$"
+
+account Income:Gigs:Tour
+    note 
+    alias 
+    assert commodity == "$"
+
+account Income:Sales:Music
+    note 
+    alias 
+    assert commodity == "$"
+
+account Income:Sales:Accessories
+    note 
+    alias 
+    assert commodity == "$"
+
+account Liabilities:MasterCard
+    note 
+    alias 
+    assert commodity == "$"
+
+account Liabilities:Bandbus:Principal
+    note 
+    alias 
+    assert commodity == "$"
+
+account Liabilities:PA:Principal
+    note 
+    alias 
+    assert commodity == "$"
+
+account Equity:Opening Balances
+    note 
+    alias 
+    assert commodity == "$"
+

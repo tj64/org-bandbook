@@ -1,6 +1,6 @@
 * Master
   :PROPERTIES:
-  :header:   [[file:~/git/org-bandbook/library-of-headers/koma-article-1.org][koma-article-1]]
+  :header:   [[file:~/git/org-bandbook/library-of-headers/koma-book-1.org][koma-book-1]]
   :song_order: 1 3
   :book_parts: abstract songs tasks funds people
   :people:   bird diz bud mingus max
