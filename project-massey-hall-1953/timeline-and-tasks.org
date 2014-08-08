@@ -1,2 +1,160 @@
+#+TITLE: Gig Plan Massey-Hall-Concert (Toronto/CND)
+#+DATE:  <1953-05-15 Fr> 
+# #+OPTIONS: toc:nil p:t author:nil pri:t prop:t tags:nil
+
 * Timeline and Tasks :taskjuggler_project:
-** 
+
+** TODO Preparation
+   :PROPERTIES:
+   :BLOCKER:  start
+   :allocate: management
+   :task_id:  preparation
+   :END:
+
+*** TODO Book flights
+   :PROPERTIES:
+   :allocate: billie
+   :task_id:  book-flights
+   :END:
+
+*** TODO Book Hotel
+   :PROPERTIES:
+   :allocate: billie
+   :task_id:  book-hotel
+   :END:
+
+** TODO Arrival
+   :PROPERTIES:
+   :BLOCKER:  preparation
+   :priority: 1000
+   :allocate: musicians
+   :task_id:  
+   :END:
+
+*** TODO [#A] Find Bird 
+    DEADLINE: <1953-05-15 Fr 14:00>
+    :PROPERTIES:
+    :allocate: diz
+    :Effort:   3h
+    :task_id: get-bird
+    :END:
+
+*** TODO [#A] Get taxi to airport (LA) <1953-05-15 Fr 11:20>
+    :PROPERTIES:
+    :allocate: mingus
+    :Effort:   1h
+    :task_id:  get-taxi-LA
+    :END:
+
+
+*** TODO [#A] Get taxi to airport (NYC) <1953-05-15 Fr 14:30>
+    :PROPERTIES:
+    :allocate: diz bird bud max
+    :Effort:   1h
+    :task_id:  get-taxi-NYC
+    :END:
+
+
+Meet in front of Birdland club.
+
+*** TODO Flight from NYC to Toronto <1953-05-15 Fr 16:30>
+    :PROPERTIES:
+    :allocate: diz bird bud max
+    :Effort:   2h
+    :task_id:  flight-NYC
+    :END:
+
+
+*** TODO Flight from LA to Toronto <1953-05-15 Fr 16:30>
+    :PROPERTIES:
+    :allocate: mingus
+    :Effort:   6h
+    :task_id:  flight-LA
+    :END:
+
+** TODO Show
+   :PROPERTIES:
+   :BLOCKER:  arrival
+   :allocate: musicians
+   :task_id:  show
+   :END:
+
+*** TODO Get Sax for Bird 
+    DEADLINE: <1953-05-15 Fr 20:00>
+    :PROPERTIES:
+    :Effort:   1h
+    :allocate: diz bird
+    :task_id: get-sax
+    :END:
+
+*** Arrival at Massey Hall <1953-05-15 Fr 20:30>
+
+*** TODO Play concert 
+    SCHEDULED: <1953-05-15 Fr 21:30>--<1953-05-15 Fr 23:30>
+    :PROPERTIES:
+    :Effort:   2h
+    :allocate: bird diz bud mingus max
+    :task_id: play-show
+    :END:
+
+*** TODO Get Paychecks <1953-05-15 Fr 23:30>
+    :PROPERTIES:
+    :Effort:   15min
+    :allocate: diz
+    :task_id: get-checks
+    :END:
+
+*** Arrival at hotel <1953-05-15 Fr 23:55>
+
+** TODO Departure
+   :PROPERTIES:
+   :BLOCKER:  show
+   :allocate: musicians
+   :task_id:  departure
+   :END:
+
+*** TODO [#A] Get taxi to airport (Toronto) <1953-05-16 Sa 6:30>
+   :PROPERTIES:
+   :allocate: diz bird bud max
+   :task_id:  taxi-to-airport-1
+   :Effort:   30min
+   :END:
+
+*** TODO [#A] Get taxi to airport (Toronto) <1953-05-16 Sa 10:30>
+   :PROPERTIES:
+   :allocate: mingus
+   :task_id:  taxi-to-airport-2
+   :Effort:   30min
+   :END:
+
+*** TODO Flight to NYC <1953-05-16 Sa 8:30>
+   :PROPERTIES:
+   :allocate: diz bird bud max
+   :task_id:  flight-to-NYC
+   :Effort:   2h
+   :END:
+
+*** TODO Flight to LA <1953-05-16 Sa 12:30>
+   :PROPERTIES:
+   :allocate: mingus
+   :task_id:  flight-to-LA
+   :Effort:   6h
+   :END:
+
+** Fees
+*** TODO Cashing paychecks
+   DEADLINE: <1953-05-23 Fr>
+   :PROPERTIES:
+   :BLOCKER:  departure
+   :allocate: musicians
+   :task_id:  chash-in
+   :Effort:   30min
+   :END:
+
+** TODO Produce Live-LP
+   DEADLINE: <1954-01-01 Fr>
+   :PROPERTIES:
+   :allocate: mingus
+   :task_id:  live-LP
+   :Effort:   1m
+   :END:

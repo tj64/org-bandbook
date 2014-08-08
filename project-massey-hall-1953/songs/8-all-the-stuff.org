@@ -1,0 +1,36 @@
+* song
+  :PROPERTIES:
+  :song_link: [[file:~/git/org-bandbook/library-of-songs/jazz/all-that-stuff.org][all-that-stuff]]
+  :transpose_score: f
+  :song_key: aes
+  :song_mode: major
+  :song_structure: ABC
+  :END:
+
+* arrangement
+  :PROPERTIES:
+  :piano:    p
+  :bass:     b
+  :drums:    dr
+  :trumpet:  tr
+  :alt-sax:  as
+  :END:
+
+ | seq   | do | melody | solo | accomp  | riff  |
+ |-------+----+--------+------+---------+-------|
+ | intro |  1 |        | as   | dr b p  |       |
+ | a     |  1 | tr     | as   | dr b p  |       |
+ | b     |  1 | as     |      | dr b p  |       |
+ | c     |  1 | tr     | as   | dr b p  |       |
+ | abc   |  2 |        | as   | dr b p  |       |
+ | abc   |  2 |        | tr   | dr b p  |       |
+ | abc   |  1 |        | p    | dr b    |       |
+ | abc   |    |        | b    | dr p    | tr as |
+ | intro |  1 | as     | tr   | dr b  p |       |
+ | outro |  1 | as tr  |      | dr b  p |       |
+
+
+* intro
+* outro
+* break
+* interlude

@@ -2,8 +2,8 @@
   :PROPERTIES:
   :header:   [[file:~/git/org-bandbook/library-of-headers/koma-book-1.org][koma-book-1]]
   :song_order: 1 3
-  :book_parts: abstract songs tasks funds people
-  :people:   bird diz bud mingus max
+  :book_parts: songs tasks funds people
+  :people:   bird diz bud mingus max billie
   :END:
 
 | name           | ID | key | mode  | transp | struct |

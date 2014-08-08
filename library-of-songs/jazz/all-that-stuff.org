@@ -1,0 +1,79 @@
+* ALL_THAT_STUFF_YOU_OWN
+  :PROPERTIES:
+  :structure: "ABC"
+  :completion: "5"
+  :copyright: "2014 Thorsten Jolitz."
+  :piece:    "Moderately"
+  :composer: "Thorsten Jolitz"
+  :style:    "Jazz"
+  :title:    "All that stuff you own"
+  :render:   "Lorem"
+  :doLyrics: True
+  :doVoice:  True
+  :doChords: True
+  :uuid:  a4cdbd98-4f67-41da-a910-16a4902dd341
+  :END:
+
+
+#+name: VoiceLorem
+#+header: :file all_that_stuff_you_own_VoiceLorem.eps
+#+begin_src lilypond 
+
+\relative c'' {
+	\tempo "Allegro" 4 = 130
+	\time 4/4
+	\key aes \major
+
+	%% part "A"
+	des1 | aes4 bes2. | c4 g c g | aes2 bes4 g4 |
+	f d2 f | g b2 f4 | b1~ | b4 e2. |
+	ees2 aes2 | bes2. des4 | g d g d | f2 g4 d |
+	c b bes a | c d8 aes d4 e | d1~ | d4  g2 d'4 |
+
+	%% part "B"
+	e4. a8 d2~ | b4 dis, ees b' | bes1 | b4 des, d g |
+	b2 aes8 a4. | aes4 bes, d g' | gis1 | r |
+
+	%% part "C"
+	ges | des4 aes2. | a g a g | aes c2 d4 |
+	c1 | e'4 des2. | ees, e \times 2/3 { d c b } | bes2. a4 |
+	d des f2 | fis'2 a, | aes1 | a2. r4 |
+}
+
+#+end_src
+
+#+name: ChordsLorem
+#+header: :file all_that_stuff_you_own_ChordsLorem.eps
+#+begin_src lilypond 
+
+\chordmode {
+	\startChords
+
+	\startSong
+
+	\mark "A"
+	\startPart
+	f1:m7 | bes:m7 | ees:7 | aes:maj7 | \myEndLine
+	des:maj7 | g:7 | c1*2:maj7 | \myEndLine
+	c1:m7 | f:m7 | bes:7 | ees:maj7 | \myEndLine
+	aes:maj7 | a2:m7.5- d:7.9- | g1:maj7 | g2:maj7 e:7.9+ | \myEndLine
+	\endPart
+
+	\mark "B"
+	\startPart
+	a1:m7 | d:7 | g:maj7 | c:maj7 | \myEndLine
+	fis:m7.5- | b:7 | e:maj7 | c:7.5+ | \myEndLine
+	\endPart
+
+	\mark "C"
+	\startPart
+	f:m7 | bes:m7 | ees:7 | aes:maj7 | \myEndLine
+	des:maj7 | des2:m7 ges:7.9 | aes1:maj7 | b:dim7 | \myEndLine
+	bes:m7 | ees:7.9 | aes1*2:maj7 | \myEndLine
+	\endPart
+
+	\endSong
+}
+
+#+end_src
+

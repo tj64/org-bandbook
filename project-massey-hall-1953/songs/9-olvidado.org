@@ -1,0 +1,33 @@
+* song
+  :PROPERTIES:
+  :song_link: [[file:~/git/org-bandbook/library-of-songs/jazz/olvidado.org][olvidado]]
+  :song_key: bes
+  :song_mode: major
+  :song_structure: AABA
+  :transpose_score: g
+  :END:
+
+* arrangement
+  :PROPERTIES:
+  :piano:    p
+  :bass:     b
+  :drums:    dr
+  :trumpet:  tr
+  :alt-sax:  as
+  :END:
+
+ | seq  | do | melody | solo  | accomp | riff |
+ |------+----+--------+-------+--------+------|
+ | a    |  1 | as tr  |       | b dr p |      |
+ | aaba |  3 |        | as    | b dr p |      |
+ | aaba |  4 |        | tr    | b dr p |      |
+ | aaba |  3 |        | p     | b dr   |      |
+ | aa   |  1 |        | as tr | b dr p |      |
+ | b    |  1 |        | dr    |        |      |
+ | a    |  1 | as tr  |       | b dr p |      |
+
+
+* intro
+* outro
+* break 
+* interlude

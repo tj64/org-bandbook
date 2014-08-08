@@ -1,5 +1,5 @@
 # #+TITLE: call_project-name() 
-#+DATE: call_curr-date()
+# #+DATE: call_curr-date()
 #+DESCRIPTION: Org-Bandbook for Project call_project-name() 
 #+KEYWORDS: 
 #+LANGUAGE:  en
@@ -18,18 +18,9 @@
 #+FILETAGS: bandbook lilypond
 # #+STYLE: <link rel="stylesheet" type="text/css" href="http://www.abs.com/abc.css" /> 
 #+LaTeX_CLASS: koma-book
-#+LaTeX_CLASS_OPTIONS: [listof=flat,letterpaper,11pt,abstract=true]
 #+LaTeX_HEADER: \usepackage[utf8]{inputenc}
 #+LaTeX_HEADER: \usepackage[T1]{fontenc} 
-#+LaTeX_HEADER: \usepackage[scaled]{palatino}
-# #+LaTeX_HEADER: \usepackage[scaled]{beraserif}
-# #+LaTeX_HEADER: \usepackage[scaled]{berasans} 
-# #+LaTeX_HEADER: \usepackage[scaled]{beramono}
-# #+LaTeX_HEADER: \usepackage[autostyle]{csquotes}                                                
-# #+LaTeX_HEADER: \usepackage[backend=biber, style=authoryear-icomp, sortlocale=de_DE, natbib=true, url=false, doi=true, eprint=false ]{biblatex}
-# #+LaTeX_HEADER: \addbibresource{../bandbook.bib}
-# #+LaTeX_HEADER: \usepackage[style=authoryear-comp,natbib=true]{biblatex}
-# #+LaTeX_HEADER: \bibliography{lit}
+#+LaTeX_HEADER: \usepackage{palatino}
 #+LaTeX_HEADER: \bibliographystyle{alpha}
 #+LaTeX_HEADER: \bibliography{../bandbook.bib}
 #+LaTeX_HEADER: \usepackage{fixltx2e}
@@ -58,18 +49,8 @@
 #+LaTeX_HEADER: \usepackage{textcomp}
 #+LaTeX_HEADER: \usepackage{tabularx}
 #+LaTeX_HEADER: \usepackage[x11names]{xcolor}
-#+LaTeX_HEADER: \usepackage[colorlinks=true,urlcolor=SteelBlue4,linkcolor=Firebrick4,citecolor=Green4]{hyperref}
 
 #+LaTeX_HEADER: \input{/home/tj/git/org-bandbook/library-of-title-pages/massey-hall-1953.tex}
 
-#+name: get-abstract
-#+header: :exports results
-#+header: :wrap abstract
-#+begin_src emacs-lisp
-  (org-bandbook-get-abstract)
-#+end_src
-
 #+LATEX: \tableofcontents
-# #+LATEX: \listoffigures
-# #+LATEX: \listoftables
 

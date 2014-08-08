@@ -1,5 +1,13 @@
+#+TITLE: People Massey-Hall-Concert (Toronto/CND)
+#+DATE:  <1953-05-15 Fr> 
+# #+OPTIONS: toc:nil p:t author:nil pri:t prop:t tags:nil
+
 * people :taskjuggler_resources:
 ** musicians 
+   :PROPERTIES:
+   :resource_id: musicians
+   :END:
+
 *** Charlie Parker
    :PROPERTIES:
    :resource_id: bird
@@ -41,6 +49,10 @@
    :END:
 
 ** management
+   :PROPERTIES:
+   :resource_id: management
+   :END:
+
 *** Billie Shaw
    :PROPERTIES:
    :resource_id: billie
@@ -50,6 +62,9 @@
    :END:
 
 ** crew 
+   :PROPERTIES:
+   :resource_id: crew
+   :END:
 
 *** Horst Schlämmer
    :PROPERTIES:
