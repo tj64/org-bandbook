@@ -52,7 +52,7 @@
   (concat
    "\\(?:% if part=='\\)\\([[:word:]]+\\)\\(?:':\\)"
    "\\([^\\000]+?\\)\\(?:% endif\\)")
-   ;; "\\([^^@]+?\\)\\(?:% endif\\)") ; replace with NULL byte
+   ;; "\\([^^@]+?\\)\\(?:% endif\\)") ; replace with NUL byte
   "Match parts in mako file. Subgroup 1 has the part name,
   subgroup 2 the part content.")
 
@@ -846,16 +846,12 @@ e.g. 'guitar-duo'."
 
 PARTS is an alist of the form
 
- #+begin_src emacs-lisp
   ((part-name . content) ... (part-name . content))
- #+end_src
 
 If TRANSPOSE-FROM-TO is non-nil, it should be a cons-pair of the
 form:
 
- #+begin_src emacs-lisp
   (\"c\" . \"d\")
- #+end_src
 
 with the actual key in the car and the target key in the cdr."
   (mapconcat
@@ -925,9 +921,7 @@ If SCORE-TEMPLATE is
 If TRANSPOSE-FROM-TO is non-nil it should be a cons-pair of the
 form:
 
- #+begin_src emacs-lisp
   (\"c\" . \"d\")
- #+end_src
 
 with the actual key in the car and the target key in the cdr."
   (let ((old-buf (current-buffer)))
@@ -1056,32 +1050,55 @@ with the actual key in the car and the target key in the cdr."
 	       (when song-name
 		 (setq song-lst
 		       (cons
-			(format
-			 (concat
-			  "\n#+latex: \\newpage\n"
-			  "\n* %s\n"
-			  ;; "  :PROPERTIES:\n"
-			  ;; "  :END:\n\n")
-			  "\n#+name: %s\n"
-			  "#+header: :exports results\n"
-			  "#+header: :file %s\n"
-			  "#+begin_src lilypond\n"
-			  ;; ":exports results :file %s\n"
-			  "%s\n#+end_src\n"
-			  "\n#+latex: \\newpage\n"
-			  "%s"
-			  "\n#+latex: \\newpage\n")
-			 (mapconcat
-			  (lambda (--word) (upcase --word))
-			  (org-bandbook--split-words song-name) " ")
-			 song-name
-			 (concat song-name ".eps")
-			 (if (and to-key from-key)
-			     (org-bandbook-render-song
-			      song-path (cons from-key to-key) t);)
-			   (org-bandbook-render-song
-			    song-path nil t))
-			 arrangement)
+			(concat
+			 ;; newpage
+			 (org-dp-create
+			  'keyword nil nil nil
+			  :key 'latex
+			  :value "\\newpage")
+			 "\n"
+			 ;; headline
+			 (org-dp-create
+			  'headline nil nil nil
+			  :level 1
+			  :title (mapconcat
+				  (lambda (--word) (upcase --word))
+				  (org-bandbook--split-words
+				   song-name) " "))
+			 "\n"
+			 ;; src-block
+			 (org-dp-create
+			  'src-block
+			  ;; contents
+			  (if (and to-key from-key)
+			      (org-bandbook-render-song
+			       song-path (cons from-key to-key) t)
+			    (org-bandbook-render-song
+			     song-path nil t))
+			  ;; insert-p
+			  nil
+			  ;; affiliated
+			  (list :name song-name
+				:header `(":exports results"
+					  ,(format ":file %s"
+						   (concat
+						    song-name
+						    ".eps"))))
+			  ;; args
+			  :languate 'lilypond)
+			 "\n"
+			 ;; newpage
+			 (org-dp-create 'keyword nil nil nil
+					:key 'latex
+					:value "\\newpage")
+			 "\n"
+			 ;; arrangement
+			 (format "%s" arrangement)
+			 ;; newpage
+			 (org-dp-create 'keyword nil nil nil
+					:key 'latex
+					:value "\\newpage")
+			 "\n")
 			song-lst)))))
 	   ;; (org-bandbook-get-songs))
 	   ordered-song-names)
@@ -1091,6 +1108,35 @@ with the actual key in the car and the target key in the cdr."
 	   (ignore-errors
 	     (file-name-directory
 	      (buffer-file-name (current-buffer)))))))
+
+
+			;; (format
+			;;  (concat
+			;;   "\n#+latex: \\newpage\n"
+			;;   "\n* %s\n"
+			;;   ;; "  :PROPERTIES:\n"
+			;;   ;; "  :END:\n\n")
+			;;   "\n#+name: %s\n"
+			;;   "#+header: :exports results\n"
+			;;   "#+header: :file %s\n"
+			;;   "#+begin_src lilypond\n"
+			;;   ;; ":exports results :file %s\n"
+			;;   "%s\n#+end_src\n"
+			;;   "\n#+latex: \\newpage\n"
+			;;   "%s"
+			;;   "\n#+latex: \\newpage\n")
+			;;  (mapconcat
+			;;   (lambda (--word) (upcase --word))
+			;;   (org-bandbook--split-words song-name) " ")
+			;;  song-name
+			;;  (concat song-name ".eps")
+			;;  (if (and to-key from-key)
+			;;      (org-bandbook-render-song
+			;;       song-path (cons from-key to-key) t);)
+			;;    (org-bandbook-render-song
+			;;     song-path nil t))
+			;;  arrangement)
+
 
 ;;;;; Change Song Order
 
