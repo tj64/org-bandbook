@@ -1,9 +1,9 @@
 * song
   :PROPERTIES:
-  :song_link: [[file:~/git/org-bandbook/library-of-songs/jazz/what_is_this_thing_called_love.org][what-is-this-thing]]
-  :song_key: aes
-  :song_mode: major
-  # :transpose_score: aes
+  :link: [[file:~/git/org-bandbook/library-of-songs/jazz/what_is_this_thing_called_love.org][what-is-this-thing]]
+  :key: aes
+  :mode: major
+  # :transpose: aes
   :END:
 * intro
 * outro

@@ -1,10 +1,10 @@
 * song
   :PROPERTIES:
-  :song_link: [[file:~/git/org-bandbook/library-of-songs/jazz/all_the_things_you_are.org][all-the-things]]
-  :transpose_score: f
-  :song_key: aes
-  :song_mode: major
-  :song_structure: ABC
+  :link: [[file:~/git/org-bandbook/library-of-songs/jazz/all_the_things_you_are.org][all-the-things]]
+  :transpose: f
+  :key: aes
+  :mode: major
+  :structure: ABC
   :END:
 
 * arrangement

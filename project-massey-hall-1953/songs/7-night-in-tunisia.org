@@ -1,9 +1,9 @@
 * song
   :PROPERTIES:
-  :song_link: 
-  :song_key: 
-  :song_mode: 
-  # :transpose_score: aes
+  :link: 
+  :key: 
+  :mode: 
+  # :transpose: aes
   :END:
 * intro
 * outro

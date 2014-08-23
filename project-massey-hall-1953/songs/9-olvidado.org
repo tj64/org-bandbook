@@ -1,10 +1,10 @@
 * song
   :PROPERTIES:
-  :song_link: [[file:~/git/org-bandbook/library-of-songs/jazz/olvidado.org][olvidado]]
-  :song_key: bes
-  :song_mode: major
-  :song_structure: AABA
-  :transpose_score: g
+  :link: [[file:~/git/org-bandbook/library-of-songs/jazz/olvidado.org][olvidado]]
+  :key: bes
+  :mode: major
+  :structure: AABA
+  :transpose: g
   :END:
 
 * arrangement

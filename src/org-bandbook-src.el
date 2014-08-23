@@ -89,12 +89,11 @@
   "List of Org-Bandbook instrument properties.")
 
 (defconst org-bandbook-song-properties
-  (list "song_link" "song_key" "song_mode" "song_structure"
-	"transpose_score")
+  (list "link" "key" "mode" "structure"	"transpose")
   "List of Org-Bandbook song properties.")
 
 (defconst org-bandbook-master-properties
-  (list "header" "song_order" "book_parts" "people")
+  (list "export_header" "song_order" "book_parts" "project_people")
   "List of Org-Bandbook master properties.")
 
 (defconst org-bandbook-project-properties
@@ -421,6 +420,16 @@ Finally add one newline."
   (when (org-string-nw-p strg)
     (car (split-string strg "\"" 'OMIT-NULLS))))
 
+(defun org-bandbook--get-parent-dir-name (&optional file-name)
+  "Return parent-dir name of bandbook file FILE-NAME or nil."
+  (ignore-errors
+    (file-name-sans-extension
+     (file-name-nondirectory
+      (directory-file-name
+       (file-name-directory
+	(org-bandbook--get-path
+	 (or file-name (buffer-file-name)))))))))
+
 ;;;;;; Bandbook Specific
 
 (defun org-bandbook--combine-music-parts-and-references ()
@@ -508,7 +517,8 @@ created lists are then enclosed in another list."
 	(org-map-entries
 	 (lambda ()
 	   (let ((filtered-props
-		  (org-bandbook--filter-project-properties)))
+		  ;; (org-bandbook--filter-project-properties)))
+		  (org-bandbook-get-props)))
 	     (when filtered-props
 	       (setq people
 		     (cons
@@ -613,14 +623,18 @@ created lists are then enclosed in another list."
   "Return current entry's filtered properties.
 Only properties that are member of the relevant
 `org-bandbook-XYZ-properties' for current buffer are considered."
-  (let ((buf (car-safe (member (buffer-name)
-			       org-bandbook-config-files))))
-    (when buf
+  (let* ((buf (car-safe (member (buffer-name)
+				org-bandbook-config-files)))
+	 (parent-dir (unless buf
+		       (org-bandbook--get-parent-dir-name))))
+    (when (or buf (string= parent-dir "songs"))
       (org-dp-filter-node-props
-       (eval
-	(intern
-	 (format "org-bandbook-%s-properties"
-		 (car (split-string buf "\\.")))))))))
+       (if buf
+	   (eval
+	    (intern
+	     (format "org-bandbook-%s-properties"
+		     (car (split-string buf "\\.")))))
+	 org-bandbook-song-properties)))))
 
 (defun org-bandbook--filter-properties (lst &optional negate-p)
   "Return current entry's filtered properties.
@@ -783,7 +797,8 @@ see `org-bandbook-arrangement-column-labels'."
 	      (org-find-exact-headline-in-buffer "arrangement"))
 	   (error "No exact headline 'arrangement' in buffer %s"
 		  (current-buffer)))
-	 (let ((props (org-bandbook--filter-non-org-properties))
+	 (let ((props (org-dp-filter-node-props 'org t))
+	 ;; (let ((props (org-bandbook--filter-non-org-properties))
 	       tbl)
 	   (save-restriction
 	     (org-narrow-to-subtree)
@@ -801,7 +816,8 @@ see `org-bandbook-arrangement-column-labels'."
       (when song
 	(save-excursion
 	  (goto-char song)
-	  (org-bandbook--filter-project-properties))))))
+	  (org-bandbook-get-props))))))
+	  ;; (org-bandbook--filter-project-properties))))))
 
 (defun org-bandbook--get-song-link ()
   "Return song link or nil."
