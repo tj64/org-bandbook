@@ -1,6 +1,6 @@
 * song
   :PROPERTIES:
-  :link: [[file:~/git/org-bandbook/library-of-songs/jazz/all_the_things_you_are.org][all-the-things]]
+  :file_link: [[file:~/git/org-bandbook/library-of-songs/jazz/all_the_things_you_are.org][all-the-things]]
   :transpose: f
   :key: aes
   :mode: major

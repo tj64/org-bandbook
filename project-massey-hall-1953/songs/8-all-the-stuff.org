@@ -1,6 +1,6 @@
 * song
   :PROPERTIES:
-  :link: [[file:~/git/org-bandbook/library-of-songs/jazz/all-that-stuff.org][all-that-stuff]]
+  :file_link: [[file:~/git/org-bandbook/library-of-songs/jazz/all-that-stuff.org][all-that-stuff]]
   :transpose: f
   :key: aes
   :mode: major

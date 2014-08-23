@@ -1,6 +1,6 @@
 * song
   :PROPERTIES:
-  :link: 
+  :file_link: 
   :key: 
   :mode: 
   # :transpose: aes

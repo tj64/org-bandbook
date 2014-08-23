@@ -1,6 +1,6 @@
 * song
   :PROPERTIES:
-  :link: [[file:~/git/org-bandbook/library-of-songs/jazz/perdido.org][perdido]]
+  :file_link: [[file:~/git/org-bandbook/library-of-songs/jazz/perdido.org][perdido]]
   :key: bes
   :mode: major
   :structure: AABA

@@ -1,6 +1,6 @@
 * song
   :PROPERTIES:
-  :link: [[file:~/git/org-bandbook/library-of-songs/jazz/olvidado.org][olvidado]]
+  :file_link: [[file:~/git/org-bandbook/library-of-songs/jazz/olvidado.org][olvidado]]
   :key: bes
   :mode: major
   :structure: AABA
