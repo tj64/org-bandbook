@@ -517,7 +517,6 @@ created lists are then enclosed in another list."
 	(org-map-entries
 	 (lambda ()
 	   (let ((filtered-props
-		  ;; (org-bandbook--filter-project-properties)))
 		  (org-bandbook-get-props)))
 	     (when filtered-props
 	       (setq people
@@ -572,7 +571,6 @@ created lists are then enclosed in another list."
 	 (lambda ()
 	   (let ((proj-props
 		  (org-bandbook-get-props)))
-		  ;; (org-bandbook--filter-project-properties)))
 	     (and proj-props 
 		  (setq instruments
 			(cons
@@ -636,64 +634,6 @@ Only properties that are member of the relevant
 	     (format "org-bandbook-%s-properties"
 		     (car (split-string buf "\\.")))))
 	 org-bandbook-song-properties)))))
-
-;; (defun org-bandbook--filter-properties (lst &optional negate-p)
-;;   "Return current entry's filtered properties.
-;; Only properties that are member of LST are considered. If
-;; NEGATE-P is non-nil, only properties that are not member of LST
-;; are considered."
-;;   (delq nil
-;; 	(mapcar
-;; 	 (lambda (--pair)
-;; 	   (when (or      
-;; 		  (and negate-p
-;; 		       (not (member (car --pair) lst)))
-;; 		  (and (not negate-p)
-;; 		       (member (car --pair) lst)))
-;; 	     --pair))
-;; 	 (org-entry-properties))))
-
-;; (defun org-bandbook--filter-project-properties ()
-;;   "Return current entry's filtered properties.
-;; Only properties that are member of
-;; `org-bandbook-project-properties' are considered."
-;;   (org-bandbook--filter-properties
-;;    org-bandbook-project-properties))
-
-;; (defun org-bandbook--filter-people-properties ()
-;;   "Return current entry's filtered properties.
-;; Only properties that are member of
-;; `org-bandbook-people-properties' are considered."
-;;   (org-bandbook--filter-properties
-;;    org-bandbook-people-properties))
-
-;; (defun org-bandbook--filter-instrument-properties ()
-;;   "Return current entry's filtered properties.
-;; Only properties that are member of
-;; `org-bandbook-instrument-properties' are considered."
-;;   (org-bandbook--filter-properties
-;;    org-bandbook-instrument-properties))
-
-;; (defun org-bandbook--filter-master-properties ()
-;;   "Return current entry's filtered properties.
-;; Only properties that are member of
-;; `org-bandbook-master-properties' are considered."
-;;   (org-bandbook--filter-properties
-;;    org-bandbook-master-properties))
-
-;; (defun org-bandbook--filter-song-properties ()
-;;   "Return current entry's filtered properties.
-;; Only properties that are member of
-;; `org-bandbook-song-properties' are considered."
-;;   (org-bandbook--filter-properties
-;;    org-bandbook-song-properties))
-
-;; (defun org-bandbook--filter-non-org-properties ()
-;;   "Return current entry's filtered properties.
-;; Only properties that are not member of
-;; `org-bandbook-org-properties' are considered."
-;;   (org-bandbook--filter-properties
-;;    org-bandbook-org-properties 'NEGATE-P))
 
 (defun org-bandbook--check-project-structure (proj-dir)
   "Return PROJ-DIR if its structure is correct, nil otherwise."
@@ -798,7 +738,6 @@ see `org-bandbook-arrangement-column-labels'."
 	   (error "No exact headline 'arrangement' in buffer %s"
 		  (current-buffer)))
 	 (let ((props (org-dp-filter-node-props 'org t))
-	 ;; (let ((props (org-bandbook--filter-non-org-properties))
 	       tbl)
 	   (save-restriction
 	     (org-narrow-to-subtree)
@@ -817,7 +756,6 @@ see `org-bandbook-arrangement-column-labels'."
 	(save-excursion
 	  (goto-char song)
 	  (org-bandbook-get-props))))))
-	  ;; (org-bandbook--filter-project-properties))))))
 
 (defun org-bandbook--get-song-link ()
   "Return song link or nil."
@@ -898,7 +836,6 @@ e.g. 'guitar-duo'."
       (kill-buffer))
     (when (require 'ob-lilypond nil t)
       (ly-compile-lilyfile tmp-file))))
-
 
 ;; (defun org-bandbook-transpose-song ())
 
@@ -1793,7 +1730,6 @@ directory that has a 'arrangement' entry."
 		 (master-props
 		  (with-current-buffer master-buf
 		    (org-bandbook-get-props)))
-		    ;; (org-bandbook--filter-project-properties)))
 		 (header
 		  (org-string-nw-p
 		   (cdr (assoc "export_header" master-props))))
