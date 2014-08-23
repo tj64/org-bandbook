@@ -63,7 +63,7 @@
 #+header: :exports results
 #+header: :wrap abstract
 #+begin_src emacs-lisp
-  (org-bandbook-get-abstract)
+  (org-bandbook--get-abstract)
 #+end_src
 
 #+LATEX: \tableofcontents

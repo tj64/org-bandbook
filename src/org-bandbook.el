@@ -154,7 +154,7 @@ in the cdr, to be used in PlantUML activity diagrams.")
 
 (defconst org-bandbook-dir-files
   (list
-   "common.ly" "doc" ".git" "lib" "library-of-account-schemes"
+   "common.ly" "doc" ".git" "lib" "library-of-accounting-schemes"
    "library-of-artwork" "library-of-headers" "library-of-songs"
    "library-of-title-pages" "project-massey-hall-1953" "score.org"
    "src" "tmp")
@@ -463,6 +463,23 @@ created lists are then enclosed in another list."
 	    (car (rassoc --abbrev instr)))
 	  abbrev-lst " & "))))
 
+(defun org-bandbook--get-props ()
+  "Return current entry's filtered properties.
+Only properties that are member of the relevant
+`org-bandbook-XYZ-properties' for current buffer are considered."
+  (let* ((buf (car-safe (member (buffer-name)
+				org-bandbook-config-files)))
+	 (parent-dir (unless buf
+		       (org-bandbook--get-parent-dir-name))))
+    (when (or buf (string= parent-dir "songs"))
+      (org-dp-filter-node-props
+       (if buf
+	   (eval
+	    (intern
+	     (format "org-bandbook-%s-properties"
+		     (car (split-string buf "\\.")))))
+	 org-bandbook-song-properties)))))
+
 ;;;;; Project Info
 
 (defun org-bandbook--get-project-name ()
@@ -517,7 +534,7 @@ created lists are then enclosed in another list."
 	(org-map-entries
 	 (lambda ()
 	   (let ((filtered-props
-		  (org-bandbook-get-props)))
+		  (org-bandbook--get-props)))
 	     (when filtered-props
 	       (setq people
 		     (cons
@@ -531,7 +548,7 @@ created lists are then enclosed in another list."
       people)))
       ;; (car (read-from-string people)))))
 
-(defun org-bandbook--get-filtered-project-people-as-strg ()
+(defun org-bandbook--get-active-project-people-as-strg ()
   "Get filtered buffer-string of project's people.org."
   (when (org-bandbook-current-project)
     (let ((ids (org-bandbook--get-resource-ids))
@@ -570,7 +587,7 @@ created lists are then enclosed in another list."
 	(org-map-entries
 	 (lambda ()
 	   (let ((proj-props
-		  (org-bandbook-get-props)))
+		  (org-bandbook--get-props)))
 	     (and proj-props 
 		  (setq instruments
 			(cons
@@ -618,23 +635,6 @@ created lists are then enclosed in another list."
      instr)
     arr-props))
 
-(defun org-bandbook-get-props ()
-  "Return current entry's filtered properties.
-Only properties that are member of the relevant
-`org-bandbook-XYZ-properties' for current buffer are considered."
-  (let* ((buf (car-safe (member (buffer-name)
-				org-bandbook-config-files)))
-	 (parent-dir (unless buf
-		       (org-bandbook--get-parent-dir-name))))
-    (when (or buf (string= parent-dir "songs"))
-      (org-dp-filter-node-props
-       (if buf
-	   (eval
-	    (intern
-	     (format "org-bandbook-%s-properties"
-		     (car (split-string buf "\\.")))))
-	 org-bandbook-song-properties)))))
-
 (defun org-bandbook--check-project-structure (proj-dir)
   "Return PROJ-DIR if its structure is correct, nil otherwise."
   (when (file-directory-p proj-dir)
@@ -651,6 +651,30 @@ Only properties that are member of the relevant
 			     (directory-files bb-dir)
 			     :test 'string=))))
 	proj-dir))))
+
+
+(defun org-bandbook--get-abstract (&optional project)
+  "Return content of project's abstract.org file."
+  (when org-bandbook-with-abstract-p
+    (let ((proj (or project org-bandbook-current-project-dir)))
+      (with-current-buffer
+	  (find-file-noselect
+	   (org-bandbook--get-path "abstract.org" proj))
+	(save-restriction
+	  (widen)
+	  (let ((buf-cont
+		 (org-element-map (org-element-parse-buffer)
+		     'headline
+		   (lambda (--hl)
+		     (and (string=
+			   (org-element-property :raw-value --hl)
+			   "Abstract")
+			  (org-element-interpret-data
+			   (org-element-contents --hl))))
+		   nil 'FIRST-MATCH 'NO-RECURSION)))
+	    (kill-buffer)
+	    ;; (message "%s" buf-cont)
+	    buf-cont))))))
 
 (defun org-bandbook-current-project ()
   "Return project-name if in (top-level of) org-bandbook project.
@@ -682,30 +706,6 @@ name."
      ((string= grandparent-dir-name "org-bandbook")
       (org-bandbook--check-project-structure parent-dir))
      (t nil))))
-
-(defun org-bandbook-get-abstract (&optional project)
-  "Return content of project's abstract.org file."
-  (when org-bandbook-with-abstract-p
-    (let ((proj (or project org-bandbook-current-project-dir)))
-      (with-current-buffer
-	  (find-file-noselect
-	   (org-bandbook--get-path "abstract.org" proj))
-	(save-restriction
-	  (widen)
-	  (let ((buf-cont
-		 (org-element-map (org-element-parse-buffer)
-		     'headline
-		   (lambda (--hl)
-		     (and (string=
-			   (org-element-property :raw-value --hl)
-			   "Abstract")
-			  (org-element-interpret-data
-			   (org-element-contents --hl))))
-		   nil 'FIRST-MATCH 'NO-RECURSION)))
-	    (kill-buffer)
-	    ;; (message "%s" buf-cont)
-	    buf-cont))))))
-
 
 ;;;;; Song Info
 
@@ -755,7 +755,7 @@ see `org-bandbook-arrangement-column-labels'."
       (when song
 	(save-excursion
 	  (goto-char song)
-	  (org-bandbook-get-props))))))
+	  (org-bandbook--get-props))))))
 
 (defun org-bandbook--get-song-link ()
   "Return song link or nil."
@@ -781,7 +781,7 @@ see `org-bandbook-arrangement-column-labels'."
   (cdr-safe (assoc "structure"
 	      (org-bandbook--get-song-properties))))
 
-(defun org-bandbook--get-song-transpose-score ()
+(defun org-bandbook--get-song-transpose-pitch ()
   "Return song transpose-score info or nil."
   (cdr-safe (assoc "transpose_score"
 	      (org-bandbook--get-song-properties))))
@@ -1030,7 +1030,7 @@ with the actual key in the car and the target key in the cdr."
 		    (to-key
 		     (with-current-buffer
 			 (find-file-noselect --song)
-		       (org-bandbook--get-song-transpose-score)))
+		       (org-bandbook--get-song-transpose-pitch)))
 		    (arrangement
 		     (with-current-buffer
 			 (find-file-noselect --song)
@@ -1729,7 +1729,7 @@ directory that has a 'arrangement' entry."
 			      (expand-file-name "./master.org")))
 		 (master-props
 		  (with-current-buffer master-buf
-		    (org-bandbook-get-props)))
+		    (org-bandbook--get-props)))
 		 (header
 		  (org-string-nw-p
 		   (cdr (assoc "export_header" master-props))))
@@ -1838,7 +1838,7 @@ directory that has a 'arrangement' entry."
 		(concat "* Project People\n"
 			"** Active Participants\n"
 			"%s\n")
-		(org-bandbook--get-filtered-project-people-as-strg))))
+		(org-bandbook--get-active-project-people-as-strg))))
 	    ;; insert utility src_blocks
 	    (insert
 	     (format
