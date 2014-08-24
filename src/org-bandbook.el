@@ -90,7 +90,20 @@
 
 (defconst org-bandbook-song-properties
   (list "file_link" "key" "mode" "structure" "transpose")
-  "List of Org-Bandbook song properties.")
+  "List of Org-Bandbook song properties.
+These properties are used for song-config-files in a project's
+'song' directory.")
+
+;; derived/imported from .mako files of 'open-book' project
+(defconst org-bandbook-library-of-song-props
+  (list "lyricsurl" "idyoutube" "idyoutuberemark" "structure"
+	"structureremark" "completion" "copyright" "copyrightextra"
+	"remark" "poet" "piece" "composer" "style" "title"
+	"subtitle" "render" "doLyrics" "doLyricsmore"
+	"doLyricsmoremore" "doVoice" "doChords" "uuid")
+  "List of Org-Bandbook song properties.
+These properties are used for song-score-files in Org-Bandbook's
+'library-of-songs'.")
 
 (defconst org-bandbook-master-properties
   (list "export_header" "song_order" "book_parts" "project_people")
@@ -463,22 +476,39 @@ created lists are then enclosed in another list."
 	    (car (rassoc --abbrev instr)))
 	  abbrev-lst " & "))))
 
-(defun org-bandbook--get-props ()
+(defun org-bandbook--get-props (&optional fallback-to-non-org-p fallback-to-all-p)
   "Return current entry's filtered properties.
 Only properties that are member of the relevant
-`org-bandbook-XYZ-properties' for current buffer are considered."
+`org-bandbook-XYZ-properties' for current buffer are considered,
+except for song buffers from the 'library-of-songs'. If optional
+argument FALLBACK-TO-NON-ORG-P is non-nil, return all 'non-org'
+properties as default, if optional argument FALLBACK-TO-ALL-P is
+non-nil, return all unfiltered properties as default, otherwise
+return 'nil' as default."
   (let* ((buf (car-safe (member (buffer-name)
 				org-bandbook-config-files)))
 	 (parent-dir (unless buf
-		       (org-bandbook--get-parent-dir-name))))
-    (when (or buf (string= parent-dir "songs"))
-      (org-dp-filter-node-props
-       (if buf
-	   (eval
-	    (intern
-	     (format "org-bandbook-%s-properties"
-		     (car (split-string buf "\\.")))))
-	 org-bandbook-song-properties)))))
+		       (org-bandbook--get-parent-dir-name)))
+	 (songs-dir-p (and parent-dir
+			   (not (string= parent-dir "songs"))))
+	 (grandparent-dir (and parent-dir
+			       (not songs-dir-p)
+			       (string=
+				(org-bandbook--get-parent-dir-name
+				 parent-dir)
+				"library-of-songs")))))
+  (cond
+   (buf (org-dp-filter-node-props
+	 (eval
+	  (intern
+	   (format "org-bandbook-%s-properties"
+		   (car (split-string buf "\\.")))))))
+   (songs-dir-p (org-dp-filter-node-props
+		 org-bandbook-song-properties))
+   (grandparent-dir (org-dp-filter-node-props
+		     org-bandbook-library-of-songs-props))
+   (fallback-to-non-org-p (org-dp-filter-node-props 'org t))
+   (fallback-to-all-p (org-entry-properties))))
 
 ;;;;; Project Info
 
@@ -928,8 +958,9 @@ with the actual key in the car and the target key in the cdr."
     (let* ((song-buf (find-file-noselect song))
 	   (version (or (ignore-errors
 			  (with-current-buffer song-buf
-			    (replace-regexp-in-string
-			     "\"" ""
+			    ;; (replace-regexp-in-string
+			    ;;  "\"" ""
+			    (org-bandbook--clean-string
 			     (org-entry-get nil "render"))))
 			(error
 			 "Song without 'render' attribute!")))
