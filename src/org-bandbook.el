@@ -73,7 +73,8 @@
   "List of mako part names that contain music.")
 
 (defconst org-bandbook-mako-sheet-music-references
- '("Real" "Fake" "Aebersold" "Unknown" "Wikifonia" "Epdf0" "My")
+ (list "Real" "Fake" "Aebersold" "Unknown" "Wikifonia"
+       "Epdf0" "My" "Lorem")
   "List of referenced sheet-music books.")
 
 (defconst org-bandbook-mako-non-music-parts
@@ -354,10 +355,11 @@ resourcereport resourceGraph \"\" {
 
 (defun org-bandbook--extract-path-from-org-link (link)
   "Extract absolute path from org LINK."
-  (ignore-errors
+  (when (org-string-nw-p link)
+    (ignore-errors
       (expand-file-name
        (replace-regexp-in-string
-	org-bandbook-link-regexp "\\1" link))))
+	org-bandbook-link-regexp "\\1" link)))))
 
 ;; copied from kv.el
 (defun org-bandbook--plist-to-alist (plist &optional keys-are-keywords)
@@ -783,7 +785,7 @@ see `org-bandbook-arrangement-column-labels'."
 
 
 (defun org-bandbook--get-song-properties ()
-  "Return alist of song properties."
+  "Return alist of song config-properties."
   (when (org-bandbook-current-project)
     (let ((song (org-find-exact-headline-in-buffer
 		 "song" nil 'POS-ONLY)))
@@ -799,7 +801,7 @@ see `org-bandbook-arrangement-column-labels'."
 		      (org-bandbook--get-song-properties)))))
     (if (string-match org-bandbook-link-regexp link)
 	(org-bandbook--extract-path-from-org-link link)
-      link)))
+      (org-string-nw-p link))))
 
 (defun org-bandbook--get-song-key ()
   "Return song key or nil."
@@ -1065,7 +1067,16 @@ with the actual key in the car and the target key in the cdr."
 		     (with-current-buffer
 			 (find-file-noselect --song)
 		       (let ((temporary-file-directory
-			      org-bandbook-current-temp-subdir))
+			      (or
+			       ;; get current tmp-subdir
+			       org-bandbook-current-temp-subdir
+			       ;; set current tmp-subdir
+			       (let ((temporary-file-directory
+				      org-bandbook-temp-dir))
+				 (setq
+				  org-bandbook-current-temp-subdir
+				  (make-temp-file "bandbook-"
+						  'DIR-FLAG))))))
 			 (puml-wrap
 			  :scale org-bandbook-arr-diag-scale-factor
 			  :file (file-name-nondirectory
@@ -1077,7 +1088,7 @@ with the actual key in the car and the target key in the cdr."
 		     (with-current-buffer
 			 (find-file-noselect --song)
 		       (org-bandbook--extract-path-from-org-link
-			(org-bandbook--get-song-link))))
+			 (org-bandbook--get-song-link))))
 		    (song-name (and song-path
 				    (file-name-sans-extension
 				     (file-name-nondirectory
@@ -1105,23 +1116,23 @@ with the actual key in the car and the target key in the cdr."
 			 ;; src-block
 			 (org-dp-create
 			  'src-block
-			  ;; contents
+			  ;; --contents
 			  (if (and to-key from-key)
 			      (org-bandbook-render-song
 			       song-path (cons from-key to-key) t)
 			    (org-bandbook-render-song
 			     song-path nil t))
-			  ;; insert-p
+			  ;; --insert-p
 			  nil
-			  ;; affiliated
+			  ;; --affiliated
 			  (list :name song-name
 				:header `(":exports results"
 					  ,(format ":file %s"
 						   (concat
 						    song-name
 						    ".eps"))))
-			  ;; args
-			  :languate 'lilypond)
+			  ;; --args
+			  :language "lilypond")
 			 "\n"
 			 ;; newpage
 			 (org-dp-create 'keyword nil nil nil
@@ -1144,35 +1155,6 @@ with the actual key in the car and the target key in the cdr."
 	   (ignore-errors
 	     (file-name-directory
 	      (buffer-file-name (current-buffer)))))))
-
-
-			;; (format
-			;;  (concat
-			;;   "\n#+latex: \\newpage\n"
-			;;   "\n* %s\n"
-			;;   ;; "  :PROPERTIES:\n"
-			;;   ;; "  :END:\n\n")
-			;;   "\n#+name: %s\n"
-			;;   "#+header: :exports results\n"
-			;;   "#+header: :file %s\n"
-			;;   "#+begin_src lilypond\n"
-			;;   ;; ":exports results :file %s\n"
-			;;   "%s\n#+end_src\n"
-			;;   "\n#+latex: \\newpage\n"
-			;;   "%s"
-			;;   "\n#+latex: \\newpage\n")
-			;;  (mapconcat
-			;;   (lambda (--word) (upcase --word))
-			;;   (org-bandbook--split-words song-name) " ")
-			;;  song-name
-			;;  (concat song-name ".eps")
-			;;  (if (and to-key from-key)
-			;;      (org-bandbook-render-song
-			;;       song-path (cons from-key to-key) t);)
-			;;    (org-bandbook-render-song
-			;;     song-path nil t))
-			;;  arrangement)
-
 
 ;;;;; Change Song Order
 
