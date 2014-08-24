@@ -95,7 +95,7 @@ These properties are used for song-config-files in a project's
 'song' directory.")
 
 ;; derived/imported from .mako files of 'open-book' project
-(defconst org-bandbook-library-of-song-props
+(defconst org-bandbook-library-of-songs-props
   (list "lyricsurl" "idyoutube" "idyoutuberemark" "structure"
 	"structureremark" "completion" "copyright" "copyrightextra"
 	"remark" "poet" "piece" "composer" "style" "title"
@@ -476,27 +476,30 @@ created lists are then enclosed in another list."
 	    (car (rassoc --abbrev instr)))
 	  abbrev-lst " & "))))
 
-(defun org-bandbook--get-props (&optional fallback-to-non-org-p fallback-to-all-p)
+(defun org-bandbook--get-props (&optional fallback)
   "Return current entry's filtered properties.
 Only properties that are member of the relevant
 `org-bandbook-XYZ-properties' for current buffer are considered,
 except for song buffers from the 'library-of-songs'. If optional
-argument FALLBACK-TO-NON-ORG-P is non-nil, return all 'non-org'
-properties as default, if optional argument FALLBACK-TO-ALL-P is
-non-nil, return all unfiltered properties as default, otherwise
-return 'nil' as default."
+argument FALLBACK is non-nil, it can be 'all (-> all unfiltered
+properties are returned) or any other value (-> all non-org
+properties are returned). Otherwise `nil' is returned as
+default."
   (let* ((buf (car-safe (member (buffer-name)
 				org-bandbook-config-files)))
 	 (parent-dir (unless buf
 		       (org-bandbook--get-parent-dir-name)))
 	 (songs-dir-p (and parent-dir
-			   (not (string= parent-dir "songs"))))
+			   (string= parent-dir "songs")))
 	 (grandparent-dir (and parent-dir
 			       (not songs-dir-p)
 			       (string=
-				(org-bandbook--get-parent-dir-name
-				 parent-dir)
-				"library-of-songs")))))
+				(ignore-errors
+				  (org-bandbook--get-parent-dir-name
+				   (directory-file-name
+				    (file-name-directory
+				     (buffer-file-name)))))
+				"library-of-songs"))))
   (cond
    (buf (org-dp-filter-node-props
 	 (eval
@@ -507,8 +510,10 @@ return 'nil' as default."
 		 org-bandbook-song-properties))
    (grandparent-dir (org-dp-filter-node-props
 		     org-bandbook-library-of-songs-props))
-   (fallback-to-non-org-p (org-dp-filter-node-props 'org t))
-   (fallback-to-all-p (org-entry-properties))))
+   (t (cond 
+	((eq fallback 'all) (org-entry-properties))
+	(fallback (org-dp-filter-node-props 'org t))
+	(t nil))))))
 
 ;;;;; Project Info
 
