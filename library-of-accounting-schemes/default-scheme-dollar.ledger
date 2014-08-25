@@ -30,31 +30,14 @@ account Liabilities:PA:Principal
     alias PA-principal
     assert commodity == "$"
 
-;; TODO (user): adapt to actual band members 
-;; FIXME (developer): create dynamically at runtime
-account Income:Private Deposits:Bird
-    note Private deposits from Bird
-    alias deposits-bird
+account Income:Private Deposits:Musicians
+    note Private deposits from band members
+    alias deposits-musicians
     assert commodity == "$"
 
-account Income:Private Deposits:Diz
-    note Private deposits from Diz
-    alias deposits-diz
-    assert commodity == "$"
-
-account Income:Private Deposits:Bud
-    note Private deposits from Bud
-    alias deposits-bud
-    assert commodity == "$"
-
-account Income:Private Deposits:Mingus
-    note Private deposits from Mingus
-    alias deposits-mingus
-    assert commodity == "$"
-
-account Income:Private Deposits:Max
-    note Private deposits from Max
-    alias deposits-max
+account Income:Private Deposits:Crew
+    note Private deposits from crew
+    alias deposits-crew
     assert commodity == "$"
 
 account Income:Gigs:Local
