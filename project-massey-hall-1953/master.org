@@ -1,6 +1,7 @@
 * Master
   :PROPERTIES:
   :export_header:   [[file:~/git/org-bandbook/library-of-headers/koma-book-1.org][koma-book-1]]
+  :accounting_scheme: [[file:~/git/org-bandbook/library-of-accounting-schemes/default-scheme-dollar.ledger][default-dollar]]
   :song_order: 1 3
   :book_parts: songs tasks funds people
   :project_people:   bird diz bud mingus max billie

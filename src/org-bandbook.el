@@ -107,7 +107,8 @@ These properties are used for song-score-files in Org-Bandbook's
 'library-of-songs'.")
 
 (defconst org-bandbook-master-properties
-  (list "export_header" "song_order" "book_parts" "project_people")
+  (list "export_header" "accounting_scheme" "song_order"
+	"book_parts" "project_people")
   "List of Org-Bandbook master properties.")
 
 (defconst org-bandbook-project-properties
@@ -1810,8 +1811,8 @@ directory that has a 'arrangement' entry."
 	(let ((temporary-file-directory org-bandbook-temp-dir))
 	  (setq org-bandbook-current-temp-subdir
 		(make-temp-file "bandbook-" 'DIR-FLAG)))
-	;; find tmp file
 	(with-current-buffer
+	    ;; find tmp file
 	    (find-file-noselect
 	     (let ((temporary-file-directory
 		    (expand-file-name "./")))
@@ -1823,13 +1824,20 @@ directory that has a 'arrangement' entry."
 		 (master-props
 		  (with-current-buffer master-buf
 		    (org-bandbook--get-props)))
-		 (header
+		 (exp-header
 		  (org-string-nw-p
 		   (cdr (assoc "export_header" master-props))))
-		 (header-path
-		  (and header
+		 (exp-header-path
+		  (and exp-header
 		       (org-bandbook--extract-path-from-org-link
-			header)))
+			exp-header)))
+		 (acc-scheme
+		  (org-string-nw-p
+		   (cdr (assoc "accounting_scheme" master-props))))
+		 (acc-scheme-path
+		  (and acc-scheme
+		       (org-bandbook--extract-path-from-org-link
+			acc-scheme)))
 		 (song-order
 		  (mapcar
 		   'string-to-number
@@ -1842,14 +1850,12 @@ directory that has a 'arrangement' entry."
 		 (book-parts
 		  (org-string-nw-p
 		   (cdr (assoc "book_parts" master-props))))
-		 ;; (people
-		 ;;  (org-string-nw-p
-		 ;;   (cdr (assoc "project_people" master-props))))
+		 (book-parts-lst (split-string book-parts " " t))
 		 ordered-song-lst)
-	    ;; insert header
-	    (if (and header-path
-		     (file-exists-p header-path))
-		(insert-file-contents header-path)
+	    ;; insert export header
+	    (if (and exp-header-path
+		     (file-exists-p exp-header-path))
+		(insert-file-contents exp-header-path)
 	      (insert-file-contents
 	       (expand-file-name
 		"default-header.org"
@@ -1873,8 +1879,8 @@ directory that has a 'arrangement' entry."
 	     (org-bandbook-render-project-songs
 	      ordered-song-lst))
 	    (save-buffer)
-	    ;; insert tasks
-	    (when (member "tasks" (split-string book-parts " " t))
+	    ;; insert tasks and timeline
+	    (when (member "tasks" book-parts-lst)
 	      (newline)
 	      (let* ((task-buf (find-file-noselect
 				(expand-file-name
@@ -1886,6 +1892,7 @@ directory that has a 'arrangement' entry."
 				     (with-current-buffer task-buf
 				       (org-timeline))
 				     (get-buffer "*Org Agenda*"))))
+		;; --tasks
 		(insert-buffer-substring
 		 task-buf
 		 (org-find-exact-headline-in-buffer
@@ -1895,6 +1902,7 @@ directory that has a 'arrangement' entry."
 		(org-dp-create 'keyword nil 'INSERT-P nil
 			       :key 'latex
 			       :value "\\newpage")
+		;; --timeline
 		(org-dp-create
 		 'headline
 		 (org-dp-create
@@ -1916,27 +1924,46 @@ directory that has a 'arrangement' entry."
 		 :title (format
 			 "Timeline Overview %s"
 			 (org-bandbook--get-project-name)))
-		;; (insert-buffer timeline-buf)
 		(kill-buffer task-buf)
 		(if agenda-live-p
 		    (with-current-buffer timeline-buf
 		      (org-agenda-day-view))
 		  (kill-buffer timeline-buf))))
-	    ;; ;; insert funds
-	    ;; (when (member "funds" (split-string book-parts " " t))
-	    ;;   (newline)
-	    ;;   (let ((task-buf (find-file-noselect
-	    ;; 		       (expand-file-name
-	    ;; 			"timeline-and-tasks.org"
-	    ;; 			(org-bandbook-current-project)))))
-	    ;; 	(insert-buffer-substring
-	    ;; 	 task-buf
-	    ;; 	 (org-find-exact-headline-in-buffer
-	    ;; 	  "Timeline and Tasks" task-buf 'POS-ONLY)
-	    ;; 	 (point-max))))
-
+	    ;; insert funds
+	    (when (member "funds" book-parts-lst)
+	      (newline)
+	      (let ((basic-block
+		     (org-dp-create
+		      'src-block nil nil nil
+		      :language "ledger"
+		      :preserve-indent 1
+		      :value (format
+			      "%s\n%s"
+			      (with-current-buffer
+				  (find-file-noselect
+				   acc-scheme-path)
+				(buffer-substring-no-properties
+				 (point-min) (point-max)))
+			      (with-current-buffer
+				  (find-file-noselect
+				   (expand-file-name
+				    "journal.ledger"
+				    (org-bandbook-current-project)))
+				(buffer-substring-no-properties
+				 (point-min) (point-max)))))))
+		(org-dp-create
+		 'headline
+		 (format "%s\n%s"
+			 basic-block
+			 (org-dp-rewire
+			  nil nil nil
+			  (list :header '(":cmdline -M reg"))
+			  basic-block))
+		 'INSERT-P nil 
+		 :level 1
+		 :title "Band Funds")))
 	    ;; insert people
-	    (when (member "people" (split-string book-parts " " t))
+	    (when (member "people" book-parts-lst)
 	      (newline)
 	      (org-dp-create
 	       'headline nil 'INSERT-P nil
@@ -1948,13 +1975,6 @@ directory that has a 'arrangement' entry."
 	       'INSERT-P nil
 	       :level 2
 	       :title "Active Participants"))
-	    
-	    ;; (format
-	    ;; 	(concat "* Project People\n"
-	    ;; 		"** Active Participants\n"
-	    ;; 		"%s\n")
-	    ;; 	(org-bandbook--get-active-project-people-as-strg))))
-
 	    ;; insert utility src_blocks
 	    (insert
 	     (format
@@ -1964,13 +1984,10 @@ directory that has a 'arrangement' entry."
 	    (save-buffer)
 	    ;; export to pdf
 	    (let* ((curr-buf-file (buffer-file-name))
-		   ;; (temporary-file-directory org-bandbook-temp-dir)
-		   ;; (tmp-dir (make-temp-file "bandbook-" 'DIR-FLAG))
 		   (new-file-name (expand-file-name
 				   (file-name-nondirectory
 				    curr-buf-file)
 				   org-bandbook-current-temp-subdir)))
-	      ;; tmp-dir)))
 	      (kill-buffer)
 	      (rename-file curr-buf-file new-file-name)
 	      (with-current-buffer (find-file-noselect
