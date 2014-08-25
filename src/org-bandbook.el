@@ -517,6 +517,13 @@ default."
 	(fallback (org-dp-filter-node-props 'org t))
 	(t nil))))))
 
+(defun org-bandbook--in-song-config-buffer-p ()
+  "Return `buffer-file-name' if in song-config buffer, or nil."
+    (when (and (org-bandbook-current-project)
+	     (string= (org-bandbook--get-parent-dir-name)
+		      "songs"))
+      (buffer-file-name)))
+
 ;;;;; Project Info
 
 (defun org-bandbook--get-project-name ()
@@ -1761,7 +1768,8 @@ any changes."
 Assumes that point is in a song file in the <project>/songs/
 directory that has a 'arrangement' entry."
   (interactive)
-  (when (org-bandbook-current-project)
+  (when (and (org-bandbook-current-project)
+	     (org-bandbook--in-song-config-buffer-p))
     (save-excursion
       (goto-char
        (org-find-exact-headline-in-buffer "arrangement"))
@@ -1769,6 +1777,27 @@ directory that has a 'arrangement' entry."
        (lambda (--pair)
 	 (org-entry-put nil (car --pair) (cdr --pair)))
        (org-bandbook--get-peoples-instruments)))))
+
+(defun org-bandbook-insert-arrangement-table-skeleton ()
+  "Insert skeleton-table for song arrangement."
+  (interactive)
+  (when (and (org-bandbook-current-project)
+	     (org-bandbook--in-song-config-buffer-p))
+    (save-excursion
+      (goto-char
+       (org-find-exact-headline-in-buffer "arrangement"))
+      (save-restriction
+	(org-narrow-to-subtree)
+	(unless (assoc 'table (car (org-dp-contents)))
+	  (goto-char (point-max))
+	  (unless (looking-at "^[[:space:]]*$")
+	    (newline))
+	  (org-dp-create-table
+	   (list
+	    (list "seq" "do" "melody" "solo" "accomp" "riff")
+	    'hline
+	    (list "" "" "" "" "" ""))
+	   nil nil 'INSERT-P))))))
 
 ;;;;; Make Bandbook
 
@@ -1862,24 +1891,31 @@ directory that has a 'arrangement' entry."
 		  "Timeline and Tasks" task-buf 'POS-ONLY)
 		 (with-current-buffer task-buf
 		   (point-max)))
-		(insert
-		 (format
-		  (concat
-		   "\n#+latex: \\newpage\n"
-		   "** Timeline Overview %s\n%s")
-		  (org-bandbook--get-project-name)
-		  (insert-buffer-substring
-		   timeline-buf
-		   (with-current-buffer timeline-buf
-		     (goto-char (point-min))
-		     (forward-line)
-		     (point))
-		   (with-current-buffer timeline-buf
-		     (goto-char (point-max))
-		     (re-search-backward
-		      "^\\[\\.\\.\\. [[:digit:]]+ "
-		      nil t 1)
-		     (match-beginning 0)))))
+		(org-dp-create 'keyword nil 'INSERT-P nil
+			       :key 'latex
+			       :value "\\newpage")
+		(org-dp-create
+		 'headline
+		 (org-dp-create
+		  'verse-block
+		  (with-current-buffer timeline-buf
+		    (buffer-substring
+		     (progn
+		       (goto-char (point-min))
+		       (forward-line)
+		       (point))
+		     (progn
+		       (goto-char (point-max))
+		       (re-search-backward
+		 	"^\\[\\.\\.\\. [[:digit:]]+ "
+		 	nil t 1)
+		       (match-beginning 0)))))
+		 'INSERT-P nil
+		 :level 2
+		 :title (format
+			 "Timeline Overview %s"
+			 (org-bandbook--get-project-name)))
+		;; (insert-buffer timeline-buf)
 		(kill-buffer task-buf)
 		(kill-buffer timeline-buf)))
 	    ;; ;; insert funds
@@ -1894,15 +1930,27 @@ directory that has a 'arrangement' entry."
 	    ;; 	 (org-find-exact-headline-in-buffer
 	    ;; 	  "Timeline and Tasks" task-buf 'POS-ONLY)
 	    ;; 	 (point-max))))
+
 	    ;; insert people
-	    (when (member "project_people" (split-string book-parts " " t))
+	    (when (member "people" (split-string book-parts " " t))
 	      (newline)
-	      (insert
-	       (format
-		(concat "* Project People\n"
-			"** Active Participants\n"
-			"%s\n")
-		(org-bandbook--get-active-project-people-as-strg))))
+	      (org-dp-create
+	       'headline nil 'INSERT-P nil
+	       :level 1
+	       :title "Project People")
+	      (org-dp-create
+	       'headline
+	       (org-bandbook--get-active-project-people-as-strg)
+	       'INSERT-P nil
+	       :level 2
+	       :title "Active Participants"))
+	    
+	    ;; (format
+	    ;; 	(concat "* Project People\n"
+	    ;; 		"** Active Participants\n"
+	    ;; 		"%s\n")
+	    ;; 	(org-bandbook--get-active-project-people-as-strg))))
+
 	    ;; insert utility src_blocks
 	    (insert
 	     (format

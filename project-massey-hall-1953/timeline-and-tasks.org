@@ -140,21 +140,3 @@ Meet in front of Birdland club.
    :task_id:  flight-to-LA
    :Effort:   6h
    :END:
-
-** Fees
-*** TODO Cashing paychecks
-   DEADLINE: <1953-05-23 Fr>
-   :PROPERTIES:
-   :BLOCKER:  departure
-   :allocate: musicians
-   :task_id:  chash-in
-   :Effort:   30min
-   :END:
-
-** TODO Produce Live-LP
-   DEADLINE: <1954-01-01 Fr>
-   :PROPERTIES:
-   :allocate: mingus
-   :task_id:  live-LP
-   :Effort:   1m
-   :END:
