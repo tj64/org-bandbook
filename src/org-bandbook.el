@@ -826,8 +826,8 @@ see `org-bandbook-arrangement-column-labels'."
 	      (org-bandbook--get-song-properties))))
 
 (defun org-bandbook--get-song-transpose-pitch ()
-  "Return song transpose-score info or nil."
-  (cdr-safe (assoc "transpose_score"
+  "Return song transpose info or nil."
+  (cdr-safe (assoc "transpose"
 	      (org-bandbook--get-song-properties))))
 
 (defun org-bandbook-get-songs (&optional project)
@@ -1211,7 +1211,7 @@ prefix, e.g. 'guitar-duo'."
 			    (plist-put
 			     results :transp
 			     (org-entry-get
-			      nil "transpose_score")))
+			      nil "transpose")))
 		      (setq results
 			    (plist-put
 			     results :struct
@@ -1881,6 +1881,7 @@ directory that has a 'arrangement' entry."
 				 "timeline-and-tasks.org"
 				 (org-bandbook-current-project))))
 		     (org-use-tag-inheritance nil)
+		     (agenda-live-p (get-buffer "*Org Agenda*"))
 		     (timeline-buf (when (require 'org-agenda nil t)
 				     (with-current-buffer task-buf
 				       (org-timeline))
@@ -1917,7 +1918,10 @@ directory that has a 'arrangement' entry."
 			 (org-bandbook--get-project-name)))
 		;; (insert-buffer timeline-buf)
 		(kill-buffer task-buf)
-		(kill-buffer timeline-buf)))
+		(if agenda-live-p
+		    (with-current-buffer timeline-buf
+		      (org-agenda-day-view))
+		  (kill-buffer timeline-buf))))
 	    ;; ;; insert funds
 	    ;; (when (member "funds" (split-string book-parts " " t))
 	    ;;   (newline)

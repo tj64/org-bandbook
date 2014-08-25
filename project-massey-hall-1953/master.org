@@ -6,7 +6,7 @@
   :project_people:   bird diz bud mingus max billie
   :END:
 
-| name           | ID | key | mode | transp | struct |
-|----------------+----+-----+------+--------+--------|
-| perdido        |  1 | nil | nil  | nil    | nil    |
-| all-the-things |  3 | nil | nil  | nil    | nil    |
+| name           | ID | key | mode  | transp | struct |
+|----------------+----+-----+-------+--------+--------|
+| perdido        |  1 | bes | major | g      | AABA   |
+| all-the-things |  3 | aes | major | f      | ABC    |
