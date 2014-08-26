@@ -2185,9 +2185,10 @@ directory that has a 'arrangement' entry."
                     nil nil nil
                     (list
                      :header
-                     '(":exports results" ":cmdline -M reg"))))                        'INSERT-P nil 
-                     :level 2
-                     :title "Monthly Register")))
+                     '(":exports results" ":cmdline -M reg"))))
+		 'INSERT-P nil 
+		 :level 2
+		 :title "Monthly Register")))
             ;; insert people
             (when (member "people" book-parts-lst)
               (newline)
