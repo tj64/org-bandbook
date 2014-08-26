@@ -1,4 +1,4 @@
-- [org-bandbook.el &#x2014; Functions for Org-Bandbook](#org-bandbook.el-&#x2014;-functions-for-org-bandbook)
+- [org-bandbook.el &#x2014; Professional Band Management Tool](#org-bandbook.el-&#x2014;-professional-band-management-tool)
   - [MetaData](#metadata)
   - [Commentary](#commentary)
   - [Inspiration and Credits](#inspiration-and-credits)
@@ -18,7 +18,7 @@
 
 
 
-# org-bandbook.el &#x2014; Functions for Org-Bandbook<a id="sec-1"></a>
+# org-bandbook.el &#x2014; Professional Band Management Tool<a id="sec-1"></a>
 
 Author: Thorsten Jolitz <tjolitz AT gmail DOT com>
 Version: 0.9
@@ -52,8 +52,14 @@ URL: <https://github.com/tj64/org-bandbook>
 
 ## Commentary<a id="sec-1-2"></a>
 
-Emacs Lisp functionality for "Org-Bandbook - Professional
-Band Management for Computer-Literate Musicians".
+Emacs Lisp functionality for 
+
+<p class="verse">
+Org-Bandbook<br  />
+<br  />
+Professional Band Management<br  />
+for Computer-Literate Musicians<br  />
+</p>
 
 ## Inspiration and Credits<a id="sec-1-3"></a>
 

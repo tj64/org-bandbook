@@ -1,4 +1,4 @@
-;;; org-bandbook.el --- Functions for Org-Bandbook
+;;; org-bandbook.el --- Professional Band Management Tool
 
 ;; Author: Thorsten Jolitz <tjolitz AT gmail DOT com>
 ;; Version: 0.9
@@ -22,8 +22,14 @@
 
 ;;;; Commentary
 
-;; Emacs Lisp functionality for "Org-Bandbook - Professional
-;; Band Management for Computer-Literate Musicians".
+;; Emacs Lisp functionality for 
+
+;; #+BEGIN_VERSE
+;;  Org-Bandbook
+
+;;  Professional Band Management
+;;  for Computer-Literate Musicians
+;; #+END_VERSE
 
 ;;;; Inspiration and Credits
 

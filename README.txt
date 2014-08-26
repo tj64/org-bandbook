@@ -10,7 +10,7 @@
 Table of Contents
 _________________
 
-1 org-bandbook.el --- Functions for Org-Bandbook
+1 org-bandbook.el --- Professional Band Management Tool
 .. 1.1 MetaData
 .. 1.2 Commentary
 .. 1.3 Inspiration and Credits
@@ -32,8 +32,8 @@ _________________
 
 
 
-1 org-bandbook.el --- Functions for Org-Bandbook
-================================================
+1 org-bandbook.el --- Professional Band Management Tool
+=======================================================
 
   Author: Thorsten Jolitz <tjolitz AT gmail DOT com> Version: 0.9 URL:
   [https://github.com/tj64/org-bandbook]
@@ -59,8 +59,12 @@ _________________
 1.2 Commentary
 ~~~~~~~~~~~~~~
 
-  Emacs Lisp functionality for "Org-Bandbook - Professional Band
-  Management for Computer-Literate Musicians".
+  Emacs Lisp functionality for
+
+        Org-Bandbook
+
+        Professional Band Management
+        for Computer-Literate Musicians
 
 
 1.3 Inspiration and Credits
