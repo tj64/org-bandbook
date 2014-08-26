@@ -68,13 +68,17 @@ _________________
 
   Org-Bandbook is inspired by Mark Veltzer's [Open-Book] project, in
   fact it started out as a port of Open-Book' to Org-mode, and it would
-  not exist without this wonderfull project.
+  not exist without this wonderful project (since thats where the more
+  than hundred jazz standards in LilyPond notation in Org-Bandbook's
+  'library-of-songs' come from, as well as the common LilyPond macros
+  used for every score).
 
   However, Org-Bandbook has a different focus than Open-Book. While the
   latter tries to become a free 'Real Book' or 'Fake Book' with possibly
   hundreds of tunes, the former is meant to just contain the repertoire
-  of a band-project (may one or two dozen tunes) with arrangements, as
-  well as planning, accounting and contact info.
+  of a band-project (maybe one or two dozen tunes) with arrangements, as
+  well as (rehearsal-, gig- and tour-) planning, accounting and contact
+  info.
 
 
   [Open-Book] https://github.com/veltzer/openbook
@@ -122,7 +126,7 @@ _________________
   Use this command:
 
   ,----
-  | ,----[ C-h f org-bandbook-insert-arrangement-table-skeleton RET ]
+  | ,----[ C-h f org-bandbook-refresh-song-info RET ]
   | | org-bandbook-refresh-song-info is an interactive Lisp function in
   | | `org-bandbook.el'.
   | | 
@@ -200,14 +204,14 @@ _________________
 
   - accounting scheme (org link)
 
-  - song order (integers)
+  - song order (song IDs as integers)
 
-  - bandbook parts (songs tasks funds people)
+  - bandbook parts (songs/tasks/funds/people)
 
-  - project people (musicians nick-names = resource_id's)
+  - project people (nick-names = resource_id's)
 
-  Note the song-order/overview table at the bottom. This table should
-  and must *not* be edited by hand. Use command:
+  Note the song-order/overview table at the bottom. This table must
+  *not* be edited by hand. Use command:
 
   ,----
   | ,----[ C-h f org-bandbook-refresh-song-order RET ]
@@ -217,7 +221,7 @@ _________________
   `----
 
   for inserting and refreshing the table. The song-order is simply
-  changed by moving the number in property ':song_order: 1 3'
+  changed by moving the numbers in property ':song_order: 1 3'
   around. The '1' is the song ID, the numerical prefix of its
   song-config file (e.g. 1-all-the-things.org).
 
@@ -248,13 +252,18 @@ _________________
 -----------
 
   Add songs to the 'library-of-songs'. Use commands
-  `org-bandbook-export-org-file',
-  `org-bandbook-export-directory-org-files',
-  `org-bandbook-import-mako-file', and
-  `org-bandbook-import-directory-mako-files' to import from and export
-  to 'Open-Book' project. Each song you add in either of the two formats
-  (org or mako) will therefore benefit both projects, since conversion
-  is simple.
+
+  - `org-bandbook-export-org-file',
+
+  - `org-bandbook-export-directory-org-files',
+
+  - `org-bandbook-import-mako-file'
+
+  - `org-bandbook-import-directory-mako-files'
+
+  to import from and export to 'Open-Book' project. Each song you add in
+  either of the two formats (org or mako) will therefore benefit both
+  projects, since conversion is easy.
 
 
 1.6.2 Export Headers
