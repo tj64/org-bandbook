@@ -1,93 +1,93 @@
 ; * Transactions
 ; ** Income
 
-  1952/10/15 Opening Balance 
-      Assets:Checking                         $500.00
-      Equity:Opening Balances
+1952/10/15 Opening Balance 
+    Assets:Checking                         $500.00
+    Equity:Opening Balances
 
-  1952/10/15 Opening Balance 
-      Assets:Bandfund                         $50.00
-      Equity:Opening Balances
+1952/10/15 Opening Balance 
+    Assets:Bandfund                         $50.00
+    Equity:Opening Balances
 
-  1953/01/15  Deposit 01/53 Bird
-      Assets:Bandfund                         $200.00
-      Income:Private Deposits:Bird
+1953/01/15 Deposit 01/53 Bird
+    Assets:Bandfund                         $200.00
+    Income:Private Deposits:Musicians
 
-  1953/01/01  Deposit 01/53 Diz
-      Assets:Bandfund                         $200.00
-      Income:Private Deposits:Diz
+1953/01/01 Deposit 01/53 Diz
+    Assets:Bandfund                         $200.00
+    Income:Private Deposits:Musicians
 
-  1953/01/31  Deposit 01/53 Bud
-      Assets:Bandfund                         $200.00
-      Income:Private Deposits:Bud
+1953/01/31 Deposit 01/53 Bud
+    Assets:Bandfund                         $200.00
+    Income:Private Deposits:Musicians
 
-  1953/01/05  Deposit 01/53 Mingus
-      Assets:Bandfund                         $200.00
-      Income:Private Deposits:Mingus
+1953/01/05 Deposit 01/53 Mingus
+    Assets:Bandfund                         $200.00
+    Income:Private Deposits:Musicians
 
-  1953/01/01  Deposit 01/53 Max
-      Assets:Bandfund                         $200.00
-      Income:Private Deposits:Max
+1953/01/01 Deposit 01/53 Max
+    Assets:Bandfund                         $200.00
+    Income:Private Deposits:Musicians
 
-  1953/05/10  Fees Massey Hall Concert
-      Assets:Checking                         $2500.00
-      Income:Gigs:Remote
+1953/05/10 Fees Massey Hall Concert
+    Assets:Checking                         $2500.00
+    Income:Gigs:Remote
 
 ; ** Expenses
 
- 1953/05/15 Taxi to NY Airport
-      Expenses:Gig:Remote:Travelling          $5.00
-      Assets:Checking
+1953/05/15 Taxi to NY Airport
+    Expenses:Gig:Remote:Travelling          $5.00
+    Assets:Checking
 
 
- 1953/05/15 Taxi to LA Airport
-      Expenses:Gig:Remote:Travelling          $7.00
-      Assets:Checking
+1953/05/15 Taxi to LA Airport
+    Expenses:Gig:Remote:Travelling          $7.00
+    Assets:Checking
 
 
- 1953/05/15 1 Flight LA - Toronto
-      Expenses:Gig:Remote:Travelling          $120.00
-      Assets:Checking
+1953/05/15 1 Flight LA - Toronto
+    Expenses:Gig:Remote:Travelling          $120.00
+    Assets:Checking
 
 
- 1953/05/15 4 Flights NY - Toronto
-      Expenses:Gig:Remote:Travelling          $340.00
-      Assets:Checking
+1953/05/15 4 Flights NY - Toronto
+    Expenses:Gig:Remote:Travelling          $340.00
+    Assets:Checking
 
 
- 1953/05/16 Taxi to Toronto Airport (Mingus)
-      Expenses:Gig:Remote:Travelling          $4.00
-      Assets:Checking
+1953/05/16 Taxi to Toronto Airport - Mingus
+    Expenses:Gig:Remote:Travelling          $4.00
+    Assets:Checking
 
 
- 1953/05/16 Taxi to Toronto Airport 
-      Expenses:Gig:Remote:Travelling          $4.00
-      Assets:Checking
+1953/05/16 Taxi to Toronto Airport - Band
+    Expenses:Gig:Remote:Travelling          $4.00
+    Assets:Checking
 
 
- 1953/05/16 1 Flight Toronto - LA
-      Expenses:Gig:Remote:Travelling          $120.00
-      Assets:Checking
+1953/05/16 1 Flight Toronto - LA
+    Expenses:Gig:Remote:Travelling          $120.00
+    Assets:Checking
 
 
- 1953/05/16 4 Flights Toronto - NY
-      Expenses:Gig:Remote:Travelling          $340.00
-      Assets:Checking
+1953/05/16 4 Flights Toronto - NY
+    Expenses:Gig:Remote:Travelling          $340.00
+    Assets:Checking
 
- 1953/05/16 Hotel Toronto
-      Expenses:Gig:Remote:Lodging          $100.00
-      Assets:Checking
+1953/05/16 Hotel Toronto
+    Expenses:Gig:Remote:Lodging          $100.00
+    Assets:Checking
 
- 1953/05/16 Hotel Toronto
-      Expenses:Gig:Remote:Lodging          $100.00
-      Assets:Checking
+1953/05/16 Hotel Toronto
+    Expenses:Gig:Remote:Lodging          $100.00
+    Assets:Checking
 
- 1953/05/16 Restaurant Toronto
-      Expenses:Gig:Remote:Food          $33.00
-      Assets:Bandfund
+1953/05/16 Restaurant Toronto
+    Expenses:Gig:Remote:Food          $33.00
+    Assets:Bandfund
 
- 1953/05/16 New Shoes for Bird
-      Expenses:Gig:Remote:Misc          $12.00
-      Assets:Bandfund
+1953/05/16 New Shoes for Bird
+    Expenses:Gig:Remote:Misc          $12.00
+    Assets:Bandfund
 
 

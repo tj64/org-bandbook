@@ -1927,14 +1927,16 @@ directory that has a 'arrangement' entry."
 		(kill-buffer task-buf)
 		(if agenda-live-p
 		    (with-current-buffer timeline-buf
-		      (org-agenda-day-view))
+		      (org-agenda-list)
+		      (bury-buffer))
 		  (kill-buffer timeline-buf))))
 	    ;; insert funds
 	    (when (member "funds" book-parts-lst)
 	      (newline)
 	      (let ((basic-block
-		     (org-dp-create
-		      'src-block nil nil nil
+		     (org-dp-create 
+		      'src-block nil nil
+		      (list :header '(":exports results"))
 		      :language "ledger"
 		      :preserve-indent 1
 		      :value (format
@@ -1951,17 +1953,26 @@ directory that has a 'arrangement' entry."
 				    (org-bandbook-current-project)))
 				(buffer-substring-no-properties
 				 (point-min) (point-max)))))))
+		(org-dp-create 'headline nil 'INSERT-P nil
+			       :level 1
+			       :title "Band Funds")
+		(org-dp-create 'headline basic-block 'INSERT-P nil 
+			       :level 2
+			       :title "Balance")
 		(org-dp-create
 		 'headline
-		 (format "%s\n%s"
-			 basic-block
-			 (org-dp-rewire
-			  nil nil nil
-			  (list :header '(":cmdline -M reg"))
-			  basic-block))
-		 'INSERT-P nil 
-		 :level 1
-		 :title "Band Funds")))
+		 (with-temp-buffer
+		   (insert basic-block)
+		   (forward-line -1)
+		   (goto-char
+		    (org-babel-where-is-src-block-head))
+		   (org-dp-rewire
+		    nil nil nil
+		    (list
+		     :header
+		     '(":exports results" ":cmdline -M reg"))))			       'INSERT-P nil 
+		     :level 2
+		     :title "Monthly Register")))
 	    ;; insert people
 	    (when (member "people" book-parts-lst)
 	      (newline)
