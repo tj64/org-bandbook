@@ -25,27 +25,26 @@
 ;; Emacs Lisp functionality for 
 
 ;; #+BEGIN_VERSE
-;;  Org-Bandbook
-
-;;  Professional Band Management
-;;  for Computer-Literate Musicians
+;;  Org-Bandbook ---
+;;  Professional Band Management for Computer-Literate Musicians
 ;; #+END_VERSE
 
 ;;;; Inspiration and Credits
 
-;; Org-Bandbook is inspired by Mark Veltzer's [[https://github.com/veltzer/openbook][Open-Book]] project, in fact
-;; it started out as a port of Open-Book' to Org-mode, and it would not
-;; exist without this wonderful project (since thats where the more than
-;; hundred jazz standards in LilyPond notation in Org-Bandbook's
-;; 'library-of-songs' come from, as well as the common LilyPond macros
-;; used for every score).
+;; Org-Bandbook is inspired by Mark Veltzer's
+;; [[https://github.com/veltzer/openbook][Open-Book]] project, in fact
+;; it started out as a port of Open-Book' to Org-mode, and it would
+;; not exist without this wonderful project (since thats where the
+;; more than hundred jazz standards in LilyPond notation in
+;; Org-Bandbook's 'library-of-songs' come from, as well as the common
+;; LilyPond macros used for every score).
 
-;; However, Org-Bandbook has a different focus than Open-Book. While the
-;; latter tries to become a free 'Real Book' or 'Fake Book' with possibly
-;; hundreds of tunes, the former is meant to just contain the repertoire
-;; of a band-project (maybe one or two dozen tunes) with arrangements, as
-;; well as (rehearsal-, gig- and tour-) planning, accounting and contact
-;; info.
+;; However, Org-Bandbook has a different focus than Open-Book. While
+;; the latter tries to become a free 'Real Book' or 'Fake Book' with
+;; possibly hundreds of tunes, the former is meant to just contain the
+;; repertoire of a band-project (maybe one or two dozen tunes) with
+;; arrangements, as well as (rehearsal-, gig- and tour-) planning,
+;; accounting and contact info.
 
 ;;;; Usage
 
@@ -95,8 +94,8 @@
 ;; | 
 ;; | Assumes that point is in a song file in the <project>/songs/
 ;; | directory that has a 'song' entry, and that this entry has a
-;; | 'link' property with an Org-link (to an Org-Bandbook song in
-;; | the '/library-of-songs/' directory) as value.
+;; | 'file_link' property with an Org-link (to an Org-Bandbook song
+;; | in the '/library-of-songs/' directory) as value.
 ;; `----
 ;; #+END_EXAMPLE
 
@@ -1890,7 +1889,7 @@ interactively, the user is prompted for IN-FILE-OR-BUF if
 
 Assumes that point is in a song file in the <project>/songs/
 directory that has a 'song' entry, and that this entry has a
-'link' property with an Org-link (to an Org-Bandbook song in
+'file_link' property with an Org-link (to an Org-Bandbook song in
 the '/library-of-songs/' directory) as value."
   (interactive)
   (let* ((song-entry-marker
@@ -1947,11 +1946,11 @@ contains one the 1st-level 'Master' entry.
 If this entry does not have property 'song_order', call
 `org-bandbook-reset-song-order' to get all project songs in their
 natural order, put their file-name's numerical prefix values into
-this property, and update the entry's dynamic-block (for showing
+this property, and update the entry's overview-table (for showing
 the song-order in human-readable format).
 
 Otherwise read the (possibly user modified) value of property
-'song_order' and update the entry's dynamic-block to reflect the
+'song_order' and update the entry's overview-table to reflect the
 any changes."
   (interactive)
   (save-excursion
