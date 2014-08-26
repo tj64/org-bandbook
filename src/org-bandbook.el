@@ -25,6 +25,199 @@
 ;; Emacs Lisp functionality for "Org-Bandbook - Professional
 ;; Band Management for Computer-Literate Musicians".
 
+;;;; Inspiration and Credits
+
+;; Org-Bandbook is inspired by Mark Veltzer's [[https://github.com/veltzer/openbook][Open-Book]] project, in fact
+;; it started out as a port of Open-Book' to Org-mode, and it would not
+;; exist without this wonderfull project. 
+
+;; However, Org-Bandbook has a different focus than Open-Book. While the
+;; latter tries to become a free 'Real Book' or 'Fake Book' with possibly
+;; hundreds of tunes, the former is meant to just contain the repertoire
+;; of a band-project (may one or two dozen tunes) with arrangements, as
+;; well as planning, accounting and contact info. 
+
+;;;; Usage
+
+;;;;; 9 Steps to Heaven
+
+;;  1. Clone or fork repo on Github. 
+
+;;  2. Create a personnal branch for hacking the sources and producing
+;;     patches and pull requests.
+
+;;  3. Create a new branch for every band-project or yours. You should
+;;     not touch the org-bandbook sources in these branches, only modify
+;;     your project-xyz subdirectory.
+
+;;  4. Use project-massey-hall-1953 as template, either rename it or copy
+;;     it for your own band-project.
+
+;;  5. Goto the library-of-songs, select songs and create a config file
+;;     for each in the projects 'songs' directory (whose name starts with
+;;     an integer, e.g. 1-all-the-things.org).
+
+;;  6. Edit the config file for each song (see 'songs' subdir of massey
+;;     hall project).
+
+;;  7. Edit 'peoples.org' file (kind of org-contacts)
+
+;;  8. Edit 'instruments.org' file
+
+;;  9. finally edit the 'master.org' file
+
+;; The files 'journal.ledger' and 'timeline-and-tasks.org' are frequently
+;; edited during the band-project for planning and keeping track of band
+;; finances. 
+
+;;;;; Song Properties
+
+;; Use this command:
+
+;; ,----[ C-h f org-bandbook-insert-arrangement-table-skeleton RET ]
+;; | org-bandbook-refresh-song-info is an interactive Lisp function in
+;; | `org-bandbook.el'.
+;; | 
+;; | (org-bandbook-refresh-song-info)
+;; | 
+;; | Get key/mode/form from song-link and update properties.
+;; | 
+;; | Assumes that point is in a song file in the <project>/songs/
+;; | directory that has a 'song' entry, and that this entry has a
+;; | 'link' property with an Org-link (to an Org-Bandbook song in
+;; | the '/library-of-songs/' directory) as value.
+;; `----
+
+;; Note that, thanks to amazing LilyPond, transposing a song is done by
+;; simply adding a property like this ':transpose: g'. Thats all. 
+
+;;;;; Song Arrangements
+
+;; Use these two commands: 
+
+;; ,----[ C-h f org-bandbook-refresh-arrangement-properties RET ]
+;; | org-bandbook-refresh-arrangement-properties is an interactive Lisp
+;; | function in `org-bandbook.el'.
+;; | 
+;; | (org-bandbook-refresh-arrangement-properties)
+;; | 
+;; | Gather (and insert) info about project instruments.
+;; | Assumes that point is in a song file in the <project>/songs/
+;; | directory that has a 'arrangement' entry.
+;; `----
+
+;; ,----[ C-h f org-bandbook-insert-arrangement-table-skeleton RET ]
+;; | org-bandbook-insert-arrangement-table-skeleton is an interactive Lisp
+;; | function in `org-bandbook.el'.
+;; | 
+;; | (org-bandbook-insert-arrangement-table-skeleton)
+;; | 
+;; | Insert skeleton-table for song arrangement.
+;; `----
+
+;; or simply copy&pase from existing song config files. Then create the
+;; arrangement as org-table, it will be exported to an PlantUML activity
+;; diagram. 
+
+;; Here is an example arrangement:
+
+;;  | seq  | do | melody | solo  | accomp | riff |
+;;  |------+----+--------+-------+--------+------|
+;;  | a    |  1 | as tr  |       | b dr p |      |
+;;  | aaba |  3 |        | as    | b dr p |      |
+;;  | aaba |  4 |        | tr    | b dr p |      |
+;;  | aaba |  3 |        | p     | b dr   |      |
+;;  | aa   |  1 |        | as tr | b dr p |      |
+;;  | b    |  1 |        | dr    |        |      |
+;;  | a    |  1 | as tr  |       | b dr p |      |
+
+
+;; AABA is the song structure, as tr p b dr are the instruments of the
+;; classical jazz quintett. This table should and must be edited by
+;; hand. 
+
+;;;;; Project Properties
+
+;; In file 'master.org' you specify 
+
+;;  - export header (org link)
+
+;;  - accounting scheme (org link)
+
+;;  - song order (integers)
+
+;;  - bandbook parts (songs tasks funds people)
+
+;;  - project people (musicians nick-names = resource_id's)
+
+;; Note the song-order/overview table at the bottom. This table should
+;; and must *not* be edited by hand. Use command:
+
+;; ,----[ C-h f org-bandbook-refresh-song-order RET ]
+;; | org-bandbook-refresh-song-order is an interactive Lisp function in
+;; | `org-bandbook.el'.
+;; | 
+;; | (org-bandbook-refresh-song-order)
+;; | 
+;; | Get key/mode from song-link and put them in properties.
+;; | 
+;; | Assumes that point is in a project's master.org file that
+;; | contains one the 1st-level 'Master' entry.
+;; | 
+;; | If this entry does not have property 'song_order', call
+;; | `org-bandbook-reset-song-order' to get all project songs in their
+;; | natural order, put their file-name's numerical prefix values into
+;; | this property, and update the entry's dynamic-block (for showing
+;; | the song-order in human-readable format).
+;; | 
+;; | Otherwise read the (possibly user modified) value of property
+;; | 'song_order' and update the entry's dynamic-block to reflect the
+;; | any changes.
+;; `----
+
+;; for inserting and refreshing the table. The song-order is simply
+;; changed by moving the number in property ':song_order: 1 3'
+;; around. The '1' is the song ID, the numerical prefix of its
+;; song-config file (e.g. 1-all-the-things.org). 
+
+;;;; Contribute
+
+;;;;; Songs 
+
+;; Add songs to the 'library-of-songs'. Use commands
+;; `org-bandbook-export-org-file',
+;; `org-bandbook-export-directory-org-files',
+;; `org-bandbook-import-mako-file', and
+;; `org-bandbook-import-directory-mako-files' to import from and export
+;; to 'Open-Book' project. Each song you add in either of the two formats
+;; (org or mako) will therefore benefit both projects, since conversion
+;; is simple. 
+
+;;;;; Export Headers
+
+;; Add headers that produce beautiful (LaTeX) output to the
+;; 'library-of-headers'. 
+
+;;;;; Accounting Schemes
+
+;; Add ledger accounting schemes for your country to the
+;; 'library-of-accounting-schemes'. 
+
+;;;;; Title Pages
+
+;; Add beautiful (LaTeX) title pages for Org-Bandbook to the
+;; 'library-of-title-pages'.
+
+;;;;; Artwork
+
+;; Add artwork for title pages and other parts of Org-Bandbook to the
+;; 'library-of-artwork.
+
+
+;;;;; Source Code
+
+;; Bug Reports and Patches welcome. 
+
 ;;; Requires
 
 (eval-when-compile (require 'cl))
@@ -98,24 +291,24 @@ These properties are used for song-config-files in a project's
 ;; derived/imported from .mako files of 'open-book' project
 (defconst org-bandbook-library-of-songs-props
   (list "lyricsurl" "idyoutube" "idyoutuberemark" "structure"
-	"structureremark" "completion" "copyright" "copyrightextra"
-	"remark" "poet" "piece" "composer" "style" "title"
-	"subtitle" "render" "doLyrics" "doLyricsmore"
-	"doLyricsmoremore" "doVoice" "doChords" "uuid")
+        "structureremark" "completion" "copyright" "copyrightextra"
+        "remark" "poet" "piece" "composer" "style" "title"
+        "subtitle" "render" "doLyrics" "doLyricsmore"
+        "doLyricsmoremore" "doVoice" "doChords" "uuid")
   "List of Org-Bandbook song properties.
 These properties are used for song-score-files in Org-Bandbook's
 'library-of-songs'.")
 
 (defconst org-bandbook-master-properties
   (list "export_header" "accounting_scheme" "song_order"
-	"book_parts" "project_people")
+        "book_parts" "project_people")
   "List of Org-Bandbook master properties.")
 
 (defconst org-bandbook-project-properties
   (append org-bandbook-master-properties
-	  org-bandbook-song-properties
-	  org-bandbook-instrument-properties
-	  org-bandbook-people-properties)
+          org-bandbook-song-properties
+          org-bandbook-instrument-properties
+          org-bandbook-people-properties)
   "List of Org-Bandbook project properties.")
 
 (defconst org-bandbook-org-properties
@@ -124,11 +317,11 @@ These properties are used for song-score-files in Org-Bandbook's
 
 (defconst org-bandbook-arrangement-column-labels
   (list (cons "seq" "%s")
-	(cons "do" "%sx")
-	(cons "mel" "Melody")
-	(cons "solo" "Solo")
-	(cons "comp" "Comping")
-	(cons "riff" "Riffing"))	
+        (cons "do" "%sx")
+        (cons "mel" "Melody")
+        (cons "solo" "Solo")
+        (cons "comp" "Comping")
+        (cons "riff" "Riffing"))        
   "Column labels of song arrangement table.
 Given as cons pairs with the label in the car and a (format) string
 in the cdr, to be used in PlantUML activity diagrams.")
@@ -217,9 +410,9 @@ diagram, e.g. PlantUML (activities with) notes, sequence-bars or
 partitions."
   :group 'org-bandbook
   :type '(choice (const :tag "Notes" notes)
-		 ;; (const :tag "Sync-bars" 'sync-bars)
-		 ;; (const :tag "Partitions" 'partitions)
-		 ))
+                 ;; (const :tag "Sync-bars" 'sync-bars)
+                 ;; (const :tag "Partitions" 'partitions)
+                 ))
 
 (defcustom org-bandbook-arrangement-diagram-size 'small
   "Size of arrangement diagrams.
@@ -230,7 +423,7 @@ for arrangement-tables with no more rows than specified in
 `org-bandbook-arrangement-diagram-page-break-limits'."
   :group 'org-bandbook
   :type '(choice (const :tag "Small" small)
-		 (const :tag "Medium" medium)))
+                 (const :tag "Medium" medium)))
 
 (defcustom org-bandbook-arrangement-diagram-title "Arrangement"
   "Arrangement diagram title."
@@ -264,41 +457,41 @@ The title can be customized with
 buffer-file in the top-level of a well-structured org-bandbook
 project to trigger new behaviour through this advice."
   (if (and (require 'org-bandbook nil t)
-	   (org-bandbook-current-project))
+           (org-bandbook-current-project))
       (let ((org-taskjuggler-extension ".tjp")
-	    (org-taskjuggler-project-tag "taskjuggler_project")
-	    (org-taskjuggler-resource-tag "taskjuggler_resource")
-	    (org-taskjuggler-report-tag "taskjuggler_report")
-	    (org-taskjuggler-target-version 3.0)
-	    (org-taskjuggler-default-project-version "1.0")
-	    (org-taskjuggler-default-project-duration 1)
-	    (org-taskjuggler-default-global-header "")
-	    (org-taskjuggler-default-global-properties "")
-	    (org-taskjuggler-valid-task-attributes
-	     '(account start
-		       note duration endbuffer endcredit end flags
-		       journalentry length limits maxend maxstart minend
-		       minstart period reference responsible scheduling
-		       startbuffer startcredit statusnote chargeset charge))
-	    (org-taskjuggler-valid-project-attributes
-	     '(timingresolution timezone alertlevels currency
-				currencyformat dailyworkinghours extend
-				includejournalentry now numberformat outputdir scenario
-				shorttimeformat timeformat trackingscenario
-				weekstartsmonday weekstartssunday workinghours
-				yearlyworkingdays))
-	    (org-taskjuggler-valid-resource-attributes
-	     '(limits vacation shift booking efficiency journalentry rate
-		      workinghours flags))
-	    (org-taskjuggler-valid-report-attributes
-	     '(headline columns definitions timeformat hideresource hidetask
-			loadunit sorttasks formats period))
-	    (org-taskjuggler-process-command
-	     "tj3 --silent --no-color --output-dir %o %f")
-	    (org-taskjuggler-reports-directory "reports")
-	    (org-taskjuggler-keep-project-as-task t)
-	    (org-taskjuggler-default-reports
-	     '("textreport report \"Plan\" {
+            (org-taskjuggler-project-tag "taskjuggler_project")
+            (org-taskjuggler-resource-tag "taskjuggler_resource")
+            (org-taskjuggler-report-tag "taskjuggler_report")
+            (org-taskjuggler-target-version 3.0)
+            (org-taskjuggler-default-project-version "1.0")
+            (org-taskjuggler-default-project-duration 1)
+            (org-taskjuggler-default-global-header "")
+            (org-taskjuggler-default-global-properties "")
+            (org-taskjuggler-valid-task-attributes
+             '(account start
+                       note duration endbuffer endcredit end flags
+                       journalentry length limits maxend maxstart minend
+                       minstart period reference responsible scheduling
+                       startbuffer startcredit statusnote chargeset charge))
+            (org-taskjuggler-valid-project-attributes
+             '(timingresolution timezone alertlevels currency
+                                currencyformat dailyworkinghours extend
+                                includejournalentry now numberformat outputdir scenario
+                                shorttimeformat timeformat trackingscenario
+                                weekstartsmonday weekstartssunday workinghours
+                                yearlyworkingdays))
+            (org-taskjuggler-valid-resource-attributes
+             '(limits vacation shift booking efficiency journalentry rate
+                      workinghours flags))
+            (org-taskjuggler-valid-report-attributes
+             '(headline columns definitions timeformat hideresource hidetask
+                        loadunit sorttasks formats period))
+            (org-taskjuggler-process-command
+             "tj3 --silent --no-color --output-dir %o %f")
+            (org-taskjuggler-reports-directory "reports")
+            (org-taskjuggler-keep-project-as-task t)
+            (org-taskjuggler-default-reports
+             '("textreport report \"Plan\" {
   formats html
   header '== %title =='
 
@@ -360,7 +553,7 @@ resourcereport resourceGraph \"\" {
     (ignore-errors
       (expand-file-name
        (replace-regexp-in-string
-	org-bandbook-link-regexp "\\1" link)))))
+        org-bandbook-link-regexp "\\1" link)))))
 
 ;; copied from kv.el
 (defun org-bandbook--plist-to-alist (plist &optional keys-are-keywords)
@@ -375,7 +568,7 @@ The keys in the resulting alist are always symbols."
        collect
          (cons (if keys-are-keywords
                    key
-		 (org-bandbook--keyword-to-symbol key))
+                 (org-bandbook--keyword-to-symbol key))
                value))))
 
 ;; copied from kv.el
@@ -419,11 +612,11 @@ Finally add one newline."
       (delete-region
        (point)
        (progn
-	 (while (and (not (bobp))
-		     (looking-at "^[ \t]*$"))
-	   (forward-line -1))
-	 (forward-line 1)
-	 (point))))))
+         (while (and (not (bobp))
+                     (looking-at "^[ \t]*$"))
+           (forward-line -1))
+         (forward-line 1)
+         (point))))))
 
 (defun org-bandbook--goto-first-heading ()
   "Move point to beginning of first heading."
@@ -443,8 +636,8 @@ Finally add one newline."
      (file-name-nondirectory
       (directory-file-name
        (file-name-directory
-	(org-bandbook--get-path
-	 (or file-name (buffer-file-name)))))))))
+        (org-bandbook--get-path
+         (or file-name (buffer-file-name)))))))))
 
 ;;;;;; Bandbook Specific
 
@@ -457,27 +650,27 @@ created lists are then enclosed in another list."
    (mapcar
     (lambda (--part)
        (mapcar
-	(lambda (--ref)
-	  (concat --part --ref))
-	org-bandbook-mako-sheet-music-references))
+        (lambda (--ref)
+          (concat --part --ref))
+        org-bandbook-mako-sheet-music-references))
     org-bandbook-mako-music-parts))
 
 (defun org-bandbook--get-num-prefix (file)
   "Return numeric prefix of FILE name."
   (string-to-number
    (car (org-bandbook--split-words
-	 (file-name-sans-extension
-	  (file-name-nondirectory file))))))
+         (file-name-sans-extension
+          (file-name-nondirectory file))))))
 
 (defun org-bandbook--expand-instr-abbrevs (strg)
   "Return human-readable version of abbrev STRG."
   (when (org-string-nw-p strg)
     (let ((abbrev-lst (split-string strg " " 'OMIT-NULLS))
-	  (instr (org-bandbook--get-peoples-instruments)))
-	 (mapconcat
-	  (lambda (--abbrev)
-	    (car (rassoc --abbrev instr)))
-	  abbrev-lst " & "))))
+          (instr (org-bandbook--get-peoples-instruments)))
+         (mapconcat
+          (lambda (--abbrev)
+            (car (rassoc --abbrev instr)))
+          abbrev-lst " & "))))
 
 (defun org-bandbook--get-props (&optional fallback)
   "Return current entry's filtered properties.
@@ -489,40 +682,40 @@ properties are returned) or any other value (-> all non-org
 properties are returned). Otherwise `nil' is returned as
 default."
   (let* ((buf (car-safe (member (buffer-name)
-				org-bandbook-config-files)))
-	 (parent-dir (unless buf
-		       (org-bandbook--get-parent-dir-name)))
-	 (songs-dir-p (and parent-dir
-			   (string= parent-dir "songs")))
-	 (grandparent-dir (and parent-dir
-			       (not songs-dir-p)
-			       (string=
-				(ignore-errors
-				  (org-bandbook--get-parent-dir-name
-				   (directory-file-name
-				    (file-name-directory
-				     (buffer-file-name)))))
-				"library-of-songs"))))
+                                org-bandbook-config-files)))
+         (parent-dir (unless buf
+                       (org-bandbook--get-parent-dir-name)))
+         (songs-dir-p (and parent-dir
+                           (string= parent-dir "songs")))
+         (grandparent-dir (and parent-dir
+                               (not songs-dir-p)
+                               (string=
+                                (ignore-errors
+                                  (org-bandbook--get-parent-dir-name
+                                   (directory-file-name
+                                    (file-name-directory
+                                     (buffer-file-name)))))
+                                "library-of-songs"))))
   (cond
    (buf (org-dp-filter-node-props
-	 (eval
-	  (intern
-	   (format "org-bandbook-%s-properties"
-		   (car (split-string buf "\\.")))))))
+         (eval
+          (intern
+           (format "org-bandbook-%s-properties"
+                   (car (split-string buf "\\.")))))))
    (songs-dir-p (org-dp-filter-node-props
-		 org-bandbook-song-properties))
+                 org-bandbook-song-properties))
    (grandparent-dir (org-dp-filter-node-props
-		     org-bandbook-library-of-songs-props))
+                     org-bandbook-library-of-songs-props))
    (t (cond 
-	((eq fallback 'all) (org-entry-properties))
-	(fallback (org-dp-filter-node-props 'org t))
-	(t nil))))))
+        ((eq fallback 'all) (org-entry-properties))
+        (fallback (org-dp-filter-node-props 'org t))
+        (t nil))))))
 
 (defun org-bandbook--in-song-config-buffer-p ()
   "Return `buffer-file-name' if in song-config buffer, or nil."
     (when (and (org-bandbook-current-project)
-	     (string= (org-bandbook--get-parent-dir-name)
-		      "songs"))
+             (string= (org-bandbook--get-parent-dir-name)
+                      "songs"))
       (buffer-file-name)))
 
 ;;;;; Project Info
@@ -542,54 +735,54 @@ default."
 (defun org-bandbook--get-path (file &optional project)
   "Return absolute path to FILE in PROJECT."
   (let* ((proj (or project (org-bandbook-current-project)))
-	 (path (expand-file-name file proj))
-	 (exists-p (file-exists-p path)))
+         (path (expand-file-name file proj))
+         (exists-p (file-exists-p path)))
     ;; (if (and proj exists-p)
     (if exists-p
-    	path
+        path
       (error "Not in Org-Bandbook project (path: %s)" path))))
 
 (defun org-bandbook--get-resource-ids (&optional project)
   "Return list of resource_ids from PROJECTs master.org file."
   (let ((live-buf (get-buffer "master.org"))
-	(buf (ignore-errors
-	       (find-file-noselect
-		(org-bandbook--get-path "master.org" project))))
-	resource_ids)
+        (buf (ignore-errors
+               (find-file-noselect
+                (org-bandbook--get-path "master.org" project))))
+        resource_ids)
     (when buf
       (with-current-buffer buf
-	(goto-char
-	 (org-find-exact-headline-in-buffer
-	  "Master"))
-	(setq resource_ids (org-entry-get nil "project_people"))
-	(unless (eq live-buf (current-buffer))
-	  (kill-buffer)))
+        (goto-char
+         (org-find-exact-headline-in-buffer
+          "Master"))
+        (setq resource_ids (org-entry-get nil "project_people"))
+        (unless (eq live-buf (current-buffer))
+          (kill-buffer)))
       (split-string resource_ids nil 'OMIT-NULLS))))
 
 (defun org-bandbook--get-all-project-people-as-list (&optional project)
   "Return alist of PROJECT people."
   (let ((live-buf (get-buffer "people.org"))
-	(buf (ignore-errors
-	       (find-file-noselect
-		(org-bandbook--get-path
-		 "people.org" project))))
-	people)
+        (buf (ignore-errors
+               (find-file-noselect
+                (org-bandbook--get-path
+                 "people.org" project))))
+        people)
     (when buf
       (with-current-buffer buf
-	(org-map-entries
-	 (lambda ()
-	   (let ((filtered-props
-		  (org-bandbook--get-props)))
-	     (when filtered-props
-	       (setq people
-		     (cons
-		      (cons
-		       (org-no-properties
-			(org-get-heading t t))
-		       filtered-props)
-		      people))))))
-	(unless (eq live-buf (current-buffer))
-	  (kill-buffer)))
+        (org-map-entries
+         (lambda ()
+           (let ((filtered-props
+                  (org-bandbook--get-props)))
+             (when filtered-props
+               (setq people
+                     (cons
+                      (cons
+                       (org-no-properties
+                        (org-get-heading t t))
+                       filtered-props)
+                      people))))))
+        (unless (eq live-buf (current-buffer))
+          (kill-buffer)))
       people)))
       ;; (car (read-from-string people)))))
 
@@ -597,52 +790,52 @@ default."
   "Get filtered buffer-string of project's people.org."
   (when (org-bandbook-current-project)
     (let ((ids (org-bandbook--get-resource-ids))
-	  (people ""))
+          (people ""))
       (with-temp-buffer
-	(insert-file-contents
-	 (org-bandbook--get-path "people.org") nil nil nil t)
-	(org-mode)
-	(org-element-map
-	    (org-element-parse-buffer 'headline)
-	    'headline	    
-	  (lambda (--elem)
-	    (let ((id (org-element-property :RESOURCE_ID --elem)))
-	      (and id (org-string-nw-p id)
-		   (member-ignore-case id ids)
-		   (setq people
-			 (concat
-			  (org-trim
-			   (buffer-substring-no-properties
-			    (org-element-property :begin --elem)
-			    (org-element-property :end --elem)))
-			  "\n"
-			  people)))))))
+        (insert-file-contents
+         (org-bandbook--get-path "people.org") nil nil nil t)
+        (org-mode)
+        (org-element-map
+            (org-element-parse-buffer 'headline)
+            'headline       
+          (lambda (--elem)
+            (let ((id (org-element-property :RESOURCE_ID --elem)))
+              (and id (org-string-nw-p id)
+                   (member-ignore-case id ids)
+                   (setq people
+                         (concat
+                          (org-trim
+                           (buffer-substring-no-properties
+                            (org-element-property :begin --elem)
+                            (org-element-property :end --elem)))
+                          "\n"
+                          people)))))))
       people)))
-		   
+                   
 (defun org-bandbook--get-project-instruments (&optional project)
   "Return alist of PROJECT instruments."
   (let ((live-buf (get-buffer "instruments.org"))
-	(buf (ignore-errors
-	       (find-file-noselect
-		(org-bandbook--get-path
-		 "instruments.org" project))))
-	instruments)
+        (buf (ignore-errors
+               (find-file-noselect
+                (org-bandbook--get-path
+                 "instruments.org" project))))
+        instruments)
     (when buf
       (with-current-buffer buf
-	(org-map-entries
-	 (lambda ()
-	   (let ((proj-props
-		  (org-bandbook--get-props)))
-	     (and proj-props 
-		  (setq instruments
-			(cons
-			 (cons
-			  (org-no-properties
-			   (org-get-heading t t))
-			  proj-props)
-			 instruments))))))
-	(unless (eq live-buf (current-buffer))
-	  (kill-buffer)))
+        (org-map-entries
+         (lambda ()
+           (let ((proj-props
+                  (org-bandbook--get-props)))
+             (and proj-props 
+                  (setq instruments
+                        (cons
+                         (cons
+                          (org-no-properties
+                           (org-get-heading t t))
+                          proj-props)
+                         instruments))))))
+        (unless (eq live-buf (current-buffer))
+          (kill-buffer)))
       instruments)))
       ;; (car (read-from-string instruments)))))
 
@@ -650,33 +843,33 @@ default."
   "Get project instrument names and abbrevs."
   (interactive)
   (let* ((instr (org-bandbook--get-project-instruments))
-  	 (people (org-bandbook--get-all-project-people-as-list))
-  	 (resource_ids (org-bandbook--get-resource-ids))
-	 arr-props)
+         (people (org-bandbook--get-all-project-people-as-list))
+         (resource_ids (org-bandbook--get-resource-ids))
+         arr-props)
     (mapc
      (lambda (--instr)
        (mapc
-	(lambda (--person)
-	  (mapc
-	   (lambda (--resource_id)
-	     (let ((person-resource_id
-		     (cdr (assoc "resource_id" (cdr --person))))
-		    (person-instr
-		     (cdr (assoc "instrument" (cdr --person))))
-		    (instr-name
-		     (cdr (assoc "name" (cdr --instr)))))
-	       (when (and (string= --resource_id person-resource_id)
-			  (string= instr-name person-instr))
-		 (setq arr-props
-		       (cons
-			(cons
-			 (cdr (assoc "resource_id"
-				     (cdr --instr)))
-			 (cdr (assoc "abbrev"
-				     (cdr --instr))))
-			arr-props)))))
-	   resource_ids))
-	people))
+        (lambda (--person)
+          (mapc
+           (lambda (--resource_id)
+             (let ((person-resource_id
+                     (cdr (assoc "resource_id" (cdr --person))))
+                    (person-instr
+                     (cdr (assoc "instrument" (cdr --person))))
+                    (instr-name
+                     (cdr (assoc "name" (cdr --instr)))))
+               (when (and (string= --resource_id person-resource_id)
+                          (string= instr-name person-instr))
+                 (setq arr-props
+                       (cons
+                        (cons
+                         (cdr (assoc "resource_id"
+                                     (cdr --instr)))
+                         (cdr (assoc "abbrev"
+                                     (cdr --instr))))
+                        arr-props)))))
+           resource_ids))
+        people))
      instr)
     arr-props))
 
@@ -684,18 +877,18 @@ default."
   "Return PROJ-DIR if its structure is correct, nil otherwise."
   (when (file-directory-p proj-dir)
     (let ((bb-dir (file-name-directory
-		   (directory-file-name proj-dir))))
+                   (directory-file-name proj-dir))))
       (when (and (= (length org-bandbook-project-dir-files)
-		    (length (intersection
-			     org-bandbook-project-dir-files
-			     (directory-files proj-dir)
-			     :test 'string=)))
-		 (= (length org-bandbook-dir-files)
-		    (length (intersection
-			     org-bandbook-dir-files
-			     (directory-files bb-dir)
-			     :test 'string=))))
-	proj-dir))))
+                    (length (intersection
+                             org-bandbook-project-dir-files
+                             (directory-files proj-dir)
+                             :test 'string=)))
+                 (= (length org-bandbook-dir-files)
+                    (length (intersection
+                             org-bandbook-dir-files
+                             (directory-files bb-dir)
+                             :test 'string=))))
+        proj-dir))))
 
 
 (defun org-bandbook--get-abstract (&optional project)
@@ -703,23 +896,23 @@ default."
   (when org-bandbook-with-abstract-p
     (let ((proj (or project org-bandbook-current-project-dir)))
       (with-current-buffer
-	  (find-file-noselect
-	   (org-bandbook--get-path "abstract.org" proj))
-	(save-restriction
-	  (widen)
-	  (let ((buf-cont
-		 (org-element-map (org-element-parse-buffer)
-		     'headline
-		   (lambda (--hl)
-		     (and (string=
-			   (org-element-property :raw-value --hl)
-			   "Abstract")
-			  (org-element-interpret-data
-			   (org-element-contents --hl))))
-		   nil 'FIRST-MATCH 'NO-RECURSION)))
-	    (kill-buffer)
-	    ;; (message "%s" buf-cont)
-	    buf-cont))))))
+          (find-file-noselect
+           (org-bandbook--get-path "abstract.org" proj))
+        (save-restriction
+          (widen)
+          (let ((buf-cont
+                 (org-element-map (org-element-parse-buffer)
+                     'headline
+                   (lambda (--hl)
+                     (and (string=
+                           (org-element-property :raw-value --hl)
+                           "Abstract")
+                          (org-element-interpret-data
+                           (org-element-contents --hl))))
+                   nil 'FIRST-MATCH 'NO-RECURSION)))
+            (kill-buffer)
+            ;; (message "%s" buf-cont)
+            buf-cont))))))
 
 (defun org-bandbook-current-project ()
   "Return project-name if in (top-level of) org-bandbook project.
@@ -727,24 +920,24 @@ Assumes `buffer-file-name' of `current-buffer' is master.org file
 of project. With SILENT non-nil, do not message the project
 name."
   (let* ((curr-dir (if (derived-mode-p 'dired-mode)
-		       (dired-current-directory)
-		     (ignore-errors
-		       (file-name-directory
-			(buffer-file-name
-			 (current-buffer))))))
-	 (parent-dir (when curr-dir
-		       (file-name-directory
-			(directory-file-name curr-dir))))
-	 (grandparent-dir (when parent-dir
-			    (file-name-directory
-			     (directory-file-name parent-dir))))
-	 (parent-dir-name (when parent-dir
-	 		    (file-name-nondirectory
-	 		     (directory-file-name parent-dir))))
-	 (grandparent-dir-name (when grandparent-dir
-				 (file-name-nondirectory
-				  (directory-file-name
-				   grandparent-dir)))))
+                       (dired-current-directory)
+                     (ignore-errors
+                       (file-name-directory
+                        (buffer-file-name
+                         (current-buffer))))))
+         (parent-dir (when curr-dir
+                       (file-name-directory
+                        (directory-file-name curr-dir))))
+         (grandparent-dir (when parent-dir
+                            (file-name-directory
+                             (directory-file-name parent-dir))))
+         (parent-dir-name (when parent-dir
+                            (file-name-nondirectory
+                             (directory-file-name parent-dir))))
+         (grandparent-dir-name (when grandparent-dir
+                                 (file-name-nondirectory
+                                  (directory-file-name
+                                   grandparent-dir)))))
     (cond
      ((string= parent-dir-name "org-bandbook")
       (org-bandbook--check-project-structure curr-dir))
@@ -777,59 +970,59 @@ see `org-bandbook-arrangement-column-labels'."
   (and (org-bandbook-current-project)
        (eq (derived-mode-p 'org-mode) major-mode)
        (save-excursion
-	 (condition-case err
-	     (goto-char
-	      (org-find-exact-headline-in-buffer "arrangement"))
-	   (error "No exact headline 'arrangement' in buffer %s"
-		  (current-buffer)))
-	 (let ((props (org-dp-filter-node-props 'org t))
-	       tbl)
-	   (save-restriction
-	     (org-narrow-to-subtree)
-	     (org-table-map-tables
-	      (lambda ()
-		(setq tbl (list (org-table-to-lisp))))))
-	   (cons props tbl)))))
+         (condition-case err
+             (goto-char
+              (org-find-exact-headline-in-buffer "arrangement"))
+           (error "No exact headline 'arrangement' in buffer %s"
+                  (current-buffer)))
+         (let ((props (org-dp-filter-node-props 'org t))
+               tbl)
+           (save-restriction
+             (org-narrow-to-subtree)
+             (org-table-map-tables
+              (lambda ()
+                (setq tbl (list (org-table-to-lisp))))))
+           (cons props tbl)))))
 
 
 (defun org-bandbook--get-song-properties ()
   "Return alist of song config-properties."
   (when (org-bandbook-current-project)
     (let ((song (org-find-exact-headline-in-buffer
-		 "song" nil 'POS-ONLY)))
+                 "song" nil 'POS-ONLY)))
       (when song
-	(save-excursion
-	  (goto-char song)
-	  (org-bandbook--get-props))))))
+        (save-excursion
+          (goto-char song)
+          (org-bandbook--get-props))))))
 
 (defun org-bandbook--get-song-link ()
   "Return song link or nil."
   (let ((link (cdr-safe
-	       (assoc "file_link"
-		      (org-bandbook--get-song-properties)))))
+               (assoc "file_link"
+                      (org-bandbook--get-song-properties)))))
     (if (string-match org-bandbook-link-regexp link)
-	(org-bandbook--extract-path-from-org-link link)
+        (org-bandbook--extract-path-from-org-link link)
       (org-string-nw-p link))))
 
 (defun org-bandbook--get-song-key ()
   "Return song key or nil."
   (cdr-safe (assoc "key"
-	      (org-bandbook--get-song-properties))))
+              (org-bandbook--get-song-properties))))
 
 (defun org-bandbook--get-song-mode ()
   "Return song mode or nil."
   (cdr-safe (assoc "mode"
-	      (org-bandbook--get-song-properties))))
+              (org-bandbook--get-song-properties))))
 
 (defun org-bandbook--get-song-structure ()
   "Return song structure or nil."
   (cdr-safe (assoc "structure"
-	      (org-bandbook--get-song-properties))))
+              (org-bandbook--get-song-properties))))
 
 (defun org-bandbook--get-song-transpose-pitch ()
   "Return song transpose info or nil."
   (cdr-safe (assoc "transpose"
-	      (org-bandbook--get-song-properties))))
+              (org-bandbook--get-song-properties))))
 
 (defun org-bandbook-get-songs (&optional project)
   "Return sorted list of project songs.
@@ -838,19 +1031,19 @@ project. Use absolute path to songs. If PROJECT is given it
 should be a project-name without the 'project' prefix,
 e.g. 'guitar-duo'."
   (let* ((live-buf (get-buffer "master.org"))
-	 (buf (ignore-errors
-		(find-file-noselect
-		 (org-bandbook--get-path
-		  "master.org" project)))))
+         (buf (ignore-errors
+                (find-file-noselect
+                 (org-bandbook--get-path
+                  "master.org" project)))))
     (when buf
       (with-current-buffer buf
-	(let ((songlst (directory-files
-			(expand-file-name
-			 "songs" (org-bandbook-current-project))
-			'FULL "^[[:digit:]]+-.+?\\.org$")))
-	  (unless (eq live-buf (current-buffer))
-	    (kill-buffer))
-	  songlst)))))
+        (let ((songlst (directory-files
+                        (expand-file-name
+                         "songs" (org-bandbook-current-project))
+                        'FULL "^[[:digit:]]+-.+?\\.org$")))
+          (unless (eq live-buf (current-buffer))
+            (kill-buffer))
+          songlst)))))
 
 ;;;;; Music Functions
 
@@ -858,12 +1051,12 @@ e.g. 'guitar-duo'."
   "Wrap CONTent in \displayMusic block and write to OUTFILE."
   (format
    (concat "{\n"
-	   "  #(with-output-to-file\n"
-	   "    %S\n"
-	   "    (lambda () #{ \\displayMusic {\n"
-	   "        %s\n"
-	   "     } #}))\n"
-	   "}")
+           "  #(with-output-to-file\n"
+           "    %S\n"
+           "    (lambda () #{ \\displayMusic {\n"
+           "        %s\n"
+           "     } #}))\n"
+           "}")
    outfile cont))
 
 (defun org-bandbook-wrap-in-transpose (cont from to)
@@ -874,7 +1067,7 @@ e.g. 'guitar-duo'."
 (defun org-bandbook-get-internal-representation (cont outfile)
   "Write internal representation of CONT to OUTFILE."
   (let* ((temporary-file-directory org-bandbook-temp-dir)
-	(tmp-file (make-temp-file "display-music-" nil ".ly")))
+        (tmp-file (make-temp-file "display-music-" nil ".ly")))
     (with-current-buffer (find-file-noselect tmp-file)
       (insert (org-bandbook-wrap-in-displayMusic cont outfile))
       (save-buffer)
@@ -902,14 +1095,14 @@ with the actual key in the car and the target key in the cdr."
   (mapconcat
    (lambda (--part)
      (format "%s =\n%s\n"
-	     (car --part)
-	     (if (and transpose-from-to
-		      (member (car --part) (list "Chords" "Voice")))
-		 (org-bandbook-wrap-in-transpose
-		  (cdr --part)
-		  (car transpose-from-to)
-		  (cdr transpose-from-to))
-	       (cdr --part))))
+             (car --part)
+             (if (and transpose-from-to
+                      (member (car --part) (list "Chords" "Voice")))
+                 (org-bandbook-wrap-in-transpose
+                  (cdr --part)
+                  (car transpose-from-to)
+                  (cdr transpose-from-to))
+               (cdr --part))))
    parts ""))
 
 (defun org-bandbook--render-song-score (parts score-template)
@@ -917,22 +1110,22 @@ with the actual key in the car and the target key in the cdr."
   (let (score-components)
     (with-current-buffer (find-file-noselect score-template)
       (org-element-map
-	  (org-element-parse-buffer 'element) 'src-block
-	(lambda (--elem)
-	  (let ((part-name
-		 (cadr
-		  (org-bandbook--split-words
-		   (org-element-property :name --elem)))))
-	    ;; (when (or (member part-name parts)
-	    ;; 	      (string= part-name "Volta"))
-	    (when (member part-name parts)
-	      (setq score-components
-		    (cons
-		     (org-element-property :value --elem)
-		     score-components))))))
+          (org-element-parse-buffer 'element) 'src-block
+        (lambda (--elem)
+          (let ((part-name
+                 (cadr
+                  (org-bandbook--split-words
+                   (org-element-property :name --elem)))))
+            ;; (when (or (member part-name parts)
+            ;;        (string= part-name "Volta"))
+            (when (member part-name parts)
+              (setq score-components
+                    (cons
+                     (org-element-property :value --elem)
+                     score-components))))))
       (mapconcat
        (lambda (--comp)
-	 (format "\n%s\n" --comp))
+         (format "\n%s\n" --comp))
        (reverse score-components) ""))))
   
 (defun org-bandbook-render-song (song &optional transpose-from-to score-template)
@@ -971,198 +1164,198 @@ form:
 with the actual key in the car and the target key in the cdr."
   (let ((old-buf (current-buffer)))
     (let* ((song-buf (find-file-noselect song))
-	   (version (or (ignore-errors
-			  (with-current-buffer song-buf
-			    ;; (replace-regexp-in-string
-			    ;;  "\"" ""
-			    (org-bandbook--clean-string
-			     (org-entry-get nil "render"))))
-			(error
-			 "Song without 'render' attribute!")))
-	   (part-names (delq nil
-			     (mapcar
-			      (lambda (--prop)
-				(let ((split-prop-name
-				       (org-bandbook--split-words
-					(car --prop))))
-				  (and
-				   (= (length split-prop-name) 2)
-				   (string=
-				    (car split-prop-name) "do")
-				   (member
-				    (cadr split-prop-name)
-				    org-bandbook-mako-music-parts)
-				   (cadr split-prop-name))))
-			      (with-current-buffer song-buf
-				(org-entry-properties)))))
-	   parts)
+           (version (or (ignore-errors
+                          (with-current-buffer song-buf
+                            ;; (replace-regexp-in-string
+                            ;;  "\"" ""
+                            (org-bandbook--clean-string
+                             (org-entry-get nil "render"))))
+                        (error
+                         "Song without 'render' attribute!")))
+           (part-names (delq nil
+                             (mapcar
+                              (lambda (--prop)
+                                (let ((split-prop-name
+                                       (org-bandbook--split-words
+                                        (car --prop))))
+                                  (and
+                                   (= (length split-prop-name) 2)
+                                   (string=
+                                    (car split-prop-name) "do")
+                                   (member
+                                    (cadr split-prop-name)
+                                    org-bandbook-mako-music-parts)
+                                   (cadr split-prop-name))))
+                              (with-current-buffer song-buf
+                                (org-entry-properties)))))
+           parts)
       (unless (member version
-		      org-bandbook-mako-sheet-music-references)
-	(message "%s not recognized as sheet-music reference!"
-		 version))
+                      org-bandbook-mako-sheet-music-references)
+        (message "%s not recognized as sheet-music reference!"
+                 version))
       (with-current-buffer song-buf
-	(org-element-map
-	    (org-element-parse-buffer 'element) 'src-block
-	  (lambda (--elem)
-	    (let ((split-part-name
-		   (org-bandbook--split-words
-		    (org-element-property :name --elem))))
-	      (unless (= (length split-part-name) 2)
-		(error "%s has more than 2 components!"
-		       split-part-name))
-	      (and (member (car split-part-name) part-names)
-		   (string= (cadr split-part-name) version)
-		   (setq parts
-			 (cons
-			  (cons
-			   (car split-part-name)
-			   (org-element-property :value --elem))
-			  parts))))))
-	(concat
-	 ;; common stuff
-	 (format "\n%s\n"
-		 (with-current-buffer old-buf
-		   (when (org-bandbook-current-project)
-		     (with-current-buffer
-			 (find-file-noselect
-			  (expand-file-name
-			   "common.ly" org-bandbook-directory))
-		       (buffer-substring-no-properties
-			(point-min) (point-max))))))
-	 ;; song parts
-	 (org-bandbook--render-song-parts parts transpose-from-to)
-	 ;; score
-	 (cond
-	  ((and (org-string-nw-p score-template)
-		(file-exists-p score-template)
-		(string= (file-name-extension score-template)
-			 "org"))
-	   (format "\n<<%s>>\n"
-		   (org-bandbook--render-song-score
-		    part-names score-template)))
-	  ((and score-template
-		(with-current-buffer old-buf
-		  (org-bandbook-current-project)))
-	   (format "\n<<%s>>\n"
-		   (org-bandbook--render-song-score
-		    part-names
-		    (with-current-buffer old-buf
-		      (expand-file-name
-		       "score.org" org-bandbook-directory)))))
-	  (t "")))))))
+        (org-element-map
+            (org-element-parse-buffer 'element) 'src-block
+          (lambda (--elem)
+            (let ((split-part-name
+                   (org-bandbook--split-words
+                    (org-element-property :name --elem))))
+              (unless (= (length split-part-name) 2)
+                (error "%s has more than 2 components!"
+                       split-part-name))
+              (and (member (car split-part-name) part-names)
+                   (string= (cadr split-part-name) version)
+                   (setq parts
+                         (cons
+                          (cons
+                           (car split-part-name)
+                           (org-element-property :value --elem))
+                          parts))))))
+        (concat
+         ;; common stuff
+         (format "\n%s\n"
+                 (with-current-buffer old-buf
+                   (when (org-bandbook-current-project)
+                     (with-current-buffer
+                         (find-file-noselect
+                          (expand-file-name
+                           "common.ly" org-bandbook-directory))
+                       (buffer-substring-no-properties
+                        (point-min) (point-max))))))
+         ;; song parts
+         (org-bandbook--render-song-parts parts transpose-from-to)
+         ;; score
+         (cond
+          ((and (org-string-nw-p score-template)
+                (file-exists-p score-template)
+                (string= (file-name-extension score-template)
+                         "org"))
+           (format "\n<<%s>>\n"
+                   (org-bandbook--render-song-score
+                    part-names score-template)))
+          ((and score-template
+                (with-current-buffer old-buf
+                  (org-bandbook-current-project)))
+           (format "\n<<%s>>\n"
+                   (org-bandbook--render-song-score
+                    part-names
+                    (with-current-buffer old-buf
+                      (expand-file-name
+                       "score.org" org-bandbook-directory)))))
+          (t "")))))))
 
 (defun org-bandbook-render-project-songs (&optional ordered-project-songs)
   "Render all songs from current project."
   (if (org-bandbook-current-project)
       (progn
-	(let ((ordered-song-names
-	       (or ordered-project-songs
-		   (org-bandbook-get-songs)))
-	      song-lst)
-	  ;; process songs and create song pages list
-	  (mapc
-	   ;; get song info
-	   (lambda (--song)
-	     (let* ((from-key
-		     (with-current-buffer
-			 (find-file-noselect --song)
-		       (org-bandbook--get-song-key)))
-		    (to-key
-		     (with-current-buffer
-			 (find-file-noselect --song)
-		       (org-bandbook--get-song-transpose-pitch)))
-		    (arrangement
-		     (with-current-buffer
-			 (find-file-noselect --song)
-		       (let ((temporary-file-directory
-			      (or
-			       ;; get current tmp-subdir
-			       org-bandbook-current-temp-subdir
-			       ;; set current tmp-subdir
-			       (let ((temporary-file-directory
-				      org-bandbook-temp-dir))
-				 (setq
-				  org-bandbook-current-temp-subdir
-				  (make-temp-file "bandbook-"
-						  'DIR-FLAG))))))
-			 (puml-wrap
-			  :scale org-bandbook-arr-diag-scale-factor
-			  :file (file-name-nondirectory
-				 (make-temp-file "arrangement"))
-			  :ext "eps"
-			  :cont (org-bandbook-arrangement-to-diagram)
-			  :pproc t))))
-		    (song-path
-		     (with-current-buffer
-			 (find-file-noselect --song)
-		       (org-bandbook--extract-path-from-org-link
-			 (org-bandbook--get-song-link))))
-		    (song-name (and song-path
-				    (file-name-sans-extension
-				     (file-name-nondirectory
-				      song-path)))))
-	       ;; create content for song
-	       (when song-name
-		 (setq song-lst
-		       (cons
-			(concat
-			 ;; newpage
-			 (org-dp-create
-			  'keyword nil nil nil
-			  :key 'latex
-			  :value "\\newpage")
-			 "\n"
-			 ;; headline
-			 (org-dp-create
-			  'headline nil nil nil
-			  :level 1
-			  :title (mapconcat
-				  (lambda (--word) (upcase --word))
-				  (org-bandbook--split-words
-				   song-name) " "))
-			 "\n"
-			 ;; src-block
-			 (org-dp-create
-			  'src-block
-			  ;; --contents
-			  (if (and to-key from-key)
-			      (org-bandbook-render-song
-			       song-path (cons from-key to-key) t)
-			    (org-bandbook-render-song
-			     song-path nil t))
-			  ;; --insert-p
-			  nil
-			  ;; --affiliated
-			  (list :name song-name
-				:header `(":exports results"
-					  ,(format ":file %s"
-						   (concat
-						    song-name
-						    ".eps"))))
-			  ;; --args
-			  :language "lilypond")
-			 "\n"
-			 ;; newpage
-			 (org-dp-create 'keyword nil nil nil
-					:key 'latex
-					:value "\\newpage")
-			 "\n"
-			 ;; arrangement
-			 (format "%s" arrangement)
-			 ;; newpage
-			 (org-dp-create 'keyword nil nil nil
-					:key 'latex
-					:value "\\newpage")
-			 "\n")
-			song-lst)))))
-	   ;; (org-bandbook-get-songs))
-	   ordered-song-names)
-	  ;; Return song pages as concatenated string
-	  (mapconcat 'identity song-lst "\n")))
+        (let ((ordered-song-names
+               (or ordered-project-songs
+                   (org-bandbook-get-songs)))
+              song-lst)
+          ;; process songs and create song pages list
+          (mapc
+           ;; get song info
+           (lambda (--song)
+             (let* ((from-key
+                     (with-current-buffer
+                         (find-file-noselect --song)
+                       (org-bandbook--get-song-key)))
+                    (to-key
+                     (with-current-buffer
+                         (find-file-noselect --song)
+                       (org-bandbook--get-song-transpose-pitch)))
+                    (arrangement
+                     (with-current-buffer
+                         (find-file-noselect --song)
+                       (let ((temporary-file-directory
+                              (or
+                               ;; get current tmp-subdir
+                               org-bandbook-current-temp-subdir
+                               ;; set current tmp-subdir
+                               (let ((temporary-file-directory
+                                      org-bandbook-temp-dir))
+                                 (setq
+                                  org-bandbook-current-temp-subdir
+                                  (make-temp-file "bandbook-"
+                                                  'DIR-FLAG))))))
+                         (puml-wrap
+                          :scale org-bandbook-arr-diag-scale-factor
+                          :file (file-name-nondirectory
+                                 (make-temp-file "arrangement"))
+                          :ext "eps"
+                          :cont (org-bandbook-arrangement-to-diagram)
+                          :pproc t))))
+                    (song-path
+                     (with-current-buffer
+                         (find-file-noselect --song)
+                       (org-bandbook--extract-path-from-org-link
+                         (org-bandbook--get-song-link))))
+                    (song-name (and song-path
+                                    (file-name-sans-extension
+                                     (file-name-nondirectory
+                                      song-path)))))
+               ;; create content for song
+               (when song-name
+                 (setq song-lst
+                       (cons
+                        (concat
+                         ;; newpage
+                         (org-dp-create
+                          'keyword nil nil nil
+                          :key 'latex
+                          :value "\\newpage")
+                         "\n"
+                         ;; headline
+                         (org-dp-create
+                          'headline nil nil nil
+                          :level 1
+                          :title (mapconcat
+                                  (lambda (--word) (upcase --word))
+                                  (org-bandbook--split-words
+                                   song-name) " "))
+                         "\n"
+                         ;; src-block
+                         (org-dp-create
+                          'src-block
+                          ;; --contents
+                          (if (and to-key from-key)
+                              (org-bandbook-render-song
+                               song-path (cons from-key to-key) t)
+                            (org-bandbook-render-song
+                             song-path nil t))
+                          ;; --insert-p
+                          nil
+                          ;; --affiliated
+                          (list :name song-name
+                                :header `(":exports results"
+                                          ,(format ":file %s"
+                                                   (concat
+                                                    song-name
+                                                    ".eps"))))
+                          ;; --args
+                          :language "lilypond")
+                         "\n"
+                         ;; newpage
+                         (org-dp-create 'keyword nil nil nil
+                                        :key 'latex
+                                        :value "\\newpage")
+                         "\n"
+                         ;; arrangement
+                         (format "%s" arrangement)
+                         ;; newpage
+                         (org-dp-create 'keyword nil nil nil
+                                        :key 'latex
+                                        :value "\\newpage")
+                         "\n")
+                        song-lst)))))
+           ;; (org-bandbook-get-songs))
+           ordered-song-names)
+          ;; Return song pages as concatenated string
+          (mapconcat 'identity song-lst "\n")))
     (error "Not in Org-Bandbook project (path: %s)"
-	   (ignore-errors
-	     (file-name-directory
-	      (buffer-file-name (current-buffer)))))))
+           (ignore-errors
+             (file-name-directory
+              (buffer-file-name (current-buffer)))))))
 
 ;;;;; Change Song Order
 
@@ -1173,77 +1366,77 @@ Keys are :name, :ID, :key, :mode, :transp and :struct.
 If given, PROJECT should be a project-name without the 'project-'
 prefix, e.g. 'guitar-duo'."
   (let* ((live-buf (get-buffer "master.org"))
-	 (buf (ignore-errors
-		(find-file-noselect
-		 (org-bandbook--get-path
-		  "master.org" project)))))
+         (buf (ignore-errors
+                (find-file-noselect
+                 (org-bandbook--get-path
+                  "master.org" project)))))
     (when buf
       (with-current-buffer buf
-	(let ((ext-songlst
-	       (mapcar
-		(lambda (--song)
-		  (let* ((song-name
-			  (file-name-sans-extension
-			   (file-name-nondirectory --song)))
-			 (split-name
-			  (org-bandbook--split-words song-name))
-			 results)
-		    (setq results
-			  (plist-put results :name
-				     (mapconcat
-				      'identity
-				      (cdr split-name) "-")))
-		    (setq results
-			  (plist-put results :ID
-				     (string-to-number
-				      (car split-name))))
-		    (with-current-buffer
-			(find-file-noselect --song)
-		      (org-bandbook--goto-first-heading)
-		      (setq results
-			    (plist-put
-			     results :key
-			     (org-entry-get nil "key")))
-		      (setq results
-			    (plist-put
-			     results :mode
-			     (org-entry-get nil "mode")))
-		      (setq results
-			    (plist-put
-			     results :transp
-			     (org-entry-get
-			      nil "transpose")))
-		      (setq results
-			    (plist-put
-			     results :struct
-			     (org-entry-get
-			      nil "structure"))))))
-		(org-bandbook-get-songs))))
-	  (unless (eq live-buf (current-buffer))
-	    (kill-buffer))
-	  ext-songlst)))))
+        (let ((ext-songlst
+               (mapcar
+                (lambda (--song)
+                  (let* ((song-name
+                          (file-name-sans-extension
+                           (file-name-nondirectory --song)))
+                         (split-name
+                          (org-bandbook--split-words song-name))
+                         results)
+                    (setq results
+                          (plist-put results :name
+                                     (mapconcat
+                                      'identity
+                                      (cdr split-name) "-")))
+                    (setq results
+                          (plist-put results :ID
+                                     (string-to-number
+                                      (car split-name))))
+                    (with-current-buffer
+                        (find-file-noselect --song)
+                      (org-bandbook--goto-first-heading)
+                      (setq results
+                            (plist-put
+                             results :key
+                             (org-entry-get nil "key")))
+                      (setq results
+                            (plist-put
+                             results :mode
+                             (org-entry-get nil "mode")))
+                      (setq results
+                            (plist-put
+                             results :transp
+                             (org-entry-get
+                              nil "transpose")))
+                      (setq results
+                            (plist-put
+                             results :struct
+                             (org-entry-get
+                              nil "structure"))))))
+                (org-bandbook-get-songs))))
+          (unless (eq live-buf (current-buffer))
+            (kill-buffer))
+          ext-songlst)))))
 
 ;; adapted from ob-core.el
 (defun org-bandbook--format-project-song-list (project-songs &optional sep)
   "Format PROJECT-SONGS for song overview table."
   (let ((echo-res (lambda (r) (if (stringp r) r (format "%S" r))))
-	(processed-song-list
-	 (when (listp project-songs)
-	   (append
-	    ;; column labels
-	    (list (org-bandbook--plist-keys (car project-songs)))
-	    ;; hline
-	    (list 'hline)
-	    ;; songs
-	    (mapcar
-	     (lambda (--song)
-	       (org-bandbook--plist-values --song))
-	     project-songs)))))
+        (processed-song-list
+         (when (listp project-songs)
+           (append
+            ;; column labels
+            (list (org-bandbook--plist-keys (car project-songs)))
+            ;; hline
+            (list 'hline)
+            ;; songs
+            (mapcar
+             (lambda (--song)
+               (org-bandbook--plist-values --song))
+             project-songs)))))
     (if processed-song-list
-	;; table project-songs
-	(orgtbl-to-orgtbl
-	 processed-song-list
-	 (list :sep (or sep "\t") :fmt echo-res))
+        ;; table project-songs
+        (orgtbl-to-orgtbl
+         processed-song-list
+         (list :sep (or sep "\t") :fmt echo-res))
       ;; scalar project-songs
       (funcall echo-res project-songs)))) 
 
@@ -1253,18 +1446,18 @@ prefix, e.g. 'guitar-duo'."
     (ignore-errors
       (org-table-map-tables
        (lambda ()
-	 (org-mark-element)
-	 (when (region-active-p)
-	   (delete-region
-	    (region-beginning)
-	    (region-end)))) 'QUIETLY))
+         (org-mark-element)
+         (when (region-active-p)
+           (delete-region
+            (region-beginning)
+            (region-end)))) 'QUIETLY))
     (org-bandbook--remove-trailing-blank-lines)
     (save-excursion
       (goto-char (point-max))
       (newline)
       (insert
        (org-bandbook--format-project-song-list
-	ordered-song-lst "|")))))
+        ordered-song-lst "|")))))
 
 ;;;;; Create arrangement diagram
 
@@ -1274,37 +1467,37 @@ prefix, e.g. 'guitar-duo'."
   "Return diagram for song arrangement.
 Song is either current song or BUF-OR-NAME"
   (let ((buf (or buf-or-name
-		 (and (org-bandbook-current-project)
-		      (ignore-errors
-			(string=
-			 (file-name-nondirectory
-			  (directory-file-name
-			   (file-name-directory
-			    (buffer-file-name
-			     (current-buffer)))))
-			 "songs"))
-		      (current-buffer)))))
+                 (and (org-bandbook-current-project)
+                      (ignore-errors
+                        (string=
+                         (file-name-nondirectory
+                          (directory-file-name
+                           (file-name-directory
+                            (buffer-file-name
+                             (current-buffer)))))
+                         "songs"))
+                      (current-buffer)))))
     (when buf
       (with-current-buffer buf
-	(let* ((arrangement (org-bandbook--get-song-arrangement))
-	       (instr (and arrangement (car arrangement)))
-	       (activities (and arrangement
-				(nthcdr 2 (cadr arrangement))))
-	       (cnt-seq (and activities
-			     (number-sequence
-			      1 (length activities))))
-	       ;; (lbls org-bandbook-arrangement-column-labels)
-	       ;; (lbl-fmt-strgs (list (cdr (nth 0 lbls))
-	       ;; 			    (cdr (nth 1 lbls))
-	       ;; 			    (cdr (nth 2 lbls))
-	       ;; 			    (cdr (nth 3 lbls))
-	       ;; 			    (cdr (nth 4 lbls))
-	       ;; 			    (cdr (nth 5 lbls))))
-	       )
-	  ;; call diagram constructor
-	  (org-bandbook--create-plantuml-diagram
-	   org-bandbook-arrangement-diagram-type
-	   instr activities))))))
+        (let* ((arrangement (org-bandbook--get-song-arrangement))
+               (instr (and arrangement (car arrangement)))
+               (activities (and arrangement
+                                (nthcdr 2 (cadr arrangement))))
+               (cnt-seq (and activities
+                             (number-sequence
+                              1 (length activities))))
+               ;; (lbls org-bandbook-arrangement-column-labels)
+               ;; (lbl-fmt-strgs (list (cdr (nth 0 lbls))
+               ;;                           (cdr (nth 1 lbls))
+               ;;                           (cdr (nth 2 lbls))
+               ;;                           (cdr (nth 3 lbls))
+               ;;                           (cdr (nth 4 lbls))
+               ;;                           (cdr (nth 5 lbls))))
+               )
+          ;; call diagram constructor
+          (org-bandbook--create-plantuml-diagram
+           org-bandbook-arrangement-diagram-type
+           instr activities))))))
 
 ;;;;;; Diagram Constructor
 
@@ -1312,94 +1505,94 @@ Song is either current song or BUF-OR-NAME"
   "Constructor for PlantUML arrangement diagrams.
 Uses DIAGRAM-TYPE, INSTRuments and ACTIVITIES."
   (let* ((first-activity-p t)
-	 (parts-counter 1)
-	 diagram)
+         (parts-counter 1)
+         diagram)
     ;; maybe set diagram title
     (and org-bandbook-arrangement-diagram-with-title-p
-	 (org-string-nw-p org-bandbook-arrangement-diagram-title)
-	 (setq diagram
-	       (puml-title
-		(puml-emph
-		 (puml-size
-		  (puml-sym-or-strg
-		   org-bandbook-arrangement-diagram-title)
-		  :pt 30)))))
+         (org-string-nw-p org-bandbook-arrangement-diagram-title)
+         (setq diagram
+               (puml-title
+                (puml-emph
+                 (puml-size
+                  (puml-sym-or-strg
+                   org-bandbook-arrangement-diagram-title)
+                  :pt 30)))))
     ;; loop over activities
     (while activities
       (let* ((--act (pop activities))
-	     (--seq (nth 0 --act))
-	     (--times (string-to-number (nth 1 --act)))
-	     ;; (last-activity-p (= (length activities) 0))
-	     (act-type (cond
-			(first-activity-p 'start)
-			;; (last-activity-p 'end)
-			(t nil))))
-	;; mark first activity as done
-	(when (eq act-type 'start) (setq first-activity-p nil))
-	;; create node and add it to diagram	   
-	(setq diagram
-	      (concat diagram
-		      (funcall
-		       (intern
-			(format "org-bandbook--node-with-%s"
-				diagram-type))
-		       instr --act parts-counter act-type)))
-	;; increase parts counter
-	(setq parts-counter (1+ parts-counter))))
+             (--seq (nth 0 --act))
+             (--times (string-to-number (nth 1 --act)))
+             ;; (last-activity-p (= (length activities) 0))
+             (act-type (cond
+                        (first-activity-p 'start)
+                        ;; (last-activity-p 'end)
+                        (t nil))))
+        ;; mark first activity as done
+        (when (eq act-type 'start) (setq first-activity-p nil))
+        ;; create node and add it to diagram       
+        (setq diagram
+              (concat diagram
+                      (funcall
+                       (intern
+                        (format "org-bandbook--node-with-%s"
+                                diagram-type))
+                       instr --act parts-counter act-type)))
+        ;; increase parts counter
+        (setq parts-counter (1+ parts-counter))))
     ;; finally return diagram
     (puml-pack diagram
-	       (puml-end-activity ; :arr (puml-arrow :len 1))
-	       ))))
+               (puml-end-activity ; :arr (puml-arrow :len 1))
+               ))))
 
 ;;;;;; Node Constructor
 
 (defun org-bandbook--node-with-notes (instr activity parts-counter &optional act-type)
   "Create node for PlantUML diagram with notes."
   (let* ((arr-col-lbls org-bandbook-arrangement-column-labels)
-	 (notes (cddr arr-col-lbls))
-	 (elem-cnt 2)
-	 node)
+         (notes (cddr arr-col-lbls))
+         (elem-cnt 2)
+         node)
     (while notes
       (let ((lbl (pop notes))
-	    (activity-elem (nth elem-cnt activity)))
-	(setq node
-	      (concat
-	       node
-	       (if (org-string-nw-p activity-elem)
-		   (case org-bandbook-arrangement-diagram-size
-		     ('medium
-		      (org-bandbook--medium-note
-		       activity-elem (cdr lbl) elem-cnt instr))
-		     ('small
-		      (org-bandbook--small-note
-		       activity-elem (car lbl) elem-cnt))
-		     (t ""))
-		 "")))
-	(setq elem-cnt (1+ elem-cnt))))
+            (activity-elem (nth elem-cnt activity)))
+        (setq node
+              (concat
+               node
+               (if (org-string-nw-p activity-elem)
+                   (case org-bandbook-arrangement-diagram-size
+                     ('medium
+                      (org-bandbook--medium-note
+                       activity-elem (cdr lbl) elem-cnt instr))
+                     ('small
+                      (org-bandbook--small-note
+                       activity-elem (car lbl) elem-cnt))
+                     (t ""))
+                 "")))
+        (setq elem-cnt (1+ elem-cnt))))
     (puml-pack
      ;; activity
      (case act-type
        ('start
-	(funcall 'puml-start-activity
-		 :nm (case org-bandbook-arrangement-diagram-size
-		       ('medium
-			(org-bandbook--medium-activity-name
-			 activity arr-col-lbls parts-counter))
-		       ('small
-			(org-bandbook--small-activity-name
-			 activity arr-col-lbls parts-counter))
-		       (t ""))))
-		 ;; :arr (puml-arrow :len 1)))
+        (funcall 'puml-start-activity
+                 :nm (case org-bandbook-arrangement-diagram-size
+                       ('medium
+                        (org-bandbook--medium-activity-name
+                         activity arr-col-lbls parts-counter))
+                       ('small
+                        (org-bandbook--small-activity-name
+                         activity arr-col-lbls parts-counter))
+                       (t ""))))
+                 ;; :arr (puml-arrow :len 1)))
        ;; ('end (funcall 'puml-end-activity :nm foo))
        (t (funcall 'puml-activity
-		   :nm (case org-bandbook-arrangement-diagram-size
-			 ('medium
-			  (org-bandbook--medium-activity-name
-			   activity arr-col-lbls parts-counter))
-			 ('small
-			  (org-bandbook--small-activity-name
-			   activity arr-col-lbls parts-counter))
-			 (t "")))))
+                   :nm (case org-bandbook-arrangement-diagram-size
+                         ('medium
+                          (org-bandbook--medium-activity-name
+                           activity arr-col-lbls parts-counter))
+                         ('small
+                          (org-bandbook--small-activity-name
+                           activity arr-col-lbls parts-counter))
+                         (t "")))))
      node)))
 
 (defun org-bandbook--medium-activity-name (act col-lbls parts-cnt)
@@ -1435,7 +1628,7 @@ Uses DIAGRAM-TYPE, INSTRuments and ACTIVITIES."
     (puml-emph
      (mapconcat
       (lambda (--abbrev)
-	(car (rassoc --abbrev instr)))
+        (car (rassoc --abbrev instr)))
       (split-string activity-elem " " t)
       " & ")
      :crlf "\n")
@@ -1443,8 +1636,8 @@ Uses DIAGRAM-TYPE, INSTRuments and ACTIVITIES."
     (puml-emph lbl :type 'b))
    :ml t
    :dir (case elem-cnt
-	  ((2 3) 'left)
-	  ((4 5) 'right))))
+          ((2 3) 'left)
+          ((4 5) 'right))))
 
 (defun org-bandbook--small-note (act-elem lbl elem-cnt)
   "Create 'small' PlantUML note."
@@ -1455,8 +1648,8 @@ Uses DIAGRAM-TYPE, INSTRuments and ACTIVITIES."
     (puml-emph act-elem))
    :ml t
    :dir (case elem-cnt
-	  ((2 3) 'left)
-	  ((4 5) 'right))))
+          ((2 3) 'left)
+          ((4 5) 'right))))
 
 ;;;; Commands
 ;;;;; Import songs from mako
@@ -1482,62 +1675,62 @@ to the conventions of the Openbook jazz tunes."
   (with-temp-buffer
     (insert-file-contents infile)
     (let ((outfile-name (concat
-			 (file-name-sans-extension infile)
-			 ".org"))
-	  (infile-name-nondirectory
-	   (file-name-sans-extension
-	    (file-name-nondirectory infile)))
-	  ;; get properties
-	  (attribute-alist
-	   (save-excursion
-	   (let (--attr)
-	     (while (re-search-forward
-		     org-bandbook-mako-attribute-regexp
-		     nil 'NOERROR)
-	       (setq --attr
-		     (cons (cons (match-string 1)
-				 (list
-				  (match-string 2)))
-			   --attr)))
-	   --attr)))
-	  ;; get parts
-	  (part-alist 
-	   (save-excursion
-	   (let (--parts)
-	     (while (re-search-forward
-		     org-bandbook-mako-part-regexp
-		     nil 'NOERROR)
-	       (unless (member (match-string 1)
-			       org-bandbook-mako-non-music-parts)
-		 (setq --parts
-		       (cons (cons (match-string 1)
-				   (list (match-string 2)))
-			     --parts))))
-	     --parts))))
+                         (file-name-sans-extension infile)
+                         ".org"))
+          (infile-name-nondirectory
+           (file-name-sans-extension
+            (file-name-nondirectory infile)))
+          ;; get properties
+          (attribute-alist
+           (save-excursion
+           (let (--attr)
+             (while (re-search-forward
+                     org-bandbook-mako-attribute-regexp
+                     nil 'NOERROR)
+               (setq --attr
+                     (cons (cons (match-string 1)
+                                 (list
+                                  (match-string 2)))
+                           --attr)))
+           --attr)))
+          ;; get parts
+          (part-alist 
+           (save-excursion
+           (let (--parts)
+             (while (re-search-forward
+                     org-bandbook-mako-part-regexp
+                     nil 'NOERROR)
+               (unless (member (match-string 1)
+                               org-bandbook-mako-non-music-parts)
+                 (setq --parts
+                       (cons (cons (match-string 1)
+                                   (list (match-string 2)))
+                             --parts))))
+             --parts))))
       (with-current-buffer (find-file-noselect outfile-name)
-	(erase-buffer)
-	;; 1st level headline
-	(insert
-	 (format "* %s" (upcase infile-name-nondirectory)))
-	;; add properties
-	(mapc
-	 (lambda (--attr)
-	   (org-set-property (car --attr) (cadr --attr)))
-	 attribute-alist)
-	;; insert parts
-	(goto-char (point-max))
-	(newline 3)		 
-	(while part-alist
-	  (let ((part (pop part-alist)))
-	    (insert (format "#+name: %s\n" (car part)))
-	    (insert (format "#+header: :file %s.eps\n"
-			    (concat infile-name-nondirectory "_"
-				    (car part))))
-	    (insert (format (concat "#+begin_src lilypond \n%s\n"
-				    "#+end_src\n\n")
-			    (cadr part)))))
-	(save-buffer)
-	(kill-buffer)))))
+        (erase-buffer)
+        ;; 1st level headline
+        (insert
+         (format "* %s" (upcase infile-name-nondirectory)))
+        ;; add properties
+        (mapc
+         (lambda (--attr)
+           (org-set-property (car --attr) (cadr --attr)))
+         attribute-alist)
+        ;; insert parts
+        (goto-char (point-max))
+        (newline 3)              
+        (while part-alist
+          (let ((part (pop part-alist)))
+            (insert (format "#+name: %s\n" (car part)))
+            (insert (format "#+header: :file %s.eps\n"
+                            (concat infile-name-nondirectory "_"
+                                    (car part))))
+            (insert (format (concat "#+begin_src lilypond \n%s\n"
+                                    "#+end_src\n\n")
+                            (cadr part)))))
+        (save-buffer)
+        (kill-buffer)))))
 	 
 
 ;;;;; Export songs to mako
@@ -1569,56 +1762,56 @@ adapt the .org file to the conventions of the
     (insert-file-contents infile)
     (org-mode)
     (let ((outfile-name (concat
-			 (file-name-sans-extension infile)
-			 ".mako"))
-	  (infile-name-nondirectory
-	   (file-name-sans-extension
-	    (file-name-nondirectory infile)))
-	  ;; get properties
-	  (node-props (org-entry-properties))
-	  ;; get src-block names
-	  (src-block-names (org-babel-src-block-names))
-	  ;; get src-block bodies
-	  (src-block-contents
-	   (let (--parts)
-	     (org-babel-map-src-blocks nil
-	       (setq --parts (cons body --parts)))
-	     --parts)))
+                         (file-name-sans-extension infile)
+                         ".mako"))
+          (infile-name-nondirectory
+           (file-name-sans-extension
+            (file-name-nondirectory infile)))
+          ;; get properties
+          (node-props (org-entry-properties))
+          ;; get src-block names
+          (src-block-names (org-babel-src-block-names))
+          ;; get src-block bodies
+          (src-block-contents
+           (let (--parts)
+             (org-babel-map-src-blocks nil
+               (setq --parts (cons body --parts)))
+             --parts)))
       (with-current-buffer (find-file-noselect outfile-name)
-	(erase-buffer)
-	;; insert vars
-	(insert
-	 (concat
-	  "<%page args=\"part\"/>\n"
-	  "% if part=='Vars':\n"
-	  "<%\n"
-	  (mapconcat
-	   (lambda (--prop)
-	     (format "\tattributes['%s']=%S\n"
-		     (car --prop)
-		     (cdr --prop)))
-	   (delq nil
-		 (mapcar
-		  (lambda (--cons)
-		    (unless (or (member (car --cons)
-					org-default-properties)
-				(member (car --cons)
-					org-special-properties))
-		      --cons))
-		  node-props)) "")
-	  "\n%>\n% endif\n\n"))
-	;; doc omitted
-	;; insert parts
-	(goto-char (point-max))
-	(newline 2)		 
-	(while src-block-names
-	  (insert
-	   (format
-	    "%% if part=='%s':\n%s\n%% endif\n\n"
-	    (pop src-block-names)
-	    (pop src-block-contents))))
-	(save-buffer)
-	(kill-buffer)))))
+        (erase-buffer)
+        ;; insert vars
+        (insert
+         (concat
+          "<%page args=\"part\"/>\n"
+          "% if part=='Vars':\n"
+          "<%\n"
+          (mapconcat
+           (lambda (--prop)
+             (format "\tattributes['%s']=%S\n"
+                     (car --prop)
+                     (cdr --prop)))
+           (delq nil
+                 (mapcar
+                  (lambda (--cons)
+                    (unless (or (member (car --cons)
+                                        org-default-properties)
+                                (member (car --cons)
+                                        org-special-properties))
+                      --cons))
+                  node-props)) "")
+          "\n%>\n% endif\n\n"))
+        ;; doc omitted
+        ;; insert parts
+        (goto-char (point-max))
+        (newline 2)              
+        (while src-block-names
+          (insert
+           (format
+            "%% if part=='%s':\n%s\n%% endif\n\n"
+            (pop src-block-names)
+            (pop src-block-contents))))
+        (save-buffer)
+        (kill-buffer)))))
 
     
 ;;;;; Parse Lilypond Syntax
@@ -1631,40 +1824,40 @@ interactively, the user is prompted for IN-FILE-OR-BUF if
   (interactive
    (when current-prefix-arg
      (if (y-or-n-p "Use buffer ")
-	 (list (ido-read-buffer "Input Buffer: ")
-	       (y-or-n-p "Write messages "))
+         (list (ido-read-buffer "Input Buffer: ")
+               (y-or-n-p "Write messages "))
        (list (ido-read-file-name "Input File: ")
-	     (y-or-n-p "Write messages ")))))
+             (y-or-n-p "Write messages ")))))
   (let* ((buf (cond
-	       ((bufferp in-file-or-buf)
-		in-file-or-buf)
-	       ((and in-file-or-buf
-		     (file-exists-p in-file-or-buf))
-		(find-file-noselect in-file-or-buf))
-	       (t (current-buffer))))
-	 (temporary-file-directory org-bandbook-temp-dir)
-	 (tmp-out-file (make-temp-file "intern-repr-" nil ".scm")))
+               ((bufferp in-file-or-buf)
+                in-file-or-buf)
+               ((and in-file-or-buf
+                     (file-exists-p in-file-or-buf))
+                (find-file-noselect in-file-or-buf))
+               (t (current-buffer))))
+         (temporary-file-directory org-bandbook-temp-dir)
+         (tmp-out-file (make-temp-file "intern-repr-" nil ".scm")))
     (if (with-current-buffer buf
-	  (or (eq major-mode 'LilyPond-mode)
-	      (and (buffer-file-name buf)
-		   (string= (file-name-extension
-			     (buffer-file-name buf)) "ly"))))
-	(let ((code (org-bandbook-get-internal-representation
-		     (with-current-buffer buf
-		       (buffer-substring-no-properties
-			(point-min) (point-max)))
-		     tmp-out-file)))
-	  (if (not (= code 0))
-	      (error
-	       "Error compiling LilyPond (return code: %s)" code)
-	    (when verbose-p
-	      (message "Internal representation written to: %s"
-		       tmp-out-file))
-	    (with-current-buffer (find-file-noselect tmp-out-file)
-	      (car
-	       (read-from-string
-		(buffer-substring-no-properties
-		 (point-min) (point-max)))))))
+          (or (eq major-mode 'LilyPond-mode)
+              (and (buffer-file-name buf)
+                   (string= (file-name-extension
+                             (buffer-file-name buf)) "ly"))))
+        (let ((code (org-bandbook-get-internal-representation
+                     (with-current-buffer buf
+                       (buffer-substring-no-properties
+                        (point-min) (point-max)))
+                     tmp-out-file)))
+          (if (not (= code 0))
+              (error
+               "Error compiling LilyPond (return code: %s)" code)
+            (when verbose-p
+              (message "Internal representation written to: %s"
+                       tmp-out-file))
+            (with-current-buffer (find-file-noselect tmp-out-file)
+              (car
+               (read-from-string
+                (buffer-substring-no-properties
+                 (point-min) (point-max)))))))
       (user-error "Buffer %S not a LilyPond buffer?" buf))))
      
 ;;;;; Refresh Song Info
@@ -1678,16 +1871,16 @@ directory that has a 'song' entry, and that this entry has a
 the '/library-of-songs/' directory) as value."
   (interactive)
   (let* ((song-entry-marker
-	  (org-find-exact-headline-in-buffer "song")) 
-	 (path (ignore-errors
-		 (org-bandbook--extract-path-from-org-link
-		  (save-excursion
-		    (goto-char song-entry-marker)
-		    (org-entry-get nil "file_link")))))
-	 (buf (if (and path (file-exists-p path))
-		  (find-file-noselect path)
-		(error "Could not get song link: %s" path)))
-	 key mode structure)
+          (org-find-exact-headline-in-buffer "song")) 
+         (path (ignore-errors
+                 (org-bandbook--extract-path-from-org-link
+                  (save-excursion
+                    (goto-char song-entry-marker)
+                    (org-entry-get nil "file_link")))))
+         (buf (if (and path (file-exists-p path))
+                  (find-file-noselect path)
+                (error "Could not get song link: %s" path)))
+         key mode structure)
     (with-current-buffer buf
       (re-search-forward
        org-bandbook-song-key-regexp nil 'NOERROR 1)
@@ -1695,7 +1888,7 @@ the '/library-of-songs/' directory) as value."
       (setq mode (match-string 2))
       (org-bandbook--goto-first-heading)
       (setq structure (org-bandbook--clean-string
-		       (org-entry-get nil "structure")))
+                       (org-entry-get nil "structure")))
       (kill-buffer))
     (save-excursion
       (goto-char song-entry-marker)
@@ -1712,11 +1905,11 @@ The default order is the order of songs in the list returned by
 `org-bandbook-get-songs'."
   (interactive)
   (let* ((song-lst (org-bandbook--make-extended-project-song-list))
-	 (prefix-lst (mapconcat
-		      (lambda (--song)
-			(number-to-string
-			 (plist-get --song :ID)))
-		      song-lst " ")))
+         (prefix-lst (mapconcat
+                      (lambda (--song)
+                        (number-to-string
+                         (plist-get --song :ID)))
+                      song-lst " ")))
     (save-excursion
       (goto-char (org-find-exact-headline-in-buffer "Master" nil t))
       (org-entry-put nil "song_order" prefix-lst))
@@ -1742,25 +1935,25 @@ any changes."
     (goto-char (org-find-exact-headline-in-buffer "Master" nil t))
     (let ((order (ignore-errors (org-entry-get nil "song_order"))))
       (if (not (org-string-nw-p order))
-	  (org-bandbook-reset-song-order)
-	(let ((song-lst
-	       (org-bandbook--make-extended-project-song-list))
-	      (order-to-number
-	       (mapcar 'string-to-number (split-string order)))
-	      result-lst)
-	  (mapc
-	   (lambda (--num-prefix)
-	     (mapc
-	      (lambda (--song)
-		(when (= (plist-get --song :ID)
-			 --num-prefix)
-		  (setq result-lst (cons --song result-lst))))
-	      song-lst))
-	   order-to-number)
-	  (let ((reverse-res-lst (reverse result-lst)))
-	    (org-bandbook--update-song-order-overview
-	     reverse-res-lst)
-	    reverse-res-lst))))))
+          (org-bandbook-reset-song-order)
+        (let ((song-lst
+               (org-bandbook--make-extended-project-song-list))
+              (order-to-number
+               (mapcar 'string-to-number (split-string order)))
+              result-lst)
+          (mapc
+           (lambda (--num-prefix)
+             (mapc
+              (lambda (--song)
+                (when (= (plist-get --song :ID)
+                         --num-prefix)
+                  (setq result-lst (cons --song result-lst))))
+              song-lst))
+           order-to-number)
+          (let ((reverse-res-lst (reverse result-lst)))
+            (org-bandbook--update-song-order-overview
+             reverse-res-lst)
+            reverse-res-lst))))))
 
 ;;;;; Refresh and Print Arrangement
 
@@ -1770,35 +1963,35 @@ Assumes that point is in a song file in the <project>/songs/
 directory that has a 'arrangement' entry."
   (interactive)
   (when (and (org-bandbook-current-project)
-	     (org-bandbook--in-song-config-buffer-p))
+             (org-bandbook--in-song-config-buffer-p))
     (save-excursion
       (goto-char
        (org-find-exact-headline-in-buffer "arrangement"))
       (mapc
        (lambda (--pair)
-	 (org-entry-put nil (car --pair) (cdr --pair)))
+         (org-entry-put nil (car --pair) (cdr --pair)))
        (org-bandbook--get-peoples-instruments)))))
 
 (defun org-bandbook-insert-arrangement-table-skeleton ()
   "Insert skeleton-table for song arrangement."
   (interactive)
   (when (and (org-bandbook-current-project)
-	     (org-bandbook--in-song-config-buffer-p))
+             (org-bandbook--in-song-config-buffer-p))
     (save-excursion
       (goto-char
        (org-find-exact-headline-in-buffer "arrangement"))
       (save-restriction
-	(org-narrow-to-subtree)
-	(unless (assoc 'table (car (org-dp-contents)))
-	  (goto-char (point-max))
-	  (unless (looking-at "^[[:space:]]*$")
-	    (newline))
-	  (org-dp-create-table
-	   (list
-	    (list "seq" "do" "melody" "solo" "accomp" "riff")
-	    'hline
-	    (list "" "" "" "" "" ""))
-	   nil nil 'INSERT-P))))))
+        (org-narrow-to-subtree)
+        (unless (assoc 'table (car (org-dp-contents)))
+          (goto-char (point-max))
+          (unless (looking-at "^[[:space:]]*$")
+            (newline))
+          (org-dp-create-table
+           (list
+            (list "seq" "do" "melody" "solo" "accomp" "riff")
+            'hline
+            (list "" "" "" "" "" ""))
+           nil nil 'INSERT-P))))))
 
 ;;;;; Make Bandbook
 
@@ -1807,207 +2000,207 @@ directory that has a 'arrangement' entry."
   (interactive)
   (if (org-bandbook-current-project)
       (progn
-	;; set current tmp-subdir
-	(let ((temporary-file-directory org-bandbook-temp-dir))
-	  (setq org-bandbook-current-temp-subdir
-		(make-temp-file "bandbook-" 'DIR-FLAG)))
-	(with-current-buffer
-	    ;; find tmp file
-	    (find-file-noselect
-	     (let ((temporary-file-directory
-		    (expand-file-name "./")))
-	       (make-temp-file "bandbook-" nil ".org")))
-	  (setq org-bandbook-current-project-dir
-		(expand-file-name "./"))
-	  (let* ((master-buf (find-file-noselect
-			      (expand-file-name "./master.org")))
-		 (master-props
-		  (with-current-buffer master-buf
-		    (org-bandbook--get-props)))
-		 (exp-header
-		  (org-string-nw-p
-		   (cdr (assoc "export_header" master-props))))
-		 (exp-header-path
-		  (and exp-header
-		       (org-bandbook--extract-path-from-org-link
-			exp-header)))
-		 (acc-scheme
-		  (org-string-nw-p
-		   (cdr (assoc "accounting_scheme" master-props))))
-		 (acc-scheme-path
-		  (and acc-scheme
-		       (org-bandbook--extract-path-from-org-link
-			acc-scheme)))
-		 (song-order
-		  (mapcar
-		   'string-to-number
-		   (org-bandbook--split-words
-		    (org-string-nw-p
-		     (cdr (assoc "song_order" master-props))))))
-		 (song-lst
-		  (with-current-buffer master-buf
-		    (org-bandbook-get-songs)))
-		 (book-parts
-		  (org-string-nw-p
-		   (cdr (assoc "book_parts" master-props))))
-		 (book-parts-lst (split-string book-parts " " t))
-		 ordered-song-lst)
-	    ;; insert export header
-	    (if (and exp-header-path
-		     (file-exists-p exp-header-path))
-		(insert-file-contents exp-header-path)
-	      (insert-file-contents
-	       (expand-file-name
-		"default-header.org"
-		(expand-file-name
-		 "../library-of-headers/"))))
-	    (goto-char (point-max))
-	    (newline)
-	    (save-buffer)
-	    ;; insert songs
-	    (mapc
-	     (lambda (--num-prefix)
-	       (mapc
-		(lambda (--song)
-		  (when (= (org-bandbook--get-num-prefix --song)
-			   --num-prefix)
-		    (setq ordered-song-lst
-			  (cons --song ordered-song-lst))))
-		song-lst))
-	     song-order)
-	    (insert
-	     (org-bandbook-render-project-songs
-	      ordered-song-lst))
-	    (save-buffer)
-	    ;; insert tasks and timeline
-	    (when (member "tasks" book-parts-lst)
-	      (newline)
-	      (let* ((task-buf (find-file-noselect
-				(expand-file-name
-				 "timeline-and-tasks.org"
-				 (org-bandbook-current-project))))
-		     (org-use-tag-inheritance nil)
-		     (agenda-live-p (get-buffer "*Org Agenda*"))
-		     (timeline-buf (when (require 'org-agenda nil t)
-				     (with-current-buffer task-buf
-				       (org-timeline))
-				     (get-buffer "*Org Agenda*"))))
-		;; --tasks
-		(insert-buffer-substring
-		 task-buf
-		 (org-find-exact-headline-in-buffer
-		  "Timeline and Tasks" task-buf 'POS-ONLY)
-		 (with-current-buffer task-buf
-		   (point-max)))
-		(org-dp-create 'keyword nil 'INSERT-P nil
-			       :key 'latex
-			       :value "\\newpage")
-		;; --timeline
-		(org-dp-create
-		 'headline
-		 (org-dp-create
-		  'verse-block
-		  (with-current-buffer timeline-buf
-		    (buffer-substring
-		     (progn
-		       (goto-char (point-min))
-		       (forward-line)
-		       (point))
-		     (progn
-		       (goto-char (point-max))
-		       (re-search-backward
-		 	"^\\[\\.\\.\\. [[:digit:]]+ "
-		 	nil t 1)
-		       (match-beginning 0)))))
-		 'INSERT-P nil
-		 :level 2
-		 :title (format
-			 "Timeline Overview %s"
-			 (org-bandbook--get-project-name)))
-		(kill-buffer task-buf)
-		(if agenda-live-p
-		    (with-current-buffer timeline-buf
-		      (org-agenda-list)
-		      (bury-buffer))
-		  (kill-buffer timeline-buf))))
-	    ;; insert funds
-	    (when (member "funds" book-parts-lst)
-	      (newline)
-	      (let ((basic-block
-		     (org-dp-create 
-		      'src-block nil nil
-		      (list :header '(":exports results"))
-		      :language "ledger"
-		      :preserve-indent 1
-		      :value (format
-			      "%s\n%s"
-			      (with-current-buffer
-				  (find-file-noselect
-				   acc-scheme-path)
-				(buffer-substring-no-properties
-				 (point-min) (point-max)))
-			      (with-current-buffer
-				  (find-file-noselect
-				   (expand-file-name
-				    "journal.ledger"
-				    (org-bandbook-current-project)))
-				(buffer-substring-no-properties
-				 (point-min) (point-max)))))))
-		(org-dp-create 'headline nil 'INSERT-P nil
-			       :level 1
-			       :title "Band Funds")
-		(org-dp-create 'headline basic-block 'INSERT-P nil 
-			       :level 2
-			       :title "Balance")
-		(org-dp-create
-		 'headline
-		 (with-temp-buffer
-		   (insert basic-block)
-		   (forward-line -1)
-		   (goto-char
-		    (org-babel-where-is-src-block-head))
-		   (org-dp-rewire
-		    nil nil nil
-		    (list
-		     :header
-		     '(":exports results" ":cmdline -M reg"))))			       'INSERT-P nil 
-		     :level 2
-		     :title "Monthly Register")))
-	    ;; insert people
-	    (when (member "people" book-parts-lst)
-	      (newline)
-	      (org-dp-create
-	       'headline nil 'INSERT-P nil
-	       :level 1
-	       :title "Project People")
-	      (org-dp-create
-	       'headline
-	       (org-bandbook--get-active-project-people-as-strg)
-	       'INSERT-P nil
-	       :level 2
-	       :title "Active Participants"))
-	    ;; insert utility src_blocks
-	    (insert
-	     (format
-	      "\n* Utility functions :noexport:\n\n%s%s"
-	      org-bandbook-project-name-src-block
-	      org-bandbook-current-date-src-block))
-	    (save-buffer)
-	    ;; export to pdf
-	    (let* ((curr-buf-file (buffer-file-name))
-		   (new-file-name (expand-file-name
-				   (file-name-nondirectory
-				    curr-buf-file)
-				   org-bandbook-current-temp-subdir)))
-	      (kill-buffer)
-	      (rename-file curr-buf-file new-file-name)
-	      (with-current-buffer (find-file-noselect
-				    new-file-name)
-		(org-latex-export-to-pdf))))))
+        ;; set current tmp-subdir
+        (let ((temporary-file-directory org-bandbook-temp-dir))
+          (setq org-bandbook-current-temp-subdir
+                (make-temp-file "bandbook-" 'DIR-FLAG)))
+        (with-current-buffer
+            ;; find tmp file
+            (find-file-noselect
+             (let ((temporary-file-directory
+                    (expand-file-name "./")))
+               (make-temp-file "bandbook-" nil ".org")))
+          (setq org-bandbook-current-project-dir
+                (expand-file-name "./"))
+          (let* ((master-buf (find-file-noselect
+                              (expand-file-name "./master.org")))
+                 (master-props
+                  (with-current-buffer master-buf
+                    (org-bandbook--get-props)))
+                 (exp-header
+                  (org-string-nw-p
+                   (cdr (assoc "export_header" master-props))))
+                 (exp-header-path
+                  (and exp-header
+                       (org-bandbook--extract-path-from-org-link
+                        exp-header)))
+                 (acc-scheme
+                  (org-string-nw-p
+                   (cdr (assoc "accounting_scheme" master-props))))
+                 (acc-scheme-path
+                  (and acc-scheme
+                       (org-bandbook--extract-path-from-org-link
+                        acc-scheme)))
+                 (song-order
+                  (mapcar
+                   'string-to-number
+                   (org-bandbook--split-words
+                    (org-string-nw-p
+                     (cdr (assoc "song_order" master-props))))))
+                 (song-lst
+                  (with-current-buffer master-buf
+                    (org-bandbook-get-songs)))
+                 (book-parts
+                  (org-string-nw-p
+                   (cdr (assoc "book_parts" master-props))))
+                 (book-parts-lst (split-string book-parts " " t))
+                 ordered-song-lst)
+            ;; insert export header
+            (if (and exp-header-path
+                     (file-exists-p exp-header-path))
+                (insert-file-contents exp-header-path)
+              (insert-file-contents
+               (expand-file-name
+                "default-header.org"
+                (expand-file-name
+                 "../library-of-headers/"))))
+            (goto-char (point-max))
+            (newline)
+            (save-buffer)
+            ;; insert songs
+            (mapc
+             (lambda (--num-prefix)
+               (mapc
+                (lambda (--song)
+                  (when (= (org-bandbook--get-num-prefix --song)
+                           --num-prefix)
+                    (setq ordered-song-lst
+                          (cons --song ordered-song-lst))))
+                song-lst))
+             song-order)
+            (insert
+             (org-bandbook-render-project-songs
+              ordered-song-lst))
+            (save-buffer)
+            ;; insert tasks and timeline
+            (when (member "tasks" book-parts-lst)
+              (newline)
+              (let* ((task-buf (find-file-noselect
+                                (expand-file-name
+                                 "timeline-and-tasks.org"
+                                 (org-bandbook-current-project))))
+                     (org-use-tag-inheritance nil)
+                     (agenda-live-p (get-buffer "*Org Agenda*"))
+                     (timeline-buf (when (require 'org-agenda nil t)
+                                     (with-current-buffer task-buf
+                                       (org-timeline))
+                                     (get-buffer "*Org Agenda*"))))
+                ;; --tasks
+                (insert-buffer-substring
+                 task-buf
+                 (org-find-exact-headline-in-buffer
+                  "Timeline and Tasks" task-buf 'POS-ONLY)
+                 (with-current-buffer task-buf
+                   (point-max)))
+                (org-dp-create 'keyword nil 'INSERT-P nil
+                               :key 'latex
+                               :value "\\newpage")
+                ;; --timeline
+                (org-dp-create
+                 'headline
+                 (org-dp-create
+                  'verse-block
+                  (with-current-buffer timeline-buf
+                    (buffer-substring
+                     (progn
+                       (goto-char (point-min))
+                       (forward-line)
+                       (point))
+                     (progn
+                       (goto-char (point-max))
+                       (re-search-backward
+                        "^\\[\\.\\.\\. [[:digit:]]+ "
+                        nil t 1)
+                       (match-beginning 0)))))
+                 'INSERT-P nil
+                 :level 2
+                 :title (format
+                         "Timeline Overview %s"
+                         (org-bandbook--get-project-name)))
+                (kill-buffer task-buf)
+                (if agenda-live-p
+                    (with-current-buffer timeline-buf
+                      (org-agenda-list)
+                      (bury-buffer))
+                  (kill-buffer timeline-buf))))
+            ;; insert funds
+            (when (member "funds" book-parts-lst)
+              (newline)
+              (let ((basic-block
+                     (org-dp-create 
+                      'src-block nil nil
+                      (list :header '(":exports results"))
+                      :language "ledger"
+                      :preserve-indent 1
+                      :value (format
+                              "%s\n%s"
+                              (with-current-buffer
+                                  (find-file-noselect
+                                   acc-scheme-path)
+                                (buffer-substring-no-properties
+                                 (point-min) (point-max)))
+                              (with-current-buffer
+                                  (find-file-noselect
+                                   (expand-file-name
+                                    "journal.ledger"
+                                    (org-bandbook-current-project)))
+                                (buffer-substring-no-properties
+                                 (point-min) (point-max)))))))
+                (org-dp-create 'headline nil 'INSERT-P nil
+                               :level 1
+                               :title "Band Funds")
+                (org-dp-create 'headline basic-block 'INSERT-P nil 
+                               :level 2
+                               :title "Balance")
+                (org-dp-create
+                 'headline
+                 (with-temp-buffer
+                   (insert basic-block)
+                   (forward-line -1)
+                   (goto-char
+                    (org-babel-where-is-src-block-head))
+                   (org-dp-rewire
+                    nil nil nil
+                    (list
+                     :header
+                     '(":exports results" ":cmdline -M reg"))))                        'INSERT-P nil 
+                     :level 2
+                     :title "Monthly Register")))
+            ;; insert people
+            (when (member "people" book-parts-lst)
+              (newline)
+              (org-dp-create
+               'headline nil 'INSERT-P nil
+               :level 1
+               :title "Project People")
+              (org-dp-create
+               'headline
+               (org-bandbook--get-active-project-people-as-strg)
+               'INSERT-P nil
+               :level 2
+               :title "Active Participants"))
+            ;; insert utility src_blocks
+            (insert
+             (format
+              "\n* Utility functions :noexport:\n\n%s%s"
+              org-bandbook-project-name-src-block
+              org-bandbook-current-date-src-block))
+            (save-buffer)
+            ;; export to pdf
+            (let* ((curr-buf-file (buffer-file-name))
+                   (new-file-name (expand-file-name
+                                   (file-name-nondirectory
+                                    curr-buf-file)
+                                   org-bandbook-current-temp-subdir)))
+              (kill-buffer)
+              (rename-file curr-buf-file new-file-name)
+              (with-current-buffer (find-file-noselect
+                                    new-file-name)
+                (org-latex-export-to-pdf))))))
     (error "Not in Org-Bandbook project (path: %s)"
-	   (ignore-errors
-	     (file-name-directory
-	      (buffer-file-name (current-buffer)))))))
+           (ignore-errors
+             (file-name-directory
+              (buffer-file-name (current-buffer)))))))
 
 
 ;;;;; Create, refresh and delete project
