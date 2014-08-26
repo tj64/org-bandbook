@@ -1,4 +1,10 @@
-Thorsten Jolitz
+			  ___________________
+
+			      ORG-BANDBOOK
+
+			    Thorsten Jolitz
+			   tjolitz@gmail.com
+			  ___________________
 
 
 Table of Contents
@@ -22,6 +28,9 @@ _________________
 ..... 1.5.6 Source Code
 
 
+
+
+
 1 org-bandbook.el --- Functions for Org-Bandbook
 ================================================
 
@@ -31,6 +40,19 @@ _________________
 
 1.1 MetaData
 ~~~~~~~~~~~~
+
+  copyright: Thorsten Jolitz
+  copyright-years: 2014+
+  version: 0.9
+  licence: GPL 3 or later (free software)
+  licence-url: http://www.gnu.org/licenses/
+  part-of-emacs: no
+  author: Thorsten Jolitz
+  author_email: tjolitz AT gmail DOT com
+  inspiration: https://github.com/veltzer/openbook
+  keywords: emacs org-mode taskjuggler lilypond
+  git-repo: https://github.com/tj64/org-bandbook
+  git-clone: git://github.com/tj64/org-bandbook.git
 
 
 1.2 Commentary
@@ -44,14 +66,14 @@ _________________
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   Org-Bandbook is inspired by Mark Veltzer's [Open-Book] project, in
-  fact it started out as a port of Open-Book' to Org-mode, and it
-  would not exist without this wonderfull project.
+  fact it started out as a port of Open-Book' to Org-mode, and it would
+  not exist without this wonderfull project.
 
-  However, Org-Bandbook has a different focus than Open-Book. While
-  the latter tries to become a free 'Real Book' or 'Fake Book' with
-  possibly hundreds of tunes, the former is meant to just contain the
-  repertoire of a band-project (may one or two dozen tunes) with
-  arrangements, as well as planning, accounting and contact info.
+  However, Org-Bandbook has a different focus than Open-Book. While the
+  latter tries to become a free 'Real Book' or 'Fake Book' with possibly
+  hundreds of tunes, the former is meant to just contain the repertoire
+  of a band-project (may one or two dozen tunes) with arrangements, as
+  well as planning, accounting and contact info.
 
 
   [Open-Book] https://github.com/veltzer/openbook
@@ -256,3 +278,7 @@ _________________
 -----------------
 
   Bug Reports and Patches welcome.
+
+
+
+					 Emacs 24.3.1 (Org mode 8.3beta)

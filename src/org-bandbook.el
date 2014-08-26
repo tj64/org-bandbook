@@ -180,6 +180,23 @@
 ;; around. The '1' is the song ID, the numerical prefix of its
 ;; song-config file (e.g. 1-all-the-things.org). 
 
+;;;; Create Bandbook
+
+;; Use command:
+
+;; ,----[ C-h f org-bandbook-make-bandbook RET ]
+;; | org-bandbook-make-bandbook is an interactive Lisp function in
+;; | `org-bandbook.el'.
+;; | 
+;; | It is bound to C-c b m.
+;; | 
+;; | (org-bandbook-make-bandbook)
+;; | 
+;; | Create bandbook for current project.
+;; `----
+
+;; to create the PDF. 
+
 ;;;; Contribute
 
 ;;;;; Songs 

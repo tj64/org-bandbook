@@ -7,6 +7,7 @@
     - [Song Properties](#song-properties)
     - [Song Arrangements](#song-arrangements)
     - [Project Properties](#project-properties)
+  - [Create Bandbook](#create-bandbook)
   - [Contribute](#contribute)
     - [Songs](#songs)
     - [Export Headers](#export-headers)
@@ -509,9 +510,67 @@ changed by moving the number in property ':song\_order: 1 3'
 around. The '1' is the song ID, the numerical prefix of its
 song-config file (e.g. 1-all-the-things.org). 
 
-## Contribute<a id="sec-1-5"></a>
+## Create Bandbook<a id="sec-1-5"></a>
 
-### Songs<a id="sec-1-5-1"></a>
+Use command:
+
+,-&#x2014;[ C-h f org-bandbook-make-bandbook RET ]
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">org-bandbook-make-bandbook is an interactive Lisp function in</td>
+</tr>
+
+
+<tr>
+<td class="left">\`org-bandbook.el'.</td>
+</tr>
+
+<tbody>
+<tr>
+</tr>
+</tbody>
+
+
+<tr>
+<td class="left">It is bound to C-c b m.</td>
+</tr>
+
+<tbody>
+<tr>
+</tr>
+</tbody>
+
+
+<tr>
+<td class="left">(org-bandbook-make-bandbook)</td>
+</tr>
+
+<tbody>
+<tr>
+</tr>
+</tbody>
+
+
+<tr>
+<td class="left">Create bandbook for current project.</td>
+</tr>
+</tbody>
+</table>
+
+\`-&#x2014;
+
+to create the PDF. 
+
+## Contribute<a id="sec-1-6"></a>
+
+### Songs<a id="sec-1-6-1"></a>
 
 Add songs to the 'library-of-songs'. Use commands
 \`org-bandbook-export-org-file',
@@ -522,26 +581,26 @@ to 'Open-Book' project. Each song you add in either of the two formats
 (org or mako) will therefore benefit both projects, since conversion
 is simple. 
 
-### Export Headers<a id="sec-1-5-2"></a>
+### Export Headers<a id="sec-1-6-2"></a>
 
 Add headers that produce beautiful (LaTeX) output to the
 'library-of-headers'. 
 
-### Accounting Schemes<a id="sec-1-5-3"></a>
+### Accounting Schemes<a id="sec-1-6-3"></a>
 
 Add ledger accounting schemes for your country to the
 'library-of-accounting-schemes'. 
 
-### Title Pages<a id="sec-1-5-4"></a>
+### Title Pages<a id="sec-1-6-4"></a>
 
 Add beautiful (LaTeX) title pages for Org-Bandbook to the
 'library-of-title-pages'.
 
-### Artwork<a id="sec-1-5-5"></a>
+### Artwork<a id="sec-1-6-5"></a>
 
 Add artwork for title pages and other parts of Org-Bandbook to the
 'library-of-artwork.
 
-### Source Code<a id="sec-1-5-6"></a>
+### Source Code<a id="sec-1-6-6"></a>
 
 Bug Reports and Patches welcome. 
