@@ -74,6 +74,7 @@
 
 ;; Use this command:
 
+;; #+BEGIN_EXAMPLE 
 ;; ,----[ C-h f org-bandbook-insert-arrangement-table-skeleton RET ]
 ;; | org-bandbook-refresh-song-info is an interactive Lisp function in
 ;; | `org-bandbook.el'.
@@ -87,6 +88,7 @@
 ;; | 'link' property with an Org-link (to an Org-Bandbook song in
 ;; | the '/library-of-songs/' directory) as value.
 ;; `----
+;; #+END_EXAMPLE
 
 ;; Note that, thanks to amazing LilyPond, transposing a song is done by
 ;; simply adding a property like this ':transpose: g'. Thats all. 
@@ -95,6 +97,7 @@
 
 ;; Use these two commands: 
 
+;; #+BEGIN_EXAMPLE 
 ;; ,----[ C-h f org-bandbook-refresh-arrangement-properties RET ]
 ;; | org-bandbook-refresh-arrangement-properties is an interactive Lisp
 ;; | function in `org-bandbook.el'.
@@ -105,7 +108,9 @@
 ;; | Assumes that point is in a song file in the <project>/songs/
 ;; | directory that has a 'arrangement' entry.
 ;; `----
+;; #+END_EXAMPLE
 
+;; #+BEGIN_EXAMPLE 
 ;; ,----[ C-h f org-bandbook-insert-arrangement-table-skeleton RET ]
 ;; | org-bandbook-insert-arrangement-table-skeleton is an interactive Lisp
 ;; | function in `org-bandbook.el'.
@@ -114,6 +119,7 @@
 ;; | 
 ;; | Insert skeleton-table for song arrangement.
 ;; `----
+;; #+END_EXAMPLE
 
 ;; or simply copy&pase from existing song config files. Then create the
 ;; arrangement as org-table, it will be exported to an PlantUML activity
@@ -153,27 +159,12 @@
 ;; Note the song-order/overview table at the bottom. This table should
 ;; and must *not* be edited by hand. Use command:
 
+;; #+BEGIN_EXAMPLE 
 ;; ,----[ C-h f org-bandbook-refresh-song-order RET ]
 ;; | org-bandbook-refresh-song-order is an interactive Lisp function in
-;; | `org-bandbook.el'.
-;; | 
-;; | (org-bandbook-refresh-song-order)
-;; | 
-;; | Get key/mode from song-link and put them in properties.
-;; | 
-;; | Assumes that point is in a project's master.org file that
-;; | contains one the 1st-level 'Master' entry.
-;; | 
-;; | If this entry does not have property 'song_order', call
-;; | `org-bandbook-reset-song-order' to get all project songs in their
-;; | natural order, put their file-name's numerical prefix values into
-;; | this property, and update the entry's dynamic-block (for showing
-;; | the song-order in human-readable format).
-;; | 
-;; | Otherwise read the (possibly user modified) value of property
-;; | 'song_order' and update the entry's dynamic-block to reflect the
-;; | any changes.
+;; | `org-bandbook.el'. [...]
 ;; `----
+;; #+END_EXAMPLE
 
 ;; for inserting and refreshing the table. The song-order is simply
 ;; changed by moving the number in property ':song_order: 1 3'
@@ -184,16 +175,16 @@
 
 ;; Use command:
 
+;; #+BEGIN_EXAMPLE 
 ;; ,----[ C-h f org-bandbook-make-bandbook RET ]
 ;; | org-bandbook-make-bandbook is an interactive Lisp function in
 ;; | `org-bandbook.el'.
-;; | 
-;; | It is bound to C-c b m.
 ;; | 
 ;; | (org-bandbook-make-bandbook)
 ;; | 
 ;; | Create bandbook for current project.
 ;; `----
+;; #+END_EXAMPLE
 
 ;; to create the PDF. 
 

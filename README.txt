@@ -19,13 +19,14 @@ _________________
 ..... 1.4.2 Song Properties
 ..... 1.4.3 Song Arrangements
 ..... 1.4.4 Project Properties
-.. 1.5 Contribute
-..... 1.5.1 Songs
-..... 1.5.2 Export Headers
-..... 1.5.3 Accounting Schemes
-..... 1.5.4 Title Pages
-..... 1.5.5 Artwork
-..... 1.5.6 Source Code
+.. 1.5 Create Bandbook
+.. 1.6 Contribute
+..... 1.6.1 Songs
+..... 1.6.2 Export Headers
+..... 1.6.3 Accounting Schemes
+..... 1.6.4 Title Pages
+..... 1.6.5 Artwork
+..... 1.6.6 Source Code
 
 
 
@@ -120,18 +121,20 @@ _________________
 
   Use this command:
 
-  ,----[ C-h f org-bandbook-insert-arrangement-table-skeleton RET ]
-   org-bandbook-refresh-song-info is an interactive Lisp function in 
-   `org-bandbook.el'.                                                
-
-   (org-bandbook-refresh-song-info)                                  
-
-   Get key/mode/form from song-link and update properties.           
-
-   Assumes that point is in a song file in the <project>/songs/      
-   directory that has a 'song' entry, and that this entry has a      
-   'link' property with an Org-link (to an Org-Bandbook song in      
-   the '/library-of-songs/' directory) as value.                     
+  ,----
+  | ,----[ C-h f org-bandbook-insert-arrangement-table-skeleton RET ]
+  | | org-bandbook-refresh-song-info is an interactive Lisp function in
+  | | `org-bandbook.el'.
+  | | 
+  | | (org-bandbook-refresh-song-info)
+  | | 
+  | | Get key/mode/form from song-link and update properties.
+  | | 
+  | | Assumes that point is in a song file in the <project>/songs/
+  | | directory that has a 'song' entry, and that this entry has a
+  | | 'link' property with an Org-link (to an Org-Bandbook song in
+  | | the '/library-of-songs/' directory) as value.
+  | `----
   `----
 
   Note that, thanks to amazing LilyPond, transposing a song is done by
@@ -143,24 +146,28 @@ _________________
 
   Use these two commands:
 
-  ,----[ C-h f org-bandbook-refresh-arrangement-properties RET ]
-   org-bandbook-refresh-arrangement-properties is an interactive Lisp 
-   function in `org-bandbook.el'.                                     
-
-   (org-bandbook-refresh-arrangement-properties)                      
-
-   Gather (and insert) info about project instruments.                
-   Assumes that point is in a song file in the <project>/songs/       
-   directory that has a 'arrangement' entry.                          
+  ,----
+  | ,----[ C-h f org-bandbook-refresh-arrangement-properties RET ]
+  | | org-bandbook-refresh-arrangement-properties is an interactive Lisp
+  | | function in `org-bandbook.el'.
+  | | 
+  | | (org-bandbook-refresh-arrangement-properties)
+  | | 
+  | | Gather (and insert) info about project instruments.
+  | | Assumes that point is in a song file in the <project>/songs/
+  | | directory that has a 'arrangement' entry.
+  | `----
   `----
 
-  ,----[ C-h f org-bandbook-insert-arrangement-table-skeleton RET ]
-   org-bandbook-insert-arrangement-table-skeleton is an interactive Lisp 
-   function in `org-bandbook.el'.                                        
-
-   (org-bandbook-insert-arrangement-table-skeleton)                      
-
-   Insert skeleton-table for song arrangement.                           
+  ,----
+  | ,----[ C-h f org-bandbook-insert-arrangement-table-skeleton RET ]
+  | | org-bandbook-insert-arrangement-table-skeleton is an interactive Lisp
+  | | function in `org-bandbook.el'.
+  | | 
+  | | (org-bandbook-insert-arrangement-table-skeleton)
+  | | 
+  | | Insert skeleton-table for song arrangement.
+  | `----
   `----
 
   or simply copy&pase from existing song config files. Then create the
@@ -202,26 +209,11 @@ _________________
   Note the song-order/overview table at the bottom. This table should
   and must *not* be edited by hand. Use command:
 
-  ,----[ C-h f org-bandbook-refresh-song-order RET ]
-   org-bandbook-refresh-song-order is an interactive Lisp function in 
-   `org-bandbook.el'.                                                 
-
-   (org-bandbook-refresh-song-order)                                  
-
-   Get key/mode from song-link and put them in properties.            
-
-   Assumes that point is in a project's master.org file that          
-   contains one the 1st-level 'Master' entry.                         
-
-   If this entry does not have property 'song_order', call            
-   `org-bandbook-reset-song-order' to get all project songs in their  
-   natural order, put their file-name's numerical prefix values into  
-   this property, and update the entry's dynamic-block (for showing   
-   the song-order in human-readable format).                          
-
-   Otherwise read the (possibly user modified) value of property      
-   'song_order' and update the entry's dynamic-block to reflect the   
-   any changes.                                                       
+  ,----
+  | ,----[ C-h f org-bandbook-refresh-song-order RET ]
+  | | org-bandbook-refresh-song-order is an interactive Lisp function in
+  | | `org-bandbook.el'. [...]
+  | `----
   `----
 
   for inserting and refreshing the table. The song-order is simply
@@ -230,10 +222,29 @@ _________________
   song-config file (e.g. 1-all-the-things.org).
 
 
-1.5 Contribute
+1.5 Create Bandbook
+~~~~~~~~~~~~~~~~~~~
+
+  Use command:
+
+  ,----
+  | ,----[ C-h f org-bandbook-make-bandbook RET ]
+  | | org-bandbook-make-bandbook is an interactive Lisp function in
+  | | `org-bandbook.el'.
+  | | 
+  | | (org-bandbook-make-bandbook)
+  | | 
+  | | Create bandbook for current project.
+  | `----
+  `----
+
+  to create the PDF.
+
+
+1.6 Contribute
 ~~~~~~~~~~~~~~
 
-1.5.1 Songs
+1.6.1 Songs
 -----------
 
   Add songs to the 'library-of-songs'. Use commands
@@ -246,35 +257,35 @@ _________________
   is simple.
 
 
-1.5.2 Export Headers
+1.6.2 Export Headers
 --------------------
 
   Add headers that produce beautiful (LaTeX) output to the
   'library-of-headers'.
 
 
-1.5.3 Accounting Schemes
+1.6.3 Accounting Schemes
 ------------------------
 
   Add ledger accounting schemes for your country to the
   'library-of-accounting-schemes'.
 
 
-1.5.4 Title Pages
+1.6.4 Title Pages
 -----------------
 
   Add beautiful (LaTeX) title pages for Org-Bandbook to the
   'library-of-title-pages'.
 
 
-1.5.5 Artwork
+1.6.5 Artwork
 -------------
 
   Add artwork for title pages and other parts of Org-Bandbook to the
   'library-of-artwork.
 
 
-1.5.6 Source Code
+1.6.6 Source Code
 -----------------
 
   Bug Reports and Patches welcome.

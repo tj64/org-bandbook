@@ -104,72 +104,19 @@ finances.
 
 Use this command:
 
-,-&#x2014;[ C-h f org-bandbook-insert-arrangement-table-skeleton RET ]
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="left">org-bandbook-refresh-song-info is an interactive Lisp function in</td>
-</tr>
-
-
-<tr>
-<td class="left">\`org-bandbook.el'.</td>
-</tr>
-
-<tbody>
-<tr>
-</tr>
-</tbody>
-
-
-<tr>
-<td class="left">(org-bandbook-refresh-song-info)</td>
-</tr>
-
-<tbody>
-<tr>
-</tr>
-</tbody>
-
-
-<tr>
-<td class="left">Get key/mode/form from song-link and update properties.</td>
-</tr>
-
-<tbody>
-<tr>
-</tr>
-</tbody>
-
-
-<tr>
-<td class="left">Assumes that point is in a song file in the <project>/songs/</td>
-</tr>
-
-
-<tr>
-<td class="left">directory that has a 'song' entry, and that this entry has a</td>
-</tr>
-
-
-<tr>
-<td class="left">'link' property with an Org-link (to an Org-Bandbook song in</td>
-</tr>
-
-
-<tr>
-<td class="left">the '*library-of-songs*' directory) as value.</td>
-</tr>
-</tbody>
-</table>
-
-\`-&#x2014;
+    ,----[ C-h f org-bandbook-insert-arrangement-table-skeleton RET ]
+    | org-bandbook-refresh-song-info is an interactive Lisp function in
+    | `org-bandbook.el'.
+    | 
+    | (org-bandbook-refresh-song-info)
+    | 
+    | Get key/mode/form from song-link and update properties.
+    | 
+    | Assumes that point is in a song file in the <project>/songs/
+    | directory that has a 'song' entry, and that this entry has a
+    | 'link' property with an Org-link (to an Org-Bandbook song in
+    | the '/library-of-songs/' directory) as value.
+    `----
 
 Note that, thanks to amazing LilyPond, transposing a song is done by
 simply adding a property like this ':transpose: g'. Thats all. 
@@ -178,99 +125,25 @@ simply adding a property like this ':transpose: g'. Thats all.
 
 Use these two commands: 
 
-,-&#x2014;[ C-h f org-bandbook-refresh-arrangement-properties RET ]
+    ,----[ C-h f org-bandbook-refresh-arrangement-properties RET ]
+    | org-bandbook-refresh-arrangement-properties is an interactive Lisp
+    | function in `org-bandbook.el'.
+    | 
+    | (org-bandbook-refresh-arrangement-properties)
+    | 
+    | Gather (and insert) info about project instruments.
+    | Assumes that point is in a song file in the <project>/songs/
+    | directory that has a 'arrangement' entry.
+    `----
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="left">org-bandbook-refresh-arrangement-properties is an interactive Lisp</td>
-</tr>
-
-
-<tr>
-<td class="left">function in \`org-bandbook.el'.</td>
-</tr>
-
-<tbody>
-<tr>
-</tr>
-</tbody>
-
-
-<tr>
-<td class="left">(org-bandbook-refresh-arrangement-properties)</td>
-</tr>
-
-<tbody>
-<tr>
-</tr>
-</tbody>
-
-
-<tr>
-<td class="left">Gather (and insert) info about project instruments.</td>
-</tr>
-
-
-<tr>
-<td class="left">Assumes that point is in a song file in the <project>/songs/</td>
-</tr>
-
-
-<tr>
-<td class="left">directory that has a 'arrangement' entry.</td>
-</tr>
-</tbody>
-</table>
-
-\`-&#x2014;
-
-,-&#x2014;[ C-h f org-bandbook-insert-arrangement-table-skeleton RET ]
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="left">org-bandbook-insert-arrangement-table-skeleton is an interactive Lisp</td>
-</tr>
-
-
-<tr>
-<td class="left">function in \`org-bandbook.el'.</td>
-</tr>
-
-<tbody>
-<tr>
-</tr>
-</tbody>
-
-
-<tr>
-<td class="left">(org-bandbook-insert-arrangement-table-skeleton)</td>
-</tr>
-
-<tbody>
-<tr>
-</tr>
-</tbody>
-
-
-<tr>
-<td class="left">Insert skeleton-table for song arrangement.</td>
-</tr>
-</tbody>
-</table>
-
-\`-&#x2014;
+    ,----[ C-h f org-bandbook-insert-arrangement-table-skeleton RET ]
+    | org-bandbook-insert-arrangement-table-skeleton is an interactive Lisp
+    | function in `org-bandbook.el'.
+    | 
+    | (org-bandbook-insert-arrangement-table-skeleton)
+    | 
+    | Insert skeleton-table for song arrangement.
+    `----
 
 or simply copy&pase from existing song config files. Then create the
 arrangement as org-table, it will be exported to an PlantUML activity
@@ -398,112 +271,10 @@ In file 'master.org' you specify
 Note the song-order/overview table at the bottom. This table should
 and must **not** be edited by hand. Use command:
 
-,-&#x2014;[ C-h f org-bandbook-refresh-song-order RET ]
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="left">org-bandbook-refresh-song-order is an interactive Lisp function in</td>
-</tr>
-
-
-<tr>
-<td class="left">\`org-bandbook.el'.</td>
-</tr>
-
-<tbody>
-<tr>
-</tr>
-</tbody>
-
-
-<tr>
-<td class="left">(org-bandbook-refresh-song-order)</td>
-</tr>
-
-<tbody>
-<tr>
-</tr>
-</tbody>
-
-
-<tr>
-<td class="left">Get key/mode from song-link and put them in properties.</td>
-</tr>
-
-<tbody>
-<tr>
-</tr>
-</tbody>
-
-
-<tr>
-<td class="left">Assumes that point is in a project's master.org file that</td>
-</tr>
-
-
-<tr>
-<td class="left">contains one the 1st-level 'Master' entry.</td>
-</tr>
-
-<tbody>
-<tr>
-</tr>
-</tbody>
-
-
-<tr>
-<td class="left">If this entry does not have property 'song\_order', call</td>
-</tr>
-
-
-<tr>
-<td class="left">\`org-bandbook-reset-song-order' to get all project songs in their</td>
-</tr>
-
-
-<tr>
-<td class="left">natural order, put their file-name's numerical prefix values into</td>
-</tr>
-
-
-<tr>
-<td class="left">this property, and update the entry's dynamic-block (for showing</td>
-</tr>
-
-
-<tr>
-<td class="left">the song-order in human-readable format).</td>
-</tr>
-
-<tbody>
-<tr>
-</tr>
-</tbody>
-
-
-<tr>
-<td class="left">Otherwise read the (possibly user modified) value of property</td>
-</tr>
-
-
-<tr>
-<td class="left">'song\_order' and update the entry's dynamic-block to reflect the</td>
-</tr>
-
-
-<tr>
-<td class="left">any changes.</td>
-</tr>
-</tbody>
-</table>
-
-\`-&#x2014;
+    ,----[ C-h f org-bandbook-refresh-song-order RET ]
+    | org-bandbook-refresh-song-order is an interactive Lisp function in
+    | `org-bandbook.el'. [...]
+    `----
 
 for inserting and refreshing the table. The song-order is simply
 changed by moving the number in property ':song\_order: 1 3'
@@ -514,57 +285,14 @@ song-config file (e.g. 1-all-the-things.org).
 
 Use command:
 
-,-&#x2014;[ C-h f org-bandbook-make-bandbook RET ]
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="left">org-bandbook-make-bandbook is an interactive Lisp function in</td>
-</tr>
-
-
-<tr>
-<td class="left">\`org-bandbook.el'.</td>
-</tr>
-
-<tbody>
-<tr>
-</tr>
-</tbody>
-
-
-<tr>
-<td class="left">It is bound to C-c b m.</td>
-</tr>
-
-<tbody>
-<tr>
-</tr>
-</tbody>
-
-
-<tr>
-<td class="left">(org-bandbook-make-bandbook)</td>
-</tr>
-
-<tbody>
-<tr>
-</tr>
-</tbody>
-
-
-<tr>
-<td class="left">Create bandbook for current project.</td>
-</tr>
-</tbody>
-</table>
-
-\`-&#x2014;
+    ,----[ C-h f org-bandbook-make-bandbook RET ]
+    | org-bandbook-make-bandbook is an interactive Lisp function in
+    | `org-bandbook.el'.
+    | 
+    | (org-bandbook-make-bandbook)
+    | 
+    | Create bandbook for current project.
+    `----
 
 to create the PDF. 
 
