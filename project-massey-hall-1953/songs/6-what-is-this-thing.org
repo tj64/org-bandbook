@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * song
   :PROPERTIES:
   :file_link: [[file:~/git/org-bandbook/library-of-songs/jazz/what_is_this_thing_called_love.org][what-is-this-thing]]

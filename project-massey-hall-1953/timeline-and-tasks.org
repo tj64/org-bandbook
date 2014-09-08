@@ -1,7 +1,6 @@
-#+TITLE: Gig Plan Massey-Hall-Concert (Toronto/CND)
-#+DATE:  <1953-05-15 Fr> 
-# #+OPTIONS: toc:nil p:t author:nil pri:t prop:t tags:nil
+#+STARTUP: showeverything
 #+OPTIONS: tags:nil
+
 * Timeline and Tasks :taskjuggler_project:
 
 ** TODO Preparation
