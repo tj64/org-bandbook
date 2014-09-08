@@ -300,7 +300,7 @@
   (list "resource_id" "phone" "address" "instrument")
   "List of Org-Bandbook people properties.")
 
-(defconst org-bandbook-instrument-properties
+(defconst org-bandbook-instruments-properties
   (list "name" "abbrev" "pitch")
   "List of Org-Bandbook instrument properties.")
 
