@@ -11,12 +11,11 @@
 
 * arrangement
   :PROPERTIES:
-  :flute:    f
   :piano:    p
   :bass:     b
   :drums:    dr
   :trumpet:  tr
-  :alt-sax:  as
+  :alto-sax: as
   :END:
 
  | seq   | do | melody | solo | accomp  | riff  |

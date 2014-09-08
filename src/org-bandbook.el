@@ -695,10 +695,9 @@ created lists are then enclosed in another list."
 
 (defun org-bandbook--get-props (&optional type)
   "Return current entry's filtered properties.
-TYPE should be a member of (people instruments song
-library-of-songs master project org all) if given, where 'all'
-means the return value of `org-entry-properties'. Default is
-'non-org', used when TYPE is either nil or t."
+TYPE, if given, should be either a member of (people instruments
+song library-of-songs master project org) or t, where t returns
+the value of `org-entry-properties'. Default is 'non-org'."
   (case type
     (people (org-dp-filter-node-props
 	     org-bandbook-people-properties))
@@ -713,11 +712,10 @@ means the return value of `org-entry-properties'. Default is
     (project (org-dp-filter-node-props
 	      org-bandbook-project-properties))
     (org (org-dp-filter-node-props 'org))
-    (all (org-entry-properties))
-    (t (if (booleanp type)
-	   (org-dp-filter-node-props 'org t)
-	 (user-error
-	  "Not a valid property type: %s" type)))))
+    (t (cond
+	((and type (booleanp type)) (org-entry-properties))
+	(type (user-error "Not a valid property type: %s" type))
+	(t (org-dp-filter-node-props 'org t))))))
 
 (defun org-bandbook--in-song-config-buffer-p ()
   "Return `buffer-file-name' if in song-config buffer, or nil."
@@ -1977,9 +1975,8 @@ directory that has a 'arrangement' entry."
        (org-find-exact-headline-in-buffer "arrangement"))
       (mapc
        (lambda (--prop)
-	 (when (org-string-nw-p (cdr --prop))
-	   (org-entry-put nil (car --prop) nil)))
-       (org-bandbook--get-props))
+	   (org-delete-property (car --prop)))
+        (org-bandbook--get-props))
       (mapc
        (lambda (--pair)
          (org-entry-put nil (car --pair) (cdr --pair)))
