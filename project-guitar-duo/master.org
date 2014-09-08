@@ -1,0 +1,15 @@
+#+STARTUP: showeverything
+
+* Master
+  :PROPERTIES:
+  :export_header:   [[file:~/git/org-bandbook/library-of-headers/koma-book-1.org][koma-book-1]]
+  :accounting_scheme: [[file:~/git/org-bandbook/library-of-accounting-schemes/default-scheme-dollar.ledger][default-dollar]]
+  :song_order: 1 3
+  :book_parts: songs people
+  :project_people:   ak tj
+  :END:
+
+| name           | ID | key | mode  | transp | struct |
+|----------------+----+-----+-------+--------+--------|
+| perdido        |  1 | bes | major | g      | AABA   |
+| all-the-things |  3 | aes | major | f      | ABC    |

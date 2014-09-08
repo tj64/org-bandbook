@@ -1,0 +1,11 @@
+#+STARTUP: showeverything
+
+* Instruments
+** rhythm-section
+*** harmony
+**** guitar
+   :PROPERTIES:
+   :name: guitar
+   :abbrev:   g
+   :END:
+

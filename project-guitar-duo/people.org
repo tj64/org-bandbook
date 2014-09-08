@@ -1,0 +1,32 @@
+#+STARTUP: showeverything
+
+* people :taskjuggler_resources:
+** musicians 
+   :PROPERTIES:
+   :resource_id: musicians
+   :END:
+
+*** Andi
+   :PROPERTIES:
+   :resource_id: ak
+   :instrument: guitar
+   :END:
+
+*** Thorsten
+   :PROPERTIES:
+   :resource_id: tj
+   :instrument: guitar
+   :END:
+
+** management
+   :PROPERTIES:
+   :resource_id: management
+   :END:
+
+** crew 
+   :PROPERTIES:
+   :resource_id: crew
+   :END:
+
+
+

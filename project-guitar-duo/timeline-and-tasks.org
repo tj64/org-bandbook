@@ -1,0 +1,4 @@
+#+STARTUP: showeverything
+#+OPTIONS: tags:nil
+
+* Timeline and Tasks :taskjuggler_project:
