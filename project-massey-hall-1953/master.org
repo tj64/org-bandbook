@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * Master
   :PROPERTIES:
   :export_header:   [[file:~/git/org-bandbook/library-of-headers/koma-book-1.org][koma-book-1]]
