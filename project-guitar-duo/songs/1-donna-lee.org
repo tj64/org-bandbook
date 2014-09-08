@@ -10,6 +10,11 @@
   :END:
 
 * arrangement
+  :PROPERTIES:
+  :guitar:   g
+  :guitar-1: a
+  :guitar-2: t
+  :END:
 
  | seq  | do | melody | solo  | accomp | riff |
  |------+----+--------+-------+--------+------|

@@ -9,13 +9,13 @@
 *** Andi
    :PROPERTIES:
    :resource_id: ak
-   :instrument: guitar
+   :instrument: guitar-1
    :END:
 
 *** Thorsten
    :PROPERTIES:
    :resource_id: tj
-   :instrument: guitar
+   :instrument: guitar-2
    :END:
 
 ** management

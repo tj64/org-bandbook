@@ -3,9 +3,13 @@
 * Instruments
 ** rhythm-section
 *** harmony
-**** guitar
+**** guitar 1
    :PROPERTIES:
-   :name: guitar
-   :abbrev:   g
+   :name: guitar-1
+   :abbrev:   a
    :END:
-
+**** guitar 2
+   :PROPERTIES:
+   :name: guitar-2
+   :abbrev:   t
+   :END:
