@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * ALL_THAT_STUFF_YOU_OWN
   :PROPERTIES:
   :structure: "ABC"

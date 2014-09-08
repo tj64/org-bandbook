@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * MY_FUNNY_VALENTINE
   :PROPERTIES:
   :lyricsurl: "http://www.elyrics.net/read/f/frank-sinatra-lyrics/my-funny-valentine-lyrics.html"

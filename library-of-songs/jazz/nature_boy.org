@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * NATURE_BOY
   :PROPERTIES:
   :idyoutube: "Iq0XJCJ1Srw"

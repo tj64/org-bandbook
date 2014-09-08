@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * DONT_EXPLAIN
   :PROPERTIES:
   :lyricsurl: "http://www.elyrics.net/read/b/billie-holiday-lyrics/don_t-explain-lyrics.html"

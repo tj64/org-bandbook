@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * JUST_FRIENDS
   :PROPERTIES:
   :idyoutube: "88CqlgFAJ-k"

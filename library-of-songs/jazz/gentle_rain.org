@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * GENTLE_RAIN
   :PROPERTIES:
   :lyricsurl: "http://lyrics.wikia.com/Astrud_Gilberto:The_Gentle_Rain"

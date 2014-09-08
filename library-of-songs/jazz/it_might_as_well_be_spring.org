@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * IT_MIGHT_AS_WELL_BE_SPRING
   :PROPERTIES:
   :structure: "????"

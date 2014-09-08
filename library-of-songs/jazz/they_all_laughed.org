@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * THEY_ALL_LAUGHED
   :PROPERTIES:
   :lyricsurl: "http://www.sing365.com/music/lyric.nsf/They-All-Laughed-lyrics-Ella-Fitzgerald/2123DA2C32C02AF848256AAB000AB847"

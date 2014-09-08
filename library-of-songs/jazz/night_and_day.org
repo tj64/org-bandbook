@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * NIGHT_AND_DAY
   :PROPERTIES:
   :wiki:     "Night_and_Day_(song)"

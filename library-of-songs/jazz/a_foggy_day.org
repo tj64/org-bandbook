@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * A_FOGGY_DAY
   :PROPERTIES:
   :lyricsurl: "http://www.sing365.com/music/lyric.nsf/A-Foggy-Day-lyrics-Frank-Sinatra/0F2EB16090A785424825692000077664"

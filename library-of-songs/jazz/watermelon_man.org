@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * WATERMELON_MAN
   :PROPERTIES:
   :idyoutube: "4z8Rt4nvd-I"

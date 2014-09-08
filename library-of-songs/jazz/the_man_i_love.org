@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * THE_MAN_I_LOVE
   :PROPERTIES:
   :lyricsurl: "http://www.sing365.com/music/lyric.nsf/The-Man-I-Love-lyrics-Ella-Fitzgerald/8EE600AB304A9C6948256AAB0009579B"

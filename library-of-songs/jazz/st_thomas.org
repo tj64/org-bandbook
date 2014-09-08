@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * ST_THOMAS
   :PROPERTIES:
   :structure: "AABC"

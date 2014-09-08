@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * SERENADE_TO_A_CUCKOO
   :PROPERTIES:
   :idyoutube: "Zh4GZJlQCfY"

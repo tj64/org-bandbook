@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * COME_RAIN_OR_COME_SHINE
   :PROPERTIES:
   :remark:   "the my set of chords is from Amit Golan"

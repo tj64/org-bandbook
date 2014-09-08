@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * MY_LITTLE_SUEDE_SHOES
   :PROPERTIES:
   :structure: "????"

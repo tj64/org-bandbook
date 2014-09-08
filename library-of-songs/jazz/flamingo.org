@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * FLAMINGO
   :PROPERTIES:
   :lyricsurl: "http://lyricsplayground.com/alpha/songs/f/flamingo.shtml"

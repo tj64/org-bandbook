@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * GREEN_DOLPHIN_STREET
   :PROPERTIES:
   :lyricsurl: "http://www.lyricszoo.com/miles-davis/on-green-dolphin-street-miles-davis-washington-ned/"

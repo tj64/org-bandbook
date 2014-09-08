@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * MY_FOOLISH_HEART
   :PROPERTIES:
   :lyricsurl: "http://www.oldielyrics.com/lyrics/frank_sinatra/my_foolish_heart.html"

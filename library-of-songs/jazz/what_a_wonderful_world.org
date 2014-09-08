@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * WHAT_A_WONDERFUL_WORLD
   :PROPERTIES:
   :lyricsurl: "http://www.lyrics007.com/Louis%20Armstrong%20Lyrics/What%20A%20Wonderful%20World%20Lyrics.html"

@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * THERE_WILL_NEVER_BE_ANOTHER_YOU
   :PROPERTIES:
   :idyoutube: "kh_NnsbIqNQ"

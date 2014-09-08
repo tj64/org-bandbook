@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * A_FINE_ROMANCE
   :PROPERTIES:
   :lyricsurl: "http://www.elyrics.net/read/b/billie-holiday-lyrics/a-fine-romance-lyrics.html"

@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * THE_SHADOW_OF_YOUR_SMILE
   :PROPERTIES:
   :lyricsurl: "http://www.absolutelyrics.com/lyrics/view/barbra_streisand/the_shadow_of_your_smile"

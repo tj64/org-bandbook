@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * AS_TIME_GOES_BY
   :PROPERTIES:
   :lyricsurl: "http://www.lyrics007.com/Frank%20Sinatra%20Lyrics/As%20Time%20Goes%20By%20Lyrics.html"

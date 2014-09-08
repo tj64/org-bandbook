@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * ALL_OF_ME
   :PROPERTIES:
   :lyricsurl: "http://www.lyrics007.com/Frank%20Sinatra%20Lyrics/All%20Of%20Me%20Lyrics.html"

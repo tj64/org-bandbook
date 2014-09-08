@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * ONE_NOTE_SAMBA
   :PROPERTIES:
   :lyricsurl: "http://www.lyricsfreak.com/f/frank+sinatra/one+note+samba_10122272.html"

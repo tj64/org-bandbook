@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * HERES_THAT_RAINY_DAY
   :PROPERTIES:
   :lyricsurl: "http://kokomo.ca/pop_standards/heres_that_rainy_day_lyrics.htm"

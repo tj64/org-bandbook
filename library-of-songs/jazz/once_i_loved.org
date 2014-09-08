@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * ONCE_I_LOVED
   :PROPERTIES:
   :lyricsurl: "http://www.sing365.com/music/lyric.nsf/Once-I-Loved-lyrics-Ella-Fitzgerald/24CD6F6E245519E348256AAB0009C557"

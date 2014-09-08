@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * BODY_AND_SOUL
   :PROPERTIES:
   :lyricsurl: "http://www.azlyrics.com/lyrics/dianakrall/bodyandsoul.html"

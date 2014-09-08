@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * THE_GIRL_FROM_IPANEMA
   :PROPERTIES:
   :idyoutube: "DmV0TcTNJ3o"

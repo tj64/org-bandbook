@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * POLKA_DOTS_AND_MOONBEAMS
   :PROPERTIES:
   :idyoutube: "4NTxWQfMSsA"

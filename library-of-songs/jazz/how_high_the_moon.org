@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * HOW_HIGH_THE_MOON
   :PROPERTIES:
   :lyricsurl: "http://www.lyricsfreak.com/e/ella+fitzgerald/how+high+the+moon_20045644.html"

@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * AFTERNOON_IN_PARIS
   :PROPERTIES:
   :idyoutube: "o3KtgcvYkig"

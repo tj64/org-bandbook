@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * WHEN_I_FALL_IN_LOVE
   :PROPERTIES:
   :lyricsurl: "http://www.lyricsfreak.com/n/nat+king+cole/when+i+fall+in+love_20098122.html"

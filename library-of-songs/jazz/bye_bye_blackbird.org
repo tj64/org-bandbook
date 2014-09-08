@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * BYE_BYE_BLACKBIRD
   :PROPERTIES:
   :idyoutube: "HMPHMu7LVhQ"

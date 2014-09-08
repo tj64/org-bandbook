@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * ISNT_IT_ROMANTIC
   :PROPERTIES:
   :lyricsurl: "http://www.stlyrics.com/lyrics/onefineday/isntitromantic.htm"
