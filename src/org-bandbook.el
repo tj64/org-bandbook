@@ -329,7 +329,7 @@ These properties are used for song-score-files in Org-Bandbook's
 (defconst org-bandbook-project-properties
   (append org-bandbook-master-properties
           org-bandbook-song-properties
-          org-bandbook-instrument-properties
+          org-bandbook-instruments-properties
           org-bandbook-people-properties)
   "List of Org-Bandbook project properties.")
 
