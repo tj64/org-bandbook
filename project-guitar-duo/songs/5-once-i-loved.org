@@ -2,11 +2,25 @@
 
 * song
   :PROPERTIES:
-  :file_link: 
-  :key: 
-  :mode: 
-  # :transpose: aes
+  :file_link: [[file:~/git/org-bandbook/library-of-songs/jazz/once_i_loved.org][once-i-loved]]
+  :key:      f
+  :mode:     major
+  :structure: AAB
   :END:
+
+* arrangement
+  :PROPERTIES:
+  :guitar-1: git1
+  :guitar-2: git2
+  :END:
+
+| seq | do | melody | solo | accomp | riff |
+|-----+----+--------+------+--------+------|
+| aab |  1 | git2   |      | git1   |      |
+| aab |  3 |        | git1 | git2   |      |
+| aab |  3 |        | git2 | git1   |      |
+| aab |  1 | git2   |      | git1   |      |
+
 * intro
 * outro
-* arrangement
+

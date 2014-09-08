@@ -11,21 +11,16 @@
 
 * arrangement
   :PROPERTIES:
-  :guitar:   g
-  :guitar-1: a
-  :guitar-2: t
+  :guitar-1: git1
+  :guitar-2: git2
   :END:
 
- | seq  | do | melody | solo  | accomp | riff |
- |------+----+--------+-------+--------+------|
- | a    |  1 | as tr  |       | b dr p |      |
- | aaba |  3 |        | as    | b dr p |      |
- | aaba |  4 |        | tr    | b dr p |      |
- | aaba |  3 |        | p     | b dr   |      |
- | aa   |  1 |        | as tr | b dr p |      |
- | b    |  1 |        | dr    |        |      |
- | a    |  1 | as tr  |       | b dr p |      |
-
+ | seq | do | melody | solo | accomp |
+ |-----+----+--------+------+--------|
+ | ab  |  1 | git2   |      | git1   |
+ | ab  |  3 |        | git2 | git1   |
+ | ab  |  3 |        | git1 | git2   |
+ | ab  |  1 | git2   |      | git1   |
 
 * intro
 * outro

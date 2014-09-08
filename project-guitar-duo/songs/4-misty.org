@@ -2,11 +2,26 @@
 
 * song
   :PROPERTIES:
-  :file_link: 
-  :key: 
-  :mode: 
-  # :transpose: aes
+  :file_link: [[file:~/git/org-bandbook/library-of-songs/jazz/misty.org][misty]]
+  :key:      ees
+  :mode:     major
+  :transpose: c
+  :structure: AABA
   :END:
+
+* arrangement
+  :PROPERTIES:
+  :guitar-1: git1
+  :guitar-2: git2
+  :END:
+
+| seq  | do | melody | solo | accomp | riff |
+|------+----+--------+------+--------+------|
+| aaba |  1 | git1   |      | git2   |      |
+| aaba |  3 |        | git1 | git2   |      |
+| aaba |  3 |        | git2 | git1   |      |
+| aaba |  1 | git    |      | git2   |      |
+
 * intro
 * outro
-* arrangement
+
