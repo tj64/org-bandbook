@@ -386,8 +386,7 @@ in the cdr, to be used in PlantUML activity diagrams.")
   (list
    "common.ly" "doc" ".git" "lib" "library-of-accounting-schemes"
    "library-of-artwork" "library-of-headers" "library-of-songs"
-   "library-of-title-pages" "project-massey-hall-1953" "score.org"
-   "src" "tmp")
+   "library-of-title-pages" "score.org" "src" "tmp")
   "List of expected files in Org-Bandbook directory.")
 
 (defconst org-bandbook-config-files
