@@ -884,7 +884,7 @@ default."
                  (setq arr-props
                        (cons
                         (cons
-                         (cdr (assoc "resource_id"
+                         (cdr (assoc "name"
                                      (cdr --instr)))
                          (cdr (assoc "abbrev"
                                      (cdr --instr))))
