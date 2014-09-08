@@ -10,13 +10,6 @@
   :END:
 
 * arrangement
-  :PROPERTIES:
-  :piano:    p
-  :bass:     b
-  :drums:    dr
-  :trumpet:  tr
-  :alt-sax:  as
-  :END:
 
  | seq  | do | melody | solo  | accomp | riff |
  |------+----+--------+-------+--------+------|
