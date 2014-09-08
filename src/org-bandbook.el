@@ -693,44 +693,31 @@ created lists are then enclosed in another list."
             (car (rassoc --abbrev instr)))
           abbrev-lst " & "))))
 
-(defun org-bandbook--get-props (&optional fallback)
+(defun org-bandbook--get-props (&optional type)
   "Return current entry's filtered properties.
-Only properties that are member of the relevant
-`org-bandbook-XYZ-properties' for current buffer are considered,
-except for song buffers from the 'library-of-songs'. If optional
-argument FALLBACK is non-nil, it can be 'all (-> all unfiltered
-properties are returned) or any other value (-> all non-org
-properties are returned). Otherwise `nil' is returned as
-default."
-  (let* ((buf (car-safe (member (buffer-name)
-                                org-bandbook-config-files)))
-         (parent-dir (unless buf
-                       (org-bandbook--get-parent-dir-name)))
-         (songs-dir-p (and parent-dir
-                           (string= parent-dir "songs")))
-         (grandparent-dir (and parent-dir
-                               (not songs-dir-p)
-                               (string=
-                                (ignore-errors
-                                  (org-bandbook--get-parent-dir-name
-                                   (directory-file-name
-                                    (file-name-directory
-                                     (buffer-file-name)))))
-                                "library-of-songs"))))
-  (cond
-   (buf (org-dp-filter-node-props
-         (eval
-          (intern
-           (format "org-bandbook-%s-properties"
-                   (car (split-string buf "\\.")))))))
-   (songs-dir-p (org-dp-filter-node-props
-                 org-bandbook-song-properties))
-   (grandparent-dir (org-dp-filter-node-props
-                     org-bandbook-library-of-songs-props))
-   (t (cond 
-        ((eq fallback 'all) (org-entry-properties))
-        (fallback (org-dp-filter-node-props 'org t))
-        (t nil))))))
+TYPE should be a member of (people instruments song
+library-of-songs master project org all) if given, where 'all'
+means the return value of `org-entry-properties'. Default is
+'non-org', used when TYPE is either nil or t."
+  (case type
+    (people (org-dp-filter-node-props
+	     org-bandbook-people-properties))
+    (instruments (org-dp-filter-node-props
+		  org-bandbook-instruments-properties))
+    (song (org-dp-filter-node-props
+	   org-bandbook-song-properties))
+    (library-of-songs (org-dp-filter-node-props
+		       org-bandbook-library-of-songs-properties))
+    (master (org-dp-filter-node-props
+	     org-bandbook-master-properties))
+    (project (org-dp-filter-node-props
+	      org-bandbook-project-properties))
+    (org (org-dp-filter-node-props 'org))
+    (all (org-entry-properties))
+    (t (if (booleanp type)
+	   (org-dp-filter-node-props 'org t)
+	 (user-error
+	  "Not a valid property type: %s" type)))))
 
 (defun org-bandbook--in-song-config-buffer-p ()
   "Return `buffer-file-name' if in song-config buffer, or nil."
@@ -793,7 +780,7 @@ default."
         (org-map-entries
          (lambda ()
            (let ((filtered-props
-                  (org-bandbook--get-props)))
+                  (org-bandbook--get-props 'people)))
              (when filtered-props
                (setq people
                      (cons
@@ -846,7 +833,7 @@ default."
         (org-map-entries
          (lambda ()
            (let ((proj-props
-                  (org-bandbook--get-props)))
+                  (org-bandbook--get-props 'instruments)))
              (and proj-props 
                   (setq instruments
                         (cons
@@ -1014,7 +1001,7 @@ see `org-bandbook-arrangement-column-labels'."
       (when song
         (save-excursion
           (goto-char song)
-          (org-bandbook--get-props))))))
+          (org-bandbook--get-props 'song))))))
 
 (defun org-bandbook--get-song-link ()
   "Return song link or nil."
@@ -1992,7 +1979,7 @@ directory that has a 'arrangement' entry."
        (lambda (--prop)
 	 (when (org-string-nw-p (cdr --prop))
 	   (org-entry-put nil (car --prop) nil)))
-       (org-bandbook--get-props t))
+       (org-bandbook--get-props))
       (mapc
        (lambda (--pair)
          (org-entry-put nil (car --pair) (cdr --pair)))
@@ -2042,7 +2029,7 @@ directory that has a 'arrangement' entry."
                               (expand-file-name "./master.org")))
                  (master-props
                   (with-current-buffer master-buf
-                    (org-bandbook--get-props)))
+                    (org-bandbook--get-props 'master)))
                  (exp-header
                   (org-string-nw-p
                    (cdr (assoc "export_header" master-props))))
