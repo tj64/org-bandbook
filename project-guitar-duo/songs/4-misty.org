@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * song
   :PROPERTIES:
   :file_link: 

@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * CHEGA_DE_SAUDADE
   :PROPERTIES:
   :structure: "AABA"

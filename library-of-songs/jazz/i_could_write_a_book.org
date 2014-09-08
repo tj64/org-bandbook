@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * I_COULD_WRITE_A_BOOK
   :PROPERTIES:
   :lyricsurl: "http://www.lorenzhart.org/booksng.htm"

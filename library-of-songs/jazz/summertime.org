@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * SUMMERTIME
   :PROPERTIES:
   :lyricsurl: "http://www.stlyrics.com/songs/g/georgegershwin8836/summertime299720.html"

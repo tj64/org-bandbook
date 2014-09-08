@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * DOXY
   :PROPERTIES:
   :idyoutube: "ZcPxCQhJ2n4"

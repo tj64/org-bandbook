@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * SOMEONE_TO_WATCH_OVER_ME
   :PROPERTIES:
   :idyoutube: "CCTIpclVQe4"

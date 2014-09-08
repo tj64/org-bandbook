@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * AUTUMN_IN_NEW_YORK
   :PROPERTIES:
   :lyricsurl: "http://www.sing365.com/music/lyric.nsf/Autumn-in-New-York-lyrics-Frank-Sinatra/C779DB117665DFD94825691F00067AD0"

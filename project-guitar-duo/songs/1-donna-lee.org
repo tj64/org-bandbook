@@ -1,9 +1,11 @@
+#+STARTUP: showeverything
+
 * song
   :PROPERTIES:
-  :file_link: [[file:~/git/org-bandbook/library-of-songs/jazz/perdido.org][perdido]]
-  :key: bes
-  :mode: major
-  :structure: AABA
+  :file_link: [[file:~/git/org-bandbook/library-of-songs/jazz/donna_lee.org][donna-lee]]
+  :key:      aes
+  :mode:     major
+  :structure: AB
   :transpose: g
   :END:
 

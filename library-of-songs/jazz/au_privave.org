@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * AU_PRIVAVE
   :PROPERTIES:
   :idyoutube: "HUNgcPSYeyM"

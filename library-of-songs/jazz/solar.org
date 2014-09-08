@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * SOLAR
   :PROPERTIES:
   :idyoutube: "FAYt3a-c_k0"

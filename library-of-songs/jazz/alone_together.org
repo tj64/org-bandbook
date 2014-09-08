@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * ALONE_TOGETHER
   :PROPERTIES:
   :lyricsurl: "http://www.hotlyrics.net/lyrics/E/Ella_Fitzgerald/Alone_Together.html"

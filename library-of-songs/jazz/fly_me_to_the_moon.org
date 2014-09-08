@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * FLY_ME_TO_THE_MOON
   :PROPERTIES:
   :lyricsurl: "http://www.metrolyrics.com/fly-me-to-the-moon-lyrics-frank-sinatra.html"

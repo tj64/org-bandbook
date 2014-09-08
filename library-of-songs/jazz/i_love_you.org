@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * I_LOVE_YOU
   :PROPERTIES:
   :lyricsurl: "http://www.lyricstime.com/cole-porter-i-love-you-lyrics.html"

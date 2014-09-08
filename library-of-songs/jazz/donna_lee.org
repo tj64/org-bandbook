@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * DONNA_LEE
   :PROPERTIES:
   :idyoutube: "QdD6XE9DtAE"

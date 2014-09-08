@@ -1,6 +1,8 @@
+#+STARTUP: showeverything
+
 * song
   :PROPERTIES:
-  :file_link: [[file:~/git/org-bandbook/library-of-songs/jazz/all-that-stuff.org][all-that-stuff]]
+  :file_link: [[file:~/git/org-bandbook/library-of-songs/jazz/all_the_things_you_are.org][all-the-things]]
   :transpose: f
   :key: aes
   :mode: major

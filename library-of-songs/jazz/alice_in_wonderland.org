@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * ALICE_IN_WONDERLAND
   :PROPERTIES:
   :lyricsurl: "http://www.stlyrics.com/lyrics/aliceinwonderland/aliceinwonderland.htm"

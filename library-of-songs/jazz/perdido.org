@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * PERDIDO
   :PROPERTIES:
   :idyoutube: "GEAFuoKCx6o11"

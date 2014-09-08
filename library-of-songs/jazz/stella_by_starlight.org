@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * STELLA_BY_STARLIGHT
   :PROPERTIES:
   :lyricsurl: "http://www.lyrics007.com/Ella%20Fitzgerald%20Lyrics/Stella%20By%20Starlight%20Lyrics.html"

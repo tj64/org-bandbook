@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * BEWITCHED
   :PROPERTIES:
   :lyricsurl: "http://www.lyricsfreak.com/e/ella+fitzgerald/bewitched_20045684.html"

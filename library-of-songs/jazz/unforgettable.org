@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * UNFORGETTABLE
   :PROPERTIES:
   :lyricsurl: "http://www.sing365.com/music/lyric.nsf/unforgettable-lyrics-nat-king-cole/afdec7063791226248256af1000bbaa6"

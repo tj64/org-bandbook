@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * OLVIDADO
   :PROPERTIES:
   :structure: "AABA"

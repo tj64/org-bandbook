@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * CORCOVADO
   :PROPERTIES:
   :structure: "????"

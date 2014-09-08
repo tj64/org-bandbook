@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * MY_FAVORITE_THINGS
   :PROPERTIES:
   :lyricsurl: "http://www.stlyrics.com/songs/s/soundofmusic9841/myfavouritethings323514.html"

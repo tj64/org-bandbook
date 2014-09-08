@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * HOW_INSENSITIVE
   :PROPERTIES:
   :lyricsurl: "http://www.lyricsmode.com/lyrics/a/antonio_carlos_jobim/how_insensitive.html"

@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * GIANT_STEPS
   :PROPERTIES:
   :remark:   "the key here is of little meaning as the harmony changes key all the time...:) That's why it's written in C."

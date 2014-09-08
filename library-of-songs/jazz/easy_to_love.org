@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * EASY_TO_LOVE
   :PROPERTIES:
   :lyricsurl: "http://www.sing365.com/music/lyric.nsf/Easy-To-Love-lyrics-Ella-Fitzgerald/3040B6936D6C386048256AAB00074FEE"

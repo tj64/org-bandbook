@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * SOMEDAY_MY_PRICE_WILL_COME
   :PROPERTIES:
   :lyricsurl: "http://artists.letssingit.com/disney-lyrics-someday-my-prince-will-come-31rjgwv"

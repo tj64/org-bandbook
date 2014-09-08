@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * THE_THINGS_WE_DID_LAST_SUMMER
   :PROPERTIES:
   :lyricsurl: "http://www.lyricsfreak.com/f/frank+sinatra/the+things+we+did+last+summer_20055125.html"

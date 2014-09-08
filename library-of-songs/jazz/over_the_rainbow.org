@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * OVER_THE_RAINBOW
   :PROPERTIES:
   :lyricsurl: "http://www.stlyrics.com/lyrics/thewizardofoz/somewhereovertherainbow.htm"

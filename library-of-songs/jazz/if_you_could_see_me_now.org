@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * IF_YOU_COULD_SEE_ME_NOW
   :PROPERTIES:
   :lyricsurl: "http://www.metrolyrics.com/if-you-could-see-me-now-lyrics-natalie-cole.html"

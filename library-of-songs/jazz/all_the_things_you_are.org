@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * ALL_THE_THINGS_YOU_ARE
   :PROPERTIES:
   :lyricsurl: "http://www.lyrics007.com/Jerome%20Kern%20Lyrics/All%20The%20Things%20You%20Are%20Lyrics.html"

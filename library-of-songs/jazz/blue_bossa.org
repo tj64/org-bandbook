@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * BLUE_BOSSA
   :PROPERTIES:
   :lyricsurl: "http://fyicomminc.bizland.com/music/lyrics/bluebossa.htm"

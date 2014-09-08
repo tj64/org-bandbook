@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * HALLELUJAH_I_LOVE_HIM_HER_SO
   :PROPERTIES:
   :lyricsurl: "http://www.lyrics007.com/Peggy%20Lee%20Lyrics/Hallelujah,%20I%20Love%20Him%20So%20Lyrics.html"

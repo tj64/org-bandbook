@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * WHAT_IS_THIS_THING_CALLED_LOVE
   :PROPERTIES:
   :idyoutube: "RCmn61kOVoQ25"

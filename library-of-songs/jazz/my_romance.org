@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * MY_ROMANCE
   :PROPERTIES:
   :lyricsurl: "http://www.lyricsfreak.com/e/ella+fitzgerald/my+romance_20045848.html"

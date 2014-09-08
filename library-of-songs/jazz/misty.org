@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * MISTY
   :PROPERTIES:
   :lyricsurl: "http://www.lyrics007.com/Ella%20Fitzgerald%20Lyrics/Misty%20Lyrics.html"

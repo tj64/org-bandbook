@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * HAVE_YOU_MET_MISS_JONES
   :PROPERTIES:
   :lyricsurl: "http://www.lyrics007.com/Ella%20Fitzgerald%20Lyrics/Have%20You%20Met%20Miss%20Jones%20Lyrics.html"

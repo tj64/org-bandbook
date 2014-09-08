@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * ILL_CLOSE_MY_EYES
   :PROPERTIES:
   :lyricsurl: "http://lyricsplayground.com/alpha/songs/i/illclosemyeyes.shtml"

@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * DARN_THAT_DREAM
   :PROPERTIES:
   :lyricsurl: "http://www.lyricsfreak.com/b/billie+holiday/darn+that+dream_20018018.html"

@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * GLORIAS_STEP
   :PROPERTIES:
   :idyoutube: "C84KmJwtPeI"

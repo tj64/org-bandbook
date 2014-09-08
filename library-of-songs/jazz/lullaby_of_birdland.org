@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * LULLABY_OF_BIRDLAND
   :PROPERTIES:
   :lyricsurl: "http://www.bluesforpeace.com/lyrics/lullaby-birdland.htm"

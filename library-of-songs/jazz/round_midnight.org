@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * ROUND_MIDNIGHT
   :PROPERTIES:
   :lyricsurl: "http://www.sing365.com/music/lyric.nsf/Round-Midnight-lyrics-Ella-Fitzgerald/F7F9D0761ABE750348256AAB0009FEEA"
