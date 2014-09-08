@@ -11,6 +11,7 @@
 
 * arrangement
   :PROPERTIES:
+  :flute:    f
   :piano:    p
   :bass:     b
   :drums:    dr

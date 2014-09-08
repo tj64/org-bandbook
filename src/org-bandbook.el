@@ -1989,6 +1989,11 @@ directory that has a 'arrangement' entry."
       (goto-char
        (org-find-exact-headline-in-buffer "arrangement"))
       (mapc
+       (lambda (--prop)
+	 (when (org-string-nw-p (cdr --prop))
+	   (org-entry-put nil (car --prop) nil)))
+       (org-bandbook--get-props t))
+      (mapc
        (lambda (--pair)
          (org-entry-put nil (car --pair) (cdr --pair)))
        (org-bandbook--get-peoples-instruments)))))
