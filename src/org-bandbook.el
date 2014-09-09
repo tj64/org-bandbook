@@ -2041,9 +2041,16 @@ directory that has a 'arrangement' entry."
                   (and exp-header
                        (org-bandbook--extract-path-from-org-link
                         exp-header)))
-		 (latex-cls
+		 (latex-class
 		  (org-string-nw-p
 		   (cdr (assoc "latex_class" master-props))))
+                 (latex-class-path
+                  (and latex-class
+                       (org-bandbook--extract-path-from-org-link
+                        latex-class)))
+		 (latex-class-name
+		  (file-name-nondirectory
+		   (file-name-sans-extension latex-class-path)))
 		 (title-page
 		  (org-string-nw-p
                    (cdr (assoc "title_page" master-props))))
@@ -2084,16 +2091,33 @@ directory that has a 'arrangement' entry."
             (goto-char (point-max))
             (newline)
             (save-buffer)
+	    ;; (re)create latex-class with current title-page
+	    (remq (assoc latex-class-name org-latex-classes)
+		  org-latex-classes)
+	    (setq org-latex-classes
+		  (add-to-list
+		   'org-latex-classes
+		   (with-temp-buffer
+		     (insert-file-contents-literally
+		      latex-class-path)
+		     (goto-char (point-min))
+		     (when (search-forward "[TITLEPAGE]" nil t)
+		       (replace-match
+			(save-match-data
+			  (org-dp-create
+			   'keyword nil nil nil
+			   :key 'LaTeX_HEADER
+			   :value (format "\\input{%s}"
+					  title-page-path)))
+			'FIXEDCASE 'LITERAL))    
+		     (car (read-from-string
+			   (buffer-substring-no-properties
+			    (point-min) (point-max)))))))
 	    ;; insert latex class
 	    (org-dp-create
 	     'keyword nil 'INSERT-P nil
 	     :key 'LaTeX_CLASS
-	     :value latex-cls)	    
-	    ;; insert title page
-	    (org-dp-create
-	     'keyword nil 'INSERT-P nil
-	     :key 'LaTeX_HEADER
-	     :value (format "\\input{%s}" title-page-path))
+	     :value latex-class-name)
             ;; insert songs
             (mapc
              (lambda (--num-prefix)

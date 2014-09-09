@@ -6,10 +6,10 @@
 **** guitar 1
    :PROPERTIES:
    :name: guitar-1
-   :abbrev:   git1
+   :abbrev:   Andi
    :END:
 **** guitar 2
    :PROPERTIES:
    :name: guitar-2
-   :abbrev:   git2
+   :abbrev:   Thorsten
    :END:
