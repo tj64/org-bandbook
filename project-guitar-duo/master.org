@@ -6,7 +6,7 @@
   :latex_class: [[file:~/git/org-bandbook/library-of-headers/latex-classes/obb-koma-book-1.el][obb-koma-book-1]]
   :title_page: [[file:~/git/org-bandbook/library-of-title-pages/guitar-duo.tex][guitar-duo]]
   :accounting_scheme: [[file:~/git/org-bandbook/library-of-accounting-schemes/default-scheme-dollar.ledger][default-dollar]]
-  :song_order: 1
+  :song_order: 1 2 3
   :book_parts: songs people
   :project_people:   ak tj
   :END:

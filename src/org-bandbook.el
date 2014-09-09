@@ -2104,12 +2104,8 @@ directory that has a 'arrangement' entry."
 		     (when (search-forward "[TITLEPAGE]" nil t)
 		       (replace-match
 			(save-match-data
-			  (org-dp-create
-			   'keyword nil nil nil
-			   :key 'LaTeX_HEADER
-			   :value (format "\\input{%s}"
-					  title-page-path)))
-			'FIXEDCASE 'LITERAL))    
+			  (format "\\\\input{%s}" title-page-path))
+			'FIXEDCASE 'LITERAL))
 		     (car (read-from-string
 			   (buffer-substring-no-properties
 			    (point-min) (point-max)))))))
