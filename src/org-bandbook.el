@@ -1172,10 +1172,10 @@ with the actual key in the car and the target key in the cdr."
     (let* ((song-buf (find-file-noselect song))
            (version (or (ignore-errors
                           (with-current-buffer song-buf
-                            ;; (replace-regexp-in-string
-                            ;;  "\"" ""
-                            (org-bandbook--clean-string
-                             (org-entry-get nil "render"))))
+			    (save-excursion
+			      (org-bandbook--goto-first-heading)
+			      (org-bandbook--clean-string
+			       (org-entry-get nil "render")))))
                         (error
                          "Song without 'render' attribute!")))
            (part-names (delq nil
