@@ -40,7 +40,6 @@
 #+LaTeX_HEADER: \usepackage{amssymb}
 #+LaTeX_HEADER: \tolerance=1000
 #+LaTeX_HEADER: \usepackage[cm]{fullpage}
-#+LaTeX_HEADER: \newcommand{\rc}{\ensuremath{^{14}}{C}}
 #+LaTeX_HEADER: \usepackage{paralist}
 #+LaTeX_HEADER: \let\enumerate\compactenum
 #+LaTeX_HEADER: \let\description\compactdesc

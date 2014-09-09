@@ -1193,7 +1193,9 @@ with the actual key in the car and the target key in the cdr."
                                     org-bandbook-mako-music-parts)
                                    (cadr split-prop-name))))
                               (with-current-buffer song-buf
-                                (org-entry-properties)))))
+				(save-excursion
+				  (org-bandbook--goto-first-heading)
+				  (org-entry-properties))))))
            parts)
       (unless (member version
                       org-bandbook-mako-sheet-music-references)
