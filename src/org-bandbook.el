@@ -2026,7 +2026,11 @@ directory that has a 'arrangement' entry."
                               (expand-file-name "./master.org")))
                  (master-props
                   (with-current-buffer master-buf
-                    (org-bandbook--get-props 'master)))
+		    (save-excursion
+		      (goto-char
+		       (org-find-exact-headline-in-buffer
+			"Master" nil t))
+		      (org-bandbook--get-props 'master))))
                  (exp-header
                   (org-string-nw-p
                    (cdr (assoc "export_header" master-props))))
