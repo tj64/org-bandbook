@@ -322,8 +322,9 @@ These properties are used for song-score-files in Org-Bandbook's
 'library-of-songs'.")
 
 (defconst org-bandbook-master-properties
-  (list "export_header" "accounting_scheme" "song_order"
-        "book_parts" "project_people")
+  (list "export_header" "title_page" "latex_class"
+	"accounting_scheme" "song_order" "book_parts"
+	"project_people")
   "List of Org-Bandbook master properties.")
 
 (defconst org-bandbook-project-properties
@@ -2040,6 +2041,16 @@ directory that has a 'arrangement' entry."
                   (and exp-header
                        (org-bandbook--extract-path-from-org-link
                         exp-header)))
+		 (latex-cls
+		  (org-string-nw-p
+		   (cdr (assoc "latex_class" master-props))))
+		 (title-page
+		  (org-string-nw-p
+                   (cdr (assoc "title_page" master-props))))
+		 (title-page-path
+                  (and title-page
+                       (org-bandbook--extract-path-from-org-link
+                        title-page)))
                  (acc-scheme
                   (org-string-nw-p
                    (cdr (assoc "accounting_scheme" master-props))))
@@ -2067,12 +2078,22 @@ directory that has a 'arrangement' entry."
                 (insert-file-contents exp-header-path)
               (insert-file-contents
                (expand-file-name
-                "default-header.org"
+                "obb-default-header.org"
                 (expand-file-name
-                 "../library-of-headers/"))))
+                 "../library-of-headers/org-export-headers"))))
             (goto-char (point-max))
             (newline)
             (save-buffer)
+	    ;; insert latex class
+	    (org-dp-create
+	     'keyword nil 'INSERT-P nil
+	     :key 'LaTeX_CLASS
+	     :value latex-cls)	    
+	    ;; insert title page
+	    (org-dp-create
+	     'keyword nil 'INSERT-P nil
+	     :key 'LaTeX_HEADER
+	     :value (format "\\input{%s}" title-page-path))
             ;; insert songs
             (mapc
              (lambda (--num-prefix)

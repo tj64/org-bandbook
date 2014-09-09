@@ -1,6 +1,6 @@
 #+TITLE: call_project-name() 
 #+DATE: call_curr-date()
 #+OPTIONS: timestamp:nil num:1 toc:1
-#+LaTeX_HEADER: \usepackage[cm]{fullpage}
+# #+LaTeX_HEADER: \usepackage[cm]{fullpage}
 #+MACRO: project-name
 

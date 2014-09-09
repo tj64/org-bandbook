@@ -2,9 +2,11 @@
 
 * Master
   :PROPERTIES:
-  :export_header:   [[file:~/git/org-bandbook/library-of-headers/koma-book-1.org][koma-book-1]]
+  :export_header: [[file:~/git/org-bandbook/library-of-headers/org-export-headers/obb-default-header.org][obb-default-header]]
+  :latex_class: [[file:~/git/org-bandbook/library-of-headers/latex-classes/obb-koma-book-1.el][obb-koma-book-1]]
+  :title_page: [[file:~/git/org-bandbook/library-of-title-pages/guitar-duo.tex][guitar-duo]]
   :accounting_scheme: [[file:~/git/org-bandbook/library-of-accounting-schemes/default-scheme-dollar.ledger][default-dollar]]
-  :song_order: 8
+  :song_order: 1
   :book_parts: songs people
   :project_people:   ak tj
   :END:
@@ -13,6 +15,7 @@
 |---------------------------------+----+-----+-------+--------+--------|
 | donna-lee                       |  1 | aes | major | g      | AB     |
 | doxy                            |  2 | bes | major | g      | AABA   |
+| green-dolphin-street            |  3 | c   | major | nil    | ABAC   |
 | misty                           |  4 | ees | major | c      | AABA   |
 | once-i-loved                    |  5 | f   | major | nil    | AAB    |
 | stella-by-starlight             |  6 | bes | major | nil    | AB     |

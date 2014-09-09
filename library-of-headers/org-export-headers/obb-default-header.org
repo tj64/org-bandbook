@@ -1,0 +1,19 @@
+# #+TITLE: call_project-name() 
+# #+DATE: call_curr-date()
+#+DESCRIPTION: Org-Bandbook for Project call_project-name() 
+#+KEYWORDS: 
+#+LANGUAGE:  en
+#+OPTIONS:  H:3 num:2 toc:nil \n:nil @:t ::t email:nil author:t
+#+OPTIONS:  |:t ^:{} -:t f:t *:t <:t
+#+OPTIONS:  TeX:t LaTeX:t skip:nil d:t todo:t prop:t p:t
+#+OPTIONS: pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:t ltoc:t mouse:underline 
+#+INFOJS_OPT: buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT: 
+#+STARTUP: overview
+#+FILETAGS: bandbook lilypond
+# #+STYLE: <link rel="stylesheet" type="text/css" href="http://www.abs.com/abc.css" /> 
