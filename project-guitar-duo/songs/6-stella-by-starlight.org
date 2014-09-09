@@ -10,11 +10,8 @@
 
 * arrangement
   :PROPERTIES:
-  :piano:    p
-  :bass:     b
-  :drums:    dr
-  :trumpet:  tr
-  :alt-sax:  as
+  :guitar-1: Andi
+  :guitar-2: Thorsten
   :END:
 
 | seq  | do | melody | solo | accomp | riff |
