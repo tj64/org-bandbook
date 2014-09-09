@@ -2114,6 +2114,8 @@ directory that has a 'arrangement' entry."
 	     'keyword nil 'INSERT-P nil
 	     :key 'LaTeX_CLASS
 	     :value latex-class-name)
+	    ;; insert postamble
+	    (insert "\n\\\\maketitle\n\\\\tableofcontents")
             ;; insert songs
             (mapc
              (lambda (--num-prefix)
