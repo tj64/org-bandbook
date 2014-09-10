@@ -469,6 +469,13 @@ The title can be customized with
   :group 'org-bandbook
   :type 'number)
 
+(defcustom org-bandbook-latex-toc-and-title-matters
+  '(("maketitle" . "")
+    ("tableofcontents" . ""))
+  "Command/Argument pairs for latex toc and title matters."
+  :group 'org-bandbook
+  :type '(alist :key-type string
+                :value-type string))
 
 ;;; Functions
 ;;;; Advices
@@ -759,8 +766,7 @@ the value of `org-entry-properties'. Default is 'non-org'."
     (when buf
       (with-current-buffer buf
         (goto-char
-         (org-find-exact-headline-in-buffer
-          "Master"))
+         (org-find-exact-headline-in-buffer "Master" nil t))
         (setq resource_ids (org-entry-get nil "project_people"))
         (unless (eq live-buf (current-buffer))
           (kill-buffer)))
@@ -979,7 +985,8 @@ see `org-bandbook-arrangement-column-labels'."
        (save-excursion
          (condition-case err
              (goto-char
-              (org-find-exact-headline-in-buffer "arrangement"))
+              (org-find-exact-headline-in-buffer
+	       "arrangement" nil t))
            (error "No exact headline 'arrangement' in buffer %s"
                   (current-buffer)))
          (let ((props (org-dp-filter-node-props 'org t))
@@ -995,8 +1002,7 @@ see `org-bandbook-arrangement-column-labels'."
 (defun org-bandbook--get-song-properties ()
   "Return alist of song config-properties."
   (when (org-bandbook-current-project)
-    (let ((song (org-find-exact-headline-in-buffer
-                 "song" nil 'POS-ONLY)))
+    (let ((song (org-find-exact-headline-in-buffer "song" nil t)))
       (when song
         (save-excursion
           (goto-char song)
@@ -1975,7 +1981,7 @@ directory that has a 'arrangement' entry."
              (org-bandbook--in-song-config-buffer-p))
     (save-excursion
       (goto-char
-       (org-find-exact-headline-in-buffer "arrangement"))
+       (org-find-exact-headline-in-buffer "arrangement" nil t))
       (mapc
        (lambda (--prop)
 	   (org-delete-property (car --prop)))
@@ -1992,7 +1998,7 @@ directory that has a 'arrangement' entry."
              (org-bandbook--in-song-config-buffer-p))
     (save-excursion
       (goto-char
-       (org-find-exact-headline-in-buffer "arrangement"))
+       (org-find-exact-headline-in-buffer "arrangement" nil t))
       (save-restriction
         (org-narrow-to-subtree)
         (unless (assoc 'table (car (org-dp-contents)))
@@ -2114,8 +2120,14 @@ directory that has a 'arrangement' entry."
 	     'keyword nil 'INSERT-P nil
 	     :key 'LaTeX_CLASS
 	     :value latex-class-name)
-	    ;; insert postamble
-	    (insert "\n\\\\maketitle\n\\\\tableofcontents")
+	    ;; insert latex toc and title matters
+	    (mapc
+	     (lambda (--cmd)
+	       (org-dp-create
+		'keyword nil 'INSERT-P nil
+		:key 'latex
+		:value (format "\\%s%s" (car --cmd) (cdr --cmd))))
+	     org-bandbook-latex-toc-and-title-matters)
             ;; insert songs
             (mapc
              (lambda (--num-prefix)
@@ -2148,7 +2160,7 @@ directory that has a 'arrangement' entry."
                 (insert-buffer-substring
                  task-buf
                  (org-find-exact-headline-in-buffer
-                  "Timeline and Tasks" task-buf 'POS-ONLY)
+                  "Timeline and Tasks" task-buf t)
                  (with-current-buffer task-buf
                    (point-max)))
                 (org-dp-create 'keyword nil 'INSERT-P nil

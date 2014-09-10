@@ -10,10 +10,6 @@
   :END:
 
 * arrangement
-  :PROPERTIES:
-  :guitar-1: Andi
-  :guitar-2: Thorsten
-  :END:
 
 | seq  | do | melody | solo | accomp | riff |
 |------+----+--------+------+--------+------|

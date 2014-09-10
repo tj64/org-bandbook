@@ -13,9 +13,7 @@
   \\bibliography{../bandbook.bib}
   \\setcounter{tocdepth}{1}
   \\setcounter{secnumdepth}{1}
-  [TITLEPAGE]
-  \\maketitle
-  \\tableofcontents"
+  [TITLEPAGE]"
  ;; Sectioning Structure
  ("\\part{%s}" . "\\part*{%s}")
  ("\\chapter{%s}" . "\\chapter*{%s}")
