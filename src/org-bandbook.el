@@ -1127,10 +1127,8 @@ with the actual key in the car and the target key in the cdr."
         (lambda (--elem)
           (let ((part-name
                  (cadr
-                  (org-bandbook--split-words
-                   (org-element-property :name --elem)))))
-            ;; (when (or (member part-name parts)
-            ;;        (string= part-name "Volta"))
+		  (split-string 
+                   (org-element-property :name --elem) "_" t))))
             (when (member part-name parts)
               (setq score-components
                     (cons

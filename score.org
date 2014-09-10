@@ -1,3 +1,5 @@
+#+STARTUP: showeverything
+
 * Score :noexport:
 # #+LaTeX: \linebreak
 # #+ATTR_LaTeX: width=17cm 

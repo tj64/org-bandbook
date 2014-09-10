@@ -11,16 +11,17 @@
 
 * arrangement
   :PROPERTIES:
-  :guitar-1: Andi
-  :guitar-2: Thorsten
+  :guitar-1: A
+  :guitar-2: T
   :END:
 
 | seq | do | melody | solo | accomp | riff |
 |-----+----+--------+------+--------+------|
-| ab  |  1 | git1   |      | git2   |      |
-| ab  |  3 |        | git1 | git2   |      |
-| ab  |  3 |        | git2 | git1   |      |
-| ab  |  1 | git2   |      | git2   |      |
+| ab  |  1 | A      |      | T      |      |
+| ab  |  3 |        | A    | T      |      |
+| ab  |  3 |        | T    | A      |      |
+| ab  |  1 | T      |      | T      |      |
+
 
 * intro
 * outro

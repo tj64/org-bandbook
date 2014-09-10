@@ -5,11 +5,11 @@
 *** harmony
 **** guitar 1
    :PROPERTIES:
-   :name: Andi
+   :name: guitar-1
    :abbrev:   A
    :END:
 **** guitar 2
    :PROPERTIES:
-   :name:   Thorsten
+   :name:   guitar-2
    :abbrev: T
    :END:
