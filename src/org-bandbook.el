@@ -1302,7 +1302,7 @@ with the actual key in the car and the target key in the cdr."
                      (with-current-buffer
                          (find-file-noselect --song)
                        (org-bandbook--extract-path-from-org-link
-                         (org-bandbook--get-song-link))))
+			(org-bandbook--get-song-link))))
                     (song-name (and song-path
                                     (file-name-sans-extension
                                      (file-name-nondirectory
@@ -1324,51 +1324,52 @@ with the actual key in the car and the target key in the cdr."
                           :level 1
                           :title (mapconcat
                                   (lambda (--word) (upcase --word))
-                                  (org-bandbook--split-words
-                                   song-name) " "))
-                         "\n"
-                         ;; src-block
-                         (org-dp-create
-                          'src-block
-                          ;; --contents
-                          (if (and to-key from-key)
-                              (org-bandbook-render-song
-                               song-path (cons from-key to-key) t)
-                            (org-bandbook-render-song
-                             song-path nil t))
-                          ;; --insert-p
-                          nil
-                          ;; --affiliated
-                          (list :name song-name
-                                :header `(":exports results"
-                                          ,(format ":file %s"
-                                                   (concat
-                                                    song-name
-                                                    ".eps"))))
-                          ;; --args
-                          :language "lilypond")
-                         "\n"
-                         ;; newpage
-                         (org-dp-create 'keyword nil nil nil
-                                        :key 'latex
-                                        :value "\\newpage")
-                         "\n"
-                         ;; arrangement
-                         (format "%s" arrangement)
-                         ;; newpage
-                         (org-dp-create 'keyword nil nil nil
-                                        :key 'latex
-                                        :value "\\newpage")
-                         "\n")
-                        song-lst)))))
-           ;; (org-bandbook-get-songs))
-           ordered-song-names)
-          ;; Return song pages as concatenated string
-          (mapconcat 'identity song-lst "\n")))
+                                  ;; (org-bandbook--split-words
+				  (split-string song-name "_" t)
+				  " "))
+			 "\n"
+			 ;; src-block
+			 (org-dp-create
+			  'src-block
+			  ;; --contents
+			  (if (and to-key from-key)
+			      (org-bandbook-render-song
+			       song-path (cons from-key to-key) t)
+			    (org-bandbook-render-song
+			     song-path nil t))
+			  ;; --insert-p
+			  nil
+			  ;; --affiliated
+			  (list :name song-name
+				:header `(":exports results"
+					  ,(format ":file %s"
+						   (concat
+						    song-name
+						    ".eps"))))
+			  ;; --args
+			  :language "lilypond")
+			 "\n"
+			 ;; newpage
+			 (org-dp-create 'keyword nil nil nil
+					:key 'latex
+					:value "\\newpage")
+			 "\n"
+			 ;; arrangement
+			 (format "%s" arrangement)
+			 ;; newpage
+			 (org-dp-create 'keyword nil nil nil
+					:key 'latex
+					:value "\\newpage")
+			 "\n")
+			song-lst)))))
+	   ;; (org-bandbook-get-songs))
+	   ordered-song-names)
+	  ;; Return song pages as concatenated string
+	  (mapconcat 'identity song-lst "\n")))
     (error "Not in Org-Bandbook project (path: %s)"
-           (ignore-errors
-             (file-name-directory
-              (buffer-file-name (current-buffer)))))))
+	   (ignore-errors
+	     (file-name-directory
+	      (buffer-file-name (current-buffer)))))))
 
 ;;;;; Change Song Order
 
