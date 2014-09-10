@@ -4,21 +4,18 @@
  "obb-koma-book-1" 
  ;; Preamble
  "\\documentclass{scrbook}
-  [NO-DEFAULT-PACKAGES]
-  [NO-PACKAGES]
-  \\usepackage[utf8]{inputenc}
-  \\usepackage[T1]{fontenc}
+  [DEFAULT-PACKAGES]
+  [PACKAGES]
+  [EXTRA]   
   \\usepackage{palatino}
+  \\usepackage[cm]{fullpage}
   \\bibliographystyle{alpha}
   \\bibliography{../bandbook.bib}
-  \\usepackage{fixltx2e}
-  \\usepackage{graphicx}
   \\setcounter{tocdepth}{1}
   \\setcounter{secnumdepth}{1}
-  \\usepackage{float}
-  \\usepackage[cm]{fullpage}
-  [EXTRA]   
-  [TITLEPAGE]"
+  [TITLEPAGE]
+  \\maketitle
+  \\tableofcontents"
  ;; Sectioning Structure
  ("\\part{%s}" . "\\part*{%s}")
  ("\\chapter{%s}" . "\\chapter*{%s}")
