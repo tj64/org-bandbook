@@ -20,7 +20,7 @@
 | aaba |  1 | A      |      | T      |      |
 | aaba |  3 |        | A    | T      |      |
 | aaba |  3 |        | T    | A      |      |
-| aaba |  1 | git    |      | T      |      |
+| aaba |  1 | A      |      | T      |      |
 
 
 * intro

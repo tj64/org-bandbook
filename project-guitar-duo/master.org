@@ -6,12 +6,18 @@
   :latex_class: [[file:~/git/org-bandbook/library-of-headers/latex-classes/obb-koma-book-1.el][obb-koma-book-1]]
   :title_page: [[file:~/git/org-bandbook/library-of-title-pages/guitar-duo.tex][guitar-duo]]
   :accounting_scheme: [[file:~/git/org-bandbook/library-of-accounting-schemes/default-scheme-dollar.ledger][default-dollar]]
-  :song_order: 7 8
+  :song_order: 1 2 3 4 5 6 7 8
   :book_parts: songs people
   :project_people:   ak tj
   :END:
 
 | name                            | ID | key | mode  | transp | struct |
 |---------------------------------+----+-----+-------+--------+--------|
+| donna-lee                       |  1 | aes | major | g      | AB     |
+| doxy                            |  2 | bes | major | g      | AABA   |
+| green-dolphin-street            |  3 | c   | major | nil    | ABAC   |
+| misty                           |  4 | ees | major | c      | AABA   |
+| once-i-loved                    |  5 | f   | major | nil    | AAB    |
+| stella-by-starlight             |  6 | bes | major | nil    | AB     |
 | there-will-never-be-another-you |  7 | ees | major | c      | AB     |
 | what-is-this-thing              |  8 | aes | major | aes    | AABA   |

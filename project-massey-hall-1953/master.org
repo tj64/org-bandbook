@@ -2,14 +2,21 @@
 
 * Master
   :PROPERTIES:
-  :export_header:   [[file:~/git/org-bandbook/library-of-headers/koma-book-1.org][koma-book-1]]
+  :export_header: [[file:~/git/org-bandbook/library-of-headers/org-export-headers/obb-default-header.org][obb-default-header]]
+  :latex_class: [[file:~/git/org-bandbook/library-of-headers/latex-classes/obb-koma-book-1.el][obb-koma-book-1]]
+  :title_page: [[file:~/git/org-bandbook/library-of-title-pages/massey-hall-1953.tex][massey-hall-1953]]
   :accounting_scheme: [[file:~/git/org-bandbook/library-of-accounting-schemes/default-scheme-dollar.ledger][default-dollar]]
-  :song_order: 1 3
+  :song_order: 1 3 
   :book_parts: songs tasks funds people
   :project_people:   bird diz bud mingus max billie
   :END:
 
-| name           | ID | key | mode  | transp | struct |
-|----------------+----+-----+-------+--------+--------|
-| perdido        |  1 | bes | major | g      | AABA   |
-| all-the-things |  3 | aes | major | f      | ABC    |
+| name               | ID | key | mode  | transp | struct |
+|--------------------+----+-----+-------+--------+--------|
+| perdido            |  1 | bes | major | g      | AABA   |
+| salt-peanuts       |  2 | nil | nil   | nil    | nil    |
+| all-the-things     |  3 | aes | major | f      | ABC    |
+| 52street           |  4 | nil | nil   | nil    | nil    |
+| wee                |  5 | nil | nil   | nil    | nil    |
+| what-is-this-thing |  6 | aes | major | nil    | nil    |
+| night-in-tunisia   |  7 | nil | nil   | nil    | nil    |

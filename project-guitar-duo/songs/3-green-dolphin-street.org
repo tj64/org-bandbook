@@ -19,7 +19,7 @@
 | abac |  1 | A      |      | T      |      |
 | abac |  3 |        | A    | T      |      |
 | abac |  3 |        | T    | A      |      |
-| abac |  1 | git    |      | T      |      |
+| abac |  1 | A      |      | T      |      |
 
 
 * intro

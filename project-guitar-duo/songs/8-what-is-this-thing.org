@@ -17,10 +17,10 @@
 
 | seq  | do | melody | solo | accomp | riff |
 |------+----+--------+------+--------+------|
-| aaba |  1 | git2   |      | git1   |      |
-| aaba |  3 |        | git2 | git1   |      |
-| aaba |  3 |        | git1 | git2   |      |
-| aaba |  1 | git2   |      | git1   |      |
+| aaba |  1 | T      |      | A      |      |
+| aaba |  3 |        | T    | A      |      |
+| aaba |  3 |        | A    | T      |      |
+| aaba |  1 | T      |      | A      |      |
 
 * intro
 * outro
