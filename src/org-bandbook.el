@@ -335,7 +335,7 @@ These properties are used for song-score-files in Org-Bandbook's
   "List of Org-Bandbook project properties.")
 
 (defconst org-bandbook-org-properties
- (append org-custom-properties org-default-properties org-global-properties org-special-properties org-file-properties)
+ (append org-custom-properties org-default-properties org-global-properties org-special-properties org-keyword-properties)
   "List of Org system properties.")
 
 (defconst org-bandbook-arrangement-column-labels
